@@ -1,16 +1,23 @@
-import logo from './logo.svg';
+import { useState} from 'react';
 import './App.css';
-import Valise from './components/Valise';
-import Footer from './components/Footer';
-import Header from './components/Header';
+import { Header, Footer, Valise } from './components';
 
-function App() {
+const App = () =>{
+    const [page,setPage] = useState('home');
+
     return (
-    <div>
-        <Header />
-        <Valise />
-        <Footer />
-    </div>
-    )
+        <div>
+            <Header setPage = {setPage} />
+
+            {
+                page=='home' ?
+                <Valise /> :
+                page=='about' ?
+                <Footer /> :
+                ''
+            }
+        </div>
+        )
 }
-export default App;
+
+    export default App;

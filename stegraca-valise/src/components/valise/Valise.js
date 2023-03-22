@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Project from './pages/Project';
-import About from './pages/About';
-import './styles/Valise.css';
+import Project from '../Project';
+import About from '../About';
+import './Valise.css';
 
 export default function Valise() { 
     return (

@@ -1,10 +1,10 @@
 import React from 'react';
-import AccessCal from "../../images/AccessCal-screenshot.png";
-import AstronoMy from "../../images/Astrono-MyScreenshot.png";
-import Project3 from "../../images/project3.jpg";
-import Project4 from "../../images/project4.jpg";
-import Project5 from "../../images/project5.jpg";
-import Project6 from "../../images/project6.jpg";
+import AccessCal from "../images/AccessCal-screenshot.png";
+import AstronoMy from "../images/Astrono-MyScreenshot.png";
+import Project3 from "../images/project3.jpg";
+import Project4 from "../images/project4.jpg";
+import Project5 from "../images/project5.jpg";
+import Project6 from "../images/project6.jpg";
 
 export default function Project() {
   return (
