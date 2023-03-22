@@ -24,6 +24,7 @@ header a:hover {
     list-style:none;
     display: inline;
     float: flex-end;
+    height: 100%
 }
 .nav-item {
     display: inline;
