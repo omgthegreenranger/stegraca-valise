@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
-import Header from './Header';
-import Project from './Project';
-import Footer from './Footer';
+import Project from './pages/Project';
+import About from './pages/About';
+import './styles/Valise.css';
 
 export default function Valise() { 
-    <div>
-        <p>This is the main block</p>
-    </div>
-}
+    return (
+    <main>
+    <section className="about-block">
+    <About />
+    </section>
+    <section className="class-block">
+        <h1>Project Project!</h1>
+        <Project />
+    </section>
+    </main>
+    )
+};
 
 
