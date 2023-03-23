@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
-import Project from '../Project';
-import About from '../About';
+import Project from '../project/Project';
+import About from '../about/About';
 import './Valise.css';
-
+    
 export default function Valise() { 
+    const [page,setPage] = useState('home');
     return (
-    <main>
-    <section className="about-block">
-    <About />
-    </section>
-    <section className="class-block">
-        <h1>Project Project!</h1>
-        <Project />
-    </section>
+    <main  setPage = {setPage} >
+
+            {
+                page=='home' ?
+                <About /> :
+                page=='about' ?
+                <About /> :
+                page=='projets' ?
+                <Project /> :
+                <About />
+            }
     </main>
     )
 };
