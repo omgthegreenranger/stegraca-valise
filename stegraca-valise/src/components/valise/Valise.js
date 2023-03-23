@@ -6,18 +6,18 @@ import './Valise.css';
 export default function Valise() { 
     const [page,setPage] = useState('home');
     return (
-    <main  setPage = {setPage} >
+    <div setPage = {setPage} >
 
             {
-                page=='home' ?
+                page == 'home' ?
                 <About /> :
-                page=='about' ?
+                page =='about' ?
                 <About /> :
-                page=='projets' ?
+                page =='projets' ?
                 <Project /> :
                 <About />
             }
-    </main>
+    </div>
     )
 };
 
