@@ -1,12 +1,13 @@
-// import { useState} from 'react';
+import { useState} from 'react';
 import './App.css';
 import { Header, Footer, Valise } from './components';
 
 const App = () =>{
+    const [page, setPage] = useState('home');
     return (
         <div>
-            <Header />
-            <Valise />
+            <Header valisePage = {setPage} />
+            <Valise valisePage = {page} />
             <Footer />
         </div>
         )

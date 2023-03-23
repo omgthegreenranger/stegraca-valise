@@ -1,24 +1,23 @@
-import React, { useState } from 'react';
 import Project from '../project/Project';
 import About from '../about/About';
 import './Valise.css';
     
-export default function Valise() { 
-    const [page,setPage] = useState('home');
+export default function Valise({valisePage}) { 
+
+    const valiseView = () => {    
+        if(valisePage === 'home') {
+            return;
+        }
+        if(valisePage === 'projects') {
+            return <Project />
+        }
+        if(valisePage === 'about') {
+            return <About />
+        }
+    }
     return (
-    <div setPage = {setPage} >
-
-            {
-                page == 'home' ?
-                <About /> :
-                page =='about' ?
-                <About /> :
-                page =='projets' ?
-                <Project /> :
-                <About />
-            }
-    </div>
-    )
+        <div>
+            {valiseView()}
+        </div>
+      );
 };
-
-
