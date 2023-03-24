@@ -1,5 +1,6 @@
 import React from 'react';
 import profile from './images/profile-photo.jpg';
+import ReactLogo from './images/react.svg'
 
 export default function Home() {
     return (
@@ -8,10 +9,16 @@ export default function Home() {
                 <img className="profile" src={profile} alt="Profile" />
             </figure>
             <article className="writeup">
-                <span id="shoutout">Welcome to SteGra.ca</span>
-                <p>You've arrived at the personal homepage and portfolio for Stephen Cardie, fullstack web developer.</p>
-                <p></p>
-                <p>During this bootcamp, Master Cardie has dared to sharpen his wits and skills concerning web design, fullstack development and mindful domination in hopes of one day presenting before a nobleman or king. This is sure to happen in the upcoming Post-Calamity world.</p>
+                <h2>Stephen Cardie, fullstack web developer.</h2>
+                <p>Welcome to my website! Please, have a look around!</p>
+                <div className="skill-card">
+                    <div className="skill-logo">
+                        <ReactLogo />
+                    </div>
+                    <div className="skill-name">
+                        <span>ReactJS</span>
+                    </div>
+                </div>
             </article>
         </div>
     )
