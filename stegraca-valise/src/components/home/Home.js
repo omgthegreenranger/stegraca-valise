@@ -1,9 +1,9 @@
 import React from 'react';
 import profile from './images/profile-photo.jpg';
-import { ReactComponent as ReactLogo } from './images/react.svg';
-import { ReactComponent as CSSlogo } from './images/css-3.svg';
-import { ReactComponent as HTMLlogo } from './images/html-1.svg';
-import { ReactComponent as MariaDBlogo } from './images/mariadb.svg';
+import ReactLogo from './images/react.svg';
+import CSSlogo from './images/css-3.svg';
+import HTMLlogo from './images/html-1.svg';
+import MariaDBlogo from './images/mariadb.svg';
 import './Home.css'
 
 export default function Home() {
@@ -17,10 +17,10 @@ export default function Home() {
                 <p>Welcome to my website! Please, have a look around!</p>
                 <div className="skill-card">
                     <div className="skill-logo">
-                    <HTMLlogo />
+                    <img src={HTMLlogo} width="250" alt="HTML5 logo" />
                     </div>
                     <div className="skill-name">
-                        <span>HTTP 5</span>
+                        <span>HTML5</span>
                     </div>
                 </div>
                 <div className="skill-card">
@@ -41,7 +41,7 @@ export default function Home() {
                 </div>
                 <div className="skill-card">
                     <div className="skill-logo">
-                        <MariaDBlogo />
+                        <img src={MariaDBlogo} width="250" alt="MariaDB logo" />
                     </div>
                     <div className="skill-name">
                         <span>MySQL/MariaDB</span>
@@ -65,7 +65,7 @@ export default function Home() {
                 </div>
                 <div className="skill-card">
                     <div className="skill-logo">
-                        <CSSlogo />
+                        <img src={CSSlogo} width="250" alt="CSS Logo" />
                     </div>
                     <div className="skill-name">
                         <span>CSS</span>
@@ -73,7 +73,7 @@ export default function Home() {
                 </div>
                 <div className="skill-card">
                 <div className="skill-logo">
-                    <ReactLogo />
+                    <img src={ReactLogo} width="250" alt= "ReactJS Logo" />
                 </div>
                 <div className="skill-name">
                     <span>ReactJS</span>
