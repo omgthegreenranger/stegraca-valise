@@ -9,10 +9,10 @@ export default function NavBar({valisePage}) {
   return (
   <>
     <div>
-      <button className="btn btn-primary" id="home" onClick={() => valisePage('home')}>Home</button>
-      <button className="btn btn-primary" id="about" onClick={() => valisePage('about')}>About</button>
-      <button className="btn btn-primary" id="projects"onClick={() => valisePage('projects')}>Portfolio</button>
-      <button className="btn btn-primary" id="contact" onClick={() => setShow(true)}>Contact</button>
+      <button className="btn" id="home" onClick={() => valisePage('home')}>Home</button>
+      <button className="btn" id="about" onClick={() => valisePage('about')}>About</button>
+      <button className="btn" id="projects"onClick={() => valisePage('projects')}>Portfolio</button>
+      <button className="btn" id="contact" onClick={() => setShow(true)}>Contact</button>
       <ModalFunc show={show} />
       </div>
   </>

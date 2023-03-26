@@ -1,4 +1,6 @@
 .project-block {
+    display: flex;
+    flex-direction: column;
     background-color:burlywood;
     width: 97%;
 }
@@ -30,5 +32,17 @@
 }
 
 .project-screen {
-    border-radius: 10px;
+    /* z-index:0; */
+    /* position: absolute; */
+    /* top:0;
+    left:0; */
+    height:auto;
+    width:40dvh;
+    object-fit: contain;
+    min-height: 150px;
+}
+
+.profile {
+    width:auto;
+    height:30dvh;
 }
