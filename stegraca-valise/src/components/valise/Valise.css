@@ -18,3 +18,30 @@
     display: flex;
     flex-direction:row;
 }
+
+.project-block {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.profile {
+    width:auto;
+    height:30dvh;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-screen {
+    /* z-index:0; */
+    /* position: absolute; */
+    /* top:0;
+    left:0; */
+    height:auto;
+    width:40dvh;
+    object-fit: contain;
+    min-height: 150px;
+}
