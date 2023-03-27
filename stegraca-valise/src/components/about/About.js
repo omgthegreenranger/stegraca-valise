@@ -4,7 +4,7 @@ import './About.css';
 
 export default function About() {
     return (
-        <Container fluid className="about-block">
+        <Container fluid className="about-block my-3">
             <Row>
             <Col className="writeup col-8 border-bottom-3">
                 <Container fluid>
@@ -12,7 +12,7 @@ export default function About() {
                     <h2>My Story</h2>
                     <h3>or "A portrait of a 40-ish year-old wannabe polymath"</h3>
                 </Row>
-                <Row className="about-text my-2">
+                <Row className="about-text m-3">
                 <p>My journey to app development has been one winding street. In my life, I've been...</p>
                 <ul className="mx-5">
                     <li>an office-tower concierge</li>
@@ -33,7 +33,7 @@ export default function About() {
                 <h2>The ADHD Conundrum</h2>
                 <h3>or "How I learned to stop worrying and love my brain"</h3>
                 </Row>
-                <Row className="about-text my-2">
+                <Row className="about-text m-3">
                 <p>In my mid-30s, shortly before the birth of my child, I discovered that a lot of my struggles through my youth and adulthood were not the norm; things that were struggles for me were not a struggle for others, and that the way I think is an opportunity, not a detriment. Much of my life, my intelligence and my neurotypical underacheivement suddenly made a lot more sense.</p>
                 
                 <p>There are a lot of resources out there about how to help your child through an ADHD diagnosis; there isn't very much about being an adult going through it. Most tends to be about how to be a neurodivergent brain in a neurotypical world, and the most frustrating part is the amount of work it takes to fit in. One of my biggest revelations over my journey is how I fell in to a trajectory of client-facing positions because of my natural charisma and confidence speaking to people; but I was always dragged down by the way in which my focus impacts my ability to maintain client relationships. There are very few suggestions aside from "just try harder."</p>
@@ -52,15 +52,19 @@ export default function About() {
                 </Container>                
             </Col>
             <Col>
-            <div>"A multipotentialite is a person who has many different interests and creative pursuits in life.
+            <div className="bar-title">
+            <h2>Photos coming soon!</h2>
+            <p>Until then, enjoy this barely-formatted quote.</p>
+            </div>
+            <div><span className="quote">"A multipotentialite is a person who has many different interests and creative pursuits in life.
                 
                 Multipotentialites have no “one true calling” the way specialists do. Being a multipotentialite is our destiny. We have many paths and we pursue all of them, either sequentially or simultaneously (or both).
                 
                 Multipotentialites thrive on learning, exploring, and mastering new skills. We are excellent at bringing disparate ideas together in creative ways. This makes us incredible innovators and problem solvers.
                 
-                When it comes to new interests that emerge, our insatiable curiosity leads us to absorb everything we can get our hands on. As a result, we pick up new skills fast and tend to be a wealth of information.""
+                When it comes to new interests that emerge, our insatiable curiosity leads us to absorb everything we can get our hands on. As a result, we pick up new skills fast and tend to be a wealth of information.""</span></div>
                 
-                — Emilie Wapnick, Terminology, Puttylike</div>
+                <div>— Emilie Wapnick, Terminology, Puttylike</div>
             </Col>
             </Row>
         </Container>

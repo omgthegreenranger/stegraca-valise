@@ -26,9 +26,10 @@ header a:hover {
     list-style:none;
     display: inline;
     float: flex-end;
-    height: 100%
+    height: 100%;
+    justify-content: flex-end;
 }
-.nav-item {
+.nav-btn {
     display: inline;
     padding: 10px;
     color: aliceblue;
@@ -45,4 +46,5 @@ header a:hover {
 
 .page-title-2 {
     font-family: 'Orbitron', sans-serif;
+    color:darkgoldenrod;
 }

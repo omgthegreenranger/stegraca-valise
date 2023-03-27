@@ -7,10 +7,13 @@
 .titlebar {
     border-bottom: 3px solid black;
     font-family: 'Rowdies', cursive;
+    background-color: grey;
+    border-radius: 10px;
+    margin: 5px;
 }
 
-.about-text {
-    background-color:cornflowerblue;
+.quote {
+    font-style: italic;
 }
 
 .writeup {

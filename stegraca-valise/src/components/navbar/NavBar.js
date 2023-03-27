@@ -6,11 +6,11 @@ export default function NavBar({valisePage}) {
   const [show, setShow] = useState(false);
   return (
   <>
-    <div>
-      <button className="btn" id="home" onClick={() => valisePage('home')}>Home</button>
-      <button className="btn" id="about" onClick={() => valisePage('about')}>About</button>
-      <button className="btn" id="projects"onClick={() => valisePage('projects')}>Portfolio</button>
-      <button className="btn" id="contact" onClick={() => setShow(true)}>Contact</button>
+    <div className="nav">
+      <span className="nav-btn" id="home" onClick={() => valisePage('home')}>Home</span>
+      <span className="nav-btn" id="about" onClick={() => valisePage('about')}>About</span>
+      <span className="nav-btn" id="projects"onClick={() => valisePage('projects')}>Portfolio</span>
+      <span className="nav-btn" id="contact" onClick={() => setShow(true)}>Contact</span>
       </div>
       <>
       <Modal show={show} onHide={() => setShow(false)} aria-labelledby='contact-modal'>
