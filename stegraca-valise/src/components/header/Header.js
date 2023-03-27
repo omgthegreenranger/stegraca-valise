@@ -5,7 +5,9 @@ import './Header.css';
 export default function Header({valisePage}) {
   return (
     <header>
-      <span id="page-title">STEGRA.CA</span>
+    <div className="page-title">
+      <span className="page-title-1">STE</span><span className="page-title-2">GRA</span><span className="page-title-1">.CA</span>
+      </div>
       <NavBar valisePage = {valisePage} />
     </header>
   )

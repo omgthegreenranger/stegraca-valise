@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300&display=swap');
+
+.about-block {
+    background-color: darkgrey;
+}
+
+.titlebar {
+    border-bottom: 3px solid black;
+    font-family: 'Rowdies', cursive;
+}
+
+.about-text {
+    background-color:cornflowerblue;
+}
+
+.writeup {
+    border-right: 3px solid black;
+}

@@ -4,82 +4,106 @@ import ReactLogo from './images/react.svg';
 import CSSlogo from './images/css-3.svg';
 import HTMLlogo from './images/html-1.svg';
 import MariaDBlogo from './images/mariadb.svg';
-import './Home.css'
+import BootstrapLogo from './images/bootstrap.svg';
+import JSlogo from './images/javascript.svg';
+import MongoLogo from './images/mongodb.svg';
+import MysqlLogo from './images/mysql.svg';
+import NodejsLogo from './images/nodejs.svg';
+import './Home.css';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export default function Home() {
     return (
-        <div className="about-block">
-            <figure>
-                <img className="profile" src={profile} alt="Profile" />
-            </figure>
-            <article className="writeup">
-                <h2>Stephen Cardie, fullstack web developer.</h2>
-                <p>Welcome to my website! Please, have a look around!</p>
-                <div className="skill-card">
-                    <div className="skill-logo">
-                    <img src={HTMLlogo} width="250" alt="HTML5 logo" />
-                    </div>
-                    <div className="skill-name">
-                        <span>HTML5</span>
-                    </div>
-                </div>
-                <div className="skill-card">
-                    <div className="skill-logo">
-
-                    </div>
-                    <div className="skill-name">
-                        <span>JavaScript ES6</span>
-                    </div>
-                </div>
-                <div className="skill-card">
-                    <div className="skill-logo">
-
-                    </div>
-                    <div className="skill-name">
-                        <span>NodeJS</span>
-                    </div>
-                </div>
-                <div className="skill-card">
-                    <div className="skill-logo">
-                        <img src={MariaDBlogo} width="250" alt="MariaDB logo" />
-                    </div>
-                    <div className="skill-name">
-                        <span>MySQL/MariaDB</span>
-                    </div>
-                </div>
-                <div className="skill-card">
-                    <div className="skill-logo">
-
-                    </div>
-                    <div className="skill-name">
-                        <span>MongoDB</span>
-                    </div>
-                </div>
-                <div className="skill-card">
-                    <div className="skill-logo">
-
-                    </div>
-                    <div className="skill-name">
-                        <span>Bootstrap</span>
-                    </div>
-                </div>
-                <div className="skill-card">
-                    <div className="skill-logo">
-                        <img src={CSSlogo} width="250" alt="CSS Logo" />
-                    </div>
-                    <div className="skill-name">
-                        <span>CSS</span>
-                    </div>
-                </div>
-                <div className="skill-card">
-                <div className="skill-logo">
-                    <img src={ReactLogo} width="250" alt= "ReactJS Logo" />
-                </div>
-                <div className="skill-name">
-                    <span>ReactJS</span>
-                </div>
-            </div>
-            </article>
-        </div>
+        <Container fluid>
+            <Row md={2} xs={1} className="justify-content-md-left px-2 mx-5">
+                <Col xs lg="4">
+                    <h2>Stephen Cardie, fullstack web developer.</h2>
+                    <p>Welcome! Please have a look around. I am currently looking to assist you in application development in, but not only, the following:</p>
+                <figure>
+                    <img className="profile" src={profile} alt="Profile" />
+                </figure>
+                </Col>
+                <Col>
+                <Container className="py-4">
+                        <Row xs={1} md={2} lg={3} className="align-items-center p-2">
+                            <Col className="skill-card">
+                                <div className="skill-logo">
+                                    <img className="logo" src={HTMLlogo} alt="HTML5 logo" />
+                                </div>
+                                <div className="skill-name mx-auto">
+                                    <span>HTML5</span>
+                                </div>
+                            </Col>
+                            <Col className="skill-card">
+                                <div className="skill-logo">
+                                    <img className="logo" src={JSlogo} alt="JavaScript logo" />
+                                </div>
+                                <div className="skill-name">
+                                    <span>JavaScript ES6</span>
+                                </div>
+                            </Col>
+                            <Col className="skill-card">
+                                <div className="skill-logo">
+                                    <img className="logo" src={NodejsLogo} alt="NodeJS logo" />
+                                </div>
+                                <div className="skill-name">
+                                    <span>NodeJS</span>
+                                </div>
+                            </Col>
+                            <Col className="skill-card">
+                                <div className="skill-logo">
+                                    <img src={MariaDBlogo} className="logo" alt="MariaDB logo" />
+                                </div>
+                                <div className="skill-name">
+                                    <span>MariaDB</span>
+                                </div>
+                            </Col>
+                            <Col className="skill-card">
+                                <div className="skill-logo">
+                                    <img className="logo" src={MysqlLogo} alt="MySQL logo" />
+                                </div>
+                                <div className="skill-name">
+                                    <span>MySQL</span>
+                                </div>
+                            </Col>
+                            <Col className="skill-card">
+                                <div className="skill-logo">
+                                    <img className="logo" src={MongoLogo} alt="MongoDB logo" />
+                                </div>
+                                <div className="skill-name">
+                                    <span>MongoDB</span>
+                                </div>
+                            </Col>
+                            <Col className="skill-card">
+                                <div className="skill-logo">
+                                    <img className="logo" src={BootstrapLogo} alt="Bootstrap logo" />
+                                </div>
+                                <div className="skill-name">
+                                    <span>Bootstrap</span>
+                                </div>
+                            </Col>
+                            <Col className="skill-card">
+                                <div className="skill-logo">
+                                    <img src={CSSlogo} className="logo" alt="CSS Logo" />
+                                </div>
+                                <div className="skill-name">
+                                    <span>CSS</span>
+                                </div>
+                            </Col>
+                            <Col className="skill-card">
+                                <div className="skill-logo">
+                                    <img src={ReactLogo} className="logo" alt= "ReactJS Logo" />
+                                </div>
+                                <div className="skill-name">
+                                    <span>ReactJS</span>
+                                </div>
+                            </Col>
+                        </Row>
+                </Container>
+                </Col>
+            </Row>
+        </Container>
     )
 };

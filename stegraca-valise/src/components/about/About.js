@@ -1,18 +1,20 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import './About.css';
 
 export default function About() {
     return (
-        <div className="about-block container">
-            <article className="writeup col-12 border-bottom-3">
-                <div className="titlebar">
+        <Container fluid className="about-block">
+            <Row>
+            <Col className="writeup col-8 border-bottom-3">
+                <Container fluid>
+                <Row className="titlebar">
                     <h2>My Story</h2>
                     <h3>or "A portrait of a 40-ish year-old wannabe polymath"</h3>
-                </div>
-                <div className="col-9">
+                </Row>
+                <Row className="about-text my-2">
                 <p>My journey to app development has been one winding street. In my life, I've been...</p>
-                
-                <ul>
+                <ul className="mx-5">
                     <li>an office-tower concierge</li>
                     <li>a double-decker bus, day-trip coach bus and a ghost tour guide</li>
                     <li>a customer success specialist for the managed services division of a large tech VAR</li>
@@ -26,12 +28,12 @@ export default function About() {
                 <p>As with many others during the pandemic, I found myself between jobs. In that moment, a TikTok video about "multipotentialites" (again, more on this later) confirmed what I had been toying with: it was time to make this a reality.</p>
                 
                 <p>And so, I signed up for the University of Toronto's Fullstack Development Bootcamp, to learn the skills needed to make the ideas in my head a reality. Now that it has come to close, I'm looking to cut my teeth on as many different codebases as possible, to help companies grow their products with new and improved features, and hopefully to build something myself that will change people's lives.</p>
-                </div>
-                <div>
+                </Row>
+                <Row className="titlebar">
                 <h2>The ADHD Conundrum</h2>
                 <h3>or "How I learned to stop worrying and love my brain"</h3>
-                </div>
-                <div>
+                </Row>
+                <Row className="about-text my-2">
                 <p>In my mid-30s, shortly before the birth of my child, I discovered that a lot of my struggles through my youth and adulthood were not the norm; things that were struggles for me were not a struggle for others, and that the way I think is an opportunity, not a detriment. Much of my life, my intelligence and my neurotypical underacheivement suddenly made a lot more sense.</p>
                 
                 <p>There are a lot of resources out there about how to help your child through an ADHD diagnosis; there isn't very much about being an adult going through it. Most tends to be about how to be a neurodivergent brain in a neurotypical world, and the most frustrating part is the amount of work it takes to fit in. One of my biggest revelations over my journey is how I fell in to a trajectory of client-facing positions because of my natural charisma and confidence speaking to people; but I was always dragged down by the way in which my focus impacts my ability to maintain client relationships. There are very few suggestions aside from "just try harder."</p>
@@ -46,8 +48,11 @@ export default function About() {
                 <p>It was a video (or many videos, if I'm honest) by TikTok user jakecreativehackers which cemented this in me. Don't niche down, niche up. Don't mask multipotentiality, make it your strength.</p>
                 
                 <p>And that's where I am. And, I hope, that's where you are. Let me help you by letting me run around, and I guarantee you'll get a lot out of it.</p>
-                </div>
-                <div>"A multipotentialite is a person who has many different interests and creative pursuits in life.
+                </Row>
+                </Container>                
+            </Col>
+            <Col>
+            <div>"A multipotentialite is a person who has many different interests and creative pursuits in life.
                 
                 Multipotentialites have no “one true calling” the way specialists do. Being a multipotentialite is our destiny. We have many paths and we pursue all of them, either sequentially or simultaneously (or both).
                 
@@ -56,8 +61,8 @@ export default function About() {
                 When it comes to new interests that emerge, our insatiable curiosity leads us to absorb everything we can get our hands on. As a result, we pick up new skills fast and tend to be a wealth of information.""
                 
                 — Emilie Wapnick, Terminology, Puttylike</div>
-                
-                </article>
-        </div>
+            </Col>
+            </Row>
+        </Container>
     )
 }

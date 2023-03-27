@@ -1,0 +1,26 @@
+.skill-block {
+    display: flex;
+}
+
+.skill-logo {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.logo {
+    height: auto;   
+    width: 100%;
+}
+
+.skill-name {
+    text-align:center;
+    align-content: flex-end;
+}
+
+.profile {
+    width:auto;
+    height:45dvh;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid black;
+}
