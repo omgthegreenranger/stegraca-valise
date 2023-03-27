@@ -18,16 +18,17 @@ export default function Home() {
     return (
         <Container fluid>
             <Row md={2} xs={1} className="justify-content-md-left px-2 mx-5">
-                <Col xs lg="4">
+                <Col lg="4" md="6">
                     <h2>Stephen Cardie, fullstack web developer.</h2>
                     <p>Welcome! Please have a look around. I am currently looking to assist you in application development in, but not only, the following:</p>
                 <figure>
-                    <img className="profile" src={profile} alt="Profile" />
+                    <img className="profile" src={profile} alt="Profile by Enfys Photography" />
+                    <figcaption className="figure-caption">Photo taken by <a href="http://www.enfysphotography.com">Enfys Photography</a></figcaption>
                 </figure>
                 </Col>
-                <Col>
+                <Col lg="8" md="6">
                 <Container className="py-4">
-                        <Row xs={1} md={2} lg={3} className="align-items-center p-2">
+                        <Row xs={1} sm={2} lg={3} className="align-items-center p-2">
                             <Col className="skill-card">
                                 <div className="skill-logo">
                                     <img className="logo" src={HTMLlogo} alt="HTML5 logo" />

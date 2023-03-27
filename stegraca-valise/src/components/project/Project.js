@@ -21,13 +21,13 @@ export default function Project() {
     <Container fluid className="project-block my-3">
       <Row md={2} xs={1} sm={1} className="g-3">
         <Col>
-        <Card className="bg-dark text-white">
-        <Card.Title className="bg-dark my-1 project-title" onClick={() => setOpen1(!open1)} aria-controls="example-fade-text" aria-expanded={open1}><span className="project-name">Astrono-MyDashboard</span></Card.Title>
+        <Card className="bg-dark text-white project-card">
+        <Card.Title className="bg-dark my-1 project-title" onClick={() => setOpen1(!open1)} aria-controls="example-fade-text" aria-expanded={open1}><span className="project-name">Astrono-MyDashboard</span><span className="project-more-info">Click here for details</span></Card.Title>
         <Card.Img src={AstronoMy} className="fluid project-screen" alt="Card background" />
           <Card.ImgOverlay>
           <Card.Body className="align-content-center">
           <Fade in={open1}>
-            <Card.Text className="bg-dark">Project #1 for the Fullstack Bootcamp - I and my team of three built an astronomy dashboard to provide positional stargazing information.
+            <Card.Text className="project-desc bg-dark"><span className="desc-text">Project #1 for the Fullstack Bootcamp - I and my team of three built an astronomy dashboard to provide positional stargazing information.</span>
             </Card.Text>
           </Fade>
           </Card.Body>
@@ -35,8 +35,8 @@ export default function Project() {
         </Card>
         </Col>
         <Col>
-        <Card className="bg-dark text-white">
-        <Card.Title className="bg-dark my-1 project-title" onClick={() => setOpen2(!open2)} aria-controls="example-fade-text" aria-expanded={open2}><span className="project-name">AccessCal - the Accessibility Calendar</span></Card.Title>
+        <Card className="bg-dark text-white project-card">
+        <Card.Title className="bg-dark my-1 project-title" onClick={() => setOpen2(!open2)} aria-controls="example-fade-text" aria-expanded={open2}><span className="project-name">AccessCal - the Accessibility Calendar</span><span className="project-more-info">Click here for details</span></Card.Title>
         <Card.Img src={AccessCal} className="fluid project-screen" alt="Card background" />
           <Card.ImgOverlay>
           <Card.Body className="align-content-center">
@@ -49,8 +49,8 @@ export default function Project() {
         </Card>
         </Col>
         <Col>
-        <Card className="bg-dark text-white">
-        <Card.Title className="bg-dark my-1 project-title" onClick={() => setOpen3(!open3)} aria-controls="example-fade-text" aria-expanded={open3}><span className="project-name">PetPal</span></Card.Title>
+        <Card className="bg-dark text-white project-card">
+        <Card.Title className="bg-dark my-1 project-title" onClick={() => setOpen3(!open3)} aria-controls="example-fade-text" aria-expanded={open3}><span className="project-name">PetPal</span><span className="project-more-info">Click here for details</span></Card.Title>
         <Card.Img src={Project3} className="fluid project-screen" alt="Card background" />
           <Card.ImgOverlay>
           <Card.Body className="align-content-center">
@@ -63,8 +63,8 @@ export default function Project() {
         </Card>
         </Col>
         <Col>
-        <Card className="bg-dark text-white">
-        <Card.Title className="bg-dark my-1 project-title" onClick={() => setOpen4(!open4)} aria-controls="example-fade-text" aria-expanded={open4}><span className="project-name">JINXR</span></Card.Title>
+        <Card className="bg-dark text-white project-card">
+        <Card.Title className="bg-dark my-1 project-title" onClick={() => setOpen4(!open4)} aria-controls="example-fade-text" aria-expanded={open4}><span className="project-name">JINXR</span><span className="project-more-info">Click here for details</span></Card.Title>
         <Card.Img src={Project4} className="fluid project-screen" alt="Card background" />
           <Card.ImgOverlay>
           <Card.Body className="align-content-center">
@@ -77,8 +77,8 @@ export default function Project() {
         </Card>
         </Col>
         <Col>
-        <Card className="bg-dark text-white">
-        <Card.Title className="bg-dark my-1 project-title" onClick={() => setOpen5(!open5)} aria-controls="example-fade-text" aria-expanded={open5}><span className="project-name">IS YOUR PLANT?</span></Card.Title>
+        <Card className="bg-dark text-white project-card">
+        <Card.Title className="bg-dark my-1 project-title" onClick={() => setOpen5(!open5)} aria-controls="example-fade-text" aria-expanded={open5}><span className="project-name">IS YOUR PLANT?</span><span className="project-more-info">Click here for details</span></Card.Title>
         <Card.Img src={Project5} className="fluid project-screen" alt="Card background" />
           <Card.ImgOverlay>
           <Card.Body className="align-content-center">
@@ -91,8 +91,8 @@ export default function Project() {
         </Card>
         </Col>
         <Col>
-        <Card className="bg-dark text-white">
-        <Card.Title className="bg-dark my-1 project-title" onClick={() => setOpen6(!open6)} aria-controls="example-fade-text" aria-expanded={open6}><span className="project-name">AccessCal - the Accessibility Calendar</span></Card.Title>
+        <Card className="bg-dark text-white project-card">
+        <Card.Title className="bg-dark my-1 project-title" onClick={() => setOpen6(!open6)} aria-controls="example-fade-text" aria-expanded={open6}><span className="project-name">AccessCal - the Accessibility Calendar</span><span className="project-more-info">Click here for details</span></Card.Title>
         <Card.Img src={Project6} className="fluid project-screen" alt="Card background" />
           <Card.ImgOverlay>
           <Card.Body className="align-content-center">

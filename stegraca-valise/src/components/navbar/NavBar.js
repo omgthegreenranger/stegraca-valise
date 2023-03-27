@@ -6,7 +6,7 @@ export default function NavBar({valisePage}) {
   const [show, setShow] = useState(false);
   return (
   <>
-    <div className="nav">
+    <div className="nav nav-bar">
       <span className="nav-btn" id="home" onClick={() => valisePage('home')}>Home</span>
       <span className="nav-btn" id="about" onClick={() => valisePage('about')}>About</span>
       <span className="nav-btn" id="projects"onClick={() => valisePage('projects')}>Portfolio</span>
