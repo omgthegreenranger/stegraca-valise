@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/stegraca-valise/static/css/main.2e326f78.css",
+    "main.js": "/stegraca-valise/static/js/main.f717d0b9.js",
+    "static/js/787.64b3bfa0.chunk.js": "/stegraca-valise/static/js/787.64b3bfa0.chunk.js",
+    "static/media/profile-photo.jpg": "/stegraca-valise/static/media/profile-photo.f9e22cf1473e75502a77.jpg",
+    "static/media/Astrono-MyScreenshot.png": "/stegraca-valise/static/media/Astrono-MyScreenshot.a1d20a2db05f1664212b.png",
+    "static/media/AccessCal-screenshot.png": "/stegraca-valise/static/media/AccessCal-screenshot.5cda64ff9bfa9a83fee6.png",
+    "static/media/project3.jpg": "/stegraca-valise/static/media/project3.35b786eac4ff084e2fdf.jpg",
+    "static/media/project6.jpg": "/stegraca-valise/static/media/project6.83a8e8d5fd99b9a6a16f.jpg",
+    "static/media/project4.jpg": "/stegraca-valise/static/media/project4.3bbc95df904aab218d08.jpg",
+    "static/media/project5.jpg": "/stegraca-valise/static/media/project5.fdb770b6ce2a88aca73f.jpg",
+    "static/media/mysql.svg": "/stegraca-valise/static/media/mysql.5ed4a5dd3156991212575952fdf1f366.svg",
+    "static/media/nodejs.svg": "/stegraca-valise/static/media/nodejs.e55572852ea7a91f785f9c3a2102771a.svg",
+    "static/media/mariadb.svg": "/stegraca-valise/static/media/mariadb.83beaedc281bef291f234de3744deef3.svg",
+    "static/media/react.svg": "/stegraca-valise/static/media/react.ec5ac92922556b304a0d653015e612d4.svg",
+    "static/media/mongodb.svg": "/stegraca-valise/static/media/mongodb.1aca075d5cce0819fea7ea0902d94ce4.svg",
+    "static/media/bootstrap.svg": "/stegraca-valise/static/media/bootstrap.98585727bcfe0b1555649ec9bbab236c.svg",
+    "static/media/javascript.svg": "/stegraca-valise/static/media/javascript.00f3e5cf8bcf4ae623b3835ca5791b15.svg",
+    "index.html": "/stegraca-valise/index.html",
+    "static/media/css-3.svg": "/stegraca-valise/static/media/css-3.4e47c3122b8d2476a02f97dcfcb28640.svg",
+    "static/media/html-1.svg": "/stegraca-valise/static/media/html-1.f318c8b1d5945fa9adc827ae94849cb1.svg",
+    "main.2e326f78.css.map": "/stegraca-valise/static/css/main.2e326f78.css.map",
+    "main.f717d0b9.js.map": "/stegraca-valise/static/js/main.f717d0b9.js.map",
+    "787.64b3bfa0.chunk.js.map": "/stegraca-valise/static/js/787.64b3bfa0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2e326f78.css",
+    "static/js/main.f717d0b9.js"
+  ]
+}
