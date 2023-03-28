@@ -20,11 +20,14 @@ export default function NavBar({valisePage}) {
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
+            <FloatingLabel controlId="floatingInput" label="Name" className="mb-3">
+            <Form.Control type="text" placeholder="Bill Potts" />
+          </FloatingLabel>
             <FloatingLabel controlId="floatingInput" label="Email address" className="mb-3">
               <Form.Control type="email" placeholder="name@example.com" />
             </FloatingLabel>
             <FloatingLabel controlId="floatingInput" label="Enter message" className="mb-3">
-            <Form.Control as="textarea" rows={5} placeholder="Enter Message" />
+            <Form.Control as="textarea" rows={10} placeholder="Enter Message" />
             </FloatingLabel>
             <Button type="submit">Send Email</Button>
             </Form.Group>

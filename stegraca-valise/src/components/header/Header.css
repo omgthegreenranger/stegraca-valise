@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Russo+One&display=swap');
 
 header {
-    display: inline-flex;
+    display: flex;
     width: 100%;
     padding: 10px;
     background-color: darkolivegreen;
