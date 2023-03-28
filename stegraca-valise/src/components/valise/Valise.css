@@ -1,0 +1,20 @@
+.class-block {
+    background-color: lemonchiffon;
+    padding: 10px;
+    display: flex;
+    flex-direction:column;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 97%;
+}
+
+.image-box {
+    width: 75%;
+    background-color:aquamarine;
+    height: 30px;
+}
+
+.about-block {
+    display: flex;
+    flex-direction:row;
+}

@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300&display=swap');
+
+.about-block {
+    background-color: darkgrey;
+}
+
+.titlebar {
+    border-bottom: 3px solid black;
+    font-family: 'Rowdies', cursive;
+    background-color: grey;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.quote {
+    font-style: italic;
+}
+
+.writeup {
+    border-right: 3px solid black;
+}
