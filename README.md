@@ -12,7 +12,11 @@ For this task, I employed ReactJS, and React-Bootstrap along with regular JavaSc
 
 - Access the page at https://omgthegreenranger.github.io/stegraca-valise
 - Check out my beautiful picture.
-- Enjoy my projects.
+- Enjoy my projects!
+
+Here is a screenshot for you.
+
+![Quick screenshot of portfolio](screenshot.png)
 
 ## Further information
 

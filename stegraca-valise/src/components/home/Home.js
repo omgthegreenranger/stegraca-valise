@@ -20,7 +20,8 @@ export default function Home() {
             <Row md={2} xs={1} className="justify-content-md-left px-2 mx-5">
                 <Col lg="4" md="6">
                     <h2>Stephen Cardie, fullstack web developer.</h2>
-                    <p>Welcome! Please have a look around. I am currently looking to assist you in application development in, but not only, the following:</p>
+                    <p>Welcome! Please have a look around. I am currently looking to assist you in application development in, but not only, these technologies:</p>
+                    <p><a href="./assets/Stephen Cardie - Resume.pdf">Click here to download resume</a></p>
                 <figure>
                     <img className="profile" src={profile} alt="Profile by Enfys Photography" />
                     <figcaption className="figure-caption">Photo taken by <a href="http://www.enfysphotography.com">Enfys Photography</a></figcaption>
