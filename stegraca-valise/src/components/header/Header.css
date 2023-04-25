@@ -23,33 +23,6 @@ header {
 header a:hover {
     color: yellowgreen;
 } */
-
-.nav-bar {
-    list-style:none;
-    display: inline;
-    height: 100%;
-    justify-content: flex-end;
-    flex-wrap: nowrap;
-}
-.nav-btn {
-    display: inline;
-    padding: 10px;
-    color: aliceblue;
-    text-decoration: none;
-    background-color:darkgreen;
-    margin-top: auto;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 1.25vw;
-
-}
-
-.nav-btn:hover {
-    background-color:darkgoldenrod;
-    color: black;
-    cursor:pointer;
-}
-
 .page-title-1 {
     font-family: 'Russo One', sans-serif;
 }
@@ -63,11 +36,5 @@ header a:hover {
     header {
         display: flex;
         flex-direction: column;  
-    }
-    .nav-btn {
-        font-size: 2.5vw;
-    }
-    .nav-bar {
-        width: "100%";
     }
   }

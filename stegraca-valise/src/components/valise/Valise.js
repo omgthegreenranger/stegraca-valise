@@ -1,25 +1,25 @@
-import Project from '../project/Project';
-import About from '../about/About';
-import Home from '../home/Home';
 import './Valise.css';
+import Home from '../home/Home';
+import NavBar from '../navbar/NavBar';
+import Header from '../header/Header';
 import React from 'react';
+import { Container, Col, Row } from 'react-bootstrap';
     
 export default function Valise({valisePage}) { 
 
-    const valiseView = () => {    
-        if(valisePage === 'home') {
-            return <Home />;
-        }
-        if(valisePage === 'projects') {
-            return <Project />
-        }
-        if(valisePage === 'about') {
-            return <About />
-        }
-    }
     return (
-        <div>
-            {valiseView()}
-        </div>
+        <Container fluid>
+            <Row>
+                <Header />
+            </Row>
+            <Row>
+                <Col xs={1}>
+                    <NavBar />
+                </Col>
+                <Col xs={11}>
+                    <Home />
+                </Col>
+            </Row>
+        </Container>
       );
 };

@@ -1,0 +1,28 @@
+
+.nav-bar {
+    height: 100%;
+}
+.nav-btn {
+    /* display: inline; */
+    padding: 10px;
+    color: aliceblue;
+    text-decoration: none;
+    background-color:darkgreen;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 3rem;
+    width: 100%;
+
+}
+
+.nav-btn:hover {
+    background-color:darkgoldenrod;
+    color: black;
+    cursor:pointer;
+}
+
+.side-block {
+    background-color: brown;
+    width: 24px;
+}

@@ -6,9 +6,7 @@ const App = () =>{
     const [page, setPage] = useState('home');
     return (
         <div className="main" height="100%">
-            <Header valisePage = {setPage} />
-            <Valise valisePage = {page} />
-            <Footer />
+            <Valise />
         </div>
         )
 }
