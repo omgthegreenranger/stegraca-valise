@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "ValiseDB",
+            "database": "/home/shaggy/Documents/fullstack-bootcamp-folder/stegraca-valise/stegraqa-valise/valiseDB"
+        }
+    ]
+}
