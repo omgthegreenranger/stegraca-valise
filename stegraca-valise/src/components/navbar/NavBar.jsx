@@ -1,15 +1,14 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Stack, Container, Row, Col, Button, Form, FloatingLabel } from 'react-bootstrap';
 import { TiBriefcase, TiHome, TiMessage } from "react-icons/ti";
 import './navbar.css';
 import anime from 'animejs';
 
-export default function NavBar({valisePage}) {
-  const [boxHeight, setBoxHeight] = useState({});
+export default function NavBar() {
+  const [boxHeight, setBoxHeight] = useState();
 
   useEffect(() => {
-    setBoxHeight(document.getElementById('nav-stack').clientHeight);
-    console.log(boxHeight);
+    return setBoxHeight(document.getElementById('nav-stack').clientHeight);
   });
 
   return (
@@ -21,22 +20,19 @@ export default function NavBar({valisePage}) {
       <span className="nav-btn" id="contact"><TiMessage /></span>
     </Stack>
     <Stack className="nav-bar side-block">
-      <BlockStack boxHeight="boxHeight" />
+      <BlockStack boxHeight={boxHeight} />
     </Stack>
   </Stack>
   </>
   );
 }
 
-async function BlockStack(props) {
+function BlockStack(props) {
 console.log(props)
-
-//   return
-// ( useEffect(() => {
-//         let boxHeight = document.getElementById('nav-stack').clientHeight;
-//         for(let i = 0; i < boxHeight; i++) {
-//           <div key={i}>&nbsp;</div>
-//         }
-//       }))A
+var arr = Array(~~(props.boxHeight)).fill(0).map( ()=> <div>test</div>);
+  return(
+    <>
+</>
+  )
     }
 

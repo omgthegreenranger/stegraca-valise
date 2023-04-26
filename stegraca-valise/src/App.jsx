@@ -1,13 +1,16 @@
 import React, { useState} from 'react';
 import './App.css';
-import { Header, Footer, Valise } from './components';
+import { Valise, Background } from './components';
 
 const App = () =>{
     const [page, setPage] = useState('home');
     return (
+        <>
         <div className="main" height="100%">
+
             <Valise />
         </div>
+        </>
         )
 }
 

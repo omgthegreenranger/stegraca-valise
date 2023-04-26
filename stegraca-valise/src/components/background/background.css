@@ -1,0 +1,12 @@
+
+.motion-path {
+    position: relative;
+    width: 256px;
+    margin: auto;
+  }
+  
+.follow-path {
+    position: absolute;
+    top: -9px;
+    left: -9px;
+  }
