@@ -5,7 +5,12 @@ import './navbar.css';
 import anime from 'animejs';
 
 export default function NavBar({valisePage}) {
-  const [boxArray, setBoxArray] = useState([])
+  const [boxHeight, setBoxHeight] = useState({});
+
+  useEffect(() => {
+    setBoxHeight(document.getElementById('nav-stack').clientHeight);
+    console.log(boxHeight);
+  });
 
   return (
   <>
@@ -16,20 +21,22 @@ export default function NavBar({valisePage}) {
       <span className="nav-btn" id="contact"><TiMessage /></span>
     </Stack>
     <Stack className="nav-bar side-block">
-      {useEffect(() => {
-        let boxHeight = document.getElementById('nav-stack').clientHeight;
-        console.log(boxHeight);
-        boxHeight = Math.round(boxHeight / 3);
-        console.log(boxHeight);
-        const boxArray = [...Array(boxHeight).keys()].map(x => ++x)
-        boxArray.map((box) => {
-          <div>&nbsp;</div>
-        }
-      )})}
+      <BlockStack boxHeight="boxHeight" />
     </Stack>
   </Stack>
   </>
   );
 }
 
+async function BlockStack(props) {
+console.log(props)
+
+//   return
+// ( useEffect(() => {
+//         let boxHeight = document.getElementById('nav-stack').clientHeight;
+//         for(let i = 0; i < boxHeight; i++) {
+//           <div key={i}>&nbsp;</div>
+//         }
+//       }))A
+    }
 

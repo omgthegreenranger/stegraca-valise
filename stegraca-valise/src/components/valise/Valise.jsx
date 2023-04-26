@@ -1,10 +1,11 @@
 import './Valise.css';
-import Home from '../home/Home';
-import NavBar from '../navbar/NavBar';
-import Header from '../header/Header';
+// import Home from '../home/Home';
+// import NavBar from '../navbar/NavBar';
+// import Header from '../header/Header';
 import React from 'react';
 import { Container, Col, Row } from 'react-bootstrap';
-    
+import { Header, Footer, About, Projects, NavBar, Modals } from '../index';
+
 export default function Valise({valisePage}) { 
 
     return (
@@ -17,7 +18,7 @@ export default function Valise({valisePage}) {
                     <NavBar />
                 </Col>
                 <Col xs={11}>
-                    <Home />
+                    {/* <Home /> */}
                 </Col>
             </Row>
         </Container>
