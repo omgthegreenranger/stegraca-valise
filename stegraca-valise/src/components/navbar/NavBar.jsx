@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Stack, Container, Row, Col, Button, Form, FloatingLabel } from 'react-bootstrap';
-import { TiBriefcase, TiHome, TiMessage } from "react-icons/ti";
+import { MdMail, MdSimCardDownload } from 'react-icons/md';
+import { SiMastodon, SiLinkedin, SiGithub } from 'react-icons/si';
 import './navbar.css';
 import anime from 'animejs';
 
@@ -13,14 +14,16 @@ export default function NavBar() {
 
   return (
   <>
-  <Stack direction="horizontal" xs={1}>
-    <Stack className="nav-bar nav" id="nav-stack" xs={11}>
-      <span className="nav-btn" id="home"><TiHome /></span>
-      <span className="nav-btn" id="projects"><TiBriefcase /></span>
-      <span className="nav-btn" id="contact"><TiMessage /></span>
+  <Stack className="nav-block" direction="horizontal">
+    <Stack className="nav-bar side-block" xs={6}>
+      <span className="nav-title">CONTACT ME</span>
     </Stack>
-    <Stack className="nav-bar side-block">
-      <BlockStack boxHeight={boxHeight} />
+    <Stack className="nav-bar nav" id="nav-stack" xs={6}>
+      <span className="nav-btn" id="github"><SiGithub /></span>
+      <span className="nav-btn" id="linkedin"><SiLinkedin /></span>
+      <span className="nav-btn" id="mastodon"><SiMastodon /></span>
+      <span className="nav-btn" id="email"><MdMail /></span>
+      <span className="nav-btn" id="resume"><MdSimCardDownload /></span>
     </Stack>
   </Stack>
   </>

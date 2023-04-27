@@ -1,35 +1,5 @@
-.skill-block {
-    display: flex;
+#homeContainer {
+    background: darkgrey;
+    margin-left: 0%;
+    /* border-top-left-radius: 15px; */
 }
-
-.skill-logo {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-}
-.logo {
-    height: auto;   
-    width: 100%;
-}
-
-.skill-name {
-    text-align:center;
-    align-content: flex-end;
-}
-
-.profile {
-    width:25vw;
-    height:auto;
-    margin-left: auto;
-    margin-right: auto;
-    border: 3px solid black;
-}
-
-@media only screen and (max-width: 1396px) {
-    .profile {
-        width:45vw;
-        height:auto;
-        margin-left: auto;
-        margin-right: auto;
-    }
-  }

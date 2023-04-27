@@ -6,7 +6,7 @@
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
       "start": "node backend/server.js",
-      "develop": "concurrently \"cd backend && npm run watch\" \"cd stegraca-valise && npm start\"",
+      "develop": "concurrently \"cd backend && npm start\" \"cd stegraca-valise && npm start\"",
       "install": "cd backend  && npm i && cd ../stegraca-valise && npm i",
       "seed": "cd backend  && npm run seed",
       "build": "cd stegraca-valise && npm run build"

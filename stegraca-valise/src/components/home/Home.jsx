@@ -1,19 +1,28 @@
 import React from 'react';
 import './Home.css';
-import { Stack, Container, Button, Col, Row } from 'react-bootstrap';
-import profile from './images/profile-photo.jpg';
+import { Stack, Container, Button, Col, Row, Image } from 'react-bootstrap';
+import { DiCss3, DiHeroku, DiHtml5, DiJsBadge, DiLinux, DiVisualstudio, DiBootstrap, DiGithub, DiReact } from 'react-icons/di';
+import { IconContext } from 'react-icons';
+import { Projects } from '../index';
 
 export default function Home() {
 
     return (
 <>
-        <Container>
-            <Row>
-                <Col xs={3}>&nbsp;
+        <Container fluid>
+            <Row id="homeContainer" >
+                <Row>
+                    <Col xs={2}></Col>
+                <Col className="tech-list" xs={10}>
                 </Col>
-                <Col xs={6}>&nbsp;
+                </Row>
+                <Col xs={7}>
+                    <Projects />
                 </Col>
-                <Col xs={3}>&nbsp;
+                <Col xs={5}><p>STEPHEN CARDIE is a fullstack web developer as a second career.</p>
+                <p>Spending over a decade on the client-facing side of tech, it became very apparent that his motivation was about creating tools to make the job easier.</p>
+                <p>Eventually, he had to take the plunge and do that full-time.</p>
+                <p>He is available for support work, code refactoring, or to help you build that feature.</p>
                 </Col>
             </Row>
         </Container>

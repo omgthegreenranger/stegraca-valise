@@ -1,20 +1,7 @@
-.class-block {
-    background-color: lemonchiffon;
-    padding: 10px;
-    display: flex;
-    flex-direction:column;
-    margin-left: 5px;
-    margin-right: 5px;
-    width: 97%;
+.valise-top {
+    background-color: darkgrey;
+    border-top-left-radius: 15px;
 }
-
-.image-box {
-    width: 75%;
-    background-color:aquamarine;
-    height: 30px;
-}
-
-.about-block {
-    display: flex;
-    flex-direction:row;
+.valise-block {
+    background-color: darkgrey;
 }
