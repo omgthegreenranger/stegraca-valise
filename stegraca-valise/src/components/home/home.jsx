@@ -11,13 +11,15 @@ export default function Home() {
 <>
         <Container fluid>
             <Row id="homeContainer" >
+                <Col xs={7}>
                 <Row>
-                    <Col xs={2}></Col>
-                <Col className="tech-list" xs={10}>
+                <Col className="tech-list">
+                <DiCss3 /> <DiHeroku /> <DiHtml5 /> <DiJsBadge /> <DiLinux /> <DiVisualstudio /> <DiBootstrap /> <DiGithub /> <DiReact />
                 </Col>
                 </Row>
-                <Col xs={7}>
+                <Row>
                     <Projects />
+                </Row>
                 </Col>
                 <Col xs={5}><p>STEPHEN CARDIE is a fullstack web developer as a second career.</p>
                 <p>Spending over a decade on the client-facing side of tech, it became very apparent that his motivation was about creating tools to make the job easier.</p>

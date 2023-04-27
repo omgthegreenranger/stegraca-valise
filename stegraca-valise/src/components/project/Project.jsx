@@ -2,6 +2,8 @@
 import React, {useState} from 'react';
 import './Project.css';
 import { Container, Row, Col, Card, Carousel } from 'react-bootstrap';
+import accesscal from './images/accesscal.png';
+import astronomy from './images/astronomy.png';
 import Projects from './projects.json';
 
 
@@ -17,7 +19,7 @@ export default function Project() {
     <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
         <img className="d-block w-100"
-        src="./images/AccessCal-screenshot.png"
+        src={accesscal}
         alt="First slide"
         />
         <Carousel.Caption>
@@ -27,7 +29,7 @@ export default function Project() {
       </Carousel.Item>
       <Carousel.Item>
         <img className="d-block w-100"
-        src="./images/Astrono-MyScreenshot.png"
+        src={astronomy}
         alt="First slide"
         />
         <Carousel.Caption>
