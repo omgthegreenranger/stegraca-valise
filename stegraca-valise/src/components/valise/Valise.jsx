@@ -6,23 +6,28 @@ import { Home, NavBar } from '../index';
 export default function Valise({valisePage}) { 
 
     return (
-        <Container fluid>
+        <Container className="valise-container" fluid>
             <Row>
-                &nbsp;
-            </Row>
-            <Row>
+            <Col xs={1}>&nbsp;
+                </Col>
+                <Col xs={10} >STEGRACA
+                </Col>
                 <Col xs={1}>&nbsp;
                 </Col>
-                <Col xs={11} className="valise-top">&nbsp;
-                </Col>
             </Row>
+
             <Row>
                 <Col xs={1}>
-                    <NavBar />
                 </Col>
-                <Col xs={11} className="valise-block">
+                <Col xs={10} className="valise-block">
                     <Home />
                 </Col>
+                <Col xs={1}>
+                </Col>
+            </Row>
+
+            <Row>
+                <div>&nbsp;</div>
             </Row>
         </Container>
       );

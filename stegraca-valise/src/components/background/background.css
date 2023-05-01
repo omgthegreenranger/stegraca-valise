@@ -10,3 +10,28 @@
     top: -9px;
     left: -9px;
   }
+
+.back-tile-1 {
+  background-color: blue;
+  width: 6vw;
+  height: 1vh;
+  rotate: -45deg;
+}
+
+.animate {
+  animation: 3s ease-in 0s infinite reverse both running slidein;
+}
+
+.back-tile-2 {
+  background-color: yellow;
+  width: 5vw;
+  height: 1vh;
+  rotate: -45deg;
+}
+
+.back-tile-3 {
+  background-color: red;
+  width: 6vw;
+  height: 1vh;
+  rotate: -45deg;
+}

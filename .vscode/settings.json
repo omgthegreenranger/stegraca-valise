@@ -1,4 +1,11 @@
 {
     "sqltools.useNodeRuntime": true,
-    "sqltools.connections": []
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "valiseDB",
+            "database": "${workspaceFolder:stegraca-valise}/db/valise.db"
+        }
+    ]
 }

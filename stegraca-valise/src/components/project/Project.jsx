@@ -1,42 +1,35 @@
 
 import React, {useState} from 'react';
 import './Project.css';
-import { Container, Row, Col, Card, Carousel } from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
 import accesscal from './images/accesscal.png';
 import astronomy from './images/astronomy.png';
-import Projects from './projects.json';
 
-
-export default function Project() {
+export default function Project(props) {
   const [index, setIndex] = useState(0);
-
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
-
+  const works = props.work;
   return (    
     <>
     <Carousel activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item>
-        <img className="d-block w-100"
-        src={accesscal}
-        alt="First slide"
-        />
-        <Carousel.Caption>
-            <h3>Bootstrap</h3>
-            <p>This is Bootstrap</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img className="d-block w-100"
-        src={astronomy}
-        alt="First slide"
-        />
-        <Carousel.Caption>
-            <h3>Bootstrap</h3>
-            <p>This is Bootstrap</p>
-        </Carousel.Caption>
-      </Carousel.Item>
+      {works.map((work) => {
+        console.log(work);
+         return (
+        <>
+        <Carousel.Item>
+          <img className="d-block w-100"
+          src="holder.js/300x200"
+          alt="Slide Card Wazoo"
+          />
+          <Carousel.Caption>
+              <h3>{work.name}</h3>
+              <p>{work.description}</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        </>
+)})}
     </Carousel>
 
     </>

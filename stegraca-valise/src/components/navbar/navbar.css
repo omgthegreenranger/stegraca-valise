@@ -8,6 +8,7 @@ span {
 }
 .nav-block {
     background: darkgreen;
+    height: 100%;
     /* width: 3vw; */
 }
 
@@ -31,7 +32,7 @@ span {
 
 .side-block {
     width: 100%;
-    border-bottom-right-radius: 15px;
+    /* border-bottom-right-radius: 15px; */
     writing-mode: vertical-lr;
-    font-size: 3vw;
+    font-size: 2vw;
 }

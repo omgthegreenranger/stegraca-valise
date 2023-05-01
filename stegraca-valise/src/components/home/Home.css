@@ -1,5 +1,29 @@
 #homeContainer {
     background: darkgrey;
     margin-left: 0%;
-    /* border-top-left-radius: 15px; */
+    margin-right: 0%;
+}
+
+.profile-img {
+    width: 16vw;
+    height: 100%;
+}
+
+.square {
+    pointer-events: none;
+    position: relative;
+    width: 28px;
+    height: 28px;
+    margin: 1px;
+    background-color: currentColor;
+    font-size: 14px;
+}
+
+.tech-list {
+    margin-top: 1rem!important;
+    margin-bottom: 1rem;
+}
+
+svg {
+    padding: 0.5rem;
 }

@@ -1,7 +1,11 @@
-.valise-top {
-    background-color: darkgrey;
-    border-top-left-radius: 15px;
+.valise-container {
 }
+
 .valise-block {
     background-color: darkgrey;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 20px;
 }
