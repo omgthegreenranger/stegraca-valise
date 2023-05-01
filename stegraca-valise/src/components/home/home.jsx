@@ -11,14 +11,6 @@ import anime from 'animejs';
 
 export default function Home() {
 
-    anime({
-        targets: '.css-prop-demo .el',
-        left: '240px',
-        backgroundColor: '#FFF',
-        borderRadius: ['0%', '50%'],
-        easing: 'easeInOutQuad'
-      });
-
     return (
 <>
         <Container fluid>
@@ -42,15 +34,6 @@ export default function Home() {
                         </div> */}
                     </Col>
                     <Col xs={2}>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col className="tech-list d-flex justify-content-center">
-                        <IconContext.Provider
-                        value={{size: '4.5em', padding: '5rem'}}
-                        >
-                            <DiCss3 /> <DiHeroku /> <DiHtml5 /> <DiJsBadge /> <DiLinux /> <DiVisualstudio /> <DiBootstrap /> <DiGithub /> <DiReact />
-                        </IconContext.Provider>
                     </Col>
                 </Row>
                 <Row className="justify-items-center"> 
