@@ -2,10 +2,7 @@ span {
     color: aliceblue;
     text-decoration: none;    
 }
-/* 
-.tech-list {
-    justify-items: flex-end;
-} */
+
 .nav-block {
     height: 100%;
     border-radius: 10px;

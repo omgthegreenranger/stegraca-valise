@@ -5,10 +5,9 @@ import { Home, NavBar, Header, Projects } from '../index';
 
 export default function Valise({valisePage}) { 
     const [portOpen, setPortOpen] = useState({
-        isPaneOpen: false,
-        isPaneOpenLeft: false,
+        port: true
     });
-
+console.log(portOpen);
     return (
 <>
         <Container className='valise-container' fluid>
@@ -16,12 +15,11 @@ export default function Valise({valisePage}) {
                 <Col xs={1}>
                     <NavBar />
                 </Col>
-                <Col xs={9}>
+                <Col xs={portOpen ? 7 : 10}>
                     <Home />
-                    <Button type="button" value="portfolio">Portfolio</Button>
                 </Col>
-                <Col xs={2}>
-                   <Projects />
+                <Col className="h-100" xs={portOpen ? 4 : 1}>
+                   <Projects setPortOpen={setPortOpen} portOpen={portOpen} />
                 </Col>
             </Row>
         </Container>

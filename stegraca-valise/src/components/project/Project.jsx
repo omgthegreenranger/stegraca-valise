@@ -5,14 +5,11 @@ import './Project.css';
 
 import {Row, Col, Container, Card, Stack} from 'react-bootstrap';
 import { DiCss3, DiHeroku, DiHtml5, DiJsBadge, DiLinux, DiVisualstudio, DiBootstrap, DiGithub, DiReact } from 'react-icons/di';
+import { RxCaretLeft, RxCaretRight } from 'react-icons/rx'
 import { IconContext } from 'react-icons';
 import projectDB from '../project/projects.json';
 
-export default function Project() {
-  const [portOpen, setPortOpen] = useState({
-    isPaneOpen: true,
-    isPaneOpenLeft: false,
-});
+export default function Project(props) {
 
   const [tags, setTags] = useState([]);
   const [index, setIndex] = useState(0);
@@ -20,38 +17,25 @@ export default function Project() {
     setIndex(selectedIndex);
   };
   const works = projectDB.projects;
+  console.log(works)
   const spread = works.length;
   return (
     <>
-    <div>
-    <button onClick={() => setPortOpen({ isPaneOpen: true })}>
-        Click me to open right pane!
-    </button>
-    </div>
     <Container className="project-pane">
-      <Row className="g-4 p-4 justify-content-center">
-        <Stack className="tech-list d-flex justify-content-center" onClick={() => setPortOpen({ isPaneOpen: true })}>
-          <IconContext.Provider value={{size: '4.5em', padding: '5rem'}}>
-            <DiCss3 /> <DiHeroku /> <DiHtml5 /> <DiJsBadge /> <DiLinux /> <DiVisualstudio /> <DiBootstrap /> <DiGithub /> <DiReact />
-          </IconContext.Provider>
-        </Stack>
-        {/* <SlidingPane
-            className="some-custom-class"
-            overlayClassName="some-custom-overlay-class"
-            isOpen={portOpen.isPaneOpen}
-            title="Hey, it is optional pane title.  I can be React component too."
-            subtitle="Optional subtitle."
-            width="20%"
-            onRequestClose={() => {
-            // triggered on "<" on left top click or on outside click
-            setPortOpen({ isPaneOpen: false });
-            }}
-        > */}
+      <Row className="h-100">
+        <Col className="tech-list" xs={2} onClick={() => props.setPortOpen((portOpen) => !portOpen)}>
+          <TechLine portOpen={props.portOpen} tagList={tags =='' ? tags : ''} />
+        </Col>
+        <Col className={`project-stack ${props.portOpen ? "visible" : "invisible"}`}>
+        <Stack xs={11}>
           {works.map((work) => {
-            const handleCards = (name, id) => {console.log("This is the card for " + name)}
+            const handleCards = (name, id, tagList) => {
+              setTags(tagList)
+              console.log(tagList)
+            }
             return (
               <>
-                <Card style={{width: '18rem'}} className="m-1 p-1 project-card" onMouseEnter={() => handleCards(work.name, work.id)}>
+                <Card className="m-1 p-1 project-card" onMouseEnter={() => handleCards(work.name, work.id, work.techTags)}>
                   <Card.Img variant="top" src={require(`./images/${work.image}`)} />
                     <Card.Body key={work.id}>
                       <Card.Title>{work.name}</Card.Title>
@@ -62,9 +46,17 @@ export default function Project() {
                 </Card>
               </>
             )})}
-        {/* </SlidingPane> */}
+          </Stack>
+          </Col>
       </Row>
     </Container>
     </>
         )
+    }
+
+function TechLine(props) {
+      return(
+      <IconContext.Provider value={{size: '4.5em', padding: '3rem', className: 'tech-icons' }}>
+      {props.portOpen ? <RxCaretRight /> : <RxCaretLeft />}<DiCss3 /> <DiHeroku /> <DiHtml5 /> <DiJsBadge /> <DiLinux /> <DiVisualstudio /> <DiBootstrap /> <DiGithub /> <DiReact />
+    </IconContext.Provider>)
     }
