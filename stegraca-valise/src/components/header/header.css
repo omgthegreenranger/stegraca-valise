@@ -14,3 +14,17 @@ header.div {
 .header-text {
     font-size: 7rem;
 }
+
+.sitename {
+    font-size: 7rem;
+}
+
+.halfname {
+    font-size: 5rem;
+
+}
+
+.headblock {
+    width:fit-content;
+    
+}
