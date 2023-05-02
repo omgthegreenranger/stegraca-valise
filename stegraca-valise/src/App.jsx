@@ -10,7 +10,6 @@ const App = () =>{
         <>
         <div className="main" height="100%">
             <Valise />
-            {/* <Background /> */}
         </div>
         </>
         )

@@ -57,13 +57,7 @@
     color:white;
     font-weight: bolder;
 }
-.project-screen {
-    height:auto;
-    width:40dvh;
-    object-fit: contain;
-    min-height: 150px;
-}
 
-.project-cards:hover {
-    border: black solid 1px;
+.project-pane {
+    background: aliceblue;
 }
