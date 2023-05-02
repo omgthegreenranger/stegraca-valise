@@ -2,26 +2,23 @@ span {
     color: aliceblue;
     text-decoration: none;    
 }
-
+/* 
 .tech-list {
     justify-items: flex-end;
-}
+} */
 .nav-block {
     background: darkgreen;
     height: 100%;
-    /* width: 3vw; */
+    border-radius: 10px;
+    padding: 10px;
+    flex-wrap: nowrap;
 }
 
-.nav-bar {
-    height: 100%;
-}
 .nav-btn {
-    /* display: inline; */
     color: aliceblue;
     text-decoration: none;
     background-color:darkgreen;
     font-size: 2vw;
-    width: 100%;
 }
 
 .nav-btn:hover {
@@ -31,8 +28,6 @@ span {
 }
 
 .side-block {
-    width: 100%;
-    /* border-bottom-right-radius: 15px; */
     writing-mode: vertical-lr;
     font-size: 2vw;
 }

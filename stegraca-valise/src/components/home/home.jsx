@@ -16,9 +16,9 @@ export default function Home() {
         <Container fluid>
             {/* <Row id="homeContainer" fluid> */}
                 <Row>
-                    <Col xs={2}>
+                    <Col xs={1}>
                     </Col>
-                    <Col xs={8} className="d-flex">
+                    <Col xs={9} className="d-flex">
                         <figure>
                         <img src={ProfilePic} className="profile-img" alt="Profile of the developer" />
                         </figure>
@@ -34,11 +34,12 @@ export default function Home() {
                         </div> */}
                     </Col>
                     <Col xs={2}>
+                    <NavBar />
                     </Col>
                 </Row>
                 <Row className="justify-items-center"> 
-                    <Col xs={9} className="justify-items-center">
-                    <Projects work={work.projects}/>
+                    <Col className="justify-items-center">
+                        <Projects work={work.projects}/>
                     </Col>
                 </Row>
         </Container>

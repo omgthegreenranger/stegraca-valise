@@ -7,12 +7,7 @@ import anime from 'animejs';
 import {IconContext} from 'react-icons';
 
 export default function NavBar() {
-  const [isShown, setIsShown] = useState("CONTACT ME");
-
-  // useEffect(() => {
-  //   return setBoxHeight(document.getElementById('nav-stack').clientHeight);
-  // });
-
+  const [isShown, setIsShown] = useState("Contact Me");
   const handleMouseEnter = (event) => {
     let target = setIsShown(event.target.id);
 
@@ -22,20 +17,24 @@ export default function NavBar() {
 
   return (
   <>
-  <Stack className="nav-block" direction="horizontal">
-    <Stack className="nav-bar side-block">
-      <span className="nav-title">{isShown}</span>
-    </Stack>
-    <Stack className="nav-bar nav m-2" id="nav-stack">
-      <IconContext.Provider value={{size: '2vw'}}>
-      <span className="nav-btn" id="github" onMouseEnter={() => setIsShown("GitHub")} onMouseLeave={() => setIsShown("Contact Me")}><SiGithub /></span>
-      <span className="nav-btn" id="linkedin" onMouseEnter={() => setIsShown("LinkedIn")} onMouseLeave={() => setIsShown("Contact Me")}><SiLinkedin /></span>
-      <span className="nav-btn" id="mastodon" onMouseEnter={() => setIsShown("Mastodon")} onMouseLeave={() => setIsShown("Contact Me")}><SiMastodon /></span>
-      <span className="nav-btn" id="email" onMouseEnter={() => setIsShown("Email")} onMouseLeave={() => setIsShown("Contact Me")}><MdMail /></span>
-      <span className="nav-btn" id="resume" onMouseEnter={() => setIsShown("Resume")} onMouseLeave={() => setIsShown("Contact Me")}><MdSimCardDownload /></span>
-      </IconContext.Provider>
-    </Stack>
-  </Stack>
+  <Container>
+    <Row className="mx-4">
+      <Container className="d-flex nav-block" fluid>
+        <Stack className="nav-bar nav" id="nav-stack">
+          <IconContext.Provider value={{size: '3vw'}}>
+            <span className="nav-btn" id="github" onMouseEnter={() => setIsShown("GitHub")} onMouseLeave={() => setIsShown("Contact Me")}><SiGithub /></span>
+            <span className="nav-btn" id="linkedin" onMouseEnter={() => setIsShown("LinkedIn")} onMouseLeave={() => setIsShown("Contact Me")}><SiLinkedin /></span>
+            <span className="nav-btn" id="mastodon" onMouseEnter={() => setIsShown("Mastodon")} onMouseLeave={() => setIsShown("Contact Me")}><SiMastodon /></span>
+            <span className="nav-btn" id="email" onMouseEnter={() => setIsShown("Email")} onMouseLeave={() => setIsShown("Contact Me")}><MdMail /></span>
+            <span className="nav-btn" id="resume" onMouseEnter={() => setIsShown("Resume")} onMouseLeave={() => setIsShown("Contact Me")}><MdSimCardDownload /></span>
+          </IconContext.Provider>
+        </Stack>
+        <Col className="nav-bar side-block">
+          <span className="nav-title">{isShown}</span>
+        </Col>
+    </Container>
+    </Row>
+  </Container>
   </>
   );
 }

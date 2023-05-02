@@ -19,10 +19,13 @@
     "license": "ISC",
     "homepage": "https://omgthegreenranger.github.io/stegraca-valise",
     "devDependencies": {
-        "concurrently": "^7.6.0"
+        "concurrently": "^7.6.0",
+        "gh-pages": "^5.0.0"
     },
     "dependencies": {
+        "aos": "^2.3.4",
         "holderjs": "^2.9.9",
-        "jwt-decode": "^3.1.2"
+        "jwt-decode": "^3.1.2",
+        "react-anchor-link-smooth-scroll": "^1.0.12"
     }
 }

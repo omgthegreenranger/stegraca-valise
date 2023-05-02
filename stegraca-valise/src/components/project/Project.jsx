@@ -1,7 +1,7 @@
 
 import React, {useState} from 'react';
 import './Project.css';
-import {Row, Col, Carousel} from 'react-bootstrap';
+import {Row, Col, Card, CardGroup} from 'react-bootstrap';
 import { DiCss3, DiHeroku, DiHtml5, DiJsBadge, DiLinux, DiVisualstudio, DiBootstrap, DiGithub, DiReact } from 'react-icons/di';
 import { IconContext } from 'react-icons';
 
@@ -13,34 +13,32 @@ export default function Project(props) {
     setIndex(selectedIndex);
   };
   const works = props.work;
+  const spread = works.length;
   return (
     <>
-    <Carousel activeIndex={index} onSelect={handleSelect} fade>
+    <Row>
+      <Col className="tech-list d-flex justify-content-center">
+        <IconContext.Provider value={{size: '4.5em', padding: '5rem'}}>
+          <DiCss3 /> <DiHeroku /> <DiHtml5 /> <DiJsBadge /> <DiLinux /> <DiVisualstudio /> <DiBootstrap /> <DiGithub /> <DiReact />
+        </IconContext.Provider>
+      </Col>
+    </Row>
+    <Row className="g-4 p-4 justify-content-center">
        {works.map((work) => {
-        
+        const handleCards = (name, id) => {console.log("This is the card for " + name)}
         return (
-      <Carousel.Item>
-        <img className="d-block w-100" 
-        src={require(`./images/${work.image}`)}
-        alt={work.description}/>
-        <Carousel.Caption>
-          <h3>{work.name}</h3>
-          <p>{work.description}</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-        )
-       }
-      )
-      }
-    </Carousel>
-        <Row>
-        <Col className="tech-list d-flex justify-content-center">
-            <IconContext.Provider
-            value={{size: '4.5em', padding: '5rem'}}
-            >
-                <DiCss3 /> <DiHeroku /> <DiHtml5 /> <DiJsBadge /> <DiLinux /> <DiVisualstudio /> <DiBootstrap /> <DiGithub /> <DiReact />
-            </IconContext.Provider>
-        </Col>
+          <>
+            <Card style={{width: '18rem'}} className="m-1 p-1 project-cards" onMouseEnter={() => handleCards(work.name, work.id)}>
+              <Card.Img variant="top" src={require(`./images/${work.image}`)} />
+                <Card.Body key={work.id}>
+                  <Card.Title>{work.name}</Card.Title>
+                  <Card.Text>{work.description}</Card.Text>
+                  <Card.Link href={work.appLink}>Demo</Card.Link>
+                  <Card.Link href={work.gitLink}>Git Repo</Card.Link>
+                </Card.Body>
+            </Card>
+          </>
+        )})}
     </Row>
     </>
         )

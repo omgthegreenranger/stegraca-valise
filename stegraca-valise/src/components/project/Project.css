@@ -63,3 +63,7 @@
     object-fit: contain;
     min-height: 150px;
 }
+
+.project-cards:hover {
+    border: black solid 1px;
+}

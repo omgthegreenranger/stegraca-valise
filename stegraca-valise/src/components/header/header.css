@@ -1,0 +1,16 @@
+header {
+    height: 18vh;
+}
+
+header.div {
+    margin-top: auto;
+    margin-bottom: auto;   
+}
+
+.spacer-block {
+    height: 6vh;
+}
+
+.header-text {
+    font-size: 7rem;
+}

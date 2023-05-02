@@ -4,5 +4,6 @@ import Projects from './project';
 import NavBar from './navbar';
 import Background from './background';
 import Home from './home';
+import Header from './header'
 
-export { Home, Valise, About, Projects, NavBar, Background };
+export { Header, Home, Valise, About, Projects, NavBar, Background };
