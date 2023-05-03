@@ -6,7 +6,7 @@ export default function Head() {
     return(
     <>
             <div>
-                <Container className="headblock" fluid>
+                {/* <Container className="headblock" fluid>
                     <Row>
                         <Col className="sitename">STE</Col>
                         <Col className="sitename">GRA</Col>
@@ -17,7 +17,7 @@ export default function Head() {
                         <Col className="halfname">ham</Col>
                         <Col className="halfname">rdie</Col>
                     </Row>
-                </Container>
+                </Container> */}
             </div>
             {/* <div className="d-flex header-block justify-content-center">
                 <span className="header-text">STEGRA.CA</span>

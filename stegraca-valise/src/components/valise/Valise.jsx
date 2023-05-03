@@ -10,18 +10,22 @@ export default function Valise({valisePage}) {
 console.log(portOpen);
     return (
 <>
-        <Container className='valise-container' fluid>
-            <Row>
-                <Col xs={1}>
-                    <NavBar />
-                </Col>
-                <Col xs={portOpen ? 7 : 10}>
-                    <Home />
-                </Col>
-                <Col className="h-100" xs={portOpen ? 4 : 1}>
-                   <Projects setPortOpen={setPortOpen} portOpen={portOpen} />
-                </Col>
-            </Row>
-        </Container>
+        <div className='d-flex valise-container'>
+            <div className='profile-container'>
+                <Container fluid>
+                    <Row>
+                        <Col xs={1}>
+                            <NavBar />
+                        </Col>
+                        <Col xs={11}>
+                            <Home />
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+            <div className='d-flex portfolio-container w-100'>
+                <Projects setPortOpen={setPortOpen} portOpen={portOpen} />
+            </div>
+        </div>
 </>
     )}

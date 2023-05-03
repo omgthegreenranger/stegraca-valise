@@ -1,10 +1,21 @@
 .valise-container {
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100dvh;
 }
-
 .valise-block {
     background-color: darkgrey;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+}
+
+.profile-container {
+
+}
+
+.portfolio-container {
+    height: 50vh;
+    align-self:flex-end;
 }

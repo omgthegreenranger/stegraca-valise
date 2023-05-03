@@ -4,6 +4,7 @@
             {
                 "id": 1,
                 "name": "Astrono-MyDashboard",
+                "shortDesc": "Astronomy dashboard to provide positional stargazing information",
                 "description": "Project #1 for the Fullstack Bootcamp - I and my team of three built an astronomy dashboard to provide positional stargazing information.",
                 "appLink": "https://omgthegreenranger.github.io/Astrono-MyDashboard/",
                 "gitLink": "https://github.com/omgthegreenranger/Astrono-MyDashboard",
@@ -13,6 +14,7 @@
             {
                 "id": 2,
                 "name": "AccessCal - the Accessibility Calendar",
+                "shortDesc": "A countdown calendar for the time-blind neurospicy among us!",
                 "description": "Project #2 for the Fullstack Bootcamp - our team built the initial MVP of a countdown-calendar to help neurospicy (like myself) navigate Time Blindness. The concept is to reframe events by priority rather than deadlines.",
                 "appLink": "#",
                 "gitLink": "https://github.com/omgthegreenranger/tbc",
@@ -22,6 +24,7 @@
             {
                 "id": 3,
                 "name": "The Pupscale Barkery",
+                "shortDesc": "A scalable CRM to sell dog treats and toys!",
                 "description": "Project #3 for the Fullstack Bootcamp - our team built the initial MVP of a countdown-calendar to help neurospicy (like myself) navigate Time Blindness. The concept is to reframe events by priority rather than deadlines.",
                 "appLink": "#",
                 "gitLink": "https://github.com/omgthegreenranger/pupscale-barkery",
