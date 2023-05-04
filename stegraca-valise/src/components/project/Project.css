@@ -3,7 +3,7 @@
     border: 5px solid #000000;
     border-radius: 10px;
     cursor: pointer;
-    width: 15vw;
+    width: 15rem;
 }
 
 .project-card:hover {
@@ -14,14 +14,17 @@
   }
 
 .project-pane {
-    background: aliceblue;
+    display: flex;
+    background: rgb(71, 71, 71, .5);
     flex-direction: column;
+    height: fit-content;
+    
 }
 
 .project-stack { 
-    overflow:scroll;
+    display: inline-flex;
+    overflow-x:scroll;
     flex-direction: row;
-    background-color:black;
     justify-content: center; 
 }
 
@@ -29,7 +32,8 @@
 
 }
 .tech-icons {
-    
+    font-size: 4.5rem;
+    color: white;
 }
 
 .footerIcons {
@@ -39,5 +43,13 @@
 
 .tech-icons:hover {
     color: green;
-    font-size: 1.15em;
+    border: yellowgreen 
+}
+
+
+@media screen and (max-width: 800px ) {
+    card.title {
+        display: none;
+    }
+    
 }

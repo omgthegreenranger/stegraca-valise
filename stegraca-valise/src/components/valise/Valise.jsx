@@ -1,6 +1,6 @@
 import './Valise.css';
 import React, {Component, useState} from 'react';
-import { Container, Col, Row, Button } from 'react-bootstrap';
+import { Container, Col, Row, Button, } from 'react-bootstrap';
 import { Home, NavBar, Header, Projects } from '../index';
 
 export default function Valise({valisePage}) { 
@@ -9,23 +9,16 @@ export default function Valise({valisePage}) {
     });
 console.log(portOpen);
     return (
-<>
-        <div className='d-flex valise-container'>
-            <div className='profile-container'>
-                <Container fluid>
-                    <Row>
-                        <Col xs={1}>
-                            <NavBar />
-                        </Col>
-                        <Col xs={11}>
-                            <Home />
-                        </Col>
-                    </Row>
-                </Container>
-            </div>
-            <div className='d-flex portfolio-container w-100'>
-                <Projects setPortOpen={setPortOpen} portOpen={portOpen} />
-            </div>
-        </div>
+        <>
+            <Container className="valise-container d-flex flex-column justify-content-between" fluid>
+                <Row className='my-4 profile-container'>
+                    <Home />
+                </Row>
+                <Row>
+                    <div className='d-flex px-0 portfolio-container' fluid>
+                        <Projects setPortOpen={setPortOpen} portOpen={portOpen} />
+                    </div>
+                </Row>
+            </Container>
 </>
     )}

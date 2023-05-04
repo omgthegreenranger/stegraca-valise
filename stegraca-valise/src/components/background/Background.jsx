@@ -10,40 +10,16 @@ export default function Background() {
 // get max number of columns at given width range
 // divide up by height/angle at -45 degrees
 // Create algorithm to fill only certain div elements on container.
-const rowList = []
-
-for (let i = 1; i < 100; i++) {
-
-const rando = () => Math.floor(
-    
-    
-    Math.random() * 10);
-rowList.push(rando);
-}
-
-console.log(rowList);
-
-
-return (
-<>
-<div height="50%">
-</div>
-<div>
-<div className="back-tile-1 animate"></div>
-<div className="back-tile-1 animate"></div>
-<div className="back-tile-1 animate"></div>
-</div>
-<div>
-<div className="back-tile-2 animate"></div>
-<div className="back-tile-2 animate"></div>
-<div className="back-tile-2 animate"></div>
-</div>
-<div>
-<div className="back-tile-3 animate"></div>
-<div className="back-tile-3 animate"></div>
-<div className="back-tile-3 animate"></div>
-</div>
-</>
-)
-
+    return (
+        <>
+<svg height="400" width="1000">
+    <defs>
+    <filter id="f1" x="0" y="0">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+    </filter>
+    </defs>
+  <circle className="background-circle" cx="1000" cy="200" r="75" stroke="black" stroke-width="-3" fill="yellow" filter="url(#f1)" />
+</svg>
+        </>
+    )
 }

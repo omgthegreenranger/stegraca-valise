@@ -1,8 +1,7 @@
 import React, {Component, useState} from 'react';
 import SlidingPane from 'react-sliding-pane';
-import 'react-sliding-pane/dist/react-sliding-pane.css';
 import './Project.css';
-import {Row, Col, Container, Card, Stack} from 'react-bootstrap';
+import {Row, Col, Container, Card, Collapse} from 'react-bootstrap';
 import { DiCss3, DiHeroku, DiHtml5, DiJsBadge, DiLinux, DiVisualstudio, DiBootstrap, DiGithub, DiReact } from 'react-icons/di';
 import { RxCaretLeft, RxCaretRight, RxExternalLink, RxInfoCircled } from 'react-icons/rx';
 import { IconContext } from 'react-icons';
@@ -16,23 +15,24 @@ export default function Project(props) {
     setIndex(selectedIndex);
   };
   const works = projectDB.projects;
-  console.log(works)
   const spread = works.length;
+
   return (
 
-    <Container className='d-flex project-pane' fluid>
-      <div className='d-flex justify-content-center' onClick={() => props.setPortOpen((portOpen) => !portOpen)}>
-          <TechLine portOpen={props.portOpen} tagList={() => tags == '' ? [] : tags} />
-      </div>
-      <div className={`d-flex project-stack ${props.portOpen ? "visible" : "invisible"}`}>
+    <Container className='d-flex project-pane w-100' fluid>
+      <Row onClick={() => props.setPortOpen((portOpen) => !portOpen)} aria-controls="collapse-portfolio" aria-expanded={props.portOpen}>
+          <TechLine portOpen={props.portOpen} tagList={tags} />
+      </Row>
+      <Collapse in={props.portOpen}>
+      <div id="collapse-portfolio" className="project-stack">
           {works.map((work) => {
             const handleCards = (name, id, tagList) => {
               setTags(tagList)
               console.log(tags)
             }
             return (
-                <Card className='m-1 p-1 project-card' onMouseEnter={() => handleCards(work.name, work.id, work.techTags)}>
-                  <Card.Img variant="top" src={require(`./images/${work.image}`)} />
+                <Card className='project-card m-1 px-3' onMouseEnter={() => handleCards(work.name, work.id, work.techTags)}>
+                  <Card.Img className="img-fluid" variant="top" src={require(`./images/${work.image}`)} />
                     <Card.Body key={work.id}>
                       <Card.Title>{work.name}</Card.Title>
                       <Card.Text>{work.shortDesc}</Card.Text>
@@ -45,14 +45,19 @@ export default function Project(props) {
                 </Card>
             )})}
       </div>
+      </Collapse>
     </Container>
         )
     }
 
 function TechLine(props) {
-  console.log(props.tags);
+  console.log(props);
       return (
-    <IconContext.Provider value={{size: '4.5em', className: 'tech-icons' }}>
-      <DiCss3 /> <DiHeroku /> <DiHtml5 /> <DiJsBadge /> <DiLinux /> <DiVisualstudio /> <DiBootstrap /> <DiGithub /> <DiReact />
-    </IconContext.Provider>)
+        <>
+        <Col className='d-flex justify-content-center'>
+    <IconContext.Provider value={{size: '4.5rem', className: 'tech-icons' }}>
+        <span id="css"><DiCss3 /></span> <span id="heroku"><DiHeroku /></span><span id="html"><DiHtml5 /></span><span id="js"><DiJsBadge /></span><span id="bootstrap"><DiBootstrap /></span><span id="react"><DiReact /></span>
+    </IconContext.Provider>
+    </Col>
+    </>)
     }

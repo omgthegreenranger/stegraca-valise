@@ -1,7 +1,6 @@
 .valise-container {
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 100dvh;
+    height: 100%;
+    padding-left: 0px;
 }
 .valise-block {
     background-color: darkgrey;
@@ -16,6 +15,5 @@
 }
 
 .portfolio-container {
-    height: 50vh;
-    align-self:flex-end;
+    height:fit-content;
 }

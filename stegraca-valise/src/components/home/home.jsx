@@ -24,16 +24,13 @@ function Profile() {
     return (
         <>
                 <Row>
-                    <Header />
-                </Row>
-                <Row>
                     <Col xs={1}>
                     </Col>
-                    <Col xs={9} className="d-flex">
+                    <Col className="d-flex">
                         <figure>
                         <img src={ProfilePic} className="profile-img" alt="Profile of the developer" />
                         </figure>
-                        <div className="mx-2">
+                        <div className="mx-2 profile-card">
                         <p>STEPHEN CARDIE is a fullstack web developer as a second career.</p>
                         <p>Spending over a decade on the client-facing side of tech, it became very apparent that his motivation was about creating tools to make the job easier.</p>
                         <p>Eventually, he had to take the plunge and do that full-time.</p>
