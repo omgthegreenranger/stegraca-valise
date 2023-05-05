@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {useState} from 'react';
 import SlidingPane from 'react-sliding-pane';
 import './Project.css';
 import {Row, Col, Container, Card, Collapse} from 'react-bootstrap';
@@ -32,16 +32,16 @@ export default function Project(props) {
             }
             return (
                 <Card className='project-card m-1 px-3' onMouseEnter={() => handleCards(work.name, work.id, work.techTags)}>
-                  <Card.Img className="img-fluid" variant="top" src={require(`./images/${work.image}`)} />
-                    <Card.Body key={work.id}>
+                  <Card.Img className='card-image' variant="top" src={require(`./images/${work.image}`)} />
+                    <Card.Body key={work.id} className='card-body'>
                       <Card.Title>{work.name}</Card.Title>
                       <Card.Text>{work.shortDesc}</Card.Text>
                     </Card.Body>
-                    <Card.Footer className="bg-color-blue">
+                    {/* <Card.Footer className="bg-color-blue">
                       <Card.Link href={work.appLink}><span className="footerIcons"><RxExternalLink /></span></Card.Link>
                       <Card.Link href={work.gitLink}><DiGithub /></Card.Link>
                       <Card.Link href="#"><RxInfoCircled /></Card.Link>
-                    </Card.Footer>
+                    </Card.Footer> */}
                 </Card>
             )})}
       </div>
