@@ -3,7 +3,8 @@
     border: 5px solid #000000;
     border-radius: 10px;
     cursor: pointer;
-    width:min-content;
+    width: 18rem;
+
 }
 
 .project-card:hover {
@@ -27,9 +28,9 @@
 
 .project-stack { 
     display: inline-flex;
-    overflow-x:scroll;
     flex-direction: row;
     justify-content: center; 
+    height: fit-content;
 }
 
 .tech-list {
@@ -51,18 +52,12 @@
 }
 
 
-@media screen and (max-width: 800px ) {
-    card.title {
-        display: none;
-    }
-    
+.card-image {
+    object-fit: contain;
+    aspect-ratio: 1.5/1;
+    margin: 0%;
 }
 
-.card-image {
-    width: 100%;
-    height: 10vw;
-    object-fit: contain;
-}
 
 #css {
     color: yellow;

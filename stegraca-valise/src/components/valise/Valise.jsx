@@ -4,9 +4,7 @@ import { Container, Col, Row, Button, } from 'react-bootstrap';
 import { Home, NavBar, Header, Projects } from '../index';
 
 export default function Valise({valisePage}) { 
-    const [portOpen, setPortOpen] = useState({
-        port: true
-    });
+    const [portOpen, setPortOpen] = useState(true);
 console.log(portOpen);
     return (
         <>
