@@ -1,10 +1,9 @@
-import Header from './header';
-import Footer from './footer';
 import Valise from './valise';
-import About from './about';
 import Projects from './project';
 import NavBar from './navbar';
-import Modals from './modals';
+import Background from './background';
 import Home from './home';
+import Header from './header'
+import Details from './details';
 
-export { Home, Header, Footer, Valise, About, Projects, NavBar, Modals };
+export { Header, Home, Valise, Projects, Details, NavBar, Background };

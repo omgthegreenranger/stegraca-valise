@@ -1,0 +1,14 @@
+{
+    "development": {
+        "dialect": "sqlite",
+        "storage": "../db/valise.db"
+    },
+    "test": {
+        "dialect": "sqlite",
+        "storage": ":memory"
+    },
+    "production": {
+        "dialect": "sqlite",
+        "storage": "./database.sqlite3"
+    }
+}

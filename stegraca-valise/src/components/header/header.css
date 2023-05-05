@@ -1,0 +1,30 @@
+header {
+    height: 5vh;
+}
+
+header.div {
+    margin-top: auto;
+    margin-bottom: auto;   
+}
+
+.spacer-block {
+    height: 6vh;
+}
+
+.header-text {
+    font-size: 1rem;
+}
+
+.sitename {
+    font-size: 1rem;
+}
+
+.halfname {
+    font-size: 1rem;
+
+}
+
+.headblock {
+    width:fit-content;
+    
+}

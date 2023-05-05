@@ -1,0 +1,28 @@
+{
+    "name": "stegraca-valise",
+    "version": "1.0.0",
+    "description": "",
+    "main": "backend/server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node backend/server.js",
+        "develop": "concurrently \"cd backend && npm start\" \"cd stegraca-valise && npm start\"",
+        "install": "cd backend  && npm i && cd ../stegraca-valise && npm i",
+        "seed": "cd backend  && npm run seed",
+        "build": "cd stegraca-valise && npm run build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/omgthegreenranger/stegraca-valise.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "homepage": "https://omgthegreenranger.github.io/stegraca-valise",
+    "devDependencies": {
+        "concurrently": "^7.6.0",
+        "gh-pages": "^5.0.0"
+    },
+    "dependencies": {
+        "jwt-decode": "^3.1.2"
+    }
+}

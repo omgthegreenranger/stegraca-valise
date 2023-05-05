@@ -5,7 +5,7 @@
             "previewLimit": 50,
             "driver": "SQLite",
             "name": "valiseDB",
-            "database": "${workspaceFolder:stegraca-valise}/stegraca-valise/valise.db"
+            "database": "${workspaceFolder:stegraca-valise}/db/valise.db"
         }
     ]
 }

@@ -1,35 +1,56 @@
-.skill-block {
+#homeContainer {
+    background: darkgrey;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+.profile-img {
+    width: 16vw;
+    height: 100%;
+}
+
+.profile-card {
+    background-color: aliceblue;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+svg {
+    padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    .carousel-inner .carousel-item > div:first-child {
+        display: block;
+    }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
     display: flex;
 }
 
-.skill-logo {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-}
-.logo {
-    height: auto;   
-    width: 100%;
-}
-
-.skill-name {
-    text-align:center;
-    align-content: flex-end;
-}
-
-.profile {
-    width:25vw;
-    height:auto;
-    margin-left: auto;
-    margin-right: auto;
-    border: 3px solid black;
-}
-
-@media only screen and (max-width: 1396px) {
-    .profile {
-        width:45vw;
-        height:auto;
-        margin-left: auto;
-        margin-right: auto;
+/* display 3 */
+@media (min-width: 768px) {
+    
+    .carousel-inner .carousel-item-right.active,
+    .carousel-inner .carousel-item-next {
+      transform: translateX(33.333%);
     }
-  }
+    
+    .carousel-inner .carousel-item-left.active, 
+    .carousel-inner .carousel-item-prev {
+      transform: translateX(-33.333%);
+    }
+}
+
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left{ 
+  transform: translateX(0);
+}
