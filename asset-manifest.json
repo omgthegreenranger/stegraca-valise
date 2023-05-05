@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/stegraca-valise/static/css/main.ca5e6f8d.css",
-    "main.js": "/stegraca-valise/static/js/main.173f5b0b.js",
+    "main.css": "/stegraca-valise/static/css/main.7320f0ba.css",
+    "main.js": "/stegraca-valise/static/js/main.afd4f188.js",
     "static/js/787.64b3bfa0.chunk.js": "/stegraca-valise/static/js/787.64b3bfa0.chunk.js",
     "static/media/profile-photo.jpg": "/stegraca-valise/static/media/profile-photo.f9e22cf1473e75502a77.jpg",
     "static/media/astronomy.png": "/stegraca-valise/static/media/astronomy.a1d20a2db05f1664212b.png",
     "static/media/accesscal.png": "/stegraca-valise/static/media/accesscal.5cda64ff9bfa9a83fee6.png",
-    "static/media/project3.jpg": "/stegraca-valise/static/media/project3.35b786eac4ff084e2fdf.jpg",
-    "static/media/project1.jpg": "/stegraca-valise/static/media/project1.354c73c5bf92d1fa0089.jpg",
+    "static/media/astronomy-logo.png": "/stegraca-valise/static/media/astronomy-logo.b698b76fac4b504b3d75.png",
     "static/media/project6.jpg": "/stegraca-valise/static/media/project6.83a8e8d5fd99b9a6a16f.jpg",
-    "static/media/project2.jpg": "/stegraca-valise/static/media/project2.5807776c0b13c11d161c.jpg",
     "static/media/project4.jpg": "/stegraca-valise/static/media/project4.3bbc95df904aab218d08.jpg",
     "static/media/project5.jpg": "/stegraca-valise/static/media/project5.fdb770b6ce2a88aca73f.jpg",
+    "static/media/pupscale-logo.png": "/stegraca-valise/static/media/pupscale-logo.153b018631124455d843.png",
+    "static/media/muntil-logo.png": "/stegraca-valise/static/media/muntil-logo.b06730f76b283b7d795a.png",
     "index.html": "/stegraca-valise/index.html",
-    "main.ca5e6f8d.css.map": "/stegraca-valise/static/css/main.ca5e6f8d.css.map",
-    "main.173f5b0b.js.map": "/stegraca-valise/static/js/main.173f5b0b.js.map",
+    "main.7320f0ba.css.map": "/stegraca-valise/static/css/main.7320f0ba.css.map",
+    "main.afd4f188.js.map": "/stegraca-valise/static/js/main.afd4f188.js.map",
     "787.64b3bfa0.chunk.js.map": "/stegraca-valise/static/js/787.64b3bfa0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ca5e6f8d.css",
-    "static/js/main.173f5b0b.js"
+    "static/css/main.7320f0ba.css",
+    "static/js/main.afd4f188.js"
   ]
 }
