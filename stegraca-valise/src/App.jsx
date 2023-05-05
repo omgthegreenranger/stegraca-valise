@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import './App.css';
-import { Valise, Background, Projects } from './components';
+import { Valise } from './components';
 
 const App = () =>{
     return (

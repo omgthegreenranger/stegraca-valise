@@ -1,5 +1,5 @@
 header {
-    height: 18vh;
+    height: 5vh;
 }
 
 header.div {
@@ -12,15 +12,15 @@ header.div {
 }
 
 .header-text {
-    font-size: 7rem;
+    font-size: 1rem;
 }
 
 .sitename {
-    font-size: 7rem;
+    font-size: 1rem;
 }
 
 .halfname {
-    font-size: 5rem;
+    font-size: 1rem;
 
 }
 

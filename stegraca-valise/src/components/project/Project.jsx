@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
-import SlidingPane from 'react-sliding-pane';
 import './Project.css';
-import {Row, Col, Container, Card, Ratio} from 'react-bootstrap';
+import {Row, Col, Container, Card} from 'react-bootstrap';
 import { DiCss3, DiHeroku, DiHtml5, DiJsBadge, DiLinux, DiVisualstudio, DiBootstrap, DiGithub, DiReact } from 'react-icons/di';
 import { RxCaretLeft, RxCaretRight, RxExternalLink, RxInfoCircled } from 'react-icons/rx';
 import { IconContext } from 'react-icons';
@@ -16,7 +15,6 @@ export default function Project(props) {
   };
   console.log(props.portOpen)
   const works = projectDB.projects;
-  const spread = works.length;
 
   async function handlePortOpen() {
     await props.setPortOpen((portOpen) => !portOpen)
@@ -24,8 +22,10 @@ export default function Project(props) {
     console.log(body.style)
   }
 
-  const handleProjectClick = (event) => {
-    console.log("This should be after click.", event);
+  function handleProjectClick(work) {
+    console.log("This should be after click.", work);
+    props.setProjectData(work);
+    console.log(props.projectData)
     if(props.portOpen === true) {
       props.setPortOpen(false)
     }
