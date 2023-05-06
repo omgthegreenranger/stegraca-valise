@@ -1,11 +1,21 @@
 .details-view {
-    background: rgb(71, 71, 71, .5);
+    background: rgb(184, 184, 184);
     border-radius: 15px;
     padding: 25px;
     height: 100%;
+    max-width: 90%;
 }
 
 .link-icons {
+}
+
+.project-title {
+    border-bottom: 1px solid black;
+    margin: 1rem;
+}
+
+.project-meat {
+    padding: 1rem;
 }
 
 .icon-box {
@@ -13,6 +23,14 @@
 }
 
 .picture-stack {
-    border: 1px solid black;
-    height: 100%;
+}
+
+.tech-stack {
+    border-left: 1px solid black;
+}
+
+.card-image {
+    object-fit: contain;
+    aspect-ratio: 1.5/1;
+    margin: 0%;
 }

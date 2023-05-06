@@ -1,4 +1,4 @@
-@mixin dots($count) {
+/* @mixin dots($count) {
   $text-shadow: ();
   @for $i from 0 through $count {
     $text-shadow: $text-shadow,
@@ -8,8 +8,8 @@
                  hsla(random() * 360, 100%, 50%,.9);
   }
   text-shadow: $text-shadow;
-}
-
+} */
+/* 
 html {
   overflow: hidden;
 }
@@ -19,8 +19,8 @@ body, head {
   color: transparent;
 }
 
-head::before, head::after,
-body::before, body::after {
+head::before,
+body::before {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -54,9 +54,9 @@ head::after {
   @include dots(40);
   animation-duration: 41s;
   animation-delay: -19s;
-}
+} */
 
-
+/* 
 @keyframes move {
   from {
     transform: rotate(0deg) scale(12) translateX(-20px);
@@ -64,4 +64,59 @@ head::after {
   to {
     transform: rotate(360deg) scale(18) translateX(20px);
   }
+} */
+
+.blob {
+  border-radius: 30% 70% 70% 30% / 90% 30% 70% 10%;
+  position: relative;
+  left: 30px;
+  height: 50vw;
+  width: 150vh;
+  background-color: rgb(128, 0, 128, 0.5);
+  filter:blur(4px);
+  -o-filter:blur(4px);
+  -ms-filter:blur(4px);
+  -moz-filter:blur(4px);
+  -webkit-filter:blur(4px);
+  animation-name: example;
+  animation-duration: 10s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
 }
+
+@keyframes example {
+  0% {background-color: rgba(128, 0, 128, 0.2);
+  border-radius: 30% 70% 70% 30% / 90% 30% 70% 10%; }
+  50% {background-color: rgba(0, 128, 28, 0.2);
+  border-radius: 73% 27% 53% 47% / 59% 75% 25% 41% ; }
+  100% {background-color: rgba(128, 0, 128, 0.2);
+  border-radius: 30% 70% 70% 30% / 90% 30% 70% 10%; }
+}
+
+.blob2 {
+    border-radius: 70% 30% 30% 70% / 10% 70% 30% 90%;
+    position: relative;
+    right: 10px;
+    height: 50vw;
+    width: 150vh;
+    background-color: rgb(128, 0, 128, 0.5);
+    filter:blur(4px);
+    -o-filter:blur(4px);
+    -ms-filter:blur(4px);
+    -moz-filter:blur(4px);
+    -webkit-filter:blur(4px);
+    animation-name: example2;
+    animation-duration: 10s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    mix-blend-mode: multiply;
+  }
+
+  @keyframes example2 {
+    0% {background-color: rgba(0, 128, 28, 0.2);
+    border-radius: 70% 30% 30% 70% / 10% 70% 30% 90%; }
+    50% {background-color:  rgba(128, 0, 128, 0.2);
+    border-radius: 73% 27% 53% 47% / 59% 75% 25% 41% ; }
+    100% {background-color: rgba(0, 128, 28, 0.2);
+    border-radius: 70% 30% 30% 70% / 10% 70% 30% 90%; }
+  }
