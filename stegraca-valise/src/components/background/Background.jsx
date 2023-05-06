@@ -18,7 +18,7 @@ export default function Background() {
       <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
     </filter>
     </defs>
-  <circle className="background-circle" cx="1000" cy="200" r="75" stroke="black" stroke-width="-3" fill="yellow" filter="url(#f1)" />
+  <circle className="background-circle" cx="1000" cy="200" r="75" stroke="purple" stroke-width="-3" fill="green" filter="url(#f1)" />
 </svg>
         </>
     )
