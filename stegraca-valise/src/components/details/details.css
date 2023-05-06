@@ -1,0 +1,18 @@
+.details-view {
+    background: rgb(71, 71, 71, .5);
+    border-radius: 15px;
+    padding: 25px;
+    height: 100%;
+}
+
+.link-icons {
+}
+
+.icon-box {
+    justify-content:flex-end;
+}
+
+.picture-stack {
+    border: 1px solid black;
+    height: 100%;
+}
