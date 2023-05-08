@@ -1,74 +1,7 @@
-/* @mixin dots($count) {
-  $text-shadow: ();
-  @for $i from 0 through $count {
-    $text-shadow: $text-shadow,
-                 (-.5+(random()) * 3) + em
-                 (-.5+(random()) * 3) + em
-                 7px
-                 hsla(random() * 360, 100%, 50%,.9);
-  }
-  text-shadow: $text-shadow;
-} */
-/* 
-html {
-  overflow: hidden;
-}
-
-body, head {
-  display: block;
-  color: transparent;
-}
-
-head::before,
-body::before {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 3em;
-  height: 3em;
-  content: '.';
-  mix-blend-mode: screen;
-  animation: 44s -27s move infinite ease-in-out alternate;
-}
-
-
-body::before {
-  @include dots(40);
-  animation-duration: 44s;
-  animation-delay: -27s;
-}
-
-body::after {
-  @include dots(40);
-  animation-duration: 43s;
-  animation-delay: -32s;
-}
-
-head::before {
-  @include dots(40);
-  animation-duration: 42s;
-  animation-delay: -23s;
-}
-
-head::after {
-  @include dots(40);
-  animation-duration: 41s;
-  animation-delay: -19s;
-} */
-
-/* 
-@keyframes move {
-  from {
-    transform: rotate(0deg) scale(12) translateX(-20px);
-  }
-  to {
-    transform: rotate(360deg) scale(18) translateX(20px);
-  }
-} */
-
 .blob {
-  border-radius: 30% 70% 70% 30% / 90% 30% 70% 10%;
-  position: relative;
+  border-radius: 30% 70% -70% 30% / 90% 30% 70% -10%;
+  position: absolute;
+  z-index: auto;
   left: 30px;
   height: 50vw;
   width: 150vh;
@@ -79,9 +12,10 @@ head::after {
   -moz-filter:blur(4px);
   -webkit-filter:blur(4px);
   animation-name: example;
-  animation-duration: 10s;
-  animation-timing-function: ease;
+  animation-duration: 25s;
+  animation-timing-function: linear;
   animation-iteration-count: infinite;
+  mix-blend-mode: overlay;
 }
 
 @keyframes example {
@@ -95,8 +29,9 @@ head::after {
 
 .blob2 {
     border-radius: 70% 30% 30% 70% / 10% 70% 30% 90%;
-    position: relative;
+    position: absolute;
     right: 10px;
+    z-index:auto;
     height: 50vw;
     width: 150vh;
     background-color: rgb(128, 0, 128, 0.5);
@@ -106,17 +41,170 @@ head::after {
     -moz-filter:blur(4px);
     -webkit-filter:blur(4px);
     animation-name: example2;
-    animation-duration: 10s;
-    animation-timing-function: ease;
+    animation-duration: 35s;
+    animation-timing-function: linear;
     animation-iteration-count: infinite;
-    mix-blend-mode: multiply;
+    mix-blend-mode: overlay;
   }
 
   @keyframes example2 {
     0% {background-color: rgba(0, 128, 28, 0.2);
-    border-radius: 70% 30% 30% 70% / 10% 70% 30% 90%; }
+    border-radius: 70% 30% 30% 70% / 46% 70% 30% 55%; }
     50% {background-color:  rgba(128, 0, 128, 0.2);
     border-radius: 73% 27% 53% 47% / 59% 75% 25% 41% ; }
     100% {background-color: rgba(0, 128, 28, 0.2);
     border-radius: 70% 30% 30% 70% / 10% 70% 30% 90%; }
   }
+
+  .blob3 {
+    border-radius: 30% 70% 70% 30% / 90% 30% 70% 10%;
+    position: absolute;
+    z-index: auto;
+    top: 15px;
+    right: 40px;
+    height: 70vw;
+    width: 60vh;
+    background-color: rgb(128, 0, 128, 0.5);
+    filter:blur(4px);
+    -o-filter:blur(4px);
+    -ms-filter:blur(4px);
+    -moz-filter:blur(4px);
+    -webkit-filter:blur(4px);
+    animation-name: example;
+    animation-duration: 15s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    mix-blend-mode: normal;
+  }
+  
+  @keyframes example {
+    0% {background-color: rgba(128, 0, 128, 0.2);
+    border-radius: 27% 15% 82% 40% / 75% 22% 63% 35%; }
+    50% {background-color: rgba(0, 128, 28, 0.2);
+    border-radius: 62% 30% 77% 32% / 22% 87% 18% 12% ; }
+    100% {background-color: rgba(128, 0, 128, 0.2);
+    border-radius: 27% 15% 82% 40% / 75% 22% 63% 35%; }
+  }
+
+/* 
+.area{
+  background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
+  width: 100%;
+  height:100vh;  
+ 
+}
+
+.circles{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.circles li{
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  animation: animate 25s linear infinite;
+  bottom: -150px;
+  
+}
+
+.circles li:nth-child(1){
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+
+
+.circles li:nth-child(2){
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+
+.circles li:nth-child(3){
+  left: 70%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 4s;
+}
+
+.circles li:nth-child(4){
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+
+.circles li:nth-child(5){
+  left: 65%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+}
+
+.circles li:nth-child(6){
+  left: 75%;
+  width: 110px;
+  height: 110px;
+  animation-delay: 3s;
+}
+
+.circles li:nth-child(7){
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 7s;
+}
+
+.circles li:nth-child(8){
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  animation-delay: 15s;
+  animation-duration: 45s;
+}
+
+.circles li:nth-child(9){
+  left: 20%;
+  width: 15px;
+  height: 15px;
+  animation-delay: 2s;
+  animation-duration: 35s;
+}
+
+.circles li:nth-child(10){
+  left: 85%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+  animation-duration: 11s;
+}
+
+
+
+@keyframes animate {
+
+  0%{
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+      border-radius: 0;
+  }
+
+  100%{
+      transform: translateY(-1000px) rotate(720deg);
+      opacity: 0;
+      border-radius: 50%;
+  }
+
+} */
