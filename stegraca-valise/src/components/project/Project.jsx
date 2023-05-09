@@ -47,7 +47,7 @@ export default function Project(props) {
           }
           return (
               <Card className='project-card m-1 px-3' style={props.portOpen ? {width: '18rem'} : {width: '10rem'}} onMouseEnter={() => handleCards(work.name, work.id, work.techTags)} onClick={() => handleProjectClick(work)}>
-                <Card.Img className = 'card-image' variant="top" src={require(`./images/${work.image}`)} />
+                <Card.Img className = 'card-image' variant="top" src={require(`./images/${work.logo}`)} />
                   <Card.Body className={props.portOpen ? 'd-block' : 'd-none'} key={work.id}>
                     <Card.Title>{work.name}</Card.Title>
                     <Card.Text>{work.shortDesc}</Card.Text>

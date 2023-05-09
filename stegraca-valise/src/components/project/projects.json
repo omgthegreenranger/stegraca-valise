@@ -5,30 +5,36 @@
                 "id": 1,
                 "name": "Astrono-MyDashboard",
                 "shortDesc": "Astronomy dashboard to provide positional stargazing information",
-                "description": "Project #1 for the Fullstack Bootcamp - I and my team of three built an astronomy dashboard to provide positional stargazing information.",
+                "midDesc": "A quick and dirty group project from the UofT Fullstack Bootcamp, our team of three built a single-page website that leveraged NASA and Astronomy.com's open RESTful API resources for a news stream, space photo of the day, and positional starcharts of the night sky.\nWhen accessing the site, the user can provide site access to location data, select a celestial body, and the API will generate a detailed map of the sky on wear to find the body.",
+                "projDesc": "Built during the early days of our bootcamp, our first major group assignment was to create a single page website that used JavaScript, and a third-party open API to give a user access to information.\nThis was our first assignment; we were still getting our bearings as developers, and this was our initial effort as a team. The concept was mine, and so I was the apparent project manager. Under the watchful eye of our instructors, we each took an aspect of the page to build in the four days we had.\nOne team member worked on the news feed, the other built the photo of the day and employed tailwind as CSS styling. I took the starchart system.\nThe product is a pretty decent website for the speed at which we pushed it out. There is always room for improvement, but the foundation is solid. This is absolutely due to the hard work of my teammates, who spent a great deal of time unifying the interface while I struggled with an unfamiliar API.",
                 "appLink": "https://omgthegreenranger.github.io/Astrono-MyDashboard/",
                 "gitLink": "https://github.com/omgthegreenranger/Astrono-MyDashboard",
-                "image": "astronomy-logo.png",
+                "logo": "astronomy-logo.png",
+                "screenshots": ["astronomy.png", "astronomy-2.png"],
                 "techTags": ["JS", "MySQL", "Tailwind"]
             },
             {
                 "id": 2,
                 "name": "Muntil Countdown Calendar",
                 "shortDesc": "A countdown calendar for the time-blind neurospicy among us!",
-                "description": "Project #2 for the Fullstack Bootcamp - our team built the initial MVP of a countdown-calendar to help neurospicy (like myself) navigate Time Blindness. The concept is to reframe events by priority rather than deadlines.",
+                "midDesc": "Project #2 for the Fullstack Bootcamp - our team built the initial MVP of a countdown-calendar to help neurospicy (like myself) navigate Time Blindness. The concept is to reframe events by priority rather than deadlines.",
+                "projDesc": "",
                 "appLink": "#",
                 "gitLink": "https://github.com/omgthegreenranger/tbc",
-                "image": "muntil-logo.png",
+                "logo": "muntil-logo.png",
+                "screenshots": ["accesscal.png"],
                 "techTags": ["React", "JavaScript", "Bootstrap", "Handlebars"]
             },
             {
                 "id": 3,
                 "name": "The Pupscale Barkery",
                 "shortDesc": "A scalable CRM to sell dog treats and toys!",
-                "description": "Project #3 for the Fullstack Bootcamp - our team built the initial MVP of a countdown-calendar to help neurospicy (like myself) navigate Time Blindness. The concept is to reframe events by priority rather than deadlines.",
+                "midDesc": "Project #3 for the Fullstack Bootcamp - our team built the initial MVP of a countdown-calendar to help neurospicy (like myself) navigate Time Blindness. The concept is to reframe events by priority rather than deadlines.",
+                "projDesc": "",
                 "appLink": "https://theospetbakery.herokuapp.com/",
                 "gitLink": "https://github.com/omgthegreenranger/pupscale-barkery",
-                "image": "pupscale-logo.png",
+                "logo": "pupscale-logo.png",
+                "screenshots": [],
                 "techTags": ["React", "JavaScript", "Bootstrap", "Handlebars"]
                 }
     ]

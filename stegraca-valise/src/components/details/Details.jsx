@@ -1,43 +1,80 @@
 import React, {useState, useEffect} from 'react';
-import {Container, Col, Row, Button, Modal} from 'react-bootstrap';
+import {Container, Col, Row, Button, ListGroup, ListGroupItem, Collapse, Stack} from 'react-bootstrap';
 import './details.css';
 import { IconContext } from 'react-icons';
-import { RxExternalLink, RxInfoCircled, RxGithubLogo } from 'react-icons/rx';
-import { DiGithub } from 'react-icons/di';
+import { RxExternalLink, RxInfoCircled, RxGithubLogo, RxCross1 } from 'react-icons/rx';
+import { run as runHolder } from 'holderjs/holder';
 
 export default function Details(props) {
+    const [open, setOpen] = useState(false);
     let work = props.projectData;
     const clearProjects = () => {
         props.setProjectData()
         props.setPortOpen(true)
     }
+    useEffect(() => {
+        runHolder('image-class-name'); });
+
     return (
         <>
-        <Container className="d-column details-view h-100">
-            <Row>
-                <Col><h3>{work.name}</h3></Col><Col className="d-flex icon-box"><IconContext.Provider value={{size: '3rem', color: 'white', className: 'link-icons'}}><RxGithubLogo /> <RxExternalLink /> <RxInfoCircled /></IconContext.Provider>
+
+<Container className="d-column details-view w-75">
+    <Row>
+        <Col xs={3}>
+            <div>
+                <img className = 'card-image' alt="Project Logo" src={require(`../project/images/${work.logo}`)} /></div>
+        <Stack gap={1}>
+        {work.screenshots.map((screenshot) => {
+            console.log(`../project/images/${screenshot}`);
+            return(
+            <img alt="Project Screenshot" src={require(`../project/images/${screenshot}`)} />
+        )})}
+        </Stack>
+        </Col>
+        <Col>
+            <Row className="project-title">
+                <Col>
+                    <span className="name-title">{work.name}</span>
+                    <IconContext.Provider value={{size: '3rem', className: 'link-icons'}}>
+                        <a href={work.gitLink}><RxGithubLogo /></a>
+                        <a href={work.appLink}><RxExternalLink /></a>
+                    </IconContext.Provider>
+                </Col>
+                <Col className="d-flex icon-box">
+                    <IconContext.Provider value={{size: '3rem', className: 'link-icons'}}>
+                        <span onClick={clearProjects}><RxCross1 /></span>
+                    </IconContext.Provider>
                 </Col>
             </Row>
-            <Row>
-                <Col xs={2}>
-                    <div className="picture-stack"></div>
-                </Col>
-                <Col xs={8}>
+            <Row className="project-meat h-75">
+                <Col xs={9} className="project-descs">
                     <Row>
-                        {work.description}
+                        {work.midDesc}
                     </Row>
-                    <Row>
-                        <div><Button type="reset" onClick={clearProjects}>Clear</Button></div>
+                    <Row className="project-desc" >
+                        <Collapse in={open}>
+                            <Row id="project-description">
+                                {work.projDesc}
+                            </Row>
+                        </Collapse>
+                        <div>
+                            <Button onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>Read more</Button>
+                        </div>
                     </Row>
                 </Col>
-                <Col xs={2}>
+                <Col xs={3} className="tech-stack">
+                    <span>Tech Stack</span>
+                    <ListGroup>
                     {work.techTags.map((tag) => {
                     return(
-                        <Row>{tag}</Row>
+                        <ListGroup.Item>{tag}</ListGroup.Item>
                     )})}
+                    </ListGroup>
                 </Col>
             </Row>
-        </Container>
+        </Col>
+    </Row>
+</Container>
         </>
     )
 }

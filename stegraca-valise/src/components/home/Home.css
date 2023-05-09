@@ -14,7 +14,7 @@
     border-radius: 10px;
     margin: 10px;
     padding: 10px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 svg {
@@ -53,4 +53,9 @@ svg {
 .carousel-inner .carousel-item-right,
 .carousel-inner .carousel-item-left{ 
   transform: translateX(0);
+}
+
+.my-name {
+    font-weight:bolder;
+    font-size:5rem;
 }

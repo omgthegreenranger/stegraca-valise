@@ -12,14 +12,26 @@ export default function Background() {
 // Create algorithm to fill only certain div elements on container.
     return (
         <>
-<svg height="400" width="1000">
-    <defs>
-    <filter id="f1" x="0" y="0">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
-    </filter>
-    </defs>
-  <circle className="background-circle" cx="1000" cy="200" r="75" stroke="purple" stroke-width="-3" fill="green" filter="url(#f1)" />
-</svg>
+        <div>
+<div className="blob"></div>
+<div className="blob2"></div>
+<div className="blog3"></div>
+        </div>
+{/* 
+<div class="area" >
+            <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div > */}
         </>
     )
 }

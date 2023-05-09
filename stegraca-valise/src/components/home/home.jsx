@@ -21,29 +21,32 @@ function Profile() {
         <>
                 <Row className="d-flex justify-content-between">
                     <Col xs={1}>
-                        <NavBar />
                     </Col>
-                    <Col className="offset-md-1">
+                    <Col xs={10}>
                         <Row>
+                            {/* <Col xs={3}>
+                                <figure>
+                                <img src={ProfilePic} className="profile-img" alt="Profile of the developer" />
+                                </figure>
+                            </Col> */}
                             <Col>
-                        <figure>
-                        <img src={ProfilePic} className="profile-img" alt="Profile of the developer" />
-                        </figure>
-                        </Col>
-                        <Col>
-                        <h1>STEPHEN</h1><br />
-                        <h1>CARDIE</h1><br />
-                        <h2>Fullstack Web Developer</h2>
-                        </Col>
+                                <Row>
+                                    <span className="my-name">STEPHEN CARDIE</span>
+                                    <span className="d-inline-flex position">Fullstack Web Developer</span>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                    </Col>
+                                    
+                                    <Col className="mx-2 profile-card" xs={3}>
+                                        <p>STEPHEN CARDIE is a fullstack web developer as a second career.</p>
+                                        <p>Spending over a decade on the client-facing side of tech, it became very apparent that his motivation was about creating tools to make the job easier.</p>
+                                        <p>Eventually, he had to take the plunge and do that full-time.</p>
+                                        <p>He is available for support work, code refactoring, or to help you build that feature.</p>
+                                    </Col>
+                                </Row>
+                            </Col>
                         </Row>
-                    </Col>
-                    <Col xs={5}>
-                        <div className="mx-2 profile-card">
-                        <p>STEPHEN CARDIE is a fullstack web developer as a second career.</p>
-                        <p>Spending over a decade on the client-facing side of tech, it became very apparent that his motivation was about creating tools to make the job easier.</p>
-                        <p>Eventually, he had to take the plunge and do that full-time.</p>
-                        <p>He is available for support work, code refactoring, or to help you build that feature.</p>
-                        </div>
                     </Col>
                     <Col xs={1}>
                     </Col>
