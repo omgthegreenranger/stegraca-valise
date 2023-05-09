@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {Container, Col, Row, Button, ListGroup, ListGroupItem} from 'react-bootstrap';
+import {Container, Col, Row, Button, ListGroup, ListGroupItem, Collapse, Stack} from 'react-bootstrap';
 import './details.css';
 import { IconContext } from 'react-icons';
 import { RxExternalLink, RxInfoCircled, RxGithubLogo, RxCross1 } from 'react-icons/rx';
 import { run as runHolder } from 'holderjs/holder';
 
 export default function Details(props) {
+    const [open, setOpen] = useState(false);
     let work = props.projectData;
     const clearProjects = () => {
         props.setProjectData()
@@ -16,28 +17,52 @@ export default function Details(props) {
 
     return (
         <>
-        <Container className="d-column details-view w-75">
+
+<Container className="d-column details-view w-75">
+    <Row>
+        <Col xs={3}>
+            <div>
+                <img className = 'card-image' alt="Project Logo" src={require(`../project/images/${work.logo}`)} /></div>
+        <Stack gap={1}>
+        {work.screenshots.map((screenshot) => {
+            console.log(`../project/images/${screenshot}`);
+            return(
+            <img alt="Project Screenshot" src={require(`../project/images/${screenshot}`)} />
+        )})}
+        </Stack>
+        </Col>
+        <Col>
             <Row className="project-title">
-                <Col><h3>{work.name}</h3></Col>
-                <Col className="d-flex icon-box"><IconContext.Provider value={{size: '3rem', color: 'white', className: 'link-icons'}}><a href={work.gitLink}><RxGithubLogo /></a> <a href={work.appLink}><RxExternalLink /></a><span onClick={clearProjects}><RxCross1 /></span></IconContext.Provider>
+                <Col>
+                    <span className="name-title">{work.name}</span>
+                    <IconContext.Provider value={{size: '3rem', className: 'link-icons'}}>
+                        <a href={work.gitLink}><RxGithubLogo /></a>
+                        <a href={work.appLink}><RxExternalLink /></a>
+                    </IconContext.Provider>
+                </Col>
+                <Col className="d-flex icon-box">
+                    <IconContext.Provider value={{size: '3rem', className: 'link-icons'}}>
+                        <span onClick={clearProjects}><RxCross1 /></span>
+                    </IconContext.Provider>
                 </Col>
             </Row>
-            <Row className="project-meat">
-                <Col xs={3}>
-                    <div className="picture-stack">
-                        <img className = 'card-image' src={require(`../project/images/${work.logo}`)} />
-                        <img src="holder.js/100px150p" />
-                    </div>
-                </Col>
-                <Col xs={7}>
+            <Row className="project-meat h-75">
+                <Col xs={9} className="project-descs">
                     <Row>
                         {work.midDesc}
                     </Row>
-                    <Row>
-                        <div><Button type="reset" onClick={clearProjects}>Clear</Button></div>
+                    <Row className="project-desc" >
+                        <Collapse in={open}>
+                            <Row id="project-description">
+                                {work.projDesc}
+                            </Row>
+                        </Collapse>
+                        <div>
+                            <Button onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>Read more</Button>
+                        </div>
                     </Row>
                 </Col>
-                <Col xs={2} className="tech-stack">
+                <Col xs={3} className="tech-stack">
                     <span>Tech Stack</span>
                     <ListGroup>
                     {work.techTags.map((tag) => {
@@ -47,7 +72,9 @@ export default function Details(props) {
                     </ListGroup>
                 </Col>
             </Row>
-        </Container>
+        </Col>
+    </Row>
+</Container>
         </>
     )
 }

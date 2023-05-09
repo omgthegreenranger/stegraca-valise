@@ -7,6 +7,8 @@
 }
 
 .link-icons {
+    cursor:pointer;
+    color:black;
 }
 
 .project-title {
@@ -14,8 +16,24 @@
     margin: 1rem;
 }
 
+.project-descs {
+    overflow-y: auto;
+}
+
 .project-meat {
     padding: 1rem;
+    white-space: pre-line;
+    vertical-align: bottom;
+}
+
+.project-desc {
+    padding-top: 2em;
+}
+
+.name-title {
+    font-size: 2rem;
+    color: black;
+    font-weight: bolder;
 }
 
 .icon-box {
@@ -23,6 +41,9 @@
 }
 
 .picture-stack {
+    object-fit: contain;
+    aspect-ratio: 1.5/1;
+    width: 100%
 }
 
 .tech-stack {
@@ -32,5 +53,19 @@
 .card-image {
     object-fit: contain;
     aspect-ratio: 1.5/1;
-    margin: 0%;
+    margin-bottom: 5%;
+    width: 100%
+}
+
+.link-icons:hover{
+    color:white;
+}
+
+.read-more {
+    color: black;
+    border-radius: 0.5rem;
+    background-color: grey;
+    cursor: pointer;
+    padding: 0.25rem;
+    margin: 1rem;
 }

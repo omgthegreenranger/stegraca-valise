@@ -6,12 +6,7 @@ const App = () =>{
     return (
         <>
         <div className="main" width="100%">
-            <div className="foreground">
             <Valise />
-            </div>
-            <div className="background">
-            <Background />
-            </div>
         </div>
         </>
         )
