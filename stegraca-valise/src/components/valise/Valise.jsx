@@ -1,10 +1,10 @@
 import './Valise.css';
 import React, {useState} from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { Home, NavBar, Header, Projects, Details, Bio } from '../index';
+import { Home, Projects, Bio } from '../index';
 
 export default function Valise(props) { 
-    //define our global states
+    // destructure our global states from props
     const { portOpen, setPortOpen } = props;
 
 console.log(portOpen);
@@ -14,8 +14,8 @@ console.log(portOpen);
                     <Home />
                 </Row>
                 <Row>
-                    <Col className='d-flex portfolio-container'>
-                            <Projects />
+                    <Col className='d-flex portfolio-container offset-md-1' xs={7}>
+                            <Projects portOpen={portOpen} setPortOpen={setPortOpen} />
                     </Col>
                     <Col className="profile-card" xs={3}>
                         <Bio />

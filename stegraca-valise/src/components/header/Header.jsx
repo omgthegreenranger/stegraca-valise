@@ -9,11 +9,11 @@ export default function Head() {
     return(
     <>
         <header className="d-row">
-            <Row className="d-flex justify-content-space-between">
-                <Col className="d-flex header-block justify-content-flex-start">
+            <Row className="d-flex m-0 justify-content-space-between">
+                <Col className="d-flex header-block p-0 justify-content-flex-start">
                     <div className="header-text"><span className="ste">STE</span><span className="gra">GRA</span><span className="ca">.CA</span></div>
                 </Col>
-                <Col className="d-flex justify-content-end">
+                <Col className="d-flex p-0 justify-content-end">
                     <div>
                         <span className="nav-btn" id="github" ><SiGithub /></span>
                         <span className="nav-btn" id="linkedin" ><SiLinkedin /></span>
