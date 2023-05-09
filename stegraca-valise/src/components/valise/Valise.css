@@ -1,17 +1,6 @@
 .valise-container {
     height: 100%;
-    padding-left: 0px;
-}
-.valise-block {
-    background-color: darkgrey;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-}
-
-.profile-container {
-
+    width: 100%;
 }
 
 .portfolio-container {

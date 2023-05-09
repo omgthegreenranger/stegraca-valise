@@ -1,5 +1,4 @@
 .project-card {
-    background-color:gray;
     border: 5px solid #000000;
     border-radius: 10px;
     cursor: pointer;
@@ -20,7 +19,7 @@
 
 .project-pane {
     display: flex;
-    background: rgb(71, 71, 71, .5);
+    /* background: rgb(71, 71, 71, .5); */
     flex-direction: column;
     height: fit-content;
     
@@ -29,7 +28,7 @@
 .project-stack { 
     display: inline-flex;
     flex-direction: row;
-    justify-content: center; 
+    justify-content: left; 
     height: fit-content;
 }
 

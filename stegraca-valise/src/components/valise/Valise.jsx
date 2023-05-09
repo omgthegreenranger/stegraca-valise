@@ -1,26 +1,25 @@
 import './Valise.css';
 import React, {useState} from 'react';
-import { Container, Row } from 'react-bootstrap';
-import { Home, NavBar, Header, Projects, Details } from '../index';
+import { Container, Row, Col } from 'react-bootstrap';
+import { Home, NavBar, Header, Projects, Details, Bio } from '../index';
 
-export default function Valise({valisePage}) { 
-    const [portOpen, setPortOpen] = useState(true);
-    const [projectData, setProjectData] = useState();
+export default function Valise(props) { 
+    //define our global states
+    const { portOpen, setPortOpen } = props;
+
 console.log(portOpen);
     return (
-        <>
-            <Container className="valise-container d-flex flex-column justify-content-between" fluid>
-                <Row className='header-container'>
-                    <Header />
-                </Row>
-                <Row className='my-4 profile-container'>
-                    {projectData == null ? <Home /> : <Details setPortOpen={setPortOpen} portOpen={portOpen} projectData={projectData} setProjectData={setProjectData}/>}
+            <Container className="valise-container d-flex flex-column" fluid>
+                <Row className='profile-container'>
+                    <Home />
                 </Row>
                 <Row>
-                    <div className='d-flex px-0 portfolio-container' fluid>
-                        <Projects setPortOpen={setPortOpen} portOpen={portOpen} projectData={projectData} setProjectData={setProjectData} />
-                    </div>
+                    <Col className='d-flex portfolio-container'>
+                            <Projects />
+                    </Col>
+                    <Col className="profile-card" xs={3}>
+                        <Bio />
+                    </Col>
                 </Row>
             </Container>
-</>
     )}
