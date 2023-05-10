@@ -17,8 +17,13 @@ console.log(portOpen);
                     <Col className='d-flex portfolio-container offset-md-1' xs={7}>
                             <Projects portOpen={portOpen} setPortOpen={setPortOpen} />
                     </Col>
-                    <Col className="profile-card" xs={3}>
+                    <Col xs={3}>
+                        <Row className="profile-card" >
                         <Bio />
+                        </Row>
+                        <Row className="h">
+
+                        </Row>
                     </Col>
                 </Row>
             </Container>

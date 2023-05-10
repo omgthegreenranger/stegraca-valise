@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Project.css';
 import {Row, Col, Container, Card} from 'react-bootstrap';
 import { DiCss3, DiHeroku, DiHtml5, DiJsBadge, DiBootstrap, DiMongodb, DiMysql, DiGithub, DiReact } from 'react-icons/di';
@@ -45,8 +45,8 @@ export default function Project(props) {
   return (
 
     <Container className='d-flex project-pane w-100' fluid>
-      <Row onClick={() => handlePortOpen()}>
-          <TechLine portOpen={portOpen} tagList={tags} />
+      <Row>
+          <TechLine tagList={tags} />
       </Row>
       <Row>
       {portOpen ? 
@@ -57,14 +57,31 @@ export default function Project(props) {
     }
 
 function TechLine(props) {
-  console.log("This is the TechLine", props.tagList);
+  let techList = [
+    {tech: "MongoDB", icon: <DiMongodb />},
+    {tech: "MySQL", icon: <DiMysql />},
+    {tech: "CSS", icon:<DiCss3 />},
+    {tech: "HTML", icon:<DiHtml5 />},
+    {tech: "JavaScript", icon:<DiJsBadge />},
+    {tech: "Bootstrap", icon:<DiBootstrap />},
+    {tech: "React", icon: <DiReact />}
+  ]
 
+  console.log(techList);
       return (
         <>
-          <Col className='d-flex justify-content-left'>
-            <IconContext.Provider value={{size: '4.5rem', className: 'tech-icons' }}>
-              <span id="MongoDB"><DiMongodb /></span><span id="MySQL"><DiMysql /></span><span id="css"><DiCss3 /></span> <span id="heroku"><DiHeroku /></span><span id="html"><DiHtml5 /></span><span id="JS"><DiJsBadge /></span><span id="bootstrap"><DiBootstrap /></span><span id="react"><DiReact /></span>
-            </IconContext.Provider>
+          <Col className='tech-block d-flex justify-content-left'>
+             {techList.map((tech) => {
+              let techClass = "";
+              for (let i = 0; props.tagList.length > i; i++) {  
+                if (props.tagList[i] === tech.tech) {
+                  techClass = "tech-used"
+                }
+              }
+              console.log(techClass);
+             return(
+                <span className={`tech-icons ${techClass}`}>{tech.icon}</span>
+             )})}
           </Col>
         </>
         )
@@ -76,7 +93,7 @@ function ProjectStack(props) {
   <div className="project-stack">
     {works.map((work) => {
       return (
-          <Card className="project-card px-0" onMouseEnter={() => handleCards(work.techTags)} onClick={() => handleProjectClick(work)}>
+          <Card className="project-card px-0" onMouseEnter={() => handleCards(work.techTags)} onMouseLeave={() => handleCards([])} onClick={() => handleProjectClick(work)}>
             <Card.Img className = 'card-image' variant="top" src={require(`./images/${work.logo}`)} />
               <Card.Body className='d-block' key={work.id}>
                 <Card.Title>{work.name}</Card.Title>

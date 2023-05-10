@@ -22,7 +22,7 @@ export default function Details(props) {
     return (
         <>
                 {work ? 
-    <Container className="d-column details-view w-75">
+    <Container className="d-column details-view">
             <Row>
                 <Col xs={3}>
                     <div>

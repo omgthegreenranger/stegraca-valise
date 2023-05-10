@@ -11,7 +11,7 @@
                 "gitLink": "https://github.com/omgthegreenranger/Astrono-MyDashboard",
                 "logo": "astronomy-logo.png",
                 "screenshots": ["astronomy.png", "astronomy-2.png"],
-                "techTags": ["JS", "MySQL", "Tailwind"]
+                "techTags": ["JavaScript", "MySQL", "Tailwind"]
             },
             {
                 "id": 2,
@@ -35,7 +35,7 @@
                 "gitLink": "https://github.com/omgthegreenranger/pupscale-barkery",
                 "logo": "pupscale-logo.png",
                 "screenshots": [],
-                "techTags": ["React", "JavaScript", "Bootstrap", "Handlebars"]
+                "techTags": ["React", "JavaScript", "Bootstrap"]
                 }
     ]
 }   

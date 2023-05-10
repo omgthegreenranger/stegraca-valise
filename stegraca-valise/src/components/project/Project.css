@@ -21,7 +21,6 @@
     display: flex;
     /* background: rgb(71, 71, 71, .5); */
     flex-direction: column;
-    height: fit-content;
     
 }
 
@@ -34,8 +33,10 @@
 }
 
 .tech-icons {
+    display: flex;
     font-size: 4.5rem;
     color: white;
+
 }
 
 .footerIcons {
@@ -45,10 +46,8 @@
 
 .tech-icons:hover {
     color: green;
-    border: yellowgreen;
-    box-shadow: inset 1px -1px 20px 5px white, 0px -3px 10px 7px white;
+    stroke: 1px yellowgreen;
     border-radius: 1rem;
-
 }
 
 
@@ -62,4 +61,8 @@
 
 #css {
     color: yellow;
+}
+
+.tech-used {
+    color:blue;
 }

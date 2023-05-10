@@ -12,11 +12,11 @@ export default function Background() {
 // Create algorithm to fill only certain div elements on container.
     return (
         <>
-        <div>
+        {/* <div>
 <div className="blob"></div>
 <div className="blob2"></div>
 <div className="blog3"></div>
-        </div>
+        </div> */}
 {/* 
 <div class="area" >
             <ul class="circles">
