@@ -41,8 +41,8 @@ export default function Details(props) {
                         <Col>
                             <span className="name-title">{work.name}</span>
                             <IconContext.Provider value={{size: '3rem', className: 'link-icons'}}>
-                                <a href={work.gitLink}><RxGithubLogo /></a>
-                                <a href={work.appLink}><RxExternalLink /></a>
+                                <a href={work.gitLink} target="_blank"><RxGithubLogo /></a>
+                                <a href={work.appLink} target="_blank"><RxExternalLink /></a>
                             </IconContext.Provider>
                         </Col>
                         <Col className="d-flex icon-box">
@@ -74,6 +74,13 @@ export default function Details(props) {
                             return(
                                 <ListGroup.Item>{tag}</ListGroup.Item>
                             )})}
+                            </ListGroup>
+                            <span>Contributing team</span>
+                            <ListGroup>
+                                {work.team.map((mem) => {
+                                return(
+                                    <ListGroup.Item><a href={mem.url} target="_blank">{mem.name}</a></ListGroup.Item>
+                                )})}
                             </ListGroup>
                         </Col>
                     </Row>

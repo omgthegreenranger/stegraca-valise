@@ -11,7 +11,10 @@
                 "gitLink": "https://github.com/omgthegreenranger/Astrono-MyDashboard",
                 "logo": "astronomy-logo.png",
                 "screenshots": ["astronomy.png", "astronomy-2.png"],
-                "techTags": ["JavaScript", "MySQL", "Tailwind"]
+                "techTags": ["JavaScript", "MySQL", "Tailwind"],
+                "team": [
+                    {"name": "Jinhui Hu", "url": "https://github.com/jhu8480"},
+                    {"name": "YaroslavVolvach", "url":"https://github.com/YaroslavVolvach"}]
             },
             {
                 "id": 2,
@@ -23,7 +26,9 @@
                 "gitLink": "https://github.com/omgthegreenranger/tbc",
                 "logo": "muntil-logo.png",
                 "screenshots": ["accesscal.png"],
-                "techTags": ["React", "JavaScript", "Bootstrap", "Handlebars"]
+                "techTags": ["React", "JavaScript", "Bootstrap", "Handlebars"],
+                "team": [{"name": "Thomas Calle", "url": "https://github.com/ThomasCalle"},
+                {"name": "Stefan Marinov", "url": "https://github.com/scorpionfiko"}]
             },
             {
                 "id": 3,
@@ -35,7 +40,9 @@
                 "gitLink": "https://github.com/omgthegreenranger/pupscale-barkery",
                 "logo": "pupscale-logo.png",
                 "screenshots": [],
-                "techTags": ["React", "JavaScript", "Bootstrap"]
+                "techTags": ["React", "JavaScript", "Bootstrap"],
+                "team": [{"name":"Rebecca Lawrence", "url":""},
+                {"name":"Cassandra Watson", "url":""}]
                 }
     ]
 }   

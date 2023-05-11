@@ -11,7 +11,7 @@ export default function Head() {
         <header className="d-row">
             <Row className="d-flex m-0 justify-content-space-between">
                 <Col className="d-flex header-block p-0 justify-content-flex-start">
-                    <div className="header-text"><span className="ste">STE</span><span className="gra">GRA</span><span className="ca">.CA</span></div>
+                    <div className="header-text"><span className="ste">STE</span><span className="phen">phen</span><span className="gra">GRA</span><span className="ca">.CA</span></div>
                 </Col>
                 <Col className="d-flex p-0 justify-content-end">
                     <div>

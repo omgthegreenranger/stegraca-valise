@@ -38,6 +38,12 @@ header.div {
     color: black;
 }
 
+.phen {
+    color: blue;
+    animation-duration: 5s;
+    animation-name: name-dissolve ;
+}
+
 .gra {
     color:yellow;
 }
@@ -52,4 +58,9 @@ header.div {
 
 .position {
     justify-content: right;
+}
+
+@keyframes name-dissolve {
+    0% {opacity: 1; display: inline-block;}
+    100% { opacity: 0; display: none;} 
 }
