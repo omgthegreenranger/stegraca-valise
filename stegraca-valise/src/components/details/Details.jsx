@@ -45,7 +45,7 @@ export default function Details(props) {
                                 <a href={work.appLink} target="_blank"><RxExternalLink /></a>
                             </IconContext.Provider>
                         </Col>
-                        <Col className="d-flex icon-box">
+                        <Col className="d-flex icon-box" xs={1}>
                             <IconContext.Provider value={{size: '3rem', className: 'link-icons'}}>
                                 <span onClick={clearProjects}><RxCross1 /></span>
                             </IconContext.Provider>
