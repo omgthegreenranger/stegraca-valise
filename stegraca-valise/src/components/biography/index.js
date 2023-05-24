@@ -1,1 +1,1 @@
-export {default} from './Biography';
+export { default} from './Biography';

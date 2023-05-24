@@ -18,12 +18,12 @@ console.log(portOpen);
                             <Projects portOpen={portOpen} setPortOpen={setPortOpen} />
                     </Col>
                     <Col xs={3}>
-                        <Row className="profile-card" >
+                        {/* <Row className="profile-card" > */}
                         <Bio />
-                        </Row>
-                        <Row className="h">
+                        {/* </Row> */}
+                        {/* <Row className="h"> */}
 
-                        </Row>
+                        {/* </Row> */}
                     </Col>
                 </Row>
             </Container>

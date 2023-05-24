@@ -2,10 +2,15 @@
 
 .bio-block {
     font-size: small;
+    background-color:rgba(44, 44, 44, 0.582);
+    color:white;
+    padding: 1rem;
+    border-radius:1rem;
+    border: 4px purple ridge;
 }
 
 .title-line {
-    color: black;
+    color: white;
     font-size:large;
     font-weight: bolder;
 }
