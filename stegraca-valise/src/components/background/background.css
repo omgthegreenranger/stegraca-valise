@@ -1,4 +1,4 @@
-.area{
+/* .area{
   background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
   width: 100%;
   z-index: -1;
@@ -118,12 +118,4 @@
       border-radius: 50%;
   }
 
-}
-.parent {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  /* background-color: purple; */
-}
+} */

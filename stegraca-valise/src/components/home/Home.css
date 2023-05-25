@@ -55,8 +55,28 @@ svg {
   transform: translateX(0);
 }
 
-.my-name {
+.stephen {
     font-weight:bolder;
     font-size:8rem;
     margin-left: 1rem;
+    color:white;
+}
+
+.cardie {
+    font-weight:bolder;
+    font-size:8rem;
+    margin-left: 1rem;
+    color: white;
+}
+
+.role {
+    color:white;
+    transform:rotate(45 23 22);
+}
+
+.logo {
+    display: flex;
+    width: 10px;
+    height: auto;
+    justify-content: center;
 }

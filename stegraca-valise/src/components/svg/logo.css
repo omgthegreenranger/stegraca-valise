@@ -1,0 +1,54 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Monomaniac+One&family=Rubik+Mono+One&display=swap');
+
+.text-line {
+    width:fit-content;
+}
+
+.text-line text {
+    font-family: 'Rubik Mono One', sans-serif;
+    stroke: yellow;
+    font-size:5.8rem;
+    stroke-width: 4;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: dash 0.8s linear forwards, filling 1s ease-in forwards;
+}
+  
+@keyframes dash {
+to {
+    stroke-dashoffset: 9;
+}
+}
+
+@keyframes filling {
+from{
+    fill-opacity: 0;
+}
+to {
+    fill-opacity: 1;
+}
+}
+
+.stegra {
+    font-family: 'Monomaniac One', sans-serif;
+    fill: yellow;
+    font-size: 2rem;
+}
+
+.title {
+    fill: yellow;
+    font-weight: bolder;
+    font-size: 2rem;
+    transform: rotate(-25deg);
+    text-shadow: 0 0 10px rgb(255, 255, 255);
+    stroke: black;
+    stroke-width:1px;
+}
+
+#title-block {
+    transform: rotate(-25deg);}
+
+#shield {
+
+}

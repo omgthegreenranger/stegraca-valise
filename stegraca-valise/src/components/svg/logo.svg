@@ -1,0 +1,40 @@
+<svg
+  width="800"
+  height="500"
+  viewBox="00 00 800 500"
+  xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <radialGradient id="Gradient1" x1="0" x2="0" y1="0.1" y2="1">
+            <stop offset="0%" stop-color="purple" />
+            <stop offset="50%" stop-color="lightblue" stop-opacity="1" />
+            <stop offset="100%" stop-color="green" />
+        </radialGradient>
+        <linearGradient id="Gradient2" x1="0" x2="0" y1="0.1" y2="1">
+            <stop offset="0%" stop-color="lightblue" />
+            <stop offset="50%" stop-color="purple" stop-opacity="1" />
+            <stop offset="100%" stop-color="plum" />
+        </linearGradient>
+    </defs>
+    <link rel="stylesheet" href="logo.css" type="text/css" />
+    <g className="shield-build">
+        <polygon points="400 500, 90 65, 270 65, 323 34, 478 34, 530 65, 710 65" fill="url(#Gradient1)" />
+        <polygon className="shield" points="400 490, 100 70, 275 70, 325 40, 475 40, 525 70, 700 70" fill="url(#Gradient2)" />
+        <polygon points= "325 90, 300 80, 300 60, 332 45, 468 45, 500 60, 500 80, 475 90" fill="black" />
+        <text x="400" y="85" fill="yellow" font-size="30" className="stegra">STEGRACA.CA</text>
+    </g>
+    <g className="name-build">
+        <!-- <ellipse cx="150" cy="250" rx="150" ry="50" fill="white" stroke="black" stroke-width="1px" /> -->
+        <g className="text-line">
+            <text x="00" y="275" stroke="black">STEPHEN CARDIE</text>
+        </g>
+    </g>
+    
+    <g>
+        <!-- <text x="200" y="600" fill="yellow" font-size="50" transform="rotate(-25,250,400)">Fullstack Developer</text> -->
+    </g>
+    <g>
+        <rect width="800" height="100%" stroke="black" fill="transparent" stroke-width="1px" />
+        <rect width="50%" height="100%" stroke="black" fill="transparent" stroke-width="1px" />
+        <rect width="800" height="50%" stroke="black" fill="transparent" stroke-width="1px" />
+    </g>
+</svg>

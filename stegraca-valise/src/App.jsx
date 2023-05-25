@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './App.css';
 import './components/background/background.css';
+import './App.css';
 import { Valise, Header } from './components';
 
 const App = () =>{
@@ -12,38 +12,19 @@ const App = () =>{
 
     return (
         <>
-        <div className="main" fluid>
+<div className="parent">
+</div >
+        <div fluid>
                     <Header />
                     <Valise portOpen={portOpen} setPortOpen={setPortOpen}/>
                     <div className="d-inline-flex safe-space justify-content-center">
                         <span className="retained">WATCH THIS SPACE</span>
                     </div>
         </div>
-
-        <div class="area">
-            <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
+        <div className="perspective-container">
+            <div className="bottom-background">
+        </div>
+        </div>
         </>
         )
 }
