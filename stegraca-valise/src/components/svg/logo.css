@@ -9,10 +9,11 @@
     font-family: 'Rubik Mono One', sans-serif;
     stroke: yellow;
     font-size:5.8rem;
-    stroke-width: 4;
+    stroke-width: 2.5;
     stroke-dasharray: 500;
     stroke-dashoffset: 500;
-    animation: dash 0.8s linear forwards, filling 1s ease-in forwards;
+    animation: dash 0.8s linear forwards, filling 1s ease-in-out forwards;
+    fill:url(#Gradient3);
 }
   
 @keyframes dash {
