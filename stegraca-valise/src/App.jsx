@@ -17,9 +17,6 @@ const App = () =>{
         <div fluid>
                     <Header />
                     <Valise portOpen={portOpen} setPortOpen={setPortOpen}/>
-                    <div className="d-inline-flex safe-space justify-content-center">
-                        <span className="retained">WATCH THIS SPACE</span>
-                    </div>
         </div>
         <div className="perspective-container">
             <div className="bottom-background">

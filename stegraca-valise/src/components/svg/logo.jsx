@@ -1,5 +1,9 @@
 
 import './logo.css';
+import { MdMail, MdSimCardDownload } from 'react-icons/md';
+import { SiMastodon, SiLinkedin, SiGithub } from 'react-icons/si';
+import {IconContext} from 'react-icons';
+
 
 
 export function Logo() {
@@ -57,11 +61,39 @@ export function Logo() {
     >
         <text x="-35" y="150" className="title">Fullstack Developer</text>
     </svg>
-    {/* <g>
-        <rect width="800" height="100%" stroke="black" fill="transparent" stroke-width="1px" />
-        <rect width="50%" height="100%" stroke="black" fill="transparent" stroke-width="1px" />
-        <rect width="800" height="50%" stroke="black" fill="transparent" stroke-width="1px" />
-    </g> */}
+    <svg
+    id="left-icons"
+    width="250"
+    height="80"
+    x="100"
+    y="400"
+    viewBox="00 00 250 80">
+        <IconContext.Provider value={{size: '65', color: 'white'}}>
+            <SiGithub x="0"/>
+        </IconContext.Provider>
+        <IconContext.Provider value={{size: '65', color: 'white'}}>
+            <SiLinkedin x="75"/>
+        </IconContext.Provider>
+        <IconContext.Provider value={{size: '65', color: 'white'}}>
+            <SiMastodon x="150" />
+        </IconContext.Provider>    
+    </svg>
+    <svg id="right-icons"
+    width="250"
+    height="80"
+    x="500"
+    y="400"
+    viewBox="00 00 250 80">
+        <IconContext.Provider value={{size: '65', color: 'white'}}>
+            <MdMail x="0"/>
+        </IconContext.Provider>
+        <IconContext.Provider value={{size: '65', color: 'white'}}>
+            <MdSimCardDownload x="75" />
+        </IconContext.Provider>        <IconContext.Provider value={{size: '65', color: 'white'}}>
+            <MdSimCardDownload x="150" />
+        </IconContext.Provider> 
+
+    </svg>
 </svg>
     )
 }

@@ -10,11 +10,10 @@ return(
     <>
 
     <div className="bio-block">
-        <span className="title-line">In 202X...</span>
+        <div className="title-line">In 202X...</div>
+        <br />
         <p>STEPHEN CARDIE embarked on a second career as a fullstack web developer.</p>
-        <p>Spending over a decade on the client-facing side of tech, it became very apparent that his motivation was about creating tools to make the job easier than it was doing the job.</p>
-        <p>Eventually, he had to take the plunge and do that full-time.</p>
-        <p>He is available for support work, code refactoring, or to help you build that feature.</p>
+        <p>He is available for support work, code refactoring, or to help you build that new app to make lives easier.</p>
     </div>
     </>
 )
