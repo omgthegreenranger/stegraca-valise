@@ -1,8 +1,5 @@
 .App {
   text-align: center;
-  height: 100%;
-  background: rgb(0,100,00);
-  background: radial-gradient(circle, rgba(0,100,00,1) 0%, rgba(95,9,121,1) 100%, rgba(18,0,36,1) 100%);
 }
 
 .App-logo {
@@ -41,14 +38,16 @@
 }
 
 .main {  
-
+  display: flex;
+  flex-direction: column;
+  background: rgb(0,100,00);
+  height: 100vh;
 }
 
-.safe-space {
-  height: 10vh;
-  width: 100%;
-
+.background {
+  position: absolute;
 }
+
 
 .retained {
   margin:auto;

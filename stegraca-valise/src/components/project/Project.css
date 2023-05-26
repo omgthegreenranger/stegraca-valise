@@ -2,8 +2,6 @@
     box-shadow: 0px 0px 1px #000000;
     border-radius: 10px;
     cursor: pointer;
-    width: 18rem;
-    margin: 1rem;
 }
 
 .project-card:hover {
@@ -21,6 +19,7 @@
     display: flex;
     /* background: rgb(71, 71, 71, .5); */
     flex-direction: column;
+    width: 75%;
     
 }
 
@@ -70,4 +69,9 @@
 
 .tech-used {
     color:blue;
+}
+
+.carousel-container {
+    width: 100%;
+    height: auto;
 }

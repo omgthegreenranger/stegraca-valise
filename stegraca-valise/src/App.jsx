@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import './components/background/background.css';
-import { Valise, Header } from './components';
+import { Valise, Header, Footer } from './components';
 
 const App = () =>{
 
@@ -12,38 +11,11 @@ const App = () =>{
 
     return (
         <>
-        <div className="main" fluid>
+        <div className="main">
                     <Header />
                     <Valise portOpen={portOpen} setPortOpen={setPortOpen}/>
-                    <div className="d-inline-flex safe-space justify-content-center">
-                        <span className="retained">WATCH THIS SPACE</span>
-                    </div>
+                    <Footer />
         </div>
-
-        <div class="area">
-            <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
         </>
         )
 }

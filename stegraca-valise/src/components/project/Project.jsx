@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './Project.css';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import {Row, Col, Container, Card} from 'react-bootstrap';
 import { DiCss3, DiHeroku, DiHtml5, DiJsBadge, DiBootstrap, DiMongodb, DiMysql, DiGithub, DiReact } from 'react-icons/di';
 import { RxCaretLeft, RxCaretRight, RxExternalLink, RxInfoCircled } from 'react-icons/rx';
@@ -44,14 +46,14 @@ export default function Project(props) {
 
   return (
 
-    <Container className='d-flex project-pane w-100' fluid>
+    <Container className='d-flex project-pane'>
       <Row>
           <TechLine tagList={tags} />
       </Row>
-      <Row>
+      <div>
       {portOpen ? 
         <ProjectStack  works={works} portOpen={portOpen} setPortOpen={setPortOpen} handleCards={handleCards} handleProjectClick={handleProjectClick} /> : <Details projectData={projectData} setProjectData={setProjectData} portOpen={portOpen} setPortOpen={setPortOpen}/>}
-      </Row>
+      </div>
     </Container>
         )
     }
@@ -89,18 +91,63 @@ function TechLine(props) {
 
 function ProjectStack(props) {
   const {works, portOpen, setPortOpen, handleCards, handleProjectClick} = props;
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 1,
+      slidesToSlide: 2,
+      partialVisibilityGutter: 40 // this is needed to tell the amount of px that should be visible.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+      partialVisibilityGutter: 40 // this is needed to tell the amount of px that should be visible.
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+      partialVisibilityGutter: 40 // this is needed to tell the amount of px that should be visible.
+    }
+  };
+
   return (
-  <div className="project-stack">
+    <Carousel 
+      swipeable={false}
+      draggable={false}
+      showDots={true}
+      responsive={responsive}
+      ssr={true} // means to render carousel on server-side.
+      infinite={true}
+      autoPlaySpeed={1000}
+      keyBoardControl={true}
+      customTransition="all .5"
+      transitionDuration={500}
+      containerClass="carousel-container"
+      removeArrowOnDeviceType={["tablet", "mobile"]}
+      dotListClass="custom-dot-list-style"
+      itemClass="project-card">
     {works.map((work) => {
       return (
-          <Card className="project-card px-0" onMouseEnter={() => handleCards(work.techTags)} onMouseLeave={() => handleCards([])} onClick={() => handleProjectClick(work)}>
-            <Card.Img className = 'card-image' variant="top" src={require(`./images/${work.logo}`)} />
-              <Card.Body className='d-block' key={work.id}>
-                <Card.Title>{work.name}</Card.Title>
-                <Card.Text>{work.shortDesc}</Card.Text>
-              </Card.Body>
-          </Card>
+        <div onMouseEnter={() => handleCards(work.techTags)} onMouseLeave={() => handleCards([])} onClick={() => handleProjectClick(work)}>
+          <img
+          className="card-image"
+            src={require(`./images/${work.logo}`)} 
+            alt="First slide"
+          />
+            <h3>{work.name}</h3>
+            <p>{work.shortDesc}</p>
+        </div>
+
+          // <Card className="project-card px-0" onMouseEnter={() => handleCards(work.techTags)} onMouseLeave={() => handleCards([])} onClick={() => handleProjectClick(work)}>
+      
       )})}
-</div>
+      </Carousel>
   )
 }

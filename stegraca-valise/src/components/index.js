@@ -5,6 +5,6 @@ import Background from './background';
 import Home from './home';
 import Header from './header'
 import Details from './details';
-import Bio from './biography';
+import Footer from './footer';
 
-export { Header, Home, Valise, Projects, Details, NavBar, Background, Bio };
+export { Header, Home, Valise, Projects, Details, NavBar, Background, Footer};
