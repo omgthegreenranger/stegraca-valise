@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 
 .bio-block {
     font-size: normal;
+    font-family: 'Press Start 2P', cursive;
     background-color:rgba(44, 44, 44, 0.582);
     color:white;
     padding: 1rem;

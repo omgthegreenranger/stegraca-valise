@@ -42,7 +42,6 @@ export function Logo() {
                 <text x="220" y="50" className="stegra" textLength="190">STEGRACA.CA</text>
         </svg>
     <g className="name-build">
-        <ellipse cx="250" cy="150" rx="250" ry="75" fill="transparent" stroke="black" stroke-width="3px" />
         <g className="text-line">
             <text x="00" y="190" stroke="black" textLength="63%">STEPHEN</text> 
             <text x="320" y="275" stroke="black" textLength="60%">CARDIE</text>

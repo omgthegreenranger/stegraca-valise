@@ -14,13 +14,13 @@ console.log(portOpen);
                     <Home />
                 </Row>
                 <Row>
-                    <Col className='d-flex portfolio-container offset-md-1' xs={7}>
+                    {/* <Col className='d-flex portfolio-container offset-md-1' xs={7}>
                             <Projects portOpen={portOpen} setPortOpen={setPortOpen} />
-                    </Col>
-                    <Col xs={3}>
+                    </Col> */}
+                    <div className="d-flex justify-content-center">
 
                         <Bio />
-                    </Col>
+                    </div>
                 </Row>
             </Container>
     )}
