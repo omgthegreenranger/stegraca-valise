@@ -12,17 +12,31 @@
 
 .valise-name {
     font-weight:bolder;
-    font-size:8vw;
+    font-size:7em;
     fill:white;
     dominant-baseline: hanging;
 }
 
+.bio-box {
+    width: 75%;
+}
+
 .splash {
     justify-items: center;
+    width:75%;
+    height:auto;
 }
 
 .splash-position {
     fill:white;
-    float:right;
-    font-size: 2vw;
+    font-size: 2rem;
+    dominant-baseline: hanging;
+}
+
+.splash-portfolio {
+    font-weight:bolder;
+    fill:white;
+    font-size: 2rem;
+    text-anchor:end;
+    dominant-baseline: hanging;
 }

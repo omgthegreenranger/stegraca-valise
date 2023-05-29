@@ -1,7 +1,7 @@
-
-
 .bio-block {
-    font-size: small;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.13);
+    padding: 0.5em;
 }
 
 .title-line {

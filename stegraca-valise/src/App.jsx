@@ -6,14 +6,13 @@ const App = () =>{
 
     // Let's set some global states for this app
     // Determine state of portfolio display
-    const [portOpen, setPortOpen] = useState(true)
 
 
     return (
         <>
         <div className="main">
                     <Header />
-                    <Valise portOpen={portOpen} setPortOpen={setPortOpen}/>
+                    <Valise />
                     <Footer />
         </div>
         </>
