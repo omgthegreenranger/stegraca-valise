@@ -5,11 +5,25 @@ import { Projects, NavBar, Bio } from "../index";
 export default function Valise(props) {
   // destructure our global states from props
   const [navi, setNavi] = useState("none");
+    let splashClass;
+    let naviHeight;
+
+    if(navi == "none") {
+        splashClass = "splash-closed"
+    } else if (navi == "about") {
+        splashClass = "splash-open"
+    } else if (navi == "portfolio") {
+        splashClass = "splash-open"
+    }
+    console.log(splashClass)
 
   return (
     <div className="valise-container">
-      <Splash navi={navi} setNavi={setNavi} />
-      <Panel navi={navi} />
+        <div className={`splash ${splashClass}`}>
+            <Splash navi={navi} setNavi={setNavi} />
+            <NavBar navi={navi} setNavi={setNavi} />
+        </div>
+      <Panel navi={navi} setNavi={setNavi} />
     </div>
   );
 }
@@ -17,7 +31,6 @@ export default function Valise(props) {
 function Splash(props) {
     const {navi, setNavi} = props;
   return (
-    <div className="splash">
         <div className="splash-logo">
           <svg
             width="100%"
@@ -34,26 +47,34 @@ function Splash(props) {
             <line x1="50" y1="130" x2="900" y2="130" stroke="white" />
           </svg>
         </div>
-        <NavBar navi={navi} setNavi={setNavi} />
-    </div>
+
   );
 }
 
 function Panel(props) {
-    const { navi } = props;
+    const { navi, setNavi } = props;
+    const handleBack = () => {
+        setNavi("none");
+    }
     const Display = () => { 
     switch(navi) {
         case "about":
             return(
+                <>
                 <div className="display-panel">
+                <div onClick={handleBack}>Back</div>
                     <Bio />
                 </div>
+                </>
             )
         case "portfolio":
             return(
+                <>
                 <div className="display-panel">
+                    <div onClick={handleBack}>Back</div>
                     <Projects /> 
                 </div>
+                </>
             )
         default:
             return(
@@ -64,6 +85,5 @@ function Panel(props) {
 }
     return (
             <Display />
-
     )
 }
