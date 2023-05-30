@@ -1,14 +1,12 @@
 .valise-container {
     display: flex;
+    flex-direction: column;
     height: 100%;
     width: 100%;
-    justify-content: center;
     align-items: center;
+    justify-content: space-evenly;
 }
 
-/* .portfolio-container {
-    height:fit-content;
-} */
 
 .valise-name {
     font-weight:bolder;
@@ -17,11 +15,16 @@
     dominant-baseline: hanging;
 }
 
-.bio-box {
-    width: 75%;
+.splash {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
-.splash {
+.splash-logo {
     justify-items: center;
     width:75%;
     height:auto;
@@ -39,4 +42,13 @@
     font-size: 2rem;
     text-anchor:end;
     dominant-baseline: hanging;
+}
+
+
+.display-panel {
+    display: flex;
+    align-content:flex-start;
+    height: 100%;
+    width: 100%;
+    justify-content:center;
 }

@@ -1,6 +1,5 @@
 import "./Valise.css";
 import React, { useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
 import { Projects, NavBar, Bio } from "../index";
 
 export default function Valise(props) {
@@ -8,17 +7,18 @@ export default function Valise(props) {
   const [navi, setNavi] = useState("none");
 
   return (
-    <>
+    <div className="valise-container">
       <Splash navi={navi} setNavi={setNavi} />
-    </>
+      <Panel navi={navi} />
+    </div>
   );
 }
 
 function Splash(props) {
     const {navi, setNavi} = props;
   return (
-    <div className="valise-container" fluid>
-        <div className="splash">
+    <div className="splash">
+        <div className="splash-logo">
           <svg
             width="100%"
             height="100%"
@@ -33,8 +33,37 @@ function Splash(props) {
             </text>
             <line x1="50" y1="130" x2="900" y2="130" stroke="white" />
           </svg>
-            <NavBar navi={navi} setNavi={setNavi} />
         </div>
+        <NavBar navi={navi} setNavi={setNavi} />
     </div>
   );
+}
+
+function Panel(props) {
+    const { navi } = props;
+    const Display = () => { 
+    switch(navi) {
+        case "about":
+            return(
+                <div className="display-panel">
+                    <Bio />
+                </div>
+            )
+        case "portfolio":
+            return(
+                <div className="display-panel">
+                    <Projects /> 
+                </div>
+            )
+        default:
+            return(
+                <></>
+            )
+
+    }
+}
+    return (
+            <Display />
+
+    )
 }

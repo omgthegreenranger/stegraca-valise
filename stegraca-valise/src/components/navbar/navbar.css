@@ -1,13 +1,14 @@
-span {
-    color: aliceblue;
-    text-decoration: none;    
-}
-
 .nav-block {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-evenly;
-    height: 5vw;
+    height: 3em;
+    width: 75%;
+}
+
+.nav-bar {
+    display: inline;
+    justify-content:center;
 }
 
 .link-block {

@@ -1,66 +1,6 @@
 header {
     height: 5vh;
+    background: darkgreen;
+    width: 100%;
 }
 
-header.div {
-    margin-top: auto;
-    margin-bottom: auto;   
-}
-
-.spacer-block {
-    height: 6vh;
-}
-
-.header-text {
-    font-size: 1rem;
-    background-color: green;
-    border-radius: 0.5rem;
-    margin: 0.5rem;
-    padding: 0.5rem;
-    border: 0.1rem solid yellow;
-}
-
-.sitename {
-    font-size: 1rem;
-}
-
-.halfname {
-    font-size: 1rem;
-
-}
-
-.headblock {
-    width:fit-content;
-    
-}
-
-.ste {
-    color: black;
-}
-
-.phen {
-    color: blue;
-    animation-duration: 5s;
-    animation-name: name-dissolve ;
-}
-
-.gra {
-    color:yellow;
-}
-
-.ca {
-    color: black;
-}
-
-.name {
-    font-size:6rem;
-}
-
-.position {
-    justify-content: right;
-}
-
-@keyframes name-dissolve {
-    0% {opacity: 1; display: inline-block;}
-    100% { opacity: 0; display: none;} 
-}

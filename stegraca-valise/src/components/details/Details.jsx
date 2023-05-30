@@ -26,7 +26,7 @@ export default function Details(props) {
             <Row>
                 <Col xs={3}>
                     <div>
-                        <img className = 'card-image' alt="Project Logo" src={require(`../project/images/${work.logo}`)} /></div>
+                        <img className = 'card-image-details' alt="Project Logo" src={require(`../project/images/${work.logo}`)} /></div>
                 <Stack gap={1}>
                     {work.screenshots.map((screenshot) => {
                         console.log(`../project/images/${screenshot}`);

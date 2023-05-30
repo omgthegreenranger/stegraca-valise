@@ -5,7 +5,6 @@ import "./biography.css";
 export default function Bio() {
   return (
     <>
-      <div>
         <div className="bio-block">
           <p>STEPHEN CARDIE is a fullstack web developer as a second career.</p>
           <p>
@@ -19,7 +18,6 @@ export default function Bio() {
             build that feature.
           </p>
         </div>
-      </div>
     </>
   );
 }

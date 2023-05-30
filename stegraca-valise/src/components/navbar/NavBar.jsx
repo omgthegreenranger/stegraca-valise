@@ -35,7 +35,6 @@ export default function NavBar(props) {
         </div>
         <div>
           <div className="nav-bar">
-            <div className="icons">
             <IconContext.Provider value={{ size: "2em" }}>
               <a href="http://www.github.com/omgthegreenranger">
               <span
@@ -88,7 +87,6 @@ export default function NavBar(props) {
               </span>
               </a>
             </IconContext.Provider>
-            </div>
           </div>
             <div className="nav-title">{isShown}</div>
         </div>

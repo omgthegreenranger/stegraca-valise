@@ -50,7 +50,7 @@
     border-left: 1px solid black;
 }
 
-.card-image {
+.card-image-details {
     object-fit: contain;
     aspect-ratio: 1.5/1;
     margin-bottom: 5%;
