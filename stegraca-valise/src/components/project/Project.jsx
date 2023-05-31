@@ -2,33 +2,14 @@ import React, { useState, useEffect } from "react";
 import "./Project.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Row, Col, Container, Card } from "react-bootstrap";
-import {
-  DiCss3,
-  DiHeroku,
-  DiHtml5,
-  DiJsBadge,
-  DiBootstrap,
-  DiMongodb,
-  DiMysql,
-  DiGithub,
-  DiReact,
-} from "react-icons/di";
-import {
-  RxCaretLeft,
-  RxCaretRight,
-  RxExternalLink,
-  RxInfoCircled,
-} from "react-icons/rx";
-import { IconContext } from "react-icons";
 import projectDB from "../project/projects.json";
 import { Details } from "../index";
 
 export default function Project(props) {
   // set the state as needed
+  const {tags, setTags} = props;
   const [portOpen, setPortOpen] = useState(true);
   const [projectData, setProjectData] = useState();
-  const [tags, setTags] = useState([]);
   const [index, setIndex] = useState(0);
 
   // define variables
@@ -59,7 +40,6 @@ export default function Project(props) {
 
   return (
     <div className="project-pane">
-      <TechLine tagList={tags} />
       {portOpen ? (
         <ProjectStack
           works={works}
@@ -76,34 +56,6 @@ export default function Project(props) {
           setPortOpen={setPortOpen}
         />
       )}
-    </div>
-  );
-}
-
-function TechLine(props) {
-  let techList = [
-    { tech: "MongoDB", icon: <DiMongodb /> },
-    { tech: "MySQL", icon: <DiMysql /> },
-    { tech: "CSS", icon: <DiCss3 /> },
-    { tech: "HTML", icon: <DiHtml5 /> },
-    { tech: "JavaScript", icon: <DiJsBadge /> },
-    { tech: "Bootstrap", icon: <DiBootstrap /> },
-    { tech: "React", icon: <DiReact /> },
-  ];
-
-  console.log(techList);
-  return (
-    <div className="tech-block">
-      {techList.map((tech) => {
-        let techClass = "";
-        for (let i = 0; props.tagList.length > i; i++) {
-          if (props.tagList[i] === tech.tech) {
-            techClass = "tech-used";
-          }
-        }
-        console.log(techClass);
-        return <span className={`tech-icons ${techClass}`}>{tech.icon}</span>;
-      })}
     </div>
   );
 }

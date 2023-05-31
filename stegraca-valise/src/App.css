@@ -42,13 +42,13 @@
   flex-direction: column;
   background: rgb(0,100,00);
   height: 100vh;
-  position: fixed;
   width: 100vw;
   align-items: center;
+  overflow: hidden;
 }
 
 .background {
-  position: absolute;
+  /* position: absolute; */
 }
 
 

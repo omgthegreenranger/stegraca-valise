@@ -1,15 +1,14 @@
 .nav-block {
     display: flex;
     flex-wrap: nowrap;
-    align-items: flex-end;
-    height: 3em;
-    width: 75%;
-    justify-content: flex-end;
+    width: 100%;
 }
 
 .nav-bar {
-    display: inline;
+    display: inline-flex;
     justify-content:flex-end;
+    list-style:none;
+    margin-bottom: 0;
 }
 
 .link-block {
@@ -24,7 +23,6 @@
 .nav-btn {
     color: aliceblue;
     text-decoration: none;
-    background-color:darkgreen;
     padding: 0.5rem;
 }
 
@@ -34,7 +32,6 @@
 }
 
 .nav-title {
-    text-align:center;
     font-size: 1.5vw;
     color:white;
     font-weight: bold;
