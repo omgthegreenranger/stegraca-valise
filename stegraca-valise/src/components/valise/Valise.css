@@ -4,7 +4,7 @@
     height: 100%;
     width: 100%;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 
@@ -23,16 +23,14 @@
 }
 
 .splash-closed {
-    height: 100%;
+    height: auto;
     justify-content: center;
-    transition: width ease-in 0.2s, height ease-in 0.2s;
 }
 
 .splash-open {
     height: auto;
     width:50%;
     justify-content: flex-start;
-    transition: width ease-in 0.2s, height ease-in 0.2s;
 }
 
 .splash-logo {

@@ -28,12 +28,13 @@ export default function NavBar(props) {
   return (
     <>
       <div className="nav-block">
-        <div className="link-block">
+        {/* <div className="link-block">
             <div className="link-text" onClick={() => setNavi("about")}>
               About
             </div>
-        </div>
+        </div> */}
         <div>
+        <div className="nav-title">{isShown}</div>
           <div className="nav-bar">
             <IconContext.Provider value={{ size: "2em" }}>
               <a href="http://www.github.com/omgthegreenranger">
@@ -88,13 +89,12 @@ export default function NavBar(props) {
               </a>
             </IconContext.Provider>
           </div>
-            <div className="nav-title">{isShown}</div>
         </div>
-        <div className="link-block">
+        {/* <div className="link-block">
           <div className="link-text" onClick={() => setNavi("portfolio")}>
             Portfolio
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

@@ -1,6 +1,24 @@
 import "./Valise.css";
 import React, { useState } from "react";
 import { Projects, NavBar, Bio } from "../index";
+import {
+    DiCss3,
+    DiHeroku,
+    DiHtml5,
+    DiJsBadge,
+    DiBootstrap,
+    DiMongodb,
+    DiMysql,
+    DiGithub,
+    DiReact,
+  } from "react-icons/di";
+  import {
+    RxCaretLeft,
+    RxCaretRight,
+    RxExternalLink,
+    RxInfoCircled,
+  } from "react-icons/rx";
+  import { IconContext } from "react-icons";
 
 export default function Valise(props) {
   // destructure our global states from props
@@ -20,8 +38,8 @@ export default function Valise(props) {
   return (
     <div className="valise-container">
         <div className={`splash ${splashClass}`}>
-            <Splash navi={navi} setNavi={setNavi} />
             <NavBar navi={navi} setNavi={setNavi} />
+            <Splash navi={navi} setNavi={setNavi} />
         </div>
       <Panel navi={navi} setNavi={setNavi} />
     </div>
@@ -83,7 +101,19 @@ function Panel(props) {
 
     }
 }
+
+
     return (
+        <>
+        <div className="link-block">
+            <div className="link-text" onClick={() => setNavi("about")}>
+                About
+            </div>
+            <div className="link-text" onClick={() => setNavi("portfolio")}>
+                Portfolio
+            </div>
+        </div>
             <Display />
+            </>
     )
 }
