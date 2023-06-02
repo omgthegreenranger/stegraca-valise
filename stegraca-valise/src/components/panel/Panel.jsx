@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./panel.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { IoLogoJavascript } from "react-icons/io";
 import {
   DiCss3,
   DiHeroku,
@@ -13,6 +14,17 @@ import {
   DiGithub,
   DiReact,
 } from "react-icons/di";
+import {
+    SiJavascript,
+    SiCss3,
+    SiBootstrap,
+    SiGithub,
+    SiHeroku,
+    SiHtml5,
+    SiMongodb,
+    SiMariadb,
+    SiReact
+ } from "react-icons/si";
 import {
   RxCaretLeft,
   RxCaretRight,
@@ -73,13 +85,13 @@ export default function Panel(props) {
 
 function TechLine(props) {
     let techList = [
-      { tech: "MongoDB", icon: <DiMongodb /> },
-      { tech: "MySQL", icon: <DiMysql /> },
-      { tech: "CSS", icon: <DiCss3 /> },
-      { tech: "HTML", icon: <DiHtml5 /> },
-      { tech: "JavaScript", icon: <DiJsBadge /> },
-      { tech: "Bootstrap", icon: <DiBootstrap /> },
-      { tech: "React", icon: <DiReact /> },
+        { tech: "CSS", icon: <SiCss3 /> },
+        { tech: "JavaScript", icon: <SiJavascript /> },
+        { tech: "HTML", icon: <SiHtml5 /> },
+        { tech: "Bootstrap", icon: <SiBootstrap /> },
+        { tech: "React", icon: <SiReact /> },
+        { tech: "MongoDB", icon: <SiMongodb /> },
+        { tech: "MySQL", icon: <SiMariadb /> }
     ];
   
     console.log(techList);

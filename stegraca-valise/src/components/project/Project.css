@@ -22,14 +22,11 @@
 
 
 .tech-icons {
+    width:auto;
     display: flex;
-    font-size: 4.5rem;
+    font-size: 4.5cqw;
     color: white;
-    -webkit-transition-duration: 0.4s;
-    -moz-transition-duration: 0.4s;
-    -o-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-
+    padding: 0.5rem;
 }
 
 .footerIcons {
@@ -42,6 +39,10 @@
     stroke: 1px yellowgreen;
     border-radius: 1rem;
     transform: scale(1.1);
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
 }
 
 
@@ -60,6 +61,10 @@
 .tech-used {
     color:yellow;
     transform: scale(1.1);
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
 }
 
 .tech-block {

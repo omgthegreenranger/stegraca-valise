@@ -12,6 +12,7 @@
 }
 
 .link-block {
+    container-type: inline-size;
     display: inline-flex;
     color: white;
     padding-left: 10px;

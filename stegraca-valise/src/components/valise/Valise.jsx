@@ -33,29 +33,25 @@ function Splash(props) {
     const {navi, setNavi} = props;
   return (
         // <div className="splash-logo">
-        //   <svg
-        //     width="100%"
-        //     height="100%"
-        //     viewBox="0 0 948 135"
-        //     xmlns="http //www.w3.org/2000/svg"
-        //   >
-        //     <text x="50" y="0" class="splash-position">
-        //       Fullstack Web Developer
-        //     </text>
-        //     <text x="0" y="25" font-width="900px" class="valise-name">
-        //       STEPHEN CARDIE
-        //     </text>
-        //     <line x1="50" y1="130" x2="900" y2="130" stroke="white" />
-        //   </svg>
+        //     <div className="splash-logo-top">
+        //         <div className="splash-position">Fullstack Web Developer</div>
+        //         <div><NavBar navi={navi} setNavi={setNavi} /></div>
+        //     </div>
+        //     <div>
+        //         <h1 className="splash-name">STEPHEN CARDIE</h1>
+        //     </div>
         // </div>
-        <div className="splash-logo">
-            <div className="splash-logo-top">
-                <div className="splash-position">Fullstack Web Developer</div>
-                <div><NavBar navi={navi} setNavi={setNavi} /></div>
-            </div>
-            <div>
+        // <div className="splash-logo">
+        <>
+            <div className="splash-name-block">
                 <h1 className="splash-name">STEPHEN CARDIE</h1>
             </div>
-        </div>
+                <div className="splash-logo-top">
+                    <div className="splash-position">Fullstack Web Developer</div>
+                <div><NavBar navi={navi} setNavi={setNavi} /></div>
+                </div>
+</>
+        // </div>
+    
   );
 }
