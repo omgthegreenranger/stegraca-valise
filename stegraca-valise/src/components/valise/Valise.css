@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
     position:absolute;
-    animation:forwards 0.2s;
+    transition: flex-direction 0.2s;
 
 }
 .valise-container-open {
@@ -19,7 +19,7 @@
     align-items: center;
     justify-content: flex-start;
     position:absolute;
-    animation:forwards 0.2s;
+    transition: flex-direction 0.2s;
 }
 
 .panel {
@@ -73,6 +73,7 @@
 
 .splash-closed {
     justify-content: center;
+    transition: 2s;
 }
 
 .splash-open {
@@ -87,6 +88,7 @@
     right: 0;
     padding: 0.5em;
     align-items:flex-start;
+    transition: 2s, position 2s;
 
 }
 
