@@ -1,10 +1,10 @@
-.nav-block {
+/* .nav-block {
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
     align-items:center;
     flex-direction: row;
-}
+} */
 
 .nav-open {
     flex-direction: column-reverse;

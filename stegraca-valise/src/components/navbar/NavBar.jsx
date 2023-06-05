@@ -27,7 +27,7 @@ export default function NavBar(props) {
 
   return (
     <>
-      <div className={`nav-block nav-${splashClass}`}>
+      {/* <div className={`nav-${splashClass}`}> */}
         <div className="nav-title">{isShown}</div>
             <ul className="nav-bar">
             <IconContext.Provider value={{ size: "2em" }}>
@@ -83,7 +83,7 @@ export default function NavBar(props) {
               </a>
             </IconContext.Provider>
             </ul>
-      </div>
+      {/* </div> */}
     </>
   );
 }

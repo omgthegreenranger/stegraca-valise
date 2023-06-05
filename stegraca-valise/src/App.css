@@ -38,6 +38,7 @@
 }
 
 .main {  
+  container-type: size;
   display: flex;
   flex-direction: column;
   background: rgb(0,100,00);
@@ -45,6 +46,7 @@
   width: 100vw;
   align-items: center;
   overflow: hidden;
+  justify-content: center;
 }
 
 .background {

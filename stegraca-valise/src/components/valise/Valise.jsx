@@ -17,10 +17,8 @@ export default function Valise(props) {
     console.log(splashClass)
 
   return (
-    <div className={`valise-container-${splashClass}`}>
-        <div className={`splash splash-${splashClass}`}>
+    <div className={`valise-container`}>
             <Splash navi={navi} setNavi={setNavi} splashClass={splashClass} />
-        </div>
         <div className="panel">
             <Panel navi={navi} setNavi={setNavi} splashClass={splashClass} />
         </div>
@@ -32,15 +30,14 @@ function Splash(props) {
     const {navi, setNavi, splashClass} = props;
   return (
         <>
-            <div className={`splash-name-block block-${splashClass}`}>
+            <div className={`splash-position position-${splashClass}`}>
+                <span className="position-string">Fullstack Web Developer</span>
+            </div>
+            <div className={`splash splash-${splashClass}`}>
                 <h1 className={`splash-name name-${splashClass}`}>STEPHEN CARDIE</h1>
             </div>
-                <div className={`splash-logo-top logo-${splashClass}`}>
-                    <div className={`splash-position position-${splashClass}`}>Fullstack Web Developer</div>
-                <div><NavBar navi={navi} setNavi={setNavi} splashClass={splashClass} /></div>
-                </div>
-</>
-        // </div>
+            <div className="nav-block"><NavBar navi={navi} setNavi={setNavi} splashClass={splashClass} /></div>
+        </>
     
   );
 }
