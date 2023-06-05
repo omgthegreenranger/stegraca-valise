@@ -45,15 +45,15 @@ export default function Panel(props) {
         case "about":
             return(
                 <>
-                <div onClick={handleBack}>Back</div>
                     <Bio />
+                    <div onClick={handleBack}>Back</div>
                 </>
             )
         case "portfolio":
             return(
                 <>
-                    <div onClick={handleBack}>Back</div>
                     <Projects tags={tags} setTags={setTags} /> 
+                    <div onClick={handleBack}>Back</div>
                 </>
             )
         default:

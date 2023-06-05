@@ -8,47 +8,36 @@ export default function Valise(props) {
     let naviHeight;
 
     if(navi == "none") {
-        splashClass = "splash-closed"
+        splashClass = "closed"
     } else if (navi == "about") {
-        splashClass = "splash-open"
+        splashClass = "open"
     } else if (navi == "portfolio") {
-        splashClass = "splash-open"
+        splashClass = "open"
     }
     console.log(splashClass)
 
   return (
-    <div className="valise-container">
-        <div className={`splash ${splashClass}`}>
-            {/* <NavBar navi={navi} setNavi={setNavi} /> */}
-            <Splash navi={navi} setNavi={setNavi} />
+    <div className={`valise-container-${splashClass}`}>
+        <div className={`splash splash-${splashClass}`}>
+            <Splash navi={navi} setNavi={setNavi} splashClass={splashClass} />
         </div>
         <div className="panel">
-            <Panel navi={navi} setNavi={setNavi} />
+            <Panel navi={navi} setNavi={setNavi} splashClass={splashClass} />
         </div>
     </div>
   );
 }
 
 function Splash(props) {
-    const {navi, setNavi} = props;
+    const {navi, setNavi, splashClass} = props;
   return (
-        // <div className="splash-logo">
-        //     <div className="splash-logo-top">
-        //         <div className="splash-position">Fullstack Web Developer</div>
-        //         <div><NavBar navi={navi} setNavi={setNavi} /></div>
-        //     </div>
-        //     <div>
-        //         <h1 className="splash-name">STEPHEN CARDIE</h1>
-        //     </div>
-        // </div>
-        // <div className="splash-logo">
         <>
-            <div className="splash-name-block">
-                <h1 className="splash-name">STEPHEN CARDIE</h1>
+            <div className={`splash-name-block block-${splashClass}`}>
+                <h1 className={`splash-name name-${splashClass}`}>STEPHEN CARDIE</h1>
             </div>
-                <div className="splash-logo-top">
-                    <div className="splash-position">Fullstack Web Developer</div>
-                <div><NavBar navi={navi} setNavi={setNavi} /></div>
+                <div className={`splash-logo-top logo-${splashClass}`}>
+                    <div className={`splash-position position-${splashClass}`}>Fullstack Web Developer</div>
+                <div><NavBar navi={navi} setNavi={setNavi} splashClass={splashClass} /></div>
                 </div>
 </>
         // </div>

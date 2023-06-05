@@ -1,22 +1,36 @@
-.valise-container {
+/* Top CSS rules */
+
+.valise-container-closed {
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 100%;
     align-items: center;
     justify-content: center;
+    position:absolute;
+    animation:forwards 0.2s;
 
 }
-
-
-.splash-name {
-    display: inline-flex;
-    font-weight:bolder;
-    font-size: 11.9cqw;
-    color:white;
-    justify-content: center;
-    line-height: 0.8;
+.valise-container-open {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    position:absolute;
+    animation:forwards 0.2s;
 }
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    position:relative;
+}
+
+/* Splash-level CSS rules */
 
 .splash {
     display: flex;
@@ -26,26 +40,19 @@
     justify-items: center;
     height:auto;
 }
+.splash-name-block {
+    container-type:inline-size;
+    width:100%; 
+}
 
-.splash-closed {
+.splash-name {
+    display: inline-flex;
+    font-weight:bolder;
+    font-size: 11.9cqw;
+    color:white;
     justify-content: center;
+    line-height: 0.8;
 }
-
-.splash-open {
-    flex-direction: row;
-    height: 3vh;
-    width:100%;
-    justify-content: flex-start;
-}
-
-/* .splash-logo {
-    container-type: inline-size;
-    display:flex;
-    flex-direction:column-reverse;
-    justify-items: center;
-    width:100%;
-    height:auto;
-} */
 
 .splash-logo-top {
     container-type: inline-size;
@@ -57,23 +64,50 @@
     align-items: flex-end;
 }
 
-.splash-name-block {
-    container-type:inline-size;
-    width:100%;
-}
-
 .splash-position {
     color:white;
     font-size: 3cqw;
-    dominant-baseline: hanging;
 }
 
-.splash-portfolio {
-    font-weight:bolder;
-    fill:white;
-    font-size: 2rem;
-    text-anchor:end;
-    dominant-baseline: hanging;
+/* CSS Splash variable rules */
+
+.splash-closed {
+    justify-content: center;
+}
+
+.splash-open {
+    flex-direction: row;
+    height: fit-content;
+    width:100%;
+    justify-content: flex-start;
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 0.5em;
+    align-items:flex-start;
+
+}
+
+.block-open {
+    width: 45%;
+
+}
+
+.name-open {
+    font-size: 4cqh;
+}
+
+
+.logo-open {
+    width: 66%;
+    align-items:flex-start;
+    
+}
+
+.position-open {
+    font-size: 2cqh;
 }
 
 
@@ -86,10 +120,3 @@
     margin:1rem;
 }
 
-.panel {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    position:relative;
-}

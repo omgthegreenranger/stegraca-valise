@@ -2,6 +2,12 @@
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
+    align-items:center;
+    flex-direction: row;
+}
+
+.nav-open {
+    flex-direction: column-reverse;
 }
 
 .nav-bar {
@@ -33,7 +39,7 @@
 }
 
 .nav-title {
-    font-size: 1.5vw;
+    font-size: 2cqh;
     color:white;
     font-weight: bold;
 }
