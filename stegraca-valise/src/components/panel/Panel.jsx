@@ -1,19 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./panel.css";
-import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { IoLogoJavascript } from "react-icons/io";
-import {
-  DiCss3,
-  DiHeroku,
-  DiHtml5,
-  DiJsBadge,
-  DiBootstrap,
-  DiMongodb,
-  DiMysql,
-  DiGithub,
-  DiReact,
-} from "react-icons/di";
 import {
     SiJavascript,
     SiCss3,

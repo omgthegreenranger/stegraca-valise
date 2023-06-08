@@ -1,3 +1,7 @@
+/* Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Anton&family=Dangrek&family=Holtwood+One+SC&family=Righteous&family=Roboto+Slab:wght@900&family=Secular+One&family=Sigmar&display=swap');
+
 /* Top CSS rules */
 
 .valise-container {
@@ -35,12 +39,13 @@
     justify-content: center;
     height:auto;
     z-index: -99;
-    transition: font-size;
+    transition: 0.5s opacity;
 }
 
 
 .splash-name {
-    font-weight:bolder;
+    /* font-weight:bolder; */
+    font-family: 'Righteous', cursive;
     font-size: 11.9cqw;
     color:white;
     line-height: 0.8;
@@ -63,6 +68,7 @@
 }
 
 .position-string {
+    font-family: 'Dangrek', cursive;
     color:white;
     font-size: 2cqw;
 }
@@ -128,4 +134,21 @@
     padding-left: 0px;
     justify-content: end;
     align-items: center;
+}
+
+.nav-splash{
+    display: inherit;
+    animation-name: fade-out
+}
+
+.nav-view{
+    display:none;
+    animation-name: fade-out;
+}
+
+@keyframes fade-out {
+    from { opacity: 1;
+        display: inherit}
+    to {opacity: 0;
+        display: none;}
 }
