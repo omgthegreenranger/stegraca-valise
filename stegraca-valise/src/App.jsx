@@ -3,8 +3,8 @@ import './App.css';
 import { Valise, Header, Footer } from './components';
 
 const App = () =>{
-    const [display, setDisplay] = useState(false);
     // Let's set some global states for this app
+    const [display, setDisplay] = useState(false);
     // Determine state of portfolio display
 
 
