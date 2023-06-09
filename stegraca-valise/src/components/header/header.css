@@ -11,7 +11,7 @@ header {
     background: darkgreen;
     width: 100%;
     animation-name: appear;
-    opacity: 0;
+
 }
 
 @keyframe appear {
