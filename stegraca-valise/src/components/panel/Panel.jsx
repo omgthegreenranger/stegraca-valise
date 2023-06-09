@@ -34,14 +34,12 @@ export default function Panel(props) {
             return(
                 <>
                     <Bio />
-                    <div onClick={handleBack}>Back</div>
                 </>
             )
         case "portfolio":
             return(
                 <>
                     <Projects tags={tags} setTags={setTags} /> 
-                    <div onClick={handleBack}>Back</div>
                 </>
             )
         default:
@@ -55,7 +53,7 @@ export default function Panel(props) {
 
     return (
         <div className="panel">
-            {/* <div className="link-block"> */}
+            {display == false ? <>
                 <div className="link-text page-about" onClick={() => {setDisplay(true); setNavi("about")}}>
                     About
                 </div>
@@ -64,11 +62,11 @@ export default function Panel(props) {
                 </div>
                 <div className="link-text page-portfolio" onClick={() => {setDisplay(true); setNavi("portfolio")}}>
                     Portfolio
-                </div>
-            {/* </div> */}
-            <div className="display-panel">
+                </div> </> 
+                : <><div className="back" onClick={handleBack}>Back</div>
+            <div className={`display-panel ${navi}`}>
                 <Display />
-            </div>
+            </div> </>}
         </div>
     )
 }
