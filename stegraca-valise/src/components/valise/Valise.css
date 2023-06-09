@@ -5,24 +5,23 @@
 /* Top CSS rules */
 
 .valise-container {
+    /* container-type:inline-size; */
     display:grid;
     width:75cqw;
     height: 100%;
-    grid-template-rows: auto auto auto;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
     align-content: center;
     justify-content: space-between;
     grid-template-areas:
-        "splash-pos . nav"
-        ". splash ."
-        "panel panel panel";
+        "splash"
+        "panel";
     position: absolute;
 }
 
 /* Splash-level CSS rules */
 
-.splash {
-    container-type:inline-size;
+.splash-box {
     display:inline-flex;
     grid-area: splash;
     grid-column: span 3;
@@ -68,36 +67,6 @@
 .splash-closed {
 }
 
-.splash-open {
-    position: relative;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    padding: 0.5em;
-
-}
-
-.block-open {
-    width: 45%;
-
-}
-
-.name-open {
-    font-size: 4cqh;
-}
-
-
-.logo-open {
-    width: 66%;
-    align-items:flex-start;
-    
-}
-
-.position-open {
-    font-size: 2cqh;
-}
-
 
 .nav-block {
     grid-area: nav;
@@ -109,19 +78,25 @@
     align-items: center;
 }
 
-.nav-false {
-    display: inherit;
-    animation-name: fade-out
+.splash {
+    container-type: inline-size;
+    display: grid;
+    grid-area: splash;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "splash-pos . nav"
+        ". splash-name .";
 }
 
-.nav-true {
-    display:none;
-    animation-name: fade-out;
+.shrink {
+    transition: opacity 0.4s linear, height 0s 0.4s;
+    height: 0cqh;
+    opacity: 0;
 }
 
-@keyframes fade-out {
-    from { opacity: 1;
-        display: inherit}
-    to {opacity: 0;
-        display: none;}
+.grow {
+    transition: height 0s, opacity 0.4s linear 0.4s;
+    opacity: 1;
+    height: 16cqh;
 }
