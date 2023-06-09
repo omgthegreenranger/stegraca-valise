@@ -23,9 +23,10 @@ import { Projects, Bio } from "../index";
 
 export default function Panel(props) {
     const [tags, setTags] = useState([]);
-    const { navi, setNavi } = props;
+    const { display, setDisplay, navi, setNavi } = props;
     const handleBack = () => {
-        setNavi("none");
+        setDisplay(false);
+        setNavi(false);
     }
     const Display = () => { 
     switch(navi) {
@@ -53,20 +54,22 @@ export default function Panel(props) {
 
 
     return (
-        <>
-            <div className="link-block">
-                <div className="link-text" onClick={() => setNavi("about")}>
+        <div className="panel">
+            {/* <div className="link-block"> */}
+                <div className="link-text page-about" onClick={() => {setDisplay(true); setNavi("about")}}>
                     About
                 </div>
-                <TechLine tagList={tags} />
-                <div className="link-text" onClick={() => setNavi("portfolio")}>
+                <div className="page-tech">
+                    <TechLine tagList={tags} />
+                </div>
+                <div className="link-text page-portfolio" onClick={() => {setDisplay(true); setNavi("portfolio")}}>
                     Portfolio
                 </div>
-            </div>
+            {/* </div> */}
             <div className="display-panel">
                 <Display />
             </div>
-            </>
+        </div>
     )
 }
 

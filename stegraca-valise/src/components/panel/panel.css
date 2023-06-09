@@ -1,0 +1,41 @@
+.panel {
+    grid-area: panel;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: 
+        "about tech portfolio"
+        "display display display";
+    width: 100%;
+    justify-items: center;
+    position:relative;
+    transition: height 3s;
+}
+
+.link-text {
+    container-type: inline-size;
+    display: inline-flex;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content:space-between;
+    width:75%;
+}
+
+.page-portfolio {
+    grid-area: portfolio;
+}
+
+.page-about {
+    grid-area: about;
+}
+
+.display-panel {
+    grid-area: display;
+    grid-column: span 3;
+    justify-content:center;
+}
+
+.page-tech {
+    grid-area: tech;
+}

@@ -3,40 +3,28 @@ import React, { useState } from "react";
 import { Projects, NavBar, Bio, Panel } from "../index";
 export default function Valise(props) {
   // destructure our global states from props
-  const {navi, setNavi} = props;
-    let splashClass;
-    let naviHeight;
-
-    if(navi == "0") {
-        splashClass = "splash"
-    } else if (navi == "about") {
-        splashClass = "view"
-    } else if (navi == "portfolio") {
-        splashClass = "view"
-    }
-    console.log(splashClass)
+  const {display, setDisplay} = props;
+  const [navi, setNavi] = useState('')
 
   return (
     <div className={`valise-container`}>
-            <Splash navi={navi} setNavi={setNavi} splashClass={splashClass} />
-        <div className="panel">
-            <Panel navi={navi} setNavi={setNavi} splashClass={splashClass} />
-        </div>
+            <Splash display={display} setDisplay={setDisplay} navi={navi} setNavi={setNavi} />
+            <Panel display={display} setDisplay={setDisplay} navi={navi} setNavi={setNavi}  />
     </div>
   );
 }
 
 function Splash(props) {
-    const {navi, setNavi, splashClass} = props;
+    const {display, setDisplay, navi, setNavi} = props;
   return (
         <>
-            <div className={`splash-position nav-${splashClass}`}>
+            <div className={`splash-position nav-${display}`}>
                 <span className="position-string">Fullstack Web Developer</span>
             </div>
-            <div className={`splash nav-${splashClass}`}>
-                <h1 className={`splash-name nav-${splashClass}`}>STEPHEN CARDIE</h1>
+            <div className={`splash nav-${display}`}>
+                <h1 className={`splash-name nav-${display}`}>STEPHEN CARDIE</h1>
             </div>
-            <div className={`nav-block nav-${splashClass}`}><NavBar navi={navi} setNavi={setNavi} splashClass={splashClass} /></div>
+            <div className={`nav-block nav-${display}`}><NavBar navi={navi} setNavi={setNavi} /></div>
         </>
     
   );

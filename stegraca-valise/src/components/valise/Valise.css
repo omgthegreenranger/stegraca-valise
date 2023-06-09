@@ -19,16 +19,6 @@
     position: absolute;
 }
 
-.panel {
-    grid-area: panel;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    position:relative;
-    transition: height 3s;
-}
-
 /* Splash-level CSS rules */
 
 .splash {
@@ -109,23 +99,6 @@
 }
 
 
-.display-panel {
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    height: 0%;
-    width: 100%;
-    margin:1rem;
-    animation-name: slidein;
-    animation-duration: 4s;
-}
-
-@keyframes slidein {
-    from {height: 0;}
-    to {height: 100%;}
-}
-
-
 .nav-block {
     grid-area: nav;
     display: grid;
@@ -136,12 +109,12 @@
     align-items: center;
 }
 
-.nav-splash{
+.nav-false {
     display: inherit;
     animation-name: fade-out
 }
 
-.nav-view{
+.nav-true {
     display:none;
     animation-name: fade-out;
 }

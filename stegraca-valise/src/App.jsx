@@ -3,7 +3,7 @@ import './App.css';
 import { Valise, Header, Footer } from './components';
 
 const App = () =>{
-    const [navi, setNavi] = useState(0);
+    const [display, setDisplay] = useState(false);
     // Let's set some global states for this app
     // Determine state of portfolio display
 
@@ -11,8 +11,8 @@ const App = () =>{
     return (
         <>
         <div className="main">
-                    <Header navi={navi} setNavi={setNavi}  />
-                    <Valise navi={navi} setNavi={setNavi} />
+            {display ? <Header display={display} setDisplay={setDisplay} /> : ''}
+                    <Valise display={display} setDisplay={setDisplay} />
         </div>
         </>
         )
