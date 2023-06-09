@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./Project.css";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 import projectDB from "../project/projects.json";
 import { Details } from "../index";
 
@@ -69,55 +67,11 @@ function ProjectStack(props) {
     setIndex(selectedIndex);
   };
   return (
-<Carousel
-  arrows
-  centerMode={true}
-  className="carousel"
-  containerClass="carousel-container"
-  dotListClass=""
-  draggable
-  focusOnSelect={false}
-  infinite={false}
-  itemClass="project-card"
-  keyBoardControl
-  minimumTouchDrag={80}
-  renderDotsOutside={false}
-  responsive={{
-    desktop: {
-      breakpoint: {
-        max: 3000,
-        min: 1024
-      },
-      items: 3,
-      partialVisibilityGutter: 0
-    },
-    mobile: {
-      breakpoint: {
-        max: 464,
-        min: 0
-      },
-      items: 1,
-      partialVisibilityGutter: 0
-    },
-    tablet: {
-      breakpoint: {
-        max: 1024,
-        min: 464
-      },
-      items: 2,
-      partialVisibilityGutter: 0
-    }
-  }}
-  rtl={false}
-  shouldResetAutoplay
-  showDots={false}
-  sliderClass=""
-  slidesToSlide={1}
-  swipeable
->
+    <>
         {works.map((work) => {
           return (
-            <div
+            <project
+              className="project-card"
               onMouseEnter={() => handleCards(work.techTags)}
               onMouseLeave={() => handleCards([])}
               onClick={() => handleProjectClick(work)}
@@ -130,9 +84,9 @@ function ProjectStack(props) {
               />
               <h3>{work.name}</h3>
               <p>{work.shortDesc}</p>
-            </div>
+            </project>
           );
         })}
-      </Carousel>
+</>
   );
 }

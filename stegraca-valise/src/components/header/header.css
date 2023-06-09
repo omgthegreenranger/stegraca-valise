@@ -1,11 +1,11 @@
 header {
     display:grid;
-    grid-template-columns: 17vw 1fr 1fr;
+    grid-template-columns: 17vw auto 1fr;
     grid-template-rows: 1fr auto;
     align-content: center;
     justify-content: space-between;
     grid-template-areas:
-        "splash-pos . nav"
+        "splash-pos header-buttons nav"
         "splash auto nav";
     position: absolute;
     background: darkgreen;
@@ -26,7 +26,10 @@ header {
     margin-left:10px;
 }
 
-
+.header-buttons {
+    grid-area: header-buttons;
+    display: grid;
+}
 .splash-name-header {
     font-family: 'Righteous', cursive;
     font-size: 11.9cqw;

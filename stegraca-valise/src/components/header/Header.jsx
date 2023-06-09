@@ -3,7 +3,8 @@ import "./header.css";
 import {NavBar } from '../index.js';
 
 export default function Head(props) {
-  const {navi, setNavi} = props;
+  const {display, setDisplay, navi, setNavi} = props;
+  
   return (
   <header>
     <div className={`splash-position-header`}>
@@ -12,6 +13,14 @@ export default function Head(props) {
     <div className={`splash-header`}>
         <h1 className={`splash-name-header`}>STEPHEN CARDIE</h1>
     </div>
+    {/* <div className="header-buttons">
+      <div className="link-text page-about" onClick={() => {setDisplay(true); setNavi("about")}}>
+        About
+      </div>
+      <div className="link-text page-portfolio" onClick={() => {setDisplay(true); setNavi("portfolio")}}>
+        Portfolio
+      </div>
+    </div> */}
     <div className="nav-block-header"><NavBar navi={navi} setNavi={setNavi}/></div>
   </header>
   )
