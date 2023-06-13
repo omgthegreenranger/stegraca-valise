@@ -10,6 +10,7 @@ header {
     position: absolute;
     background: darkgreen;
     width: 100%;
+    z-index: 1;
     animation-name: appear;
 
 }

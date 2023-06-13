@@ -19,25 +19,26 @@ export default function Linkblock(props) {
         setDisplay(false);
         setNavi(false);
     }
+
     return(
-        <div className="linkblock">
-            {display ? 
-            <><div className="back" onClick={handleBack}>Back</div></>
-            :
+        <div className={`linkblock-${display}`}>
+            
             <>
             <div className="link-text page-about" onClick={() => {setDisplay(true); setNavi("about")}}>
                 About
             </div>
-                <TechLine tagList={tags} />
+                <TechLine tagList={tags} display={display} />
             <div className="link-text page-portfolio" onClick={() => {setDisplay(true); setNavi("portfolio")}}>
                 Portfolio
-            </div></>}
+            </div></>
+            {display ? <><div className="back" onClick={handleBack}>Back</div></> : <></>}
         </div>
     );
 
 }
 
 function TechLine(props) {
+  const { display } = props;
     let techList = [
         { tech: "CSS", icon: <SiCss3 /> },
         { tech: "JavaScript", icon: <SiJavascript /> },
@@ -50,7 +51,7 @@ function TechLine(props) {
   
     console.log(techList);
     return (
-      <div className="tech-block">
+      <div className={`tech-block-${display}`}>
         {techList.map((tech) => {
           let techClass = "";
           for (let i = 0; props.tagList.length > i; i++) {

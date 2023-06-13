@@ -1,16 +1,23 @@
 .panel {
     grid-area: panel;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr auto;
     grid-template-areas: 
-        "display display display";
+        "display";
     width: 100%;
     justify-items: center;
     position:relative;
-    transition: height 3s;
+    height: 0%;
 }
 
+.panel-false {
+    height: 100%;
+    animation: height 3s;
+}
+
+.panel-true {
+    height: 0%;
+    animation: height 3s;
+}
 
 .display-panel {
     grid-area: display;
@@ -20,11 +27,11 @@
 }
 
 .portfolio {
-    grid-template-columns: 1fr auto;
-    grid-template-rows: 1fr auto;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
     grid-template-areas:
-        ". back"
-        ". project-pane";
+        "back"
+        "project-pane";
 }
 
 .about {

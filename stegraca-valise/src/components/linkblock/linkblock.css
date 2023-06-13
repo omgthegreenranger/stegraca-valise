@@ -1,15 +1,31 @@
 
-.linkblock {
+.linkblock-false {
     grid-area: linkblock;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
+    /* grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto; */
     grid-template-areas: 
         "about tech portfolio";
     width: 100%;
     justify-items: center;
     position:relative;
-    transition: height 3s;
+    transition: all height 3s;
+}
+
+.linkblock-true {
+    grid-area: linkblock;
+    display: grid;
+    /* grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto; */
+    grid-template-areas: 
+        "about"
+        "tech"
+        "portfolio"
+        "back";
+    width: 100%;
+    justify-items: start;
+    /* position:relative; */
+    transition: all 3s;
 }
 
 .tech-icons {
@@ -42,9 +58,18 @@
     transition-duration: 0.4s;
 }
 
-.tech-block {
+.tech-block-false {
     grid-area: tech;
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.tech-block-true {
+    grid-area: tech;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     width: 100%;
 }
@@ -52,12 +77,9 @@
 
 .link-text {
     container-type: inline-size;
-    display: inline-flex;
     color: white;
-    padding-left: 10px;
-    padding-right: 10px;
-    justify-content:space-between;
-    width:75%;
+    text-align:center;
+    width:100%;
 }
 
 .page-portfolio {
