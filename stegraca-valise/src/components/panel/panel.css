@@ -4,7 +4,6 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr auto;
     grid-template-areas: 
-        "about tech portfolio"
         "display display display";
     width: 100%;
     justify-items: center;
@@ -12,23 +11,6 @@
     transition: height 3s;
 }
 
-.link-text {
-    container-type: inline-size;
-    display: inline-flex;
-    color: white;
-    padding-left: 10px;
-    padding-right: 10px;
-    justify-content:space-between;
-    width:75%;
-}
-
-.page-portfolio {
-    grid-area: portfolio;
-}
-
-.page-about {
-    grid-area: about;
-}
 
 .display-panel {
     grid-area: display;
@@ -45,18 +27,10 @@
         ". project-pane";
 }
 
-.back {
-    grid-area: back;
-}
-
 .about {
     grid-template-columns: 1fr auto 1fr;
     grid-template-rows: auto;
     grid-template-areas:
         ". back ."
         "pics bio-block .";
-}
-
-.page-tech {
-    grid-area: tech;
 }

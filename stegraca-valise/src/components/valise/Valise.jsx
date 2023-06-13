@@ -1,8 +1,10 @@
 import "./Valise.css";
 import React, { useState } from "react";
-import { Projects, NavBar, Bio, Panel } from "../index";
+import { NavBar, Panel, Linkblock } from "../index";
+
 export default function Valise(props) {
   // destructure our global states from props
+  const [tags, setTags] = useState([]);
   const { display, setDisplay } = props;
   const [navi, setNavi] = useState("");
 
@@ -14,11 +16,21 @@ export default function Valise(props) {
         navi={navi}
         setNavi={setNavi}
       />
+      <Linkblock         
+        display={display}
+        setDisplay={setDisplay}
+        navi={navi}
+        setNavi={setNavi}
+        tags={tags}
+        setTags={setTags}
+      />
       <Panel
         display={display}
         setDisplay={setDisplay}
         navi={navi}
         setNavi={setNavi}
+        tags={tags}
+        setTags={setTags}
       />
     </div>
   );

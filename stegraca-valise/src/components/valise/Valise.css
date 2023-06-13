@@ -5,16 +5,17 @@
 /* Top CSS rules */
 
 .valise-container {
-    /* container-type:inline-size; */
+    container-type:inline-size;
     display:grid;
     width:75cqw;
     height: 100%;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto auto auto;
     grid-template-columns: 1fr;
     align-content: center;
     justify-content: space-between;
     grid-template-areas:
         "splash"
+        "linkblock"
         "panel";
     position: absolute;
 }
@@ -78,9 +79,7 @@
     align-items: center;
 }
 
-.splash {
-    container-type: inline-size;
-    display: grid;
+.splash {    display: grid;
     grid-area: splash;
     grid-template-rows: auto auto;
     grid-template-columns: 1fr 1fr 1fr;
@@ -98,5 +97,4 @@
 .grow {
     transition: height 0s, opacity 0.4s linear 0.4s;
     opacity: 1;
-    height: 16cqh;
 }

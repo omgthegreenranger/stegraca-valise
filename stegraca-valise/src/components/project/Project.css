@@ -22,28 +22,9 @@
 }
 
 
-.tech-icons {
-    width:auto;
-    display: flex;
-    font-size: 4.5cqw;
-    color: white;
-    padding: 0.5rem;
-}
-
 .footerIcons {
     color: black;
     text-decoration: none;
-}
-
-.tech-icons:hover {
-    color: yellow;
-    stroke: 1px yellowgreen;
-    border-radius: 1rem;
-    transform: scale(1.1);
-    -webkit-transition-duration: 0.4s;
-    -moz-transition-duration: 0.4s;
-    -o-transition-duration: 0.4s;
-    transition-duration: 0.4s;
 }
 
 
@@ -57,29 +38,4 @@
 
 #css {
     color: yellow;
-}
-
-.tech-used {
-    color:yellow;
-    transform: scale(1.1);
-    -webkit-transition-duration: 0.4s;
-    -moz-transition-duration: 0.4s;
-    -o-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-}
-
-.tech-block {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-
-.carousel-container {
-    height: auto;
-    justify-content: center;
-}
-
-.carousel {
-    /* width: 100%; */
 }
