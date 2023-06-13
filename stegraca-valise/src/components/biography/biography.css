@@ -4,7 +4,9 @@
     background-color: rgba(0, 0, 0, 0.13);
     padding: 0.5em;
     width: 75%;
+    margin: auto;
     height: fit-content;
+    border-radius: 1rem;
 }
 
 .title-line {

@@ -16,9 +16,6 @@ export default function Splash(props) {
           <div className={`splash-box`}>
             <h1 className={`splash-name`}>STEPHEN CARDIE</h1>
           </div>
-          <div className={`nav-block`}>
-            <NavBar navi={navi} setNavi={setNavi} />
-          </div>
         </div>
       </>
     );

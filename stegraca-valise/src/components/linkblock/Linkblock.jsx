@@ -24,13 +24,14 @@ export default function Linkblock(props) {
         <div className={`linkblock-${display}`}>
             
             <>
-            <div className="link-text page-about" onClick={() => {setDisplay(true); setNavi("about")}}>
+            {/* <div className="link-text page-about" onClick={() => {setDisplay(true); setNavi("about")}}>
                 About
-            </div>
+            </div> */}
                 <TechLine tagList={tags} display={display} />
             <div className="link-text page-portfolio" onClick={() => {setDisplay(true); setNavi("portfolio")}}>
                 Portfolio
-            </div></>
+            </div>
+            </>
             {display ? <><div className="back" onClick={handleBack}>Back</div></> : <></>}
         </div>
     );
@@ -49,6 +50,13 @@ function TechLine(props) {
         { tech: "MySQL", icon: <SiMariadb /> }
     ];
   
+  const handleTechClick = (tech) => {
+    console.log("This is the tech", tech)
+    return (
+      <>
+      </>
+    )
+  }
     console.log(techList);
     return (
       <div className={`tech-block-${display}`}>
@@ -60,7 +68,7 @@ function TechLine(props) {
             }
           }
           console.log(techClass);
-          return <span className={`tech-icons ${techClass}`}>{tech.icon}</span>;
+          return <span className={`tech-icons ${techClass}`} onClick={() => handleTechClick(tech.tech)}>{tech.icon}</span>;
         })}
       </div>
     );

@@ -1,6 +1,6 @@
 import "./Valise.css";
 import React, { useState } from "react";
-import { NavBar, Panel, Linkblock, Splash } from "../index";
+import { NavBar, Panel, Linkblock, Splash, Bio } from "../index";
 import { animated, useSpring } from '@react-spring/web';
 
 export default function Valise(props) {
@@ -31,14 +31,15 @@ export default function Valise(props) {
         tags={tags}
         setTags={setTags}
       />
-      <Panel
+      <Bio />
+      {/* <Panel
         display={display}
         setDisplay={setDisplay}
         navi={navi}
         setNavi={setNavi}
         tags={tags}
         setTags={setTags}
-      />
+      /> */}
     </div>
   );
 }
