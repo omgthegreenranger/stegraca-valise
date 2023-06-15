@@ -23,16 +23,7 @@ export default function Valise(props) {
         // springs={springs}
         // api={api}
       />
-      <Linkblock         
-        display={display}
-        setDisplay={setDisplay}
-        navi={navi}
-        setNavi={setNavi}
-        tags={tags}
-        setTags={setTags}
-      />
-      <Bio />
-      {/* <Panel
+      {/* <Linkblock         
         display={display}
         setDisplay={setDisplay}
         navi={navi}
@@ -40,6 +31,15 @@ export default function Valise(props) {
         tags={tags}
         setTags={setTags}
       /> */}
+      <Bio />
+      <Panel
+        display={display}
+        setDisplay={setDisplay}
+        navi={navi}
+        setNavi={setNavi}
+        tags={tags}
+        setTags={setTags}
+      />
     </div>
   );
 }

@@ -14,7 +14,7 @@ import {
  import { IconContext } from "react-icons";
 
 export default function Linkblock(props) {
-    const { display, setDisplay, navi, setNavi, tags, setTags } = props;
+    const { display, setDisplay, navi, setNavi, tags } = props;
     const handleBack = () => {
         setDisplay(false);
         setNavi(false);
@@ -24,22 +24,24 @@ export default function Linkblock(props) {
         <div className={`linkblock-${display}`}>
             
             <>
+            {display ? <><div className="back" onClick={handleBack}>Back</div></> : <></>}
             {/* <div className="link-text page-about" onClick={() => {setDisplay(true); setNavi("about")}}>
                 About
             </div> */}
-                <TechLine tagList={tags} display={display} />
-            <div className="link-text page-portfolio" onClick={() => {setDisplay(true); setNavi("portfolio")}}>
+            
+                <TechLine tagList={tags} display={display} navi={navi} setDisplay={setDisplay} setNavi={setNavi} />
+            {/* <div className="link-text page-portfolio" onClick={() => {setDisplay(true); setNavi("portfolio")}}>
                 Portfolio
-            </div>
+            </div> */}
             </>
-            {display ? <><div className="back" onClick={handleBack}>Back</div></> : <></>}
+
         </div>
     );
 
 }
 
 function TechLine(props) {
-  const { display } = props;
+  const { display, setDisplay, setNavi } = props;
     let techList = [
         { tech: "CSS", icon: <SiCss3 /> },
         { tech: "JavaScript", icon: <SiJavascript /> },
@@ -68,7 +70,7 @@ function TechLine(props) {
             }
           }
           console.log(techClass);
-          return <span className={`tech-icons ${techClass}`} onClick={() => handleTechClick(tech.tech)}>{tech.icon}</span>;
+          return <span className={`tech-icons ${techClass}`} onClick={() => {setDisplay(true); setNavi("portfolio"); handleTechClick(tech.tech)}}>{tech.icon}</span>;
         })}
       </div>
     );

@@ -2,21 +2,28 @@
 
 /* Splash-level CSS rules */
 
-.splash-box {
-    display:inline-flex;
+.splash {
+    container-type: inline-size;
+    display: grid;
+    width: 75cqw;
     grid-area: splash;
-    grid-column: span 3;
-    justify-content: center;
-    height:auto;
+    grid-template-areas:
+        "splash-box"
+        "splash-pos";
+}
+.splash-box {
+    /* display:inline-flex; */
+    grid-area: splash-box;
+    /* justify-content: center; */
+    /* height:auto; */
     z-index: -99;
     transition: 0.5s opacity;
 }
 
-
 .splash-name {
     /* font-weight:bolder; */
     font-family: 'Righteous', cursive;
-    font-size: 11.9cqw;
+    font-size: 14cqw;
     color:white;
     line-height: 0.8;
     position: relative;
@@ -34,41 +41,22 @@
 
 .splash-position {
     grid-area: splash-pos;
+    text-align:end;
 
 }
 
 .position-string {
     font-family: 'Dangrek', cursive;
     color:white;
-    font-size: 2cqw;
+    font-size: 4cqw;
 }
 
 /* CSS Splash variable rules */
 
-
-
-.nav-block {
-    grid-area: nav;
-    display: grid;
-    grid-template-columns: auto auto;
-    width: 100%;
-    padding-left: 0px;
-    justify-content: end;
-    align-items: center;
-}
-
-.splash {
-    display: grid;
-    grid-area: splash;
-    grid-template-areas:
-        "splash-pos . nav"
-        ". splash-name .";
-}
-
 .shrink {
     transition: opacity 0.4s linear, display 0.0s linear 0.6s;
     opacity: 0;
-    height: 0;
+    height:0;
 }
 
 .grow {

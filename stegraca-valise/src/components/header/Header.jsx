@@ -17,7 +17,7 @@ export default function Head(props) {
         <span className="position-string-header">Fullstack Web Developer</span>
     </div>
     <div className={`splash-header`}>
-        <h1 className={`splash-name-header`}>STEPHEN CARDIE</h1>
+        <h1 className={`splash-name-header`}>Stephen Cardie</h1>
     </div>
     </div>
     {/* <div className="header-buttons">
@@ -26,8 +26,8 @@ export default function Head(props) {
       </div>
       <div className="link-text page-portfolio" onClick={() => {setDisplay(true); setNavi("portfolio")}}>
         Portfolio
-      </div>
-    </div> */}
+      </div> */}
+    {/* </div> */}
     <div className="nav-block-header"><NavBar navi={navi} setNavi={setNavi}/></div>
   </header>
   )

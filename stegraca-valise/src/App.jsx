@@ -43,7 +43,7 @@ const App = () =>{
                 > */}
             <Header display={display} setDisplay={setDisplay} /> 
             {/* </animated.div> */}
-                    <Valise display={display} setDisplay={setDisplay} />
+            <Valise display={display} setDisplay={setDisplay} />
         </div>
         </>
         )

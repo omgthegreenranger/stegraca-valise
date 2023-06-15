@@ -1,22 +1,10 @@
 import React, { useState, useEffect } from "react";
-import {
-  Stack,
-  Container,
-  Row,
-  Col,
-  Button,
-  Form,
-  FloatingLabel,
-} from "react-bootstrap";
 import { MdMail, MdSimCardDownload } from "react-icons/md";
 import { SiMastodon, SiLinkedin, SiGithub } from "react-icons/si";
 import "./navbar.css";
-import anime from "animejs";
 import { IconContext } from "react-icons";
 
 export default function NavBar(props) {
-  const {navi, setNavi, splashClass } = props;
-
   const [isShown, setIsShown] = useState(<br />);
 
   // const handleMouseEnter = (event) => {

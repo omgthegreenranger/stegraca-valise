@@ -1,25 +1,17 @@
 header {
     display:grid;
-    grid-template-columns: 17vw auto 1fr;
-    grid-template-rows: 1fr auto;
+    container-type: inline-size;
+    grid-area: header;
+    grid-template-columns: 17vw 25vw 1fr;
     align-content: center;
     justify-content: space-between;
     grid-template-areas:
-        "splash-pos header-buttons nav"
-        "splash auto nav";
-    position: absolute;
+        "splash-pos header-buttons nav";
+    /* position: absolute; */
     background: darkgreen;
     width: 100%;
     z-index: 1;
-    animation-name: appear;
-
 }
-
-@keyframe appear {
-    from {opacity: 0}
-    to {opacity: 1}
-}
-
 
 .splash-header {
     container-type:inline-size;

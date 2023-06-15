@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./panel.css";
 import { Projects, Bio } from "../index";
+import { animated, useSpring, useTransition } from '@react-spring/web';
 
 export default function Panel(props) {
     const { display, setDisplay, navi, setNavi, tags, setTags } = props;
+
+    // const propStyle = useSpring(() = > {
+        
+    // })
+
     var openPane = false;
     const Display = () => { 
 
@@ -32,10 +38,12 @@ export default function Panel(props) {
 
 
     return (
-        <div className={`panel `}>
+        <>
+         <div className={`panel `}>
             <div className={`panel-${openPane} navi-${navi}`}>
                 <Display />
             </div> 
         </div>
+</>
     )
 }

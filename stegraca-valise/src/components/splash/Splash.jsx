@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import {NavBar} from "../index.js";
 import "./splash.css";
 
 export default function Splash(props) {
@@ -10,11 +9,11 @@ export default function Splash(props) {
     return (
       <>
         <div className={`splash ${trigger}`}>
+          <div className={`splash-box`}>
+            <h1 className={`splash-name`}>Stephen Cardie</h1>
+          </div>
           <div className={`splash-position`}>
             <span className="position-string">Fullstack Web Developer</span>
-          </div>
-          <div className={`splash-box`}>
-            <h1 className={`splash-name`}>STEPHEN CARDIE</h1>
           </div>
         </div>
       </>

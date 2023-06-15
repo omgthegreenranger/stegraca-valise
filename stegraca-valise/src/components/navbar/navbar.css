@@ -14,6 +14,7 @@
     color: aliceblue;
     text-decoration: none;
     padding: 0.5rem;
+    font-size: 1cqw;
 }
 
 .nav-btn:hover {
@@ -22,7 +23,7 @@
 }
 
 .nav-title {
-    font-size: 2cqh;
+    font-size: 2cqw;
     color:white;
     font-weight: bold;
 }
