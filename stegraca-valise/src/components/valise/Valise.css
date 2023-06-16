@@ -9,12 +9,14 @@
     grid-area: valise-container;
     display:grid;
     width: 97vw;
-    height: 100%;
+    /* height: 100%; */
     margin-left: 2cqw;
-    /* align-content: center; */
-    justify-content: space-between;
+    grid-template-areas:
+    "splash ."
+    "panel bio-block";
     position: absolute;
-    align-content:center;
+    align-items:start;
+    padding: 10px;
 }
 
 .vc-false {

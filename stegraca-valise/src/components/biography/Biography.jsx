@@ -2,7 +2,7 @@ import React from "react";
 import ProfilePic from "./images/profile-photo.jpg";
 import "./biography.css";
 
-export default function Bio() {
+export default function Bio(props) {
   return (
     <>
         <div className="bio-block">

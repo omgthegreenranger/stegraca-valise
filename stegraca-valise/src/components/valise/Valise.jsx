@@ -14,7 +14,7 @@ export default function Valise(props) {
 
   
   return (
-    <div className={`valise-container vc-${display}`}>
+    <div className={`valise-container`}>
       <Splash
         display={display}
         setDisplay={setDisplay}

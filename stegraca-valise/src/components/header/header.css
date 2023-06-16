@@ -6,8 +6,8 @@ header {
     align-content: center;
     justify-content: space-between;
     grid-template-areas:
-        "splash-pos header-buttons nav";
-    /* position: absolute; */
+        "splash-pos . nav";
+    position: absolute;
     background: darkgreen;
     width: 100%;
     z-index: 1;
