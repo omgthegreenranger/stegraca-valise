@@ -8,7 +8,6 @@ export default function Project(props) {
   const {tags, setTags} = props;
   const [portOpen, setPortOpen] = useState(true);
   const [projectData, setProjectData] = useState();
-  const [index, setIndex] = useState(0);
 
   // define variables
   const works = projectDB.projects;
@@ -29,15 +28,10 @@ export default function Project(props) {
     console.log(tagList);
   };
 
-  // Function to set the port-open
-  async function handlePortOpen() {
-    await setPortOpen((portOpen) => !portOpen);
-    let body = document.getElementsByClassName("project-card");
-    console.log(body.style);
-  }
 
   return (
-    <div className="project-pane">
+    <>
+ {/* <div className="project-pane"> */}
       {portOpen ? (
         <ProjectStack
           works={works}
@@ -54,20 +48,24 @@ export default function Project(props) {
           setPortOpen={setPortOpen}
         />
       )}
-    </div>
+      
+    {/* </div> */}
+    </>
   );
 }
 
 function ProjectStack(props) {
-  const { works, portOpen, setPortOpen, handleCards, handleProjectClick } =
+  const { works, handleCards, handleProjectClick } =
     props;
   const [index, setIndex] = useState(0);
 
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
+  // const handleSelect = (selectedIndex, e) => {
+  //   setIndex(selectedIndex);
+  // };
   return (
     <>
+      <div style={{'grid-area': "project-head"}}><h3>Completed works</h3></div>
+      <div className="project-pane">
         {works.map((work) => {
           return (
             <project
@@ -78,7 +76,7 @@ function ProjectStack(props) {
             >
               <img
                 className="card-image"
-                width="100%"
+                width="50%"
                 src={require(`./images/${work.logo}`)}
                 alt="First slide"
               />
@@ -87,6 +85,7 @@ function ProjectStack(props) {
             </project>
           );
         })}
+        </div>
 </>
   );
 }

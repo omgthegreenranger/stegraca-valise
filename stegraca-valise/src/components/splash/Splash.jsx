@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import "./splash.css";
 
 export default function Splash(props) {
-    const { display, setDisplay, navi, setNavi } = props;
+    const { display } = props;
     let trigger = "grow";
   
     if (display) trigger = "shrink";
     return (
       <>
-        <div className={`splash ${trigger}`}>
+        <div className={`splash`}>
           <div className={`splash-box`}>
             <h1 className={`splash-name`}>Stephen Cardie</h1>
           </div>

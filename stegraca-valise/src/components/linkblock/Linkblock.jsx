@@ -14,34 +14,19 @@ import {
  import { IconContext } from "react-icons";
 
 export default function Linkblock(props) {
-    const { display, setDisplay, navi, setNavi, tags } = props;
-    const handleBack = () => {
-        setDisplay(false);
-        setNavi(false);
-    }
+    const { display, setDisplay, tags } = props;
 
     return(
-        <div className={`linkblock-${display}`}>
-            
-            <>
-            {display ? <><div className="back" onClick={handleBack}>Back</div></> : <></>}
-            {/* <div className="link-text page-about" onClick={() => {setDisplay(true); setNavi("about")}}>
-                About
-            </div> */}
-            
-                <TechLine tagList={tags} display={display} navi={navi} setDisplay={setDisplay} setNavi={setNavi} />
-            {/* <div className="link-text page-portfolio" onClick={() => {setDisplay(true); setNavi("portfolio")}}>
-                Portfolio
-            </div> */}
-            </>
 
-        </div>
+            <>            
+                <TechLine tagList={tags} display={display} setDisplay={setDisplay} />
+            </>
     );
 
 }
 
 function TechLine(props) {
-  const { display, setDisplay, setNavi } = props;
+  const { display, setDisplay } = props;
     let techList = [
         { tech: "CSS", icon: <SiCss3 /> },
         { tech: "JavaScript", icon: <SiJavascript /> },
@@ -61,7 +46,7 @@ function TechLine(props) {
   }
     console.log(techList);
     return (
-      <div className={`tech-block-${display}`}>
+      <div className={`tech-block`}>
         {techList.map((tech) => {
           let techClass = "";
           for (let i = 0; props.tagList.length > i; i++) {
@@ -70,7 +55,7 @@ function TechLine(props) {
             }
           }
           console.log(techClass);
-          return <span className={`tech-icons ${techClass}`} onClick={() => {setDisplay(true); setNavi("portfolio"); handleTechClick(tech.tech)}}>{tech.icon}</span>;
+          return <span className={`tech-icons ${techClass}`} onClick={() => {setDisplay(true); handleTechClick(tech.tech)}}>{tech.icon}</span>;
         })}
       </div>
     );

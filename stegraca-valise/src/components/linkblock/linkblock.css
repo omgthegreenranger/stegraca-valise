@@ -58,21 +58,22 @@
     transition-duration: 0.4s;
 }
 
-.tech-block-false {
+/* .tech-block-false { */
+.tech-block {
     grid-area: tech;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: start;
     width: 100%;
 }
 
-.tech-block-true {
+/* .tech-block-true {
     grid-area: tech;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
-}
+} */
 
 
 .link-text {

@@ -6,6 +6,7 @@
     padding:10px;
     margin:10px;
     background-color:aliceblue;
+    display: inline-block;
 }
 
 .project-card:hover {
@@ -15,16 +16,17 @@
 
 .project-pane {
     grid-area: project-pane;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width:100%;
+    display: grid;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: flex-start;
 }
-
-
-.footerIcons {
-    color: black;
-    text-decoration: none;
+.project-cards{
+    grid-area: project-pane;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: flex-start;
 }
 
 

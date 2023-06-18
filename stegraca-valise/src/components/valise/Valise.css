@@ -13,6 +13,7 @@
     margin-left: 2cqw;
     grid-template-areas:
     "splash ."
+    "tech ."
     "panel bio-block";
     position: absolute;
     align-items:start;

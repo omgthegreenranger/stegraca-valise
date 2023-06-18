@@ -2,9 +2,10 @@
     grid-area: panel;
     display: grid;
     grid-template-areas: 
-        "display";
+        "project-head ."
+        "project-pane .";
     width: 100%;
-    justify-items: center;
+    justify-content: start;
     position:relative;
     height: 0%;
 }
