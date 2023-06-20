@@ -1,33 +1,3 @@
-
-.linkblock-false {
-    grid-area: linkblock;
-    display: grid;
-    /* grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto; */
-    grid-template-areas: 
-        "about tech portfolio";
-    width: 100%;
-    justify-items: center;
-    position:relative;
-    transition: all height 3s;
-}
-
-.linkblock-true {
-    grid-area: linkblock;
-    display: grid;
-    /* grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto; */
-    grid-template-areas: 
-        "about"
-        "tech"
-        "portfolio"
-        "back";
-    width: 100%;
-    justify-items: start;
-    /* position:relative; */
-    transition: all 3s;
-}
-
 .tech-icons {
     width:auto;
     display: flex;
@@ -62,8 +32,9 @@
 .tech-block {
     grid-area: tech;
     display: flex;
-    flex-direction: row;
-    justify-content: start;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
     width: 100%;
 }
 

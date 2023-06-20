@@ -3,14 +3,12 @@ import "./Project.css";
 import projectDB from "../project/projects.json";
 import { Details, Bio } from "../index";
 import { Button, Card, Row, Col, Tab, Nav } from "react-bootstrap";
-import { Accordion, AccordionItem } from "@szhsin/react-accordion";
 
 export default function Project(props) {
   // set the state as needed
   const { tags, setTags } = props;
   const [portOpen, setPortOpen] = useState(true);
   const [projectData, setProjectData] = useState();
-  // const [projOpens, setProjOpens] = useState({"completed": false, "inprogress": false});
 
   // define variables
   const works = projectDB.projects;
@@ -32,9 +30,8 @@ export default function Project(props) {
   };
 
   const handleTransition = (event) => {
-    console.log("This is a transition function!", event)
-    
-  }
+    console.log("This is a transition function!", event);
+  };
 
   let completeWorks = <span className="completed">Completed Work</span>;
   let inProgressWorks = <span className="in-progress">In-Progress Work</span>;
@@ -43,10 +40,18 @@ export default function Project(props) {
     <>
       {portOpen ? (
         <>
-          <Tab.Container className="project-tabs" defaultActiveKey="bio" onSelect={() => console.log("Yes yes yes!")}>
+          <Tab.Container
+            className="project-tabs"
+            defaultActiveKey="bio"
+            onSelect={() => console.log("Yes yes yes!")}
+          >
             <Row>
               <Col sm={3}>
-                <Nav variant="nav" className="flex-column navs" defaultActiveKey="bio">
+                <Nav
+                  variant="nav"
+                  className="flex-column navs"
+                  defaultActiveKey="bio"
+                >
                   <Nav.Item>
                     <Nav.Link eventKey="bio">Biography</Nav.Link>
                   </Nav.Item>

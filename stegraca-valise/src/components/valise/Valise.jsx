@@ -15,7 +15,6 @@ export default function Valise(props) {
       <Splash
         display={display}
       />
-      {/* <Bio /> */}
       <Linkblock tags={tags} setTags={setTags} />
       <Panel
         display={display}

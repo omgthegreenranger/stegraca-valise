@@ -13,8 +13,7 @@
     margin-left: 2cqw;
     grid-template-areas:
     "splash ."
-    "tech ."
-    "panel .";
+    "panel tech";
     position: absolute;
     align-items:start;
     padding: 10px;
