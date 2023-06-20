@@ -1,12 +1,12 @@
 .project-card {
     box-shadow: 0px 0px 1px #000000;
-    border-radius: 10px;
-    border: 2px white solid;
+    /* border-radius: 10px;
+    border: 2px white solid; */
     cursor: pointer;
     padding:10px;
     margin:10px;
-    background-color:aliceblue;
-    display: inline-block;
+    /* background-color:aliceblue;
+    display: inline-block; */
 }
 
 .project-card:hover {
@@ -16,17 +16,16 @@
 
 .project-pane {
     grid-area: project-pane;
-    display: grid;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: flex-start;
+    width: 100%;
 }
+
+
 .project-cards{
     grid-area: project-pane;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     /* justify-content: center; */
-    align-items: flex-start;
 }
 
 
@@ -40,4 +39,37 @@
 
 #css {
     color: yellow;
+}
+
+.project-tabs {
+    width: 100%;
+    flex-direction: row-reverse;
+}
+
+.navs {
+    background: none;
+    border: 0;
+    width:100%;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.navs a {
+    color: white;
+}
+
+.navs a:hover {
+    color: yellow;
+}
+
+.navs a:focus {
+    color: yellow;
+    background-color: grey;
+    transition: width 0.2s linear;
+}
+
+.biography h3, .completed h3, .in-progress h3 {
+    background: rgba(0,0,0,0.3);
+    border-end-end-radius: 1rem;
+    width: 100%;
 }

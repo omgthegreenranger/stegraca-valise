@@ -14,7 +14,7 @@
     grid-template-areas:
     "splash ."
     "tech ."
-    "panel bio-block";
+    "panel .";
     position: absolute;
     align-items:start;
     padding: 10px;

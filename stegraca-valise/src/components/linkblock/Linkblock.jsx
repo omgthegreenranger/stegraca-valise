@@ -38,13 +38,11 @@ function TechLine(props) {
     ];
   
   const handleTechClick = (tech) => {
-    console.log("This is the tech", tech)
     return (
       <>
       </>
     )
   }
-    console.log(techList);
     return (
       <div className={`tech-block`}>
         {techList.map((tech) => {
@@ -54,7 +52,6 @@ function TechLine(props) {
               techClass = "tech-used";
             }
           }
-          console.log(techClass);
           return <span className={`tech-icons ${techClass}`} onClick={() => {setDisplay(true); handleTechClick(tech.tech)}}>{tech.icon}</span>;
         })}
       </div>

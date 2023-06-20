@@ -9,7 +9,6 @@ import { run as runHolder } from 'holderjs/holder';
 export default function Details(props) {
     const {projectData, setProjectData, portOpen, setPortOpen } = props;
     const [open, setOpen] = useState(false);
-    console.log("Here's the Project", projectData)
     let work = projectData;
 
     const clearProjects = () => {
@@ -29,7 +28,6 @@ export default function Details(props) {
                         <img className = 'card-image-details' alt="Project Logo" src={require(`../project/images/${work.logo}`)} /></div>
                 <Stack gap={1}>
                     {work.screenshots.map((screenshot) => {
-                        console.log(`../project/images/${screenshot}`);
                         return(
                         <img alt="Project Screenshot" src={require(`../project/images/${screenshot}`)} />
                     )})}
