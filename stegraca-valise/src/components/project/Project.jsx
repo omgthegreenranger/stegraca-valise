@@ -7,12 +7,13 @@ import { Button, Card, Row, Col, Tab, Nav } from "react-bootstrap";
 export default function Project(props) {
   // set the state as needed
   const { tags, setTags } = props;
+  const [ completed, setCompleted ] = useState([]);
+  const [ inProgress, setInProgress ] = useState([]);
   const [portOpen, setPortOpen] = useState(true);
   const [projectData, setProjectData] = useState();
 
   // define variables
   const works = projectDB.projects;
-
   // Create functions
 
   // Function to handle Project Card click
@@ -32,10 +33,18 @@ export default function Project(props) {
   const handleTransition = (event) => {
     console.log("This is a transition function!", event);
   };
+useEffect (() => {
+  works.forEach(item => {
+    if (item.status === "complete") {
+      console.log("Complete!")
+      setCompleted(completed => [...completed, item]);
+    }
+    if (item.status === "in-progress") {
+      console.log("In Progress!");
+      setInProgress(inProgress => [...inProgress, item]);
+    }
+  })}, []);
 
-  let completeWorks = <span className="completed">Completed Work</span>;
-  let inProgressWorks = <span className="in-progress">In-Progress Work</span>;
-  let biography = <span className="biography">About Me</span>;
   return (
     <>
       {portOpen ? (
@@ -78,7 +87,7 @@ export default function Project(props) {
                     className="completed"
                   >
                     <ProjectStack
-                      works={works}
+                      works={completed}
                       portOpen={portOpen}
                       setPortOpen={setPortOpen}
                       handleCards={handleCards}
@@ -91,7 +100,7 @@ export default function Project(props) {
                     className="in-progress"
                   >
                     <ProjectStack
-                      works={works}
+                      works={inProgress}
                       portOpen={portOpen}
                       setPortOpen={setPortOpen}
                       handleCards={handleCards}
@@ -116,7 +125,7 @@ export default function Project(props) {
 }
 
 function ProjectStack(props) {
-  const { works, handleCards, handleProjectClick } = props;
+  const { works, handleCards, handleProjectClick,  } = props;
   const [index, setIndex] = useState(0);
 
   // const handleSelect = (selectedIndex, e) => {
@@ -124,9 +133,7 @@ function ProjectStack(props) {
   // };
   return (
     <>
-      {/*<div className="project-pane">
-      <div className="project-cards"> */}
-      <Row xs={1} sm={4} md={6} className="project-pane">
+      <Row xs={2} sm={4} md={6} className="project-pane">
         {works.map((work) => {
           return (
             <Card
@@ -143,7 +150,7 @@ function ProjectStack(props) {
                 alt="First slide"
               />
               <Card.Body>
-                <Card.Title>{work.name}</Card.Title>
+                {/* <Card.Title>{work.name}</Card.Title> */}
                 {/* <Card.Text>{work.shortDesc}</Card.Text> */}
               </Card.Body>
             </Card>
