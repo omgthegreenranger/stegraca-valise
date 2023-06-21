@@ -2,11 +2,8 @@
     grid-area: panel;
     display: grid;
     grid-template-areas: 
-        "complete-projects"
-        "project-pane"
-        "in-progress-projects";
+        "project-pane";
     width: 75cqw;
-    justify-content: start;
     position:relative;
     height: 0%;
 }

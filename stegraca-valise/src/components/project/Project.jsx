@@ -150,7 +150,7 @@ function ProjectStack(props) {
                 alt="First slide"
               />
               <Card.Body>
-                {/* <Card.Title>{work.name}</Card.Title> */}
+                <Card.Title>{work.name}</Card.Title>
                 {/* <Card.Text>{work.shortDesc}</Card.Text> */}
               </Card.Body>
             </Card>
