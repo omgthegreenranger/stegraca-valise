@@ -1,4 +1,5 @@
 .details-view {
+    grid-area: details;
     background: rgb(184, 184, 184);
     border-radius: 15px;
     padding: 25px;

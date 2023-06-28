@@ -2,10 +2,12 @@
     grid-area: panel;
     display: grid;
     grid-template-areas: 
-        "project-pane";
+        "project-pane"
+        "details";
+    grid-template-rows: 1fr 90%;
     width: 75cqw;
     position:relative;
-    height: 0%;
+    /* height: 100%; */
 }
 
 .panel-false {

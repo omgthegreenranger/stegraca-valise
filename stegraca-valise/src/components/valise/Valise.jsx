@@ -5,8 +5,8 @@ import { animated, useSpring } from '@react-spring/web';
 
 export default function Valise(props) {
   // destructure our global states from props
-  const [tags, setTags] = useState([]);
-  const { display, setDisplay } = props;
+  // const [tags, setTags] = useState([]);
+  const { display, setDisplay, tags, setTags } = props;
   const [navi, setNavi] = useState("");
 
   
@@ -15,7 +15,7 @@ export default function Valise(props) {
       <Splash
         display={display}
       />
-      <Linkblock tags={tags} setTags={setTags} />
+      {/* <Linkblock tags={tags} setTags={setTags} direction="horiz" /> */}
       <Panel
         display={display}
         setDisplay={setDisplay}

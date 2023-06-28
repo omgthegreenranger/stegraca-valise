@@ -8,12 +8,13 @@
     container-type:inline-size;
     grid-area: valise-container;
     display:grid;
+    grid-template-rows: auto 1fr;
     width: 97vw;
-    /* height: 100%; */
+    height: 100%;
     margin-left: 2cqw;
     grid-template-areas:
-    "splash ."
-    "panel tech";
+        "splash"
+        "panel";
     position: absolute;
     align-items:start;
     padding: 10px;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./linkblock.css";
 import {
     SiJavascript,
@@ -9,7 +9,8 @@ import {
     SiHtml5,
     SiMongodb,
     SiMariadb,
-    SiReact
+    SiReact,
+    SiPython
  } from "react-icons/si";
  import { IconContext } from "react-icons";
 
@@ -34,7 +35,8 @@ function TechLine(props) {
         { tech: "Bootstrap", icon: <SiBootstrap /> },
         { tech: "React", icon: <SiReact /> },
         { tech: "MongoDB", icon: <SiMongodb /> },
-        { tech: "MySQL", icon: <SiMariadb /> }
+        { tech: "MySQL", icon: <SiMariadb /> },
+        { tech: "Python", icon: <SiPython /> }
     ];
   
   const handleTechClick = (tech) => {

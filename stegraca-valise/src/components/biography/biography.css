@@ -1,19 +1,35 @@
 .bio-block {
-    grid-area: bio-block;
+    display: grid;
+    grid-template-areas:
+        "bio-text bio-photos"
+        ". bio-photos";
+    grid-template-columns: 8fr 2fr;
     color: white;
     background-color: rgba(0, 0, 0, 0.13);
     padding: 0.5em;
-    /* width: 75%; */
-    /* margin-left: auto;
-    margin-right: auto; */
     margin-top: 0;
-    height: fit-content;
+    /* height: fit-content; */
+    height: -moz-fit-content;
     /* border-radius: 1rem; */
-    grid-row-end: none;
+
 }
 
 .title-line {
     color: black;
     font-size:large;
     font-weight: bolder;
+}
+
+.imager {
+    width: 100%;
+}
+
+
+.bio-text {
+    grid-area: bio-text;
+    margin: 3px;
+}
+
+.bio-photos {
+    grid-area: bio-photos;
 }

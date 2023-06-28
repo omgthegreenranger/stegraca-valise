@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./Project.css";
 import projectDB from "../project/projects.json";
 import { Details, Bio } from "../index";
-import { Button, Card, Row, Col, Tab, Nav } from "react-bootstrap";
+import { ProjectStack } from "./index";
+import { Button, Card, Row, Col, Tab, Nav, CardGroup, CardImgOverlay } from "react-bootstrap";
+import {animated, useSpring } from '@react-spring/web';
+
 
 export default function Project(props) {
   // set the state as needed
@@ -23,7 +26,6 @@ export default function Project(props) {
       setPortOpen(false);
     }
   }
-
   // Function to handle tags on card mouseover
   const handleCards = (tagList) => {
     setTags(tagList);
@@ -33,32 +35,42 @@ export default function Project(props) {
   const handleTransition = (event) => {
     console.log("This is a transition function!", event);
   };
-useEffect (() => {
-  works.forEach(item => {
-    if (item.status === "complete") {
-      console.log("Complete!")
-      setCompleted(completed => [...completed, item]);
-    }
-    if (item.status === "in-progress") {
-      console.log("In Progress!");
-      setInProgress(inProgress => [...inProgress, item]);
-    }
-  })}, []);
+
+// generate arrays for project categories
+function handleWorks(type) {
+  works.filter(function (work) {
+    return work.status === type;
+  })
+}
+
+const AnimatedBio = animated(Bio)
+
+const styles = useSpring({
+  from: {
+    width: '0%'},
+    to: {width: '100%'}
+  })
+
+const completers = works.filter(function (work) {
+    return work.status === "complete";
+  })
+
+
+const progressives = works.filter(function (work) {
+  return work.status === "in-progress";
+})
 
   return (
     <>
-      {portOpen ? (
-        <>
+      <div className="project-pane">
           <Tab.Container
             className="project-tabs"
             defaultActiveKey="bio"
-            onSelect={() => console.log("Yes yes yes!")}
+            onSelect={() => setProjectData('')}
           >
-            <Row>
-              <Col sm={3}>
                 <Nav
                   variant="nav"
-                  className="flex-column navs"
+                  className="flex-row navs"
                   defaultActiveKey="bio"
                 >
                   <Nav.Item>
@@ -71,9 +83,7 @@ useEffect (() => {
                     <Nav.Link eventKey="in-progress">In-Progress Work</Nav.Link>
                   </Nav.Item>
                 </Nav>
-              </Col>
-              <Col>
-                <Tab.Content>
+                <Tab.Content className="displays">
                   <Tab.Pane
                     eventKey="bio"
                     title="Biography"
@@ -84,10 +94,10 @@ useEffect (() => {
                   <Tab.Pane
                     eventKey="completed"
                     title="Completed Works"
-                    className="completed"
+                    className="overview"
                   >
                     <ProjectStack
-                      works={completed}
+                      works={completers}
                       portOpen={portOpen}
                       setPortOpen={setPortOpen}
                       handleCards={handleCards}
@@ -97,10 +107,10 @@ useEffect (() => {
                   <Tab.Pane
                     eventKey="in-progress"
                     title="In-progress Work"
-                    className="in-progress"
+                    className="overview"
                   >
                     <ProjectStack
-                      works={inProgress}
+                      works = {progressives}
                       portOpen={portOpen}
                       setPortOpen={setPortOpen}
                       handleCards={handleCards}
@@ -108,56 +118,14 @@ useEffect (() => {
                     />
                   </Tab.Pane>
                 </Tab.Content>
-              </Col>
-            </Row>
           </Tab.Container>
-        </>
-      ) : (
         <Details
           projectData={projectData}
           setProjectData={setProjectData}
           portOpen={portOpen}
           setPortOpen={setPortOpen}
         />
-      )}
-    </>
-  );
-}
-
-function ProjectStack(props) {
-  const { works, handleCards, handleProjectClick,  } = props;
-  const [index, setIndex] = useState(0);
-
-  // const handleSelect = (selectedIndex, e) => {
-  //   setIndex(selectedIndex);
-  // };
-  return (
-    <>
-      <Row xs={2} sm={4} md={6} className="project-pane">
-        {works.map((work) => {
-          return (
-            <Card
-              className="project-card"
-              onMouseEnter={() => handleCards(work.techTags)}
-              onMouseLeave={() => handleCards([])}
-              onClick={() => handleProjectClick(work)}
-            >
-              <Card.Img
-                variant="top"
-                className="card-image"
-                width="100%"
-                src={require(`./images/${work.logo}`)}
-                alt="First slide"
-              />
-              <Card.Body>
-                <Card.Title>{work.name}</Card.Title>
-                {/* <Card.Text>{work.shortDesc}</Card.Text> */}
-              </Card.Body>
-            </Card>
-          );
-        })}
-      </Row>
-      {/* </div> */}
+        </div>
     </>
   );
 }

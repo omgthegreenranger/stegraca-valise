@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Valise, Header, Footer } from './components';
+import { Valise, Header, Linkblock} from './components';
 import { animated, useSpring } from '@react-spring/web';
 
 const App = () =>{
     // Let's set some global states for this app
     const [display, setDisplay] = useState(false)
+    const [tags, setTags] = useState([]);
     const [springs, api] = useSpring(() => ({
         from: {opacity : 0},
         to: {opacity : 1},
@@ -43,7 +44,8 @@ const App = () =>{
                 > */}
             <Header display={display} setDisplay={setDisplay} /> 
             {/* </animated.div> */}
-            <Valise display={display} setDisplay={setDisplay} />
+            <Valise display={display} setDisplay={setDisplay} tags={tags} setTags={setTags} />
+            <Linkblock tags={tags} setTags={setTags} direction="horiz" />
         </div>
         </>
         )
