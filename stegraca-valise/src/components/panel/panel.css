@@ -2,9 +2,7 @@
     grid-area: panel;
     display: grid;
     grid-template-areas: 
-        "project-pane"
-        "details";
-    grid-template-rows: 1fr 90%;
+        "project-pane";
     width: 75cqw;
     position:relative;
     /* height: 100%; */

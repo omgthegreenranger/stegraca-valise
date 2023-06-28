@@ -56,11 +56,25 @@
                 "projDesc": "",
                 "appLink": "#",
                 "gitLink": "https://github.com/omgthegreenranger/tbc",
-                "logo": "muntil-logo.png",
-                "screenshots": ["accesscal.png"],
+                "logo": "",
+                "screenshots": "",
                 "techTags": ["React", "JavaScript", "Bootstrap", "Handlebars"],
                 "team": [{"name": "Thomas Calle", "url": "https://github.com/ThomasCalle"},
                 {"name": "Stefan Marinov", "url": "https://github.com/scorpionfiko"}]
+            },
+            {
+                "id": 5,
+                "name": "RPG Library Tagger",
+                "status": "in-progress",
+                "shortDesc": "A Python-based TTRPG library organizer",
+                "midDesc": "An app to access the RPGGeek database API to pull info about an unweildy series of tabletop roleplaying game assets, and place all files in a folder structure along with a general database.",
+                "projDesc": "",
+                "appLink": "#",
+                "gitLink": "https://github.com/omgthegreenranger/",
+                "logo": "",
+                "screenshots": "",
+                "techTags": ["Python"],
+                "team": [{}]
             }
     ]
 }   

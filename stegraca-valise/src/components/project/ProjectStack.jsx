@@ -10,7 +10,7 @@ export function ProjectStack(props) {
 
     return (
         <Row xs={1} sm={3} md={5} lg={8} className="project-cards"> 
-          {works.map((work) => {    
+          {works.map((work) => {
             return (
               <Card
                 className="project-card"
@@ -21,7 +21,7 @@ export function ProjectStack(props) {
                 <Card.Img
                   className="card-image"
                   width="100%"
-                  src={require(`./images/${work.logo}`)}
+                  src={work.logo == "" ? `holder.js/300x200?auto=yes&text=${work.name}&theme=social` : require(`./images/${work.logo}`)}
                   alt="First slide"
                 />
                 {mouseOver.toggle === true && mouseOver.id === work.id ? <Card.ImgOverlay className="image-overlay">

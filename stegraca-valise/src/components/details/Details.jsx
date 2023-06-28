@@ -25,9 +25,9 @@ export default function Details(props) {
             <Row>
                 <Col xs={3}>
                     <div>
-                        <img className = 'card-image-details' alt="Project Logo" src={require(`../project/images/${work.logo}`)} /></div>
+                        <img className = 'card-image-details' alt="Project Logo" src={work.logo == "" ? `holder.js/300x200?auto=yes&text=${work.name}&theme=social` : require(`../project/images/${work.logo}`)} /></div>
                 <Stack gap={1}>
-                    {work.screenshots.map((screenshot) => {
+                    {work.screenshots == "" ? "" : work.screenshots.map((screenshot) => {
                         return(
                         <img alt="Project Screenshot" src={require(`../project/images/${screenshot}`)} />
                     )})}
