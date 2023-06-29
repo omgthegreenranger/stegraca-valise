@@ -5,8 +5,6 @@
         ". bio-photos";
     grid-template-columns: 8fr 2fr;
     color: white;
-    background-color: rgba(0, 0, 0, 0.13);
-    padding: 0.5em;
     margin-top: 0;
     /* height: fit-content; */
     height: -moz-fit-content;

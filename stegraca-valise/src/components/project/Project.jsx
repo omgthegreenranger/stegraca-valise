@@ -65,13 +65,12 @@ const progressives = works.filter(function (work) {
       <div className="project-pane">
           <Tab.Container
             className="project-tabs"
-            defaultActiveKey="bio"
+            // defaultActiveKey="bio"
             onSelect={() => setProjectData('')}
           >
                 <Nav
                   variant="nav"
                   className="flex-row navs"
-                  defaultActiveKey="bio"
                 >
                   <Nav.Item>
                     <Nav.Link eventKey="bio">Biography</Nav.Link>
