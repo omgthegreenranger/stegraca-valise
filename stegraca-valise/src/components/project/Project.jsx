@@ -81,6 +81,9 @@ const progressives = works.filter(function (work) {
                   <Nav.Item>
                     <Nav.Link eventKey="in-progress">In-Progress Work</Nav.Link>
                   </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey="other-stuff">Other Stuff</Nav.Link>
+                  </Nav.Item>
                 </Nav>
                 <Tab.Content className="displays">
                   <Tab.Pane
@@ -116,6 +119,11 @@ const progressives = works.filter(function (work) {
                       handleProjectClick={handleProjectClick}
                     />
                   </Tab.Pane>
+                  <Tab.Pane
+                    eventKey="other-stuff"
+                    title="Other stuff"
+                    className="overview"
+                  />
                 </Tab.Content>
           </Tab.Container>
         <Details
