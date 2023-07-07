@@ -1,0 +1,58 @@
+.tech-icons {
+    width:auto;
+    display: flex;
+    font-size: 4.5cqw;
+    color: white;
+    padding: 0.5rem;
+}
+
+.tech-icons:hover {
+    color: yellow;
+    stroke: 1px yellowgreen;
+    border-radius: 1rem;
+    transform: scale(1.1);
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.tech-used {
+    color:yellow;
+    transform: scale(1.1);
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.tech-block {
+    grid-area: tech;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content:center;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.link-text {
+    container-type: inline-size;
+    color: white;
+    text-align:center;
+    width:100%;
+}
+
+.page-portfolio {
+    grid-area: portfolio;
+}
+
+.page-about {
+    grid-area: about;
+}
+
+
+.back {
+    grid-area: back;
+}

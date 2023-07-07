@@ -1,61 +1,111 @@
 .project-card {
-    background-color:gray;
-    border: 5px solid #000000;
-    border-radius: 10px;
+    box-shadow: 0px 0px 1px #000000;
     cursor: pointer;
-    width: 18rem;
-
+    padding: 10px;
+    margin: 10px;
+    color: black;
 }
 
 .project-card:hover {
-    transform: scale(1.01);
-    /* box-shadow: 0 13px 40px -5px hsla(240, 30.1%, 28%, 0.12), 0 8px 32px -8px hsla(0, 0%, 0%, 0.14), 0 -6px 32px -6px hsla(0, 0%, 0%, 0.02); */
-    box-shadow: 0px 0px 10px darkgoldenrod;
+    box-shadow: 0px 0px 1rem darkgoldenrod;
     filter: unset;
-  }
-
-.project-card-small {
-    background-color:aqua;
+    height: 150%;
 }
 
 .project-pane {
-    display: flex;
-    background: rgb(71, 71, 71, .5);
-    flex-direction: column;
-    height: fit-content;
-    
+    grid-area: project-pane;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+        "navs"
+        "displays";
 }
 
-.project-stack { 
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: center; 
-    height: fit-content;
+.project-cards {
+    grid-area: projects;
+    width: 100%;
+    justify-content: center;
 }
-
-.tech-icons {
-    font-size: 4.5rem;
-    color: white;
-}
-
-.footerIcons {
-    color: black;
-    text-decoration: none;
-}
-
-.tech-icons:hover {
-    color: green;
-    border: yellowgreen 
-}
-
 
 .card-image {
     object-fit: contain;
     aspect-ratio: 1.5/1;
     margin: 0%;
+    border: #000000;
 }
-
 
 #css {
     color: yellow;
+}
+
+.project-tabs {
+    grid-area: project-pane;
+    width: 100%;
+    flex-direction: row-reverse;
+}
+
+/* .displays {
+    grid-area: displays;
+    background-color: rgba(0, 0, 0, 0.13);
+    padding: 2em;
+    height: 0%;
+    animation: grow-box 0.75s forward;
+} */
+
+@keyframes grow-box {
+    0% {
+        height: 0%;
+    }
+
+    /* 50% { font-size: 10cqw; } */
+    100% {
+        height: 100%;
+    }
+}
+
+.navs {
+    background: none;
+    border: 0;
+    width: 100%;
+    color: white;
+    font-size: 1.5rem;
+    grid-area: navs;
+}
+
+.navs a {
+    color: white;
+}
+
+.navs a:hover {
+    color: yellow;
+}
+
+.navs a:focus {
+    color: yellow;
+    transition: width 0.2s linear;
+}
+
+.biography h3,
+.completed h3,
+.in-progress h3 {
+    background: rgba(0, 0, 0, 0.3);
+    border-end-end-radius: 1rem;
+    width: 100%;
+}
+
+.image-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.detailpane {
+    grid-area: detailpane;
+}
+
+.overview {
+    display: grid;
+    grid-template-areas:
+    "projects"
+    "details";
 }
