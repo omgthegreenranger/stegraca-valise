@@ -2,16 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./Project.css";
 import { Details } from "../index.js";
 import projectDB from "../project/projects.json";
-import {
-  Button,
-  Card,
-  Row,
-  Col,
-  Tab,
-  Nav,
-  CardGroup,
-  CardImgOverlay,
-} from "react-bootstrap";
 import { animated, useSpring } from "@react-spring/web";
 
 export function ProjectStack(props) {
@@ -21,10 +11,10 @@ export function ProjectStack(props) {
   return (
     <>
       <div className="overview">
-      <Row xs={1} sm={3} md={5} lg={8} className="project-cards">
+      <div className="project-cards">
         {works.map((work) => {
           return (
-            <Card
+            <div
               className="project-card"
               onMouseEnter={() => {
                 handleCards(work.techTags);
@@ -36,7 +26,7 @@ export function ProjectStack(props) {
               }}
               onClick={() => handleProjectClick(work)}
             >
-              <Card.Img
+              <img
                 className="card-image"
                 width="100%"
                 src={
@@ -47,18 +37,15 @@ export function ProjectStack(props) {
                 alt="First slide"
               />
               {mouseOver.toggle === true && mouseOver.id === work.id ? (
-                <Card.ImgOverlay className="image-overlay">
-                  <Card.Title>{work.name}</Card.Title>
-                  <Card.Text>{work.shortDesc}</Card.Text>
-                </Card.ImgOverlay>
+                  <div className="card-text"><h3>{work.name}</h3>
+                  <p>{work.shortDesc}</p></div>
               ) : (
                 console.log("No this is not!", mouseOver)
               )}
-            </Card>
+            </div>
           );
         })}
-      </Row>
-      {/* <Row className="detailpane"> */}
+        </div>
       <Details
         projectData={projectData}
         setProjectData={setProjectData}

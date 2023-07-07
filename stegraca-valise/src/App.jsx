@@ -45,7 +45,7 @@ const App = () =>{
             <Header display={display} setDisplay={setDisplay} /> 
             {/* </animated.div> */}
             <Valise display={display} setDisplay={setDisplay} tags={tags} setTags={setTags} />
-            <Linkblock tags={tags} setTags={setTags} direction="horiz" />
+            {/* <Linkblock tags={tags} setTags={setTags} direction="horiz" /> */}
         </div>
         </>
         )

@@ -14,7 +14,7 @@
     margin-left: 2cqw;
     grid-template-areas:
         "splash"
-        "panel";
+        "project-pane";
     position: absolute;
     align-items:start;
     padding: 10px;

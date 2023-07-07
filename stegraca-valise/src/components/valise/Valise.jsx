@@ -1,6 +1,6 @@
 import "./Valise.css";
 import React, { useState } from "react";
-import { Panel, Splash, Bio, Linkblock } from "../index";
+import { Splash, Projects } from "../index";
 import { animated, useSpring } from '@react-spring/web';
 
 export default function Valise(props) {
@@ -14,9 +14,9 @@ export default function Valise(props) {
     <div className={`valise-container`}>
       <Splash
         display={display}
+        tags={tags} setTags={setTags} 
       />
-      {/* <Linkblock tags={tags} setTags={setTags} direction="horiz" /> */}
-      <Panel
+      <Projects
         display={display}
         setDisplay={setDisplay}
         navi={navi}

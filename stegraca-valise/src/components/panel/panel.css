@@ -7,17 +7,7 @@
     position:relative;
     /* height: 100%; */
 }
-
-.panel-false {
-    height: 100%;
-    animation: height 3s;
-}
-
-.panel-true {
-    height: 0%;
-    animation: height 3s;
-}
-
+/* 
 .display-panel {
     grid-area: display;
     grid-column: span 3;
@@ -39,4 +29,4 @@
     grid-template-areas:
         ". back ."
         "pics bio-block .";
-}
+} */
