@@ -1,44 +1,39 @@
 .project-card {
     box-shadow: 0px 0px 1px #000000;
-    /* border-radius: 10px;
-    border: 2px white solid; */
     cursor: pointer;
-    padding:10px;
-    margin:10px;
+    padding: 10px;
+    margin: 10px;
     color: black;
-    /* background-color:aliceblue;
-    display: inline-block; */
 }
 
 .project-card:hover {
     box-shadow: 0px 0px 1rem darkgoldenrod;
     filter: unset;
     height: 150%;
-  }
+}
 
 .project-pane {
     grid-area: project-pane;
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-areas: "navs"
-    "displays";
+    grid-template-areas:
+        "navs"
+        "displays";
 }
 
-
-.project-cards{
+.project-cards {
+    grid-area: projects;
     width: 100%;
     justify-content: center;
 }
-
 
 .card-image {
     object-fit: contain;
     aspect-ratio: 1.5/1;
     margin: 0%;
-    border:#000000;
+    border: #000000;
 }
-
 
 #css {
     color: yellow;
@@ -50,24 +45,29 @@
     flex-direction: row-reverse;
 }
 
-.displays {
+/* .displays {
     grid-area: displays;
     background-color: rgba(0, 0, 0, 0.13);
     padding: 2em;
     height: 0%;
     animation: grow-box 0.75s forward;
-}
+} */
 
 @keyframes grow-box {
-    0% { height: 0%}
+    0% {
+        height: 0%;
+    }
+
     /* 50% { font-size: 10cqw; } */
-    100% { height: 100% }
+    100% {
+        height: 100%;
+    }
 }
 
 .navs {
     background: none;
     border: 0;
-    width:100%;
+    width: 100%;
     color: white;
     font-size: 1.5rem;
     grid-area: navs;
@@ -86,18 +86,26 @@
     transition: width 0.2s linear;
 }
 
-
-.biography h3, .completed h3, .in-progress h3 {
-    background: rgba(0,0,0,0.3);
+.biography h3,
+.completed h3,
+.in-progress h3 {
+    background: rgba(0, 0, 0, 0.3);
     border-end-end-radius: 1rem;
     width: 100%;
 }
 
-.overview {
-    height: 50%;
+.image-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
 }
 
-.image-overlay {
-    background-color: rgba(0,0,0,0.5);
-    color: white;
+.detailpane {
+    grid-area: detailpane;
+}
+
+.overview {
+    display: grid;
+    grid-template-areas:
+    "projects"
+    "details";
 }

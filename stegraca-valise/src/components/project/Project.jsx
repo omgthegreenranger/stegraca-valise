@@ -89,14 +89,14 @@ const progressives = works.filter(function (work) {
                   <Tab.Pane
                     eventKey="bio"
                     title="Biography"
-                    className="biography"
+                    // className="biography"
                   >
                     <Bio />
                   </Tab.Pane>
                   <Tab.Pane
                     eventKey="completed"
                     title="Completed Works"
-                    className="overview"
+                    // className="overview"
                   >
                     <ProjectStack
                       works={completers}
@@ -104,12 +104,14 @@ const progressives = works.filter(function (work) {
                       setPortOpen={setPortOpen}
                       handleCards={handleCards}
                       handleProjectClick={handleProjectClick}
+                      projectData={projectData}
+                      setProjectData={setProjectData}
                     />
                   </Tab.Pane>
                   <Tab.Pane
                     eventKey="in-progress"
                     title="In-progress Work"
-                    className="overview"
+                    // className="overview"
                   >
                     <ProjectStack
                       works = {progressives}
@@ -117,6 +119,8 @@ const progressives = works.filter(function (work) {
                       setPortOpen={setPortOpen}
                       handleCards={handleCards}
                       handleProjectClick={handleProjectClick}
+                      projectData={projectData}
+                      setProjectData={setProjectData}
                     />
                   </Tab.Pane>
                   <Tab.Pane
@@ -126,12 +130,6 @@ const progressives = works.filter(function (work) {
                   />
                 </Tab.Content>
           </Tab.Container>
-        <Details
-          projectData={projectData}
-          setProjectData={setProjectData}
-          portOpen={portOpen}
-          setPortOpen={setPortOpen}
-        />
         </div>
     </>
   );
