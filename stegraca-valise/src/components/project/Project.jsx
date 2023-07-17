@@ -12,7 +12,7 @@ export default function Project(props) {
   const { tags, setTags } = props;
   const [ completed, setCompleted ] = useState([]);
   const [ inProgress, setInProgress ] = useState([]);
-  const [portOpen, setPortOpen] = useState('');
+  const [portOpen, setPortOpen] = useState(true);
   const [projectData, setProjectData] = useState();
 
   // define variables
@@ -45,7 +45,9 @@ function handleWorks(type) {
 
 const handleTab = () => {
   setProjectData('');
-  setPortOpen(true);
+  if (portOpen === false) {
+    setPortOpen(true);
+  }
 }
 
 const AnimatedBio = animated(Bio)
@@ -71,8 +73,8 @@ console.log(portOpen);
           <Tab.Container
             className="project-tabs"
             // defaultActiveKey="bio"
-            onSelect={() => setProjectData('')}
-            // onSelect={handleTab}
+            // onSelect={() => setProjectData('')}
+            onSelect={handleTab}
           >
                 <Nav
                   variant="nav"

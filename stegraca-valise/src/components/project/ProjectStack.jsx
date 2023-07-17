@@ -15,6 +15,14 @@ export function ProjectStack(props) {
         {portOpen ? (
       <div className="project-cards">
         {works.map((work) => {
+          let workLogo;
+          if (work.logo === "") (
+              workLogo = `holder.js/300x200?auto=yes&text=${work.name}&theme=social`
+            )
+            else (
+              workLogo = require(`../project/images/${work.logo}`)
+            )
+            console.log(workLogo);
           return (
             <div
               className="project-card"
@@ -28,7 +36,7 @@ export function ProjectStack(props) {
               }}
               onClick={() => handleProjectClick(work)}
             >
-               <img className="card-image" alt="First slide" src={work.logo === "" ? `holder.js/300x200?auto=yes&text=${work.name}&theme=social` : require(`../project/images/${work.logo}`)} />
+               <img className="card-image" alt="First slide" src={workLogo} />
               {/*  <img
                  className="card-image"
                  width="100%"
