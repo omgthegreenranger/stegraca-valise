@@ -1,9 +1,9 @@
 .tech-icons {
     width:auto;
-    display: flex;
-    font-size: 4.5cqw;
+    flex: 0 0 1cqw;
+    font-size: 2cqw;
     color: white;
-    padding: 0.5rem;
+    padding-left: 1rem;
 }
 
 .tech-icons:hover {
@@ -27,15 +27,13 @@
 }
 
 .tech-block {
-    grid-template-columns: repeat(auto-fill,minmax(1fr 4fr));
     grid-area: tech;
-    display: grid;
-    /* flex-wrap: wrap; */
-    /* flex-direction: row; */
-    align-content: center;
-    justify-content:center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     width: 100%;
     margin-bottom: 5px;
+    /* justify-content: flex-end; */
 }
 
 .link-text {

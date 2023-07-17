@@ -7,10 +7,12 @@
 .splash {
     container-type: inline-size;
     display: grid;
+    grid-template-columns: 1fr 1fr;
     width: 75cqw;
     grid-area: splash;
     grid-template-areas:
-        "splash-box splash-pos";
+        "splash-box splash-box"
+        "splash-pos tech";
     justify-items: start;
     justify-content: start;
     align-items: end;

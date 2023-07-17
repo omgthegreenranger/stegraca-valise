@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Project.css";
 import projectDB from "../project/projects.json";
-import { Details, Bio } from "../index";
+import { Details, Bio, Linkblock } from "../index";
 import { ProjectStack } from "./index";
 import { Button, Card, Row, Col, Tab, Nav, CardGroup, CardImgOverlay } from "react-bootstrap";
 import {animated, useSpring } from '@react-spring/web';
@@ -12,7 +12,7 @@ export default function Project(props) {
   const { tags, setTags } = props;
   const [ completed, setCompleted ] = useState([]);
   const [ inProgress, setInProgress ] = useState([]);
-  const [portOpen, setPortOpen] = useState(true);
+  const [portOpen, setPortOpen] = useState('');
   const [projectData, setProjectData] = useState();
 
   // define variables
@@ -43,6 +43,11 @@ function handleWorks(type) {
   })
 }
 
+const handleTab = () => {
+  setProjectData('');
+  setPortOpen(true);
+}
+
 const AnimatedBio = animated(Bio)
 
 const styles = useSpring({
@@ -59,7 +64,7 @@ const completers = works.filter(function (work) {
 const progressives = works.filter(function (work) {
   return work.status === "in-progress";
 })
-
+console.log(portOpen);
   return (
     <>
       <div className="project-pane">
@@ -67,10 +72,11 @@ const progressives = works.filter(function (work) {
             className="project-tabs"
             // defaultActiveKey="bio"
             onSelect={() => setProjectData('')}
+            // onSelect={handleTab}
           >
                 <Nav
                   variant="nav"
-                  className="flex-row navs"
+                  className="navs"
                 >
                   <Nav.Item>
                     <Nav.Link eventKey="bio">Biography</Nav.Link>
@@ -85,6 +91,7 @@ const progressives = works.filter(function (work) {
                     <Nav.Link eventKey="other-stuff">Other Stuff</Nav.Link>
                   </Nav.Item>
                 </Nav>
+                {/* <Linkblock tags={tags} setTags={setTags} /> */}
                 <Tab.Content className="displays">
                   <Tab.Pane
                     eventKey="bio"

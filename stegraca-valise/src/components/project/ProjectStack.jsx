@@ -3,6 +3,7 @@ import "./Project.css";
 import { Details } from "../index.js";
 import projectDB from "../project/projects.json";
 import { animated, useSpring } from "@react-spring/web";
+import { run as runHolder } from 'holderjs/holder';
 
 export function ProjectStack(props) {
   const { works, handleCards, handleProjectClick, projectData, setProjectData, portOpen, setPortOpen } = props;
@@ -11,6 +12,7 @@ export function ProjectStack(props) {
   return (
     <>
       <div className="overview">
+        {portOpen ? (
       <div className="project-cards">
         {works.map((work) => {
           return (
@@ -26,33 +28,38 @@ export function ProjectStack(props) {
               }}
               onClick={() => handleProjectClick(work)}
             >
-              <img
-                className="card-image"
-                width="100%"
-                src={
-                  work.logo == ""
-                    ? `holder.js/300x200?auto=yes&text=${work.name}&theme=social`
-                    : require(`./images/${work.logo}`)
-                }
-                alt="First slide"
-              />
+               <img className="card-image" alt="First slide" src={work.logo === "" ? `holder.js/300x200?auto=yes&text=${work.name}&theme=social` : require(`../project/images/${work.logo}`)} />
+              {/*  <img
+                 className="card-image"
+                 width="100%"
+                 src={
+                   work.logo === ""
+                     ? `holder.js/300x200?auto=yes&text=${work.name}&theme=social`
+                     : require(`./images/${work.logo}`)
+                 }
+                
+              /> */}
               {mouseOver.toggle === true && mouseOver.id === work.id ? (
-                  <div className="card-text"><h3>{work.name}</h3>
-                  <p>{work.shortDesc}</p></div>
+                <>
+                  <div className="test-back"></div>
+                  <div className="card-text"><div className="words">{work.name}</div>
+                  <div className="words">{work.shortDesc}</div></div>
+                  </>
               ) : (
-                console.log("No this is not!", mouseOver)
+                ''
               )}
             </div>
           );
         })}
         </div>
+  ) : (
       <Details
         projectData={projectData}
         setProjectData={setProjectData}
         portOpen={portOpen}
         setPortOpen={setPortOpen}
       />
-      {/* </Row> */}
+  )}
       </div>
     </>
   );
