@@ -64,3 +64,15 @@
 /* svg {
   padding: 0.5rem;
 } */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: green;
+}

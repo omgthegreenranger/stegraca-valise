@@ -78,9 +78,6 @@
 .displays {
     grid-area: displays;
     padding: 2em;
-    height: 0%;
-    animation-name: grow-box;
-    animation-duration: 0.3s;
 }
 
 @keyframes grow-box {
