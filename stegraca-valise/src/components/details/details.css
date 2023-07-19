@@ -1,9 +1,10 @@
 .details-view {
     grid-area: details;
-    background: rgb(184, 184, 184);
+    background: rgba(184, 184, 184, 0.67);
     border-radius: 15px;
     padding: 25px;
     height: 100%;
+    width: 100%;
     max-width: 100%;
     grid-template-columns: 1fr auto 2fr;
     display: grid;
@@ -11,6 +12,14 @@
     "photo-column project-meat tech-stack";
     grid-template-rows: auto 1fr;
     overflow-y: scroll;
+}
+
+.on {
+    opacity: 1;
+}
+
+.off {
+    opacity: 0;
 }
 
 .details-photo-column {

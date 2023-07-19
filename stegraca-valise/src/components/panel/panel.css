@@ -1,9 +1,0 @@
-.panel {
-    grid-area: panel;
-    display: grid;
-    grid-template-areas: 
-        "project-pane";
-    width: 75cqw;
-    position:relative;
-    /* height: 100%; */
-}

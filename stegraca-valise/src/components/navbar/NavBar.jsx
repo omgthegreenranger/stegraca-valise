@@ -7,67 +7,58 @@ import { IconContext } from "react-icons";
 export default function NavBar(props) {
   const [isShown, setIsShown] = useState(<br />);
 
-  // const handleMouseEnter = (event) => {
-  //   let target = setIsShown(event.target.id);
-
-  //   console.log(target);
-  // };
 
   return (
     <>
-      {/* <div className={`nav-${splashClass}`}> */}
-        <div className="nav-title">{isShown}</div>
             <ul className="nav-bar">
             <IconContext.Provider value={{ size: "2em" }}>
-              <a href="http://www.github.com/omgthegreenranger">
+
               <li
-                className="nav-btn"
                 id="github"
-                onMouseEnter={() => setIsShown("GitHub")}
-                onMouseLeave={() => setIsShown(<br />)}
               >
+                <a className="nav-btn" href="http://www.github.com/omgthegreenranger">
+                <div>
                 <SiGithub />
+                </div>
+                <span className="nav-title">GitHub</span>
+                </a>
               </li>
-              </a>
               <a href="https://www.linkedin.com/in/stephencardie/">
               <li
                 className="nav-btn"
                 id="linkedin"
-                onMouseEnter={() => setIsShown("LinkedIn")}
-                onMouseLeave={() => setIsShown(<br />)}
               >
                 <SiLinkedin />
+                <span className="nav-title">LinkedIn</span>
               </li>
               </a>
               <a href="https://mastodon.social/@gogreenranger">
               <li
                 className="nav-btn"
                 id="mastodon"
-                onMouseEnter={() => setIsShown("Mastodon")}
-                onMouseLeave={() => setIsShown(<br />)}
               >
                 <SiMastodon />
+                <span className="nav-title">Mastodon</span>
               </li>
               </a>
               <a href="mailto:stephen.cardie@gmail.com">
               <li
                 className="nav-btn"
                 id="email"
-                onMouseEnter={() => setIsShown("Email")}
-                onMouseLeave={() => setIsShown(<br />)}
               >
                 <MdMail />
+                <span className="nav-title">Email</span>
               </li>
               </a>
               <a href="#">
               <li
                 className="nav-btn"
                 id="resume"
-                onMouseEnter={() => setIsShown("Resume")}
-                onMouseLeave={() => setIsShown(<br />)}
               >
                 <MdSimCardDownload />
+                <span className="nav-title">Download resume</span>
               </li>
+
               </a>
             </IconContext.Provider>
             </ul>

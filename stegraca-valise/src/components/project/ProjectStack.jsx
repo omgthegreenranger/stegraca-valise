@@ -61,7 +61,7 @@ export function ProjectStack(props) {
         setProjectData={setProjectData}
         portOpen={portOpen}
         setPortOpen={setPortOpen}
-      />
+      /> 
       </div>
     </>
   );

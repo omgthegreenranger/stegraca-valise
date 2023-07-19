@@ -123,7 +123,8 @@ export default function Details(props) {
             </div>
         </div>
         </>
-      ) : (""
+      ) : (<div className="details-view">
+        <p>Please choose a project!</p></div>
       )}
     </>
   );

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Valise, Header, Linkblock} from './components';
+import { Projects, Splash, NavBar } from './components';
 import { animated, useSpring } from '@react-spring/web';
 
 const App = () =>{
     // Let's set some global states for this app
     const [display, setDisplay] = useState(false)
+    const [navi, setNavi] = useState()
     const [tags, setTags] = useState([]);
     const [springs, api] = useSpring(() => ({
         from: {opacity : 0},
@@ -37,8 +38,8 @@ const App = () =>{
     return (
         <>
         <div className="main">
-            <Header display={display} setDisplay={setDisplay} /> 
-            <Valise display={display} setDisplay={setDisplay} tags={tags} setTags={setTags} />
+        <div className="nav-block-header"><NavBar navi={navi} setNavi={setNavi}/></div>            <Splash display={display} setDisplay={setDisplay} tags={tags} setTags={setTags} />
+            <Projects display={display} setDisplay={setDisplay} tags={tags} setTags={setTags} />
         </div>
         </>
         )

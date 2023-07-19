@@ -40,15 +40,13 @@
 .main {  
   display: grid;
   grid-template-areas:
-    "valise-container header";
-  grid-template-columns: 1fr auto;
+    "splash nav"
+    "project-pane .";
   background: rgb(0,100,00);
-  height: 100vh;
-  width: 100vw;
   align-items: start;
-  /* overflow-y: scroll; */
-  overflow: hidden;
   justify-items: start;
+  margin-left: 1rem;
+  grid-template-columns: 1fr auto;
 }
 
 .retained {

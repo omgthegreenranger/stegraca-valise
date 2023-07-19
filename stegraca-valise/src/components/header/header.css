@@ -6,13 +6,3 @@ header {
     /* width: 100%; */
     z-index: 1;
 }
-
-.nav-block-header {
-    grid-area: nav;
-    display: grid;
-    grid-template-columns: auto auto;
-    width: 100%;
-    padding-left: 0px;
-    justify-content: end;
-    align-items: center;
-}
