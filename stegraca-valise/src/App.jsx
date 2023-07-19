@@ -37,15 +37,8 @@ const App = () =>{
     return (
         <>
         <div className="main">
-            {/* <animated.div
-            style={{
-                opacity: 0,
-                ...springs,}}
-                > */}
             <Header display={display} setDisplay={setDisplay} /> 
-            {/* </animated.div> */}
             <Valise display={display} setDisplay={setDisplay} tags={tags} setTags={setTags} />
-            {/* <Linkblock tags={tags} setTags={setTags} direction="horiz" /> */}
         </div>
         </>
         )

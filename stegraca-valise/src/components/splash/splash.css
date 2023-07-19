@@ -7,8 +7,7 @@
 .splash {
     container-type: inline-size;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 75cqw;
+    /* width: 75cqw; */
     grid-area: splash;
     grid-template-areas:
         "splash-box splash-box"
@@ -67,6 +66,8 @@
     font-family: 'Dangrek', cursive;
     color:white;
     font-size: 2.5cqw;
+    grid-area: splash-pos;
+    text-align:end;
 }
 
 /* CSS Splash variable rules */

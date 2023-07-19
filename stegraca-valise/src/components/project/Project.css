@@ -1,5 +1,5 @@
 .project-card {
-    box-shadow: 0px 0px 1px #000000;
+    /* box-shadow: 0px 0px 1px #000000; */
     cursor: pointer;
     margin: 10px;
     color: black;
@@ -7,7 +7,7 @@
 }
 
 .project-card:hover {
-    box-shadow: 0px 0px 1rem darkgoldenrod;
+    /* box-shadow: 0px 0px 1rem darkgoldenrod; */
     opacity: 0.5;
 }
 
@@ -15,7 +15,7 @@
     grid-area: project-pane;
     grid-template-rows: auto 1fr;
     height:100%;
-    width: 75cqw;
+    width: 100%;
     display: grid;
     grid-template-areas:
         "navs"
@@ -24,8 +24,22 @@
 
 .project-cards {
     grid-area: projects;
-    width: 100%;
-    display: inline-flex;
+    /* width: 100%; */
+    display: flex;
+    transition-property: height;
+    transition-duration: 0.5s;
+}
+
+.big-row {
+    height: auto;
+    width: auto;
+    flex-direction: column;
+}
+
+.small-row {
+    height: auto;
+    width: auto;
+    flex-direction: column;
 }
 
 .card-image {
@@ -33,12 +47,14 @@
     aspect-ratio: 1.5/1;
     margin: 0%;
     border: #000000;
-    height: 100%;
+    height: auto;
+    width: 100%;
+    max-height: 100%;
 }
 
 .card-text {
     filter: unset;
-    position:absolute;
+    /* position:absolute; */
     top: 0;
     left: 0;
     bottom: 0;
@@ -46,12 +62,12 @@
     height: auto;
     width: 100%;
     opacity: 1;
-    padding: 10px;
+    /* padding: 10px; */
     color: white;
 }
 
 .test-back {
-    position:absolute;
+    /* position:absolute; */
     top: 0;
     left: 0;
     bottom: 0;
@@ -76,16 +92,14 @@
 }
 
 .displays {
-    grid-area: displays;
-    padding: 2em;
+    /* grid-area: displays;
+    padding: 2em; */
 }
 
 @keyframes grow-box {
     0% {
-        height: 0%;
+        height: 50%;
     }
-
-    50% { font-size: 10cqw; }
     100% {
         height: 100%;
     }
@@ -133,7 +147,16 @@
 
 .overview {
     display: grid;
+    justify-items: start;
+    align-items: start;
     grid-template-areas:
-    "projects"
-    "details";
+    "projects details";
+    grid-template-columns: auto 1fr;
+}
+
+.big-col {
+}
+
+.small-col {
+
 }

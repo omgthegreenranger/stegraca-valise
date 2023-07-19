@@ -11,9 +11,9 @@ export function ProjectStack(props) {
 
   return (
     <>
-      <div className="overview">
-        {portOpen ? (
-      <div className="project-cards">
+      <div className={portOpen ? ("overview big-col") : ("overview small-col")}>
+        {/* {portOpen ? ( */}
+      <div className={portOpen ? ("project-cards big-row") : ("project-cards small-row")}>
         {works.map((work) => {
           let workLogo;
           if (work.logo === "") (
@@ -37,21 +37,17 @@ export function ProjectStack(props) {
               onClick={() => handleProjectClick(work)}
             >
                <img className="card-image" alt="First slide" src={workLogo} />
-              {/*  <img
-                 className="card-image"
-                 width="100%"
-                 src={
-                   work.logo === ""
-                     ? `holder.js/300x200?auto=yes&text=${work.name}&theme=social`
-                     : require(`./images/${work.logo}`)
-                 }
-                
-              /> */}
+                                   {/* <div className="card-text">{work.name}</div> */}
               {mouseOver.toggle === true && mouseOver.id === work.id ? (
                 <>
-                  <div className="test-back"></div>
-                  <div className="card-text"><div className="words">{work.name}</div>
-                  <div className="words">{work.shortDesc}</div></div>
+                  {portOpen ? (             <>
+                  {/* <div className="test-back"></div> */}
+   {/* <div className="card-text"> */}
+                    {/* <div className="card-text">{work.name}</div>
+                    <div className="card-text">{work.shortDesc}</div> */}
+                    {/* </div> */}
+                    </>
+                  ) : ( "" )}
                   </>
               ) : (
                 ''
@@ -60,14 +56,12 @@ export function ProjectStack(props) {
           );
         })}
         </div>
-  ) : (
       <Details
         projectData={projectData}
         setProjectData={setProjectData}
         portOpen={portOpen}
         setPortOpen={setPortOpen}
       />
-  )}
       </div>
     </>
   );

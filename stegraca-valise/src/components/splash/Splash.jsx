@@ -30,9 +30,9 @@ export default function Splash(props) {
             )})}
             </div>
           </div>
-          <div className={`splash-position`}>
+          {/* <div className={`splash-position`}> */}
             <span className="position-string">{positionString}</span>
-          </div>
+          {/* </div> */}
           <Linkblock tags={tags} setTags={setTags} />
         </div>
       </>

@@ -3,7 +3,7 @@ import "./Project.css";
 import projectDB from "../project/projects.json";
 import { Details, Bio, Linkblock } from "../index";
 import { ProjectStack } from "./index";
-import { Button, Card, Row, Col, Tab, Nav, CardGroup, CardImgOverlay } from "react-bootstrap";
+import { Tab, Nav } from "react-bootstrap";
 import {animated, useSpring } from '@react-spring/web';
 
 

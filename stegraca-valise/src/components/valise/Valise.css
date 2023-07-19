@@ -9,9 +9,8 @@
     grid-area: valise-container;
     display:grid;
     grid-template-rows: auto 1fr;
-    width: 97vw;
+    width: 100%;
     height: 100%;
-    margin-left: 2cqw;
     grid-template-areas:
         "splash"
         "project-pane";
