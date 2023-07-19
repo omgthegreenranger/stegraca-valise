@@ -5,8 +5,6 @@ import "./navbar.css";
 import { IconContext } from "react-icons";
 
 export default function NavBar(props) {
-  const [isShown, setIsShown] = useState(<br />);
-
 
   return (
     <>

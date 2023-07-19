@@ -1,19 +1,13 @@
 import React, { useState, useEffect } from "react";
 import {
-  Container,
-  Col,
-  Row,
   Button,
   ListGroup,
-  ListGroupItem,
-  Collapse,
-  Stack,
+  Collapse
 } from "react-bootstrap";
 import "./details.css";
 import { IconContext } from "react-icons";
 import {
   RxExternalLink,
-  RxInfoCircled,
   RxGithubLogo,
   RxCross1,
 } from "react-icons/rx";
@@ -44,10 +38,10 @@ export default function Details(props) {
                 <IconContext.Provider
                   value={{ size: "3rem", className: "link-icons"}}
                 >
-                  <a href={work.gitLink} target="_blank">
+                  <a href={work.gitLink} target="_blank" rel="noreferrer">
                     <RxGithubLogo />
                   </a>
-                  <a href={work.appLink} target="_blank">
+                  <a href={work.appLink} target="_blank" rel="noreferrer">
                     <RxExternalLink />
                   </a>
                 </IconContext.Provider>
@@ -113,7 +107,7 @@ export default function Details(props) {
                   {work.team.map((mem) => {
                     return (
                       <ListGroup.Item>
-                        <a href={mem.url} target="_blank">
+                        <a href={mem.url} target="_blank" rel="noreferrer">
                           {mem.name}
                         </a>
                       </ListGroup.Item>

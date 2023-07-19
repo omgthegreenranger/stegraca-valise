@@ -95,11 +95,6 @@
     flex-direction: row-reverse;
 }
 
-.displays {
-    /* grid-area: displays;
-    padding: 2em; */
-}
-
 @keyframes grow-box {
     0% {
         height: 50%;
