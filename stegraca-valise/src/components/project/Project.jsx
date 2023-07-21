@@ -14,11 +14,28 @@ export default function Project(props) {
   const [ inProgress, setInProgress ] = useState([]);
   const [portOpen, setPortOpen] = useState(true);
   const [projectData, setProjectData] = useState();
+  const [slideShows, setSlideShows] = useState([])
 
   // define variables
   const works = projectDB.projects;
-  // Create functions
 
+  // create variables of screenshots and logos for Details module;
+
+  // const slideArray = 
+  // setSlideShows(() => 
+  //   works.map((work) => {
+  //     return{
+  //       ...slideShows,
+  //       id: work.id,
+  //       status: work.status,
+  //       logo: work.logo,
+  //       screenshots: work.screenshots
+  //     }}))
+
+
+console.log(slideShows)
+
+  // Create functions
   // Function to handle Project Card click
   function handleProjectClick(work) {
     setProjectData(work);
