@@ -19,18 +19,6 @@ export default function Project(props) {
   // define variables
   const works = projectDB.projects;
 
-  // create variables of screenshots and logos for Details module;
-
-  // const slideArray = 
-  // setSlideShows(() => 
-  //   works.map((work) => {
-  //     return{
-  //       ...slideShows,
-  //       id: work.id,
-  //       status: work.status,
-  //       logo: work.logo,
-  //       screenshots: work.screenshots
-  //     }}))
 
 
 console.log(slideShows)
@@ -110,7 +98,6 @@ console.log(portOpen);
                     <Nav.Link eventKey="other-stuff">Other Stuff</Nav.Link>
                   </Nav.Item>
                 </Nav>
-                {/* <Linkblock tags={tags} setTags={setTags} /> */}
                 <Tab.Content className="displays">
                   <Tab.Pane
                     eventKey="bio"
@@ -132,6 +119,7 @@ console.log(portOpen);
                       handleProjectClick={handleProjectClick}
                       projectData={projectData}
                       setProjectData={setProjectData}
+                      section="completed"
                     />
                   </Tab.Pane>
                   <Tab.Pane
@@ -147,6 +135,7 @@ console.log(portOpen);
                       handleProjectClick={handleProjectClick}
                       projectData={projectData}
                       setProjectData={setProjectData}
+                      section="in-progress"
                     />
                   </Tab.Pane>
                   <Tab.Pane

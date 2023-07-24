@@ -14,6 +14,7 @@ export function ProjectStack(props) {
     setProjectData,
     portOpen,
     setPortOpen,
+    section
   } = props;
   const [mouseOver, setMouseOver] = useState({ toggle: "", id: "" });
 
@@ -55,6 +56,8 @@ export function ProjectStack(props) {
           setPortOpen={setPortOpen}
           mouseOver={mouseOver}
           setMouseOver={setMouseOver}
+          works={works}
+          section={section}
         />
       </div>
     </>

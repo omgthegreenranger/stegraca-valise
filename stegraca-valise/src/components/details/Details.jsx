@@ -14,6 +14,8 @@ export default function Details(props) {
     setPortOpen,
     mouseOver,
     setMouseOver,
+    works,
+    section
   } = props;
   const [open, setOpen] = useState(false);
   let work = projectData;
@@ -38,7 +40,7 @@ export default function Details(props) {
         mouseOver.toggle ? (
           <HoverDetails work={mouseOver} setMouseOver={setMouseOver}/>
         ) : (
-          <NoDetails />
+          <NoDetails works={works} section={section} />
         )
       )}
       ;
@@ -153,7 +155,7 @@ function HoverDetails(props) {
   return(
     <>
     <div className="hover-details"
-    onMouseOver={setMouseOver({ toggle: true, id: work.id, name: work.name, shortDesc: work.shortDesc })}>
+    onMouseOver={() => setMouseOver({ toggle: true, id: work.id, name: work.name, shortDesc: work.shortDesc })}>
       <span>{work.name}</span>          <div className="link-pics">
             <IconContext.Provider
               value={{ size: "3rem", className: "link-icons" }}
@@ -177,10 +179,25 @@ function HoverDetails(props) {
 // The following is default screen with no selection.
 
 function NoDetails(props) {
-  let screenshots = projectDB.projects;
-  console.log(screenshots);
-  return (
+  const {works, section} = props;
+  console.log(works);
+    return (
     <div className="no-details">
+      {works.map((work) => {
+        console.log(work)
+        let screenshots = work.screenshots
+        console.log(screenshots)
+        return(
+          <>
+          {screenshots ? screenshots.map((shot) => {
+            return(
+              <>
+      <p>{shot}</p>
+      <p>{work.id}</p>
+      </>
+            )})}
+      </>
+      )})}
       <p>No Details placeholder!</p>
     </div>
   );
