@@ -192,12 +192,13 @@ function NoDetails(props) {
           {screenshots ? screenshots.map((shot) => {
             return(
               <>
-      <p>{shot}</p>
-      <p>{work.id}</p>
-      </>
-            )})}
-      </>
-      )})}
+                <p>{shot}</p>
+                <p>{work.id}</p>
+              </>
+            )}) : (" ")           }
+          </>
+            )}
+      )}
       <p>No Details placeholder!</p>
     </div>
   );
