@@ -58,8 +58,12 @@ function TechLine(props) {
               techClass = "tech-used";
             }
           }
-          return <span className={`tech-icons ${techClass}`} onClick={() => {setDisplay(true); handleTechClick(tech.tech)}}>{tech.icon}</span>;
-        })}
+          return (
+          <div>
+            {/* {techClass === "tech-used" ? <div>{tech.tech}</div> : <></>} */}
+            <div className={`tech-icons ${techClass}`} onClick={() => {setDisplay(true); handleTechClick(tech.tech)}}>{tech.icon}</div>
+          </div>
+        )})}
       </div>
     );
   }

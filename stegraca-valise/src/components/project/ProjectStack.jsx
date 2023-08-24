@@ -17,7 +17,7 @@ export function ProjectStack(props) {
     section,
   } = props;
   const [mouseOver, setMouseOver] = useState({ toggle: false, id: "" });
-  const [elemY, setElemY] = useState();
+  const [elemY, setElemY] = useState({offset: 0, height: 0});
 
   return (
     <>
@@ -26,8 +26,8 @@ export function ProjectStack(props) {
           {works.map((work) => {
             function handleMouseOver(e) {
               console.log("Hello", e, e.target.offsetTop);
-              setElemY(e.target.offsetTop);
-              console.log(elemY);
+              setElemY({offset: e.target.offsetTop, height: e.target.offsetHeight});
+              console.log(elemY.height);
               handleCards(work.techTags);
               setMouseOver({
                 toggle: true,

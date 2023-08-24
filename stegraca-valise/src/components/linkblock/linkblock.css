@@ -1,16 +1,16 @@
 .tech-icons {
     width:auto;
-    flex: 0 0 1cqw;
-    font-size: 2cqw;
+    /* flex: 0 0 1cqw; */
+    font-size: 3cqw;
     color: white;
-    padding-left: 1rem;
+    padding-left: 1cqw;
 }
 
 .tech-icons:hover {
     color: yellow;
     stroke: 1px yellowgreen;
-    border-radius: 1rem;
-    transform: scale(1.1);
+    border-radius: 1cqw;
+    transform: scale(1.5);
     -webkit-transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
     -o-transition-duration: 0.4s;
@@ -19,7 +19,7 @@
 
 .tech-used {
     color:yellow;
-    transform: scale(1.1);
+    transform: scale(1.5);
     -webkit-transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
     -o-transition-duration: 0.4s;

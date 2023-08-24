@@ -25,6 +25,7 @@ export default function Details(props) {
     setPortOpen(false);
   };
   console.log(mouseOver)
+  console.log(elemY)
   let yStyle;
   
   let classO;
@@ -48,7 +49,7 @@ export default function Details(props) {
   if (portOpen) {
     yStyle = { top: 0 }
   } else {
-    yStyle = { top: elemY }
+    yStyle = { top: elemY.offset }
   }
   return (
     <div className={"block-display " + classO} style={yStyle} >
@@ -59,7 +60,7 @@ export default function Details(props) {
       {work ? (
         <ProjectDetails work={work} setOpen={setOpen} open={open} clearProjects={clearProjects} setPortOpen={setPortOpen} portOpen={portOpen} />
       ) : (
-          <HoverDetails work={mouseOver} setMouseOver={setMouseOver} elemX={elemY} portOpen={portOpen} setPortOpen={setPortOpen} />
+          <HoverDetails work={mouseOver} setMouseOver={setMouseOver} elemY={elemY} portOpen={portOpen} setPortOpen={setPortOpen} />
       )}
     </div>
   );
@@ -168,11 +169,13 @@ function ProjectDetails(props) {
 // Click tab for extended info
 
 function HoverDetails(props) {
-  const {work, setMouseOver, elemX} = props;
+  const {work, setMouseOver, elemY} = props;
+
+  let styleHeight = { height: elemY.height }
 
   return(
     <>
-    <div className="hover-details">
+    <div className="hover-details" style={styleHeight}>
         <div className="hover-text">{work.shortDesc}</div>
     </div>
     </>)

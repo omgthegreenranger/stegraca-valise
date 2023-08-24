@@ -26,9 +26,10 @@
 .splash-name {
     /* font-weight:bolder; */
     font-family: 'Righteous', cursive;
-    font-size: 14cqh;
+    font-size: 12cqw;
     color:white;
     position: relative;
+    margin-bottom: -2.5cqw;
 }
 
 .letters:nth-child(n) {
@@ -64,7 +65,7 @@
 .position-string {
     font-family: 'Dangrek', cursive;
     color:white;
-    font-size: 3cqh;
+    font-size: 3cqw;
     grid-area: splash-pos;
     text-align:end;
 }
