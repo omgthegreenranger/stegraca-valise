@@ -15,21 +15,43 @@ export default function Details(props) {
     mouseOver,
     setMouseOver,
     works,
-    section
+    section,
+    elemY
   } = props;
   const [open, setOpen] = useState(false);
   let work = projectData;
   const clearProjects = () => {
     setProjectData();
-    setPortOpen(true);
+    setPortOpen(false);
   };
+  console.log(mouseOver)
+  let yStyle;
+  
+  let classO;
 
+  //if portOpen = true: project is on display, so hd-on
+  //if portOpen = false && mouseOver.toggle = false, hd-off
+  // if portOpen = false && mouseOver.toggle = true, hd-on
+  if(portOpen) {
+    classO = "hd-on"
+  } else if(portOpen === false) {
+    if(mouseOver.toggle) {
+      classO = "hd-on"
+    } else {
+      classO = "hd-off"
+    }
+  }
+  
   useEffect(() => {
     runHolder("image-class-name");
   });
+  if (portOpen) {
+    yStyle = { top: 0 }
+  } else {
+    yStyle = { top: elemY }
+  }
   return (
-    <>
-
+    <div className={"block-display " + classO} style={yStyle} >
     {/* If there is a mouseOver and *no* work, HoverDetails.
     If there is a mouseOver and work, ProjectDetails.
     If there is no mouseOver and work, ProjectDetails.
@@ -37,14 +59,9 @@ export default function Details(props) {
       {work ? (
         <ProjectDetails work={work} setOpen={setOpen} open={open} clearProjects={clearProjects} setPortOpen={setPortOpen} portOpen={portOpen} />
       ) : (
-        mouseOver.toggle ? (
-          <HoverDetails work={mouseOver} setMouseOver={setMouseOver}/>
-        ) : (
-          <NoDetails works={works} section={section} />
-        )
+          <HoverDetails work={mouseOver} setMouseOver={setMouseOver} elemX={elemY} portOpen={portOpen} setPortOpen={setPortOpen} />
       )}
-      ;
-    </>
+    </div>
   );
 }
 
@@ -151,27 +168,12 @@ function ProjectDetails(props) {
 // Click tab for extended info
 
 function HoverDetails(props) {
-  const {work, setMouseOver} = props;
+  const {work, setMouseOver, elemX} = props;
+
   return(
     <>
-    <div className="hover-details"
-    onMouseOver={() => setMouseOver({ toggle: true, id: work.id, name: work.name, shortDesc: work.shortDesc })}>
-      <span>{work.name}</span>          <div className="link-pics">
-            <IconContext.Provider
-              value={{ size: "3rem", className: "link-icons" }}
-            >
-              <a href={work.gitLink} target="_blank" rel="noreferrer">
-                <RxGithubLogo />
-              </a>
-              <a href={work.appLink} target="_blank" rel="noreferrer">
-                <RxExternalLink />
-              </a>
-            </IconContext.Provider>
-          </div>
-      <div className="card-text">
-        <div className="card-text">{work.shortDesc}</div>
-        <div className="card-text">placeholder</div>
-      </div>
+    <div className="hover-details">
+        <div className="hover-text">{work.shortDesc}</div>
     </div>
     </>)
 }
@@ -180,18 +182,19 @@ function HoverDetails(props) {
 
 function NoDetails(props) {
   const {works, section} = props;
-  console.log(works);
     return (
     <div className="no-details">
       {works.map((work) => {
-        console.log(work)
         let screenshots = work.screenshots
-        console.log(screenshots)
+
         return(
           <>
           {screenshots ? screenshots.map((shot) => {
             return(
               <>
+              <div>
+                
+              </div>
                 <p>{shot}</p>
                 <p>{work.id}</p>
               </>

@@ -10,8 +10,10 @@ import {
     SiMongodb,
     SiMariadb,
     SiReact,
-    SiPython
+    SiPython,
+    SiExpo
  } from "react-icons/si";
+ import { TbBrandReactNative } from "react-icons/tb";
  import { IconContext } from "react-icons";
 
 export default function Linkblock(props) {
@@ -29,14 +31,16 @@ export default function Linkblock(props) {
 function TechLine(props) {
   const { display, setDisplay } = props;
     let techList = [
-        { tech: "CSS", icon: <SiCss3 /> },
-        { tech: "JavaScript", icon: <SiJavascript /> },
-        { tech: "HTML", icon: <SiHtml5 /> },
         { tech: "Bootstrap", icon: <SiBootstrap /> },
-        { tech: "React", icon: <SiReact /> },
+        { tech: "CSS", icon: <SiCss3 /> },
+        { tech: "Expo", icon: <SiExpo /> },
+        { tech: "HTML", icon: <SiHtml5 /> },
+        { tech: "JavaScript", icon: <SiJavascript /> },
         { tech: "MongoDB", icon: <SiMongodb /> },
         { tech: "MySQL", icon: <SiMariadb /> },
-        { tech: "Python", icon: <SiPython /> }
+        { tech: "Python", icon: <SiPython /> },
+        { tech: "React", icon: <SiReact /> },
+        { tech: "React-Native", icon: <TbBrandReactNative />},
     ];
   
   const handleTechClick = (tech) => {

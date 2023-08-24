@@ -14,51 +14,72 @@ export function ProjectStack(props) {
     setProjectData,
     portOpen,
     setPortOpen,
-    section
+    section,
   } = props;
-  const [mouseOver, setMouseOver] = useState({ toggle: "", id: "" });
+  const [mouseOver, setMouseOver] = useState({ toggle: false, id: "" });
+  const [elemY, setElemY] = useState();
 
   return (
     <>
-      <div className={portOpen ? "overview big-col" : "overview small-col"}>
-        <div
-          className={
-            portOpen ? "project-cards big-row" : "project-cards small-row"
-          }
-        >
+      <div className="overview">
+        <div className="project-cards">
           {works.map((work) => {
-            return(
-              <div
-                className="project-card"
-                onMouseEnter={() => {
-                  handleCards(work.techTags);
-                  setMouseOver({ toggle: true, id: work.id, name: work.name, shortDesc: work.shortDesc });
-                }}
-                onMouseLeave={() => {
-                  handleCards([]);
-                }}
-                onClick={() => handleProjectClick(work)}
-              >
-                <div className="card-text">{work.name}</div>
-                {mouseOver.toggle === true && mouseOver.id === work.id ? (
-                  <>{portOpen ? <></> : ""}</>
-                ) : (
-                  ""
-                )}
+            function handleMouseOver(e) {
+              console.log("Hello", e, e.target.offsetTop);
+              setElemY(e.target.offsetTop);
+              console.log(elemY);
+              handleCards(work.techTags);
+              setMouseOver({
+                toggle: true,
+                id: work.id,
+                name: work.name,
+                shortDesc: work.shortDesc,
+              });
+            }
+            function handleMouseLeave(e) {
+              console.log(work);
+              console.log("Goodbye", e, mouseOver);
+              handleCards([]);
+              setMouseOver({ toggle: false });
+            }
+            return (
+              <div className="project-card">
+                <div
+                  className="project-text"
+                  // onMouseMove={() => {
+                  //     handleCards(work.techTags);
+                  //     ;}}
+                  onMouseEnter={handleMouseOver}
+                  // () => {
+                  //   handleCards(work.techTags);
+                  //   setMouseOver({ toggle: true, id: work.id, name: work.name, shortDesc: work.shortDesc });
+                  // }}
+                  onMouseLeave={handleMouseLeave}
+                  // {() => {
+                  //   handleCards([]);
+                  // }}
+                  onClick={() => handleProjectClick(work)}
+                >
+                  {/* <div className="card-text"> */}
+                  {work.name}
+                </div>
               </div>
             );
           })}
         </div>
-        <Details
-          projectData={projectData}
-          setProjectData={setProjectData}
-          portOpen={portOpen}
-          setPortOpen={setPortOpen}
-          mouseOver={mouseOver}
-          setMouseOver={setMouseOver}
-          works={works}
-          section={section}
-        />
+        <div>
+          <Details
+            projectData={projectData}
+            setProjectData={setProjectData}
+            portOpen={portOpen}
+            setPortOpen={setPortOpen}
+            mouseOver={mouseOver}
+            setMouseOver={setMouseOver}
+            works={works}
+            section={section}
+            elemY={elemY}
+          />
+        </div>
       </div>
     </>
   );

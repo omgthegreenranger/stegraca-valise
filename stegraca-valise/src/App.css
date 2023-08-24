@@ -40,8 +40,9 @@
 .main {  
   display: grid;
   grid-template-areas:
+    ". nav"
     "splash nav"
-    "project-pane .";
+    "project-pane nav";
   background: rgb(0,100,00);
   align-items: start;
   justify-items: start;

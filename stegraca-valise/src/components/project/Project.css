@@ -1,20 +1,3 @@
-.project-card {
-    box-shadow: 0px 0px 1px #000000;
-    cursor: pointer;
-    margin: 10px;
-    color: black;
-    position: relative;
-    opacity: 0.5;
-    transition: all ease-in-out 0.25s;
-}
-
-.project-card:hover {
-    border: 5px rgba(184, 184, 184, 0.67) solid;
-    opacity: 1;
-    transform: scale(1.3) translateX(10px);
-
-}
-
 .project-pane {
     grid-area: project-pane;
     grid-template-rows: auto 1fr;
@@ -28,21 +11,10 @@
 
 .project-cards {
     grid-area: projects;
-    /* width: 100%; */
+    width: 100%;
     display: flex;
     transition-property: width;
     transition-duration: 0.5s;
-}
-
-.big-row {
-    height: auto;
-    width: auto;
-    flex-direction: column;
-}
-
-.small-row {
-    height: auto;
-    width: auto;
     flex-direction: column;
 }
 
@@ -56,8 +28,8 @@
     max-height: 100%;
 }
 
-.card-text {
-    filter: unset;
+.project-text {
+    /* filter: unset; */
     /* position:absolute; */
     top: 0;
     left: 0;
@@ -65,9 +37,42 @@
     right: 0;
     height: auto;
     width: 100%;
-    opacity: 1;
-    /* padding: 10px; */
+    /* opacity: 1; */
     color: white;
+    /* box-shadow: 0px 0px 1px #000000; */
+    font-size: larger;
+    cursor: pointer;
+    padding: 10px;
+    /* margin-left: 10px; */
+    position: relative;
+    text-align: start;
+    transition: all ease-in-out 0.25s;
+}
+
+.project-text:hover {
+    text-align: end;
+}
+
+.project-card {
+    transition: all ease-in-out 0.25s;
+}
+
+.project-card:hover {
+    background: rgba(0, 0, 0, 0.25);
+    /* transform: scale(1.3) translateX(10px); */
+    /* transition: all ease-in-out 0.25s; */
+}
+
+.hover-text {
+    /* height: auto; */
+    width: 100%;
+    /* opacity: 1; */
+    color: white;
+    /* box-shadow: 0px 0px 1px #000000; */
+    cursor: pointer;
+    margin: 10px;
+    position: relative;
+
 }
 
 .test-back {
@@ -145,21 +150,31 @@
 }
 
 .overview {
+    width:100%;
     display: grid;
     justify-items: start;
     align-items: start;
     grid-template-areas:
     "projects details";
-    grid-template-columns: 2fr 15fr;
+    grid-template-columns: 3fr 14fr;
     transition: all ease-in-out 0.25s;
+    position:relative;
 }
 
-.big-col {
-    --col1: 300px;
-    --col2: auto;
+.block-display {
+    /* background-color: rgba(0, 0, 0, 0.25); */
+    /* padding: 20px; */
+    /* margin: 10px; */
+    /* border-radius: 25px; */
+    /* border-top-left-radius: 0; */
+    position:relative;
+    transition: 0.2s;
 }
 
-.small-col {
-    --col1: 150px;
-    --col2: 18fr;
+.hd-off {
+    opacity: 0;
+}
+
+.hd-on {
+    opacity: 1;
 }

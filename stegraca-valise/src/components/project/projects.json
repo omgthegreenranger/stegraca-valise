@@ -75,6 +75,20 @@
                 "screenshots": "",
                 "techTags": ["Python"],
                 "team": [{}]
+            },
+            {
+                "id": 6,
+                "name": "golfenhelper",
+                "status": "in-progress",
+                "shortDesc": "A simple golf scorecard",
+                "midDesc": "Built in React-Native, this is a mobile app to keep score of a golf game. Functionality includes hole information, up to four players, and scores.",
+                "projDesc": "Since there is a lack of open API for golf course scores, I created a basic JSON featuring hole information for Toronto's local city-owned courses. I'd like to incorporate full API information for weather and courses (which OpenStreetMap does provide in some case), along with saved history.",
+                "appLink": "https://snack.expo.dev/@gogreenranger/211924",
+                "gitLink": "https://github.com/omgthegreenranger/golfenhelper",
+                "logo": "",
+                "screenshots": "",
+                "techTags": ["React-Native", "Expo"],
+                "team": [{}]
             }
     ]
 }   

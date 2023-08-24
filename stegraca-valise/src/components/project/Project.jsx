@@ -12,7 +12,7 @@ export default function Project(props) {
   const { tags, setTags } = props;
   const [ completed, setCompleted ] = useState([]);
   const [ inProgress, setInProgress ] = useState([]);
-  const [portOpen, setPortOpen] = useState(true);
+  const [portOpen, setPortOpen] = useState(false);
   const [projectData, setProjectData] = useState();
   const [slideShows, setSlideShows] = useState([])
 
@@ -21,20 +21,18 @@ export default function Project(props) {
 
 
 
-console.log(slideShows)
-
   // Create functions
   // Function to handle Project Card click
   function handleProjectClick(work) {
     setProjectData(work);
-    if (portOpen === true) {
-      setPortOpen(false);
+    if (portOpen === false) {
+      setPortOpen(true);
     }
+    console.log("PORT", portOpen)
   }
   // Function to handle tags on card mouseover
   const handleCards = (tagList) => {
     setTags(tagList);
-    console.log(tagList);
   };
 
   const handleTransition = (event) => {
@@ -50,8 +48,8 @@ function handleWorks(type) {
 
 const handleTab = () => {
   setProjectData('');
-  if (portOpen === false) {
-    setPortOpen(true);
+  if (portOpen === true) {
+    setPortOpen(false);
   }
 }
 
@@ -71,13 +69,12 @@ const completers = works.filter(function (work) {
 const progressives = works.filter(function (work) {
   return work.status === "in-progress";
 })
-console.log(portOpen);
   return (
     <>
       <div className="project-pane">
           <Tab.Container
             className="project-tabs"
-            // defaultActiveKey="bio"
+            defaultActiveKey="bio"
             // onSelect={() => setProjectData('')}
             onSelect={handleTab}
           >
