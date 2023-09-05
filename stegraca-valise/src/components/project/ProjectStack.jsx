@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import "./Project.css";
 import { Details } from "../index.js";
 // import projectDB from "../project/projects.json";
-import { animated, useSpring } from "@react-spring/web";
-import { run as runHolder } from "holderjs/holder";
 
 export function ProjectStack(props) {
   const {

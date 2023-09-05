@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./splash.css";
 import { Linkblock } from "../index";
 import {animated, useSpring, useSprings, useTrail, easings} from "@react-spring/web";

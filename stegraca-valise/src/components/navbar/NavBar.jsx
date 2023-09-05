@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { MdMail, MdSimCardDownload } from "react-icons/md";
 import { SiMastodon, SiLinkedin, SiGithub } from "react-icons/si";
 import "./navbar.css";

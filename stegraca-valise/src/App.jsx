@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import { Projects, Splash, NavBar } from "./components";
-import { animated, useSpring } from "@react-spring/web";
+import { useSpring } from "@react-spring/web";
 
 const App = () => {
   // Let's set some global states for this app

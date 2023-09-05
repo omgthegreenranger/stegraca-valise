@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Button, ListGroup, Collapse } from "react-bootstrap";
 import "./details.css";
 import { IconContext } from "react-icons";
-import projectDB from "../project/projects.json";
 import { RxExternalLink, RxGithubLogo, RxCross1 } from "react-icons/rx";
 import { run as runHolder } from "holderjs/holder";
 
@@ -15,7 +14,6 @@ export default function Details(props) {
     mouseOver,
     setMouseOver,
     works,
-    section,
     elemY
   } = props;
   const [open, setOpen] = useState(false);
@@ -181,31 +179,3 @@ function HoverDetails(props) {
     </>)
 }
 
-// The following is default screen with no selection.
-
-function NoDetails(props) {
-  const {works, section} = props;
-    return (
-    <div className="no-details">
-      {works.map((work) => {
-        let screenshots = work.screenshots
-
-        return(
-          <>
-          {screenshots ? screenshots.map((shot) => {
-            return(
-              <>
-              <div>
-                
-              </div>
-                <p>{shot}</p>
-                <p>{work.id}</p>
-              </>
-            )}) : (" ")           }
-          </>
-            )}
-      )}
-      <p>No Details placeholder!</p>
-    </div>
-  );
-}

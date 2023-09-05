@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import "./Project.css";
 import projectDB from "../project/projects.json";
-import { Details, Bio, Linkblock } from "../index";
+import { Bio } from "../index";
 import { ProjectStack } from "./index";
 import { Tab, Nav } from "react-bootstrap";
 import {animated, useSpring } from '@react-spring/web';
@@ -10,11 +10,8 @@ import {animated, useSpring } from '@react-spring/web';
 export default function Project(props) {
   // set the state as needed
   const { tags, setTags } = props;
-  const [ completed, setCompleted ] = useState([]);
-  const [ inProgress, setInProgress ] = useState([]);
   const [portOpen, setPortOpen] = useState(false);
   const [projectData, setProjectData] = useState();
-  const [slideShows, setSlideShows] = useState([])
 
   // define variables
   const works = projectDB.projects;

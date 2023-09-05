@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  stegracavalise:
+    image: stegracavalise
+    build:
+      context: stegraca-valise
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+    networks: 
+      - bridge
+
