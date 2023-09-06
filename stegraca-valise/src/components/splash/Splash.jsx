@@ -17,8 +17,8 @@ export default function Splash(props) {
     
     return (
       <>
-        <div className={`splash`}>
-          <div className={`splash-box`}>
+        <div className="splash">
+          <div className="splash-box">
             <div className="splash-name">
             {springs.map((springs, key) => {
             return(

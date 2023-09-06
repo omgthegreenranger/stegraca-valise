@@ -47,7 +47,7 @@ export function ProjectStack(props) {
             </Nav.Item>
           </Nav>
           <Tab.Content className="project-display">
-            <Tab.Pane eventKey="completed" title="Completed">
+            <Tab.Pane eventKey="completed" title="Completed" className="semper">
               <ProjectDisplay
                 works={completers}
                 portOpen={portOpen}
@@ -100,7 +100,7 @@ function ProjectDisplay(props) {
 
   return (
     <>
-      <div className="project-cards">
+      <div className={portOpen ? "project-cards open" : "project-cards closed"}>
         {works.map((work) => {
           function handleMouseOver(e) {
             console.log("Hello", e, e.target.offsetTop);
@@ -131,7 +131,7 @@ function ProjectDisplay(props) {
                 onClick={() => handleProjectClick(work)}
               >
                 <img
-                  className="card-image-details"
+                  className="card-image"
                   alt="Project Logo"
                   src={
                     work.logo == ""
@@ -139,7 +139,6 @@ function ProjectDisplay(props) {
                       : require(`./images/${work.logo}`)
                   }
                 />
-                <div>{work.name}</div>
               </div>
           );
         })}
