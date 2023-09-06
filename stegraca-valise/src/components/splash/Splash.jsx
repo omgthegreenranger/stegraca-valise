@@ -21,7 +21,6 @@ export default function Splash(props) {
           <div className={`splash-box`}>
             <div className="splash-name">
             {springs.map((springs, key) => {
-              // console.log(springs, key, splashName[key])
             return(
               <animated.span className="splash-name" style={{
                 ...springs}}>
@@ -30,9 +29,7 @@ export default function Splash(props) {
             )})}
             </div>
           </div>
-          {/* <div className={`splash-position`}> */}
             <span className="position-string">{positionString}</span>
-          {/* </div> */}
           <Linkblock tags={tags} setTags={setTags} />
         </div>
       </>

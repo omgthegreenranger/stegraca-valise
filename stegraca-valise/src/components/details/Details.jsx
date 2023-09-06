@@ -22,47 +22,18 @@ export default function Details(props) {
     setProjectData();
     setPortOpen(false);
   };
-  console.log(mouseOver)
-  console.log(elemY)
-  let yStyle;
-  
-  let classO;
-
-  //if portOpen = true: project is on display, so hd-on
-  //if portOpen = false && mouseOver.toggle = false, hd-off
-  // if portOpen = false && mouseOver.toggle = true, hd-on
-  if(portOpen) {
-    classO = "hd-on"
-  } else if(portOpen === false) {
-    if(mouseOver.toggle) {
-      classO = "hd-on"
-    } else {
-      classO = "hd-off"
-    }
-  }
   
   useEffect(() => {
     runHolder("image-class-name");
-  });
-  if (portOpen) {
-    yStyle = { top: 0 }
-  } else {
-    yStyle = { top: elemY.offset }
-  }
+    })
+
   return (
-    <div className={"block-display " + classO} style={yStyle} >
-    {/* If there is a mouseOver and *no* work, HoverDetails.
-    If there is a mouseOver and work, ProjectDetails.
-    If there is no mouseOver and work, ProjectDetails.
-    If there is no mouseOver and no work, NoDetails */}
-      {work ? (
-        <ProjectDetails work={work} setOpen={setOpen} open={open} clearProjects={clearProjects} setPortOpen={setPortOpen} portOpen={portOpen} />
-      ) : (
-          <HoverDetails work={mouseOver} setMouseOver={setMouseOver} elemY={elemY} portOpen={portOpen} setPortOpen={setPortOpen} />
-      )}
-    </div>
-  );
+    <>
+        <ProjectDetails work={work} setOpen={setOpen} open={open} clearProjects={clearProjects} setPortOpen={setPortOpen} portOpen={portOpen} />  
+    </>
+  )
 }
+
 
 // display full details of project.
 
@@ -70,6 +41,7 @@ function ProjectDetails(props) {
   const { work, clearProjects, open, setOpen, setPortOpen, portOpen} = props;
   return (
     <>
+    {work ? 
       <div className="details-view">
         <div className="project-title">
           {/* Project Headline */}
@@ -158,7 +130,7 @@ function ProjectDetails(props) {
             })}
           </ListGroup>
         </div>
-      </div>
+      </div> : <div className="project-details"></div>}
     </>
   );
 }
@@ -169,13 +141,11 @@ function ProjectDetails(props) {
 function HoverDetails(props) {
   const {work, setMouseOver, elemY} = props;
 
-  let styleHeight = { height: elemY.height }
-
   return(
     <>
-    <div className="hover-details" style={styleHeight}>
+    {/* <div className="hover-details" style={styleHeight}>
         <div className="hover-text">{work.shortDesc}</div>
-    </div>
+    </div> */}
     </>)
 }
 

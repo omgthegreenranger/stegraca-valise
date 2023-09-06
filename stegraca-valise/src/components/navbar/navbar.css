@@ -1,6 +1,6 @@
 
 .nav-block-header {
-    grid-area: nav;
+    grid-area: main-nav;
     display: grid;
     grid-template-areas: "nav-bar" "nav-title";
     grid-template-rows: auto auto;

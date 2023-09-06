@@ -8,7 +8,7 @@
     container-type: inline-size;
     display: grid;
     width: 100%;
-    grid-area: splash;
+    grid-area: main-splash;
     grid-template-areas:
         "splash-box splash-box"
         "splash-pos tech";

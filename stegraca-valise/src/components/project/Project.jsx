@@ -1,11 +1,10 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import "./Project.css";
 import projectDB from "../project/projects.json";
 import { Bio } from "../index";
 import { ProjectStack } from "./index";
 import { Tab, Nav } from "react-bootstrap";
-import {animated, useSpring } from '@react-spring/web';
-
+import { animated, useSpring } from "@react-spring/web";
 
 export default function Project(props) {
   // set the state as needed
@@ -16,8 +15,6 @@ export default function Project(props) {
   // define variables
   const works = projectDB.projects;
 
-
-
   // Create functions
   // Function to handle Project Card click
   function handleProjectClick(work) {
@@ -25,7 +22,7 @@ export default function Project(props) {
     if (portOpen === false) {
       setPortOpen(true);
     }
-    console.log("PORT", portOpen)
+    console.log("PORT", portOpen);
   }
   // Function to handle tags on card mouseover
   const handleCards = (tagList) => {
@@ -36,110 +33,72 @@ export default function Project(props) {
     console.log("This is a transition function!", event);
   };
 
-// generate arrays for project categories
-function handleWorks(type) {
-  works.filter(function (work) {
-    return work.status === type;
-  })
-}
-
-const handleTab = () => {
-  setProjectData('');
-  if (portOpen === true) {
-    setPortOpen(false);
+  // generate arrays for project categories
+  function handleWorks(type) {
+    works.filter(function (work) {
+      return work.status === type;
+    });
   }
-}
 
-const AnimatedBio = animated(Bio)
+  const handleTab = () => {
+    setProjectData("");
+    if (portOpen === true) {
+      setPortOpen(false);
+    }
+  };
 
-const styles = useSpring({
-  from: {
-    width: '0%'},
-    to: {width: '100%'}
-  })
+  const AnimatedBio = animated(Bio);
 
-const completers = works.filter(function (work) {
-    return work.status === "complete";
-  })
+  const styles = useSpring({
+    from: {
+      width: "0%",
+    },
+    to: { width: "100%" },
+  });
 
-
-const progressives = works.filter(function (work) {
-  return work.status === "in-progress";
-})
   return (
     <>
-      <div className="project-pane">
-          <Tab.Container
-            className="project-tabs"
-            defaultActiveKey="bio"
-            // onSelect={() => setProjectData('')}
-            onSelect={handleTab}
-          >
-                <Nav
-                  variant="nav"
-                  className="navs"
-                >
-                  <Nav.Item>
-                    <Nav.Link eventKey="bio">Biography</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="completed">Completed Work</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="in-progress">In-Progress Work</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="other-stuff">Other Stuff</Nav.Link>
-                  </Nav.Item>
-                </Nav>
-                <Tab.Content className="displays">
-                  <Tab.Pane
-                    eventKey="bio"
-                    title="Biography"
-                    // className="biography"
-                  >
-                    <Bio />
-                  </Tab.Pane>
-                  <Tab.Pane
-                    eventKey="completed"
-                    title="Completed Works"
-                    // className="overview"
-                  >
-                    <ProjectStack
-                      works={completers}
-                      portOpen={portOpen}
-                      setPortOpen={setPortOpen}
-                      handleCards={handleCards}
-                      handleProjectClick={handleProjectClick}
-                      projectData={projectData}
-                      setProjectData={setProjectData}
-                      section="completed"
-                    />
-                  </Tab.Pane>
-                  <Tab.Pane
-                    eventKey="in-progress"
-                    title="In-progress Work"
-                    // className="overview"
-                  >
-                    <ProjectStack
-                      works = {progressives}
-                      portOpen={portOpen}
-                      setPortOpen={setPortOpen}
-                      handleCards={handleCards}
-                      handleProjectClick={handleProjectClick}
-                      projectData={projectData}
-                      setProjectData={setProjectData}
-                      section="in-progress"
-                    />
-                  </Tab.Pane>
-                  <Tab.Pane
-                    eventKey="other-stuff"
-                    title="Other stuff"
-                    className="overview"
-                  />
-                </Tab.Content>
-          </Tab.Container>
-        </div>
+      <div className="main-panel">
+        <Tab.Container
+          className="project-tabs"
+          defaultActiveKey="bio"
+          onSelect={handleTab}
+        >
+          <Nav variant="nav" className="navs navs-menu">
+            <Nav.Item>
+              <Nav.Link eventKey="bio">Biography</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="portfolio">Portfolio</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="other-stuff">Other Stuff</Nav.Link>
+            </Nav.Item>
+          </Nav>
+          <Tab.Content className="displays">
+            <Tab.Pane eventKey="bio" title="Biography">
+              <Bio />
+            </Tab.Pane>
+            <Tab.Pane eventKey="portfolio" title="Portfolio">
+              <ProjectStack
+                works={works}
+                portOpen={portOpen}
+                setPortOpen={setPortOpen}
+                handleCards={handleCards}
+                handleProjectClick={handleProjectClick}
+                projectData={projectData}
+                setProjectData={setProjectData}
+                section="portfolio"
+              />
+            </Tab.Pane>
+            <Tab.Pane
+              eventKey="other-stuff"
+              title="Other stuff"
+              className="overview"
+            />
+          </Tab.Content>
+        </Tab.Container>
+      </div>
     </>
   );
 }
