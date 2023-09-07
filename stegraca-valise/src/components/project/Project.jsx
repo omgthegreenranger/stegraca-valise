@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Project.css";
 import projectDB from "../project/projects.json";
-import { Bio } from "../index";
+import { Bio, Linkblock } from "../index";
 import { ProjectStack } from "./index";
 import { Tab, Nav } from "react-bootstrap";
 import { animated, useSpring } from "@react-spring/web";
@@ -16,14 +16,7 @@ export default function Project(props) {
   const works = projectDB.projects;
 
   // Create functions
-  // Function to handle Project Card click
-  function handleProjectClick(work) {
-    setProjectData(work);
-    if (portOpen === false) {
-      setPortOpen(true);
-    }
-    console.log("PORT", portOpen);
-  }
+
   // Function to handle tags on card mouseover
   const handleCards = (tagList) => {
     setTags(tagList);
@@ -85,9 +78,9 @@ export default function Project(props) {
                 portOpen={portOpen}
                 setPortOpen={setPortOpen}
                 handleCards={handleCards}
-                handleProjectClick={handleProjectClick}
                 projectData={projectData}
                 setProjectData={setProjectData}
+                handleTab={handleTab}
                 section="portfolio"
               />
             </Tab.Pane>

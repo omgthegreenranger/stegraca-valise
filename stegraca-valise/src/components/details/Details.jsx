@@ -13,8 +13,7 @@ export default function Details(props) {
     setPortOpen,
     mouseOver,
     setMouseOver,
-    works,
-    elemY
+    works
   } = props;
   const [open, setOpen] = useState(false);
   let work = projectData;
@@ -139,7 +138,7 @@ function ProjectDetails(props) {
 // Click tab for extended info
 
 function HoverDetails(props) {
-  const {work, setMouseOver, elemY} = props;
+  const {work, setMouseOver} = props;
 
   return(
     <>

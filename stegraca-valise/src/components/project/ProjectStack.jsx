@@ -1,29 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Project.css";
 import { Details } from "../index.js";
 import { Tab, Nav } from "react-bootstrap";
 import { run as runHolder } from "holderjs/holder";
+import { extractColors } from 'extract-colors'
 // import projectDB from "../project/projects.json";
 
 export function ProjectStack(props) {
   const {
     works,
     handleCards,
-    handleProjectClick,
     projectData,
     setProjectData,
     portOpen,
     setPortOpen,
-    section,
+    handleTab,
+    section
   } = props;
-  const [elemY, setElemY] = useState({ offset: 0, height: 0 });
 
-  const handleTab = () => {
-    setProjectData("");
-    if (portOpen === true) {
-      setPortOpen(false);
-    }
-  };
   const completers = works.filter(function (work) {
     return work.status === "complete";
   });
@@ -53,7 +47,6 @@ export function ProjectStack(props) {
                 portOpen={portOpen}
                 setPortOpen={setPortOpen}
                 handleCards={handleCards}
-                handleProjectClick={handleProjectClick}
                 projectData={projectData}
                 setProjectData={setProjectData}
                 section="portfolio"
@@ -65,7 +58,6 @@ export function ProjectStack(props) {
                 portOpen={portOpen}
                 setPortOpen={setPortOpen}
                 handleCards={handleCards}
-                handleProjectClick={handleProjectClick}
                 projectData={projectData}
                 setProjectData={setProjectData}
                 section="portfolio"
@@ -90,25 +82,25 @@ function ProjectDisplay(props) {
     portOpen,
     setPortOpen,
     handleCards,
-    handleProjectClick,
     projectData,
     setProjectData,
     section,
   } = props;
   const [mouseOver, setMouseOver] = useState({ toggle: false, id: "" });
-  const [elemY, setElemY] = useState({ offset: 0, height: 0 });
 
+  function handleProjectClick(work) {
+    setProjectData(work);
+    if (portOpen === false) {
+      setPortOpen(true);
+    }
+    console.log("PORT", portOpen);
+  }
+  
   return (
     <>
       <div className={portOpen ? "project-cards open" : "project-cards closed"}>
         {works.map((work) => {
           function handleMouseOver(e) {
-            console.log("Hello", e, e.target.offsetTop);
-            setElemY({
-              offset: e.target.offsetTop,
-              height: e.target.offsetHeight,
-            });
-            console.log(elemY.height);
             handleCards(work.techTags);
             setMouseOver({
               toggle: true,
@@ -118,14 +110,24 @@ function ProjectDisplay(props) {
             });
           }
           function handleMouseLeave(e) {
-            console.log(work);
-            console.log("Goodbye", e, mouseOver);
             handleCards([]);
             setMouseOver({ toggle: false });
           }
+          const mapImg = work.logo === ""
+          ? `holder.js/300x200?auto=yes&text=${work.name}&theme=social`
+          : require(`./images/${work.logo}`);
+          
+          const extracted = () => {
+            var mapImg= work.logo === ""
+              ? `holder.js/300x200?auto=yes&text=${work.name}&theme=social`
+              : require(`./images/${work.logo}`)
+            extractColors(mapImg)
+            .then(console.log)}
+
+
           return (
             <div
-                className="project-card"
+                className={portOpen && projectData.id === work.id ? "project-card card-open card-selected" : "project-card card-open"}
                 onMouseEnter={handleMouseOver}
                 onMouseLeave={handleMouseLeave}
                 onClick={() => handleProjectClick(work)}
@@ -133,17 +135,13 @@ function ProjectDisplay(props) {
                 <img
                   className="card-image"
                   alt="Project Logo"
-                  src={
-                    work.logo == ""
-                      ? `holder.js/300x200?auto=yes&text=${work.name}&theme=social`
-                      : require(`./images/${work.logo}`)
-                  }
+                  src={mapImg}
                 />
               </div>
           );
         })}
       </div>
-      <div className="project-details">
+      <div className={portOpen ? "project-details hd-on" : "project-details hd-off"}>
         <Details
           projectData={projectData}
           setProjectData={setProjectData}
@@ -153,7 +151,6 @@ function ProjectDisplay(props) {
           setMouseOver={setMouseOver}
           works={works}
           section={section}
-          elemY={elemY}
         />
       </div>
     </>
