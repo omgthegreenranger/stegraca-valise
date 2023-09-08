@@ -4,7 +4,7 @@ import { Linkblock } from "../index";
 import {animated, useSpring, useSprings, useTrail, easings} from "@react-spring/web";
 
 export default function Splash(props) {
-    const { display, tags, setTags } = props;
+    const { display, tags, setTags, portOpen, setPortOpen } = props;
     const splashName = [...'Stephen Cardie'];
     const positionString = "Fullstack Web Developer";
     const [springs] = useTrail(splashName.length, i => ({
@@ -17,19 +17,23 @@ export default function Splash(props) {
     
     return (
       <>
-        <div className="splash">
+        <div className={portOpen ? "splash shrunk" : "splash grown"}>
           <div className="splash-box">
             <div className="splash-name">
             {springs.map((springs, key) => {
             return(
-              <animated.span className="splash-name" style={{
+              <animated.span className="splash-name" key={key} style={{
                 ...springs}}>
                 {splashName[key]}
               </animated.span>
             )})}
             </div>
           </div>
-            <span className="position-string">{positionString}</span>
+          <div className="position-string">
+            <div>
+            <span>{positionString}</span>
+            </div>
+          </div>
           <Linkblock tags={tags} setTags={setTags} />
         </div>
       </>

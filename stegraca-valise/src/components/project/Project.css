@@ -18,7 +18,7 @@
     flex-direction: row;
     margin: 5px;
     justify-content: flex-start;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .navs {
@@ -59,14 +59,17 @@
         "projects"
         "project-details";
     grid-area: project-display;
+    width:100%;
 }
 
 .project-details {
     grid-area: project-details;
     position:inherit;
-    padding: 10px 10px 10px 10px ;
+    /* padding: 10px 10px 10px 10px ; */
     margin-left: 10px;
-    background: rgba(0, 0, 0, 0.25);
+    margin-right: 10px;
+    /* background: rgba(0, 0, 0, 0.25);
+    transition: ease-in 0.25s; */
 }
 
 .card-image {
@@ -87,7 +90,8 @@
     font-size: larger;
     cursor: pointer;
     padding: 10px 10px 10px 10px;
-    transition: all ease-in-out 0.25s;
+    transition-property: width;
+    transition-duration: 0.5s;
 }
 
 .semper {
@@ -96,8 +100,28 @@
 
 .project-card:hover {
     background: rgba(0, 0, 0, 0.25);
-    /* transform: scale(1.3) translateX(10px); */
     /* transition: all ease-in-out 0.25s; */
+}
+
+.card-open {
+    padding: 5px;
+    width: 100%;
+}
+
+.card-open:hover {
+    background: rgba(0, 0, 0, 0.25);
+    width:140%;
+    transition: all ease-in-out 0.25s;
+}
+
+.card-selected {
+    background: rgba(0, 0, 0, 0.25);
+    width: 140%;
+}
+
+.card-closed {
+    width: 100%;
+
 }
 
 .hover-text {
@@ -177,23 +201,16 @@
     width: 100%
 }
 
-.card-open {
-    padding: 5px;
-}
 
-.card-selected {
-    background: rgba(0, 0, 0, 0.25);
-    width: 105%;
-}
 
-.card-closed {
-
-}
-
-.hd-off {
+/* .hd-off {
     opacity: 0;
+    padding: 0px ;
+    margin-left: 10px;
 }
 
 .hd-on {
     opacity: 1;
-}
+    padding: 10px 10px 10px 10px ;
+    margin-left: 10px;
+} */

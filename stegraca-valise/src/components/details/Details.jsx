@@ -4,6 +4,7 @@ import "./details.css";
 import { IconContext } from "react-icons";
 import { RxExternalLink, RxGithubLogo, RxCross1 } from "react-icons/rx";
 import { run as runHolder } from "holderjs/holder";
+import { animated, useSpring, useSprings, useTrail, easings } from '@react-spring/web';
 
 export default function Details(props) {
   const {
@@ -41,7 +42,7 @@ function ProjectDetails(props) {
   return (
     <>
     {work ? 
-      <div className="details-view">
+      <div className="details-view details-open">
         <div className="project-title">
           {/* Project Headline */}
           <span className="name-title">{work.name}</span>
@@ -129,7 +130,8 @@ function ProjectDetails(props) {
             })}
           </ListGroup>
         </div>
-      </div> : <div className="project-details"></div>}
+      </div> : <div className="details-view details-closed">
+        </div>}
     </>
   );
 }

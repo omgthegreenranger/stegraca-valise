@@ -1,9 +1,11 @@
 .tech-icons {
-    width:auto;
+    width:4cqw;
     /* flex: 0 0 1cqw; */
     font-size: 3cqw;
     color: white;
-    padding-left: 1cqw;
+    /* margin: 1cqw; */
+    text-align: center;
+
 }
 
 .tech-icons:hover {
@@ -31,9 +33,8 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    width: 100%;
-    margin-bottom: 5px;
-    /* justify-content: flex-end; */
+    width: auto;
+    /* margin-bottom: 5px; */
 }
 
 .link-text {

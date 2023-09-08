@@ -7,6 +7,7 @@ const App = () => {
   const [display, setDisplay] = useState(false);
   const [navi, setNavi] = useState();
   const [tags, setTags] = useState([]);
+  const [portOpen, setPortOpen] = useState(false);
  
   return (
     <>
@@ -16,12 +17,16 @@ const App = () => {
           setDisplay={setDisplay}
           tags={tags}
           setTags={setTags}
+          portOpen={portOpen}
+          setPortOpen={setPortOpen}
         />
         <Projects
           display={display}
           setDisplay={setDisplay}
           tags={tags}
           setTags={setTags}
+          portOpen={portOpen}
+          setPortOpen={setPortOpen}
         />
         <div className="nav-block-header">
           <NavBar navi={navi} setNavi={setNavi} />

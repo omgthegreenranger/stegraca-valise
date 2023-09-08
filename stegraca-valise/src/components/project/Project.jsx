@@ -8,8 +8,7 @@ import { animated, useSpring } from "@react-spring/web";
 
 export default function Project(props) {
   // set the state as needed
-  const { tags, setTags } = props;
-  const [portOpen, setPortOpen] = useState(false);
+  const { tags, setTags, portOpen, setPortOpen } = props;
   const [projectData, setProjectData] = useState();
 
   // define variables

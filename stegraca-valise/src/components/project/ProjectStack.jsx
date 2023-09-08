@@ -5,6 +5,7 @@ import { Tab, Nav } from "react-bootstrap";
 import { run as runHolder } from "holderjs/holder";
 import { extractColors } from 'extract-colors'
 // import projectDB from "../project/projects.json";
+import { animated, useSpring, useSprings, useTrail, easings } from '@react-spring/web';
 
 export function ProjectStack(props) {
   const {
@@ -88,17 +89,22 @@ function ProjectDisplay(props) {
   } = props;
   const [mouseOver, setMouseOver] = useState({ toggle: false, id: "" });
 
+
   function handleProjectClick(work) {
     setProjectData(work);
     if (portOpen === false) {
       setPortOpen(true);
     }
+    let detailCatch = document.getElementsByClassName('details-view')
+    console.log(detailCatch);
+
     console.log("PORT", portOpen);
   }
   
   return (
     <>
       <div className={portOpen ? "project-cards open" : "project-cards closed"}>
+      {/* <div className="project-cards closed"> */}
         {works.map((work) => {
           function handleMouseOver(e) {
             handleCards(work.techTags);
@@ -141,7 +147,7 @@ function ProjectDisplay(props) {
           );
         })}
       </div>
-      <div className={portOpen ? "project-details hd-on" : "project-details hd-off"}>
+      <animated.div className={portOpen ? "project-details hd-on" : "project-details hd-off"}>
         <Details
           projectData={projectData}
           setProjectData={setProjectData}
@@ -152,7 +158,7 @@ function ProjectDisplay(props) {
           works={works}
           section={section}
         />
-      </div>
+      </animated.div>
     </>
   );
 }
