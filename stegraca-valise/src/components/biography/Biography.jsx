@@ -1,7 +1,6 @@
 import React from "react";
 import ProfilePic from "./images/profile-photo.jpg";
 import "./biography.css";
-import {animated, useSpring } from '@react-spring/web';
 
 export default function Bio(props) {
   return (
@@ -21,7 +20,7 @@ export default function Bio(props) {
           </p>
           </div>
           <div className="bio-photos">
-            <img src={ProfilePic} className="imager" />
+            <img src={ProfilePic} className="imager" alt="Taken by enfysphotography" />
           </div>
         </div>
     </>

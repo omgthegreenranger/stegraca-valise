@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  stegracavalise:
+    image: stegracavalise
+    build:
+      context: stegraca-valise
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+      PUID: 1000
+      PGID: 1001
+    ports:
+      - 3000:3000

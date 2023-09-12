@@ -1,54 +1,44 @@
-import React, { useState } from 'react';
-import './App.css';
-import { Valise, Header, Linkblock} from './components';
-import { animated, useSpring } from '@react-spring/web';
+import React, { useState } from "react";
+import "./App.css";
+import { Projects, Splash, NavBar, Linkblock } from "./components";
 
-const App = () =>{
-    // Let's set some global states for this app
-    const [display, setDisplay] = useState(false)
-    const [tags, setTags] = useState([]);
-    const [springs, api] = useSpring(() => ({
-        from: {opacity : 0},
-        to: {opacity : 1},
-      }))
-    
-    // Determine state of portfolio display
-    if (display) {
-    api.start({
-        from: {
-          opacity: 0,
-        },
-        to: {
-          opacity: 1,
-        },
-      })
-    } else {
-        api.start({
-            from: {
-              opacity: 1,
-            },
-            to: {
-              opacity: 0,
-            },
-          })
-    }
+const App = () => {
+  // Let's set some global states for this app
+  const [display, setDisplay] = useState(false);
+  const [navi, setNavi] = useState();
+  const [tags, setTags] = useState([]);
+  const [portOpen, setPortOpen] = useState(false);
+ 
+  return (
+    <>
+      <div className="main">
+        <Splash
+          display={display}
+          setDisplay={setDisplay}
+          tags={tags}
+          setTags={setTags}
+          portOpen={portOpen}
+          setPortOpen={setPortOpen}
+        />
+        <Linkblock
+          tags={tags}
+          setTags={setTags}
+          portOpen={portOpen}
+        />
+        <Projects
+          display={display}
+          setDisplay={setDisplay}
+          tags={tags}
+          setTags={setTags}
+          portOpen={portOpen}
+          setPortOpen={setPortOpen}
+        />
+        <div className="nav-block-header">
+          <NavBar navi={navi} setNavi={setNavi} />
+        </div>{" "}
+      </div>
+    </>
+  );
+};
 
-
-    return (
-        <>
-        <div className="main">
-            {/* <animated.div
-            style={{
-                opacity: 0,
-                ...springs,}}
-                > */}
-            <Header display={display} setDisplay={setDisplay} /> 
-            {/* </animated.div> */}
-            <Valise display={display} setDisplay={setDisplay} tags={tags} setTags={setTags} />
-            <Linkblock tags={tags} setTags={setTags} direction="horiz" />
-        </div>
-        </>
-        )
-}
-
-    export default App;
+export default App;

@@ -1,61 +1,71 @@
 import React from "react";
 import "./linkblock.css";
 import {
-    SiJavascript,
-    SiCss3,
-    SiBootstrap,
-    SiGithub,
-    SiHeroku,
-    SiHtml5,
-    SiMongodb,
-    SiMariadb,
-    SiReact,
-    SiPython
- } from "react-icons/si";
- import { IconContext } from "react-icons";
+  SiJavascript,
+  SiCss3,
+  SiBootstrap,
+  SiGithub,
+  SiHeroku,
+  SiHtml5,
+  SiMongodb,
+  SiMariadb,
+  SiReact,
+  SiPython,
+  SiExpo,
+} from "react-icons/si";
+import { TbBrandReactNative } from "react-icons/tb";
+import { IconContext } from "react-icons";
 
 export default function Linkblock(props) {
-    const { display, setDisplay, tags } = props;
+  const { display, setDisplay, tags, lbRight } = props;
 
-    return(
-
-            <>            
-                <TechLine tagList={tags} display={display} setDisplay={setDisplay} />
-            </>
-    );
-
+  return (
+      <TechLine tagList={tags} display={display} setDisplay={setDisplay} />
+  );
 }
+
 
 function TechLine(props) {
   const { display, setDisplay } = props;
-    let techList = [
-        { tech: "CSS", icon: <SiCss3 /> },
-        { tech: "JavaScript", icon: <SiJavascript /> },
-        { tech: "HTML", icon: <SiHtml5 /> },
-        { tech: "Bootstrap", icon: <SiBootstrap /> },
-        { tech: "React", icon: <SiReact /> },
-        { tech: "MongoDB", icon: <SiMongodb /> },
-        { tech: "MySQL", icon: <SiMariadb /> },
-        { tech: "Python", icon: <SiPython /> }
-    ];
-  
+  let techList = [
+    { tech: "Bootstrap", icon: <SiBootstrap /> },
+    { tech: "CSS", icon: <SiCss3 /> },
+    { tech: "Expo", icon: <SiExpo /> },
+    { tech: "HTML", icon: <SiHtml5 /> },
+    { tech: "JavaScript", icon: <SiJavascript /> },
+    { tech: "MongoDB", icon: <SiMongodb /> },
+    { tech: "MySQL", icon: <SiMariadb /> },
+    { tech: "Python", icon: <SiPython /> },
+    { tech: "React", icon: <SiReact /> },
+    { tech: "React-Native", icon: <TbBrandReactNative /> },
+  ];
+
   const handleTechClick = (tech) => {
-    return (
-      <>
-      </>
-    )
-  }
-    return (
-      <div className={`tech-block`}>
-        {techList.map((tech) => {
-          let techClass = "";
-          for (let i = 0; props.tagList.length > i; i++) {
-            if (props.tagList[i] === tech.tech) {
-              techClass = "tech-used";
-            }
+    return <></>;
+  };
+  return (
+    <div className={`tech-block`}>
+      {techList.map((tech, key) => {
+        let techClass = "";
+        for (let i = 0; props.tagList.length > i; i++) {
+          if (props.tagList[i] === tech.tech) {
+            techClass = "tech-used";
           }
-          return <span className={`tech-icons ${techClass}`} onClick={() => {setDisplay(true); handleTechClick(tech.tech)}}>{tech.icon}</span>;
-        })}
-      </div>
-    );
-  }
+        }
+        return (
+          <div
+            className={`tech-icons ${techClass}`}
+            key={key}
+            onClick={() => {
+              setDisplay(true);
+              handleTechClick(techList[key].tech);
+            }}
+            style={{'--i': key}}
+          >
+            {techList[key].icon}
+          </div>
+        );
+      })}
+    </div>
+  );
+}

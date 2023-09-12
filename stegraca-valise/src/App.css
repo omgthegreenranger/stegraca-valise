@@ -38,22 +38,16 @@
 }
 
 .main {  
-  container-type: size;
   display: grid;
-  grid-template-rows: auto 1fr auto;
   grid-template-areas:
-    "header"
-    "valise-container"
-    "tech";
-  /* display: flex;
-  flex-direction: column; */
+    "main-splash main-nav"
+    "tech main-nav"
+    "main-panel main-nav";
   background: rgb(0,100,00);
-  height: 100vh;
-  width: 100vw;
   align-items: start;
-  /* overflow-y: scroll; */
-  overflow: hidden;
-  justify-items: center;
+  justify-items: start;
+  margin-left: 1rem;
+  grid-template-columns: 1fr auto;
 }
 
 .retained {
@@ -64,3 +58,15 @@
 /* svg {
   padding: 0.5rem;
 } */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: green;
+}
