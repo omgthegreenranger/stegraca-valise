@@ -5,8 +5,22 @@
     color: white;
     /* margin: 1cqw; */
     text-align: center;
-
+    animation-name: spin-arrive;
+    animation-direction:normal;
+    animation-iteration-count: 1;
+    animation-duration: 0.75s;
+    animation-delay: calc(0.055s * var(--i));
 }
+
+@keyframes spin-arrive {
+    0% {opacity: 0;
+        transform: rotate3d(0, 1, 0, 0deg);
+    }
+    100% { opacity: 1;
+    transform: rotate3D(0, 1, 0,-360deg);
+}
+}
+
 
 .tech-icons:hover {
     color: yellow;

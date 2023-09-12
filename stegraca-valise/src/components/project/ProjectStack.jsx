@@ -105,7 +105,7 @@ function ProjectDisplay(props) {
     <>
       <div className={portOpen ? "project-cards open" : "project-cards closed"}>
       {/* <div className="project-cards closed"> */}
-        {works.map((work) => {
+        {works.map((work, key) => {
           function handleMouseOver(e) {
             handleCards(work.techTags);
             setMouseOver({
@@ -134,6 +134,7 @@ function ProjectDisplay(props) {
           return (
             <div
                 className={portOpen && projectData.id === work.id ? "project-card card-open card-selected" : "project-card card-open"}
+                key={key}
                 onMouseEnter={handleMouseOver}
                 onMouseLeave={handleMouseLeave}
                 onClick={() => handleProjectClick(work)}

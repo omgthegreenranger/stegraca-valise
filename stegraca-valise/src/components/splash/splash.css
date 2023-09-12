@@ -79,7 +79,6 @@
 .splash-position {
     grid-area: splash-pos;
     text-align:end;
-
 }
 
 .position-string {
@@ -88,6 +87,20 @@
     font-size: 3cqw;
     grid-area: splash-pos;
     text-align:end;
+    position: relative;
+    display: inline-flex;
+    animation: slide-in 1.5s ease-in-out;
+}
+
+@keyframes slide-in {
+    0% { left: -100% }
+    50% { left:100% }
+    100% { left: 0% }
+}
+
+@keyframes slide-back {
+    0% { left: 100%}
+    100% { left: 0%}
 }
 
 /* CSS Splash variable rules */
