@@ -40,8 +40,8 @@
 .main {  
   display: grid;
   grid-template-areas:
-    ". nav"
     "main-splash main-nav"
+    "tech main-nav"
     "main-panel main-nav";
   background: rgb(0,100,00);
   align-items: start;

@@ -37,7 +37,7 @@
 
 .navs-status {
     grid-area: navs-status;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .navs a {
@@ -70,6 +70,10 @@
     margin-right: 10px;
     /* background: rgba(0, 0, 0, 0.25);
     transition: ease-in 0.25s; */
+}
+
+.project-status {
+    font-size: small;
 }
 
 .card-image {
@@ -187,8 +191,9 @@
     justify-items: start;
     align-items: start;
     grid-template-areas:
-    "navs-status project-display";
-    grid-template-columns: 3fr 14fr;
+    "navs-status"
+    "project-display";
+    /* grid-template-columns: 3fr 14fr; */
     transition: all ease-in-out 0.25s;
     position:relative;
 }
@@ -198,7 +203,7 @@
 }
 
 .closed {
-    width: 100%
+    width: 75%
 }
 
 

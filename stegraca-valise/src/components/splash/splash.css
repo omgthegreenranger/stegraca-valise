@@ -1,123 +1,132 @@
-
 /* :root {
     --delay: 0.75s;
 } */
 /* Splash-level CSS rules */
 
 .splash {
-    container-type: inline-size;
-    display: grid;
-    width: 100%;
-    grid-area: main-splash;
-    /* grid-template-areas:
-        "splash-box splash-box"
-        "splash-pos tech"; */
-    justify-items: start;
-    /* justify-content: start; */
-    align-items: end;
-    position: relative;
-    /* transition: all ease-in-out 0.25s; */
+  container-type: inline-size;
+  display: grid;
+  width: 100%;
+  grid-area: main-splash;
+  justify-items: start;
+  align-items: end;
+  opacity: 1;
+  position: relative;
+  animation: shrinkNGrow 1s;
+  transition-property: opacity;
+  transition-duration: 1s;
+  transition-timing-function: linear;
 }
 
 .shrunk {
-    grid-template-areas:
-        "splash-box splash-pos"
-        "tech tech";
-    transition: all ease-in-out 0.25s;
+  grid-template-areas:
+    "splash-box splash-pos";
 }
 
 .grown {
-    grid-template-areas:
-    "splash-box splash-box"
-    "splash-pos tech";
-    transition: all ease-in-out 0.25s;
+  opacity: 1;
+  grid-template-areas: 
+  "splash-box splash-box"
+  ". splash-pos";
+    grid-template-rows: auto auto;
 }
 
+@keyframes shrinkNGrow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 .splash-box {
-    container-type: inline-size;
-    width: 100%;
-    height: 100%;
-    grid-area: splash-box;
-    z-index: -99;
-    transition: 0.5s opacity;
+  container-type: inline-size;
+  width: 100%;
+  height: 100%;
+  grid-area: splash-box;
+  z-index: -99;
+  transition: 0.5s opacity;
 }
 
 .splash-name {
-    /* font-weight:bolder; */
-    font-family: 'Righteous', cursive;
-    font-size: 12cqw;
-    color:white;
-    position: relative;
-    margin-bottom: -2.5cqw;
+  /* font-weight:bolder; */
+  font-family: "Righteous", cursive;
+  font-size: 12cqw;
+  color: white;
+  position: relative;
+  margin-bottom: -4.5cqw;
 }
 
 .letters:nth-child(n) {
-    animation: move-text 0.6s ease-out;
-    animation-delay: var(--delay);
-    font-size: 8cqw;
-    position: relative;
-    opacity: 0;
+  animation: move-text 0.6s ease-out;
+  animation-delay: var(--delay);
+  font-size: 8cqw;
+  position: relative;
+  opacity: 0;
 }
 
 @keyframes move-text {
-    0% { bottom: 15em; opacity: 0; }
-    50% { bottom: 3em; opacity: 0.8;}
-    100% { bottom: 0em; opacity: 1; }
+  0% {
+    bottom: 15em;
+    opacity: 0;
+  }
+  50% {
+    bottom: 3em;
+    opacity: 0.8;
+  }
+  100% {
+    bottom: 0em;
+    opacity: 1;
+  }
 }
 
 .splash-logo-top {
-    container-type: inline-size;
-    display: inline-flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    position: relative;
-    align-items: flex-end;
+  container-type: inline-size;
+  display: inline-flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  position: relative;
+  align-items: flex-end;
 }
 
 .splash-position {
-    grid-area: splash-pos;
-    text-align:end;
+  grid-area: splash-pos;
+  text-align: end;
 }
 
 .position-string {
-    font-family: 'Dangrek', cursive;
-    color:white;
-    font-size: 3cqw;
-    grid-area: splash-pos;
-    text-align:end;
-    position: relative;
-    display: inline-flex;
-    animation: slide-in 1.5s ease-in-out;
+  font-family: "Dangrek", cursive;
+  color: white;
+  font-size: 3cqw;
+  grid-area: splash-pos;
+  text-align: end;
+  position: relative;
+  display: flex;
+  animation: slide-in 1.5s ease-in-out;
 }
 
 @keyframes slide-in {
-    0% { left: -100% }
-    50% { left:100% }
-    100% { left: 0% }
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
 }
 
 @keyframes slide-back {
-    0% { left: 100%}
-    100% { left: 0%}
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
 }
 
-/* CSS Splash variable rules */
 
-/* .shrink {
-    transition: opacity 0.4s linear, display 0.0s linear 0.6s;
-    opacity: 0;
-    height:0;
-}
-
-.grow {
-    transition: opacity 0.4s linear 0.4s;
-    opacity: 1;
-} */
-
-/* Fonts */
-
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Anton&family=Dangrek&family=Holtwood+One+SC&family=Righteous&family=Roboto+Slab:wght@900&family=Secular+One&family=Sigmar&display=swap');
-
-/* Top CSS rules */
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Anton&family=Dangrek&family=Holtwood+One+SC&family=Righteous&family=Roboto+Slab:wght@900&family=Secular+One&family=Sigmar&display=swap");

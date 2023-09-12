@@ -14,7 +14,9 @@ export default function Details(props) {
     setPortOpen,
     mouseOver,
     setMouseOver,
-    works
+    works,
+    section,
+    selectedType
   } = props;
   const [open, setOpen] = useState(false);
   let work = projectData;
@@ -38,7 +40,7 @@ export default function Details(props) {
 // display full details of project.
 
 function ProjectDetails(props) {
-  const { work, clearProjects, open, setOpen, setPortOpen, portOpen} = props;
+  const { work, clearProjects, open, setOpen} = props;
   return (
     <>
     {work ? 

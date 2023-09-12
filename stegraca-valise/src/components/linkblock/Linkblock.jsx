@@ -20,9 +20,7 @@ export default function Linkblock(props) {
   const { display, setDisplay, tags, lbRight } = props;
 
   return (
-    <div ref={lbRight}>
       <TechLine tagList={tags} display={display} setDisplay={setDisplay} />
-    </div>
   );
 }
 
@@ -49,6 +47,11 @@ function TechLine(props) {
     <div className={`tech-block`}>
       {techList.map((tech, key) => {
         let techClass = "";
+        for (let i = 0; props.tagList.length > i; i++) {
+          if (props.tagList[i] === tech.tech) {
+            techClass = "tech-used";
+          }
+        }
         return (
           <div
             className={`tech-icons ${techClass}`}

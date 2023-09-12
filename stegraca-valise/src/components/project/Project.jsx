@@ -39,14 +39,8 @@ export default function Project(props) {
     }
   };
 
-  const AnimatedBio = animated(Bio);
-
-  const styles = useSpring({
-    from: {
-      width: "0%",
-    },
-    to: { width: "100%" },
-  });
+//   let el = document.getElementsBy
+// console.log(el)
 
   return (
     <>

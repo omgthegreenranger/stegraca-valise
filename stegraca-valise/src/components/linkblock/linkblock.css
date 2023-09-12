@@ -48,6 +48,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     width: auto;
+    justify-self:center;
     /* margin-bottom: 5px; */
 }
 
