@@ -18,7 +18,7 @@ export default function NavBar(props) {
                 <div>
                 <SiGithub />
                 </div>
-                <span className="nav-title">GitHub</span>
+                {/* <span className="nav-title">GitHub</span> */}
                 </a>
               </li>
               <a href="https://www.linkedin.com/in/stephencardie/">
@@ -27,7 +27,7 @@ export default function NavBar(props) {
                 id="linkedin"
               >
                 <SiLinkedin />
-                <span className="nav-title">LinkedIn</span>
+                {/* <span className="nav-title">LinkedIn</span> */}
               </li>
               </a>
               <a href="https://mastodon.social/@gogreenranger">
@@ -36,7 +36,7 @@ export default function NavBar(props) {
                 id="mastodon"
               >
                 <SiMastodon />
-                <span className="nav-title">Mastodon</span>
+                {/* <span className="nav-title">Mastodon</span> */}
               </li>
               </a>
               <a href="mailto:stephen.cardie@gmail.com">
@@ -45,7 +45,7 @@ export default function NavBar(props) {
                 id="email"
               >
                 <MdMail />
-                <span className="nav-title">Email</span>
+                {/* <span className="nav-title">Email</span> */}
               </li>
               </a>
               <a href="#">
@@ -54,7 +54,7 @@ export default function NavBar(props) {
                 id="resume"
               >
                 <MdSimCardDownload />
-                <span className="nav-title">Download resume</span>
+                {/* <span className="nav-title">Download resume</span> */}
               </li>
 
               </a>

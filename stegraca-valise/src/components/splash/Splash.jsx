@@ -1,32 +1,17 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import "./splash.css";
-import { Linkblock } from "../index";
-import {
-  animated,
-  useSpring,
-  useSprings,
-  useTrail,
-  easings,
-  useChain,
-  useSpringRef,
-} from "@react-spring/web";
+import { NavBar } from "../index";
 
-export default function Splash(props) {
-  const { display, tags, setTags, portOpen, setPortOpen } = props;
-  const splashName = "Stephen Cardie";
-  const positionString = "Fullstack Web Developer";
-
+export default function Splash() {
   return (
     <>
-      {/* <div className="splash shrunk"> */}
-        <div className={portOpen ? "splash shrunk" : "splash grown"}>
-        <div className="splash-box">
-          <div className="splash-name">
-            {splashName}
-          </div>
-        </div>
-        <div className="position-string">{positionString}</div>
-      </div>
+      <div>Hello, my name is</div>
+      <div>Stephen Cardie</div>
+      <div>I am a</div>
+      <div>Full Stack Developer</div>
+      <div>You can find me here</div>
+      <div><NavBar /></div>
     </>
+
   );
 }
