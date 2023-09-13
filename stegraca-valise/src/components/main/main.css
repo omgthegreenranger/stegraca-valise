@@ -1,0 +1,18 @@
+.main-box {
+    display:grid;
+    grid-template-areas: "splash-main""portfolio-main";
+    justify-items: center;
+    color: var(--font-col);
+}
+
+.splash-main {
+    grid-area: splash-main;
+}
+
+.portfolio-main {
+    grid-area: portfolio-main;
+    justify-self:start;
+    width:100%;
+    display:grid;
+
+}

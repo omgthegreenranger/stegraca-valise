@@ -1,6 +1,5 @@
 import Projects from './project';
 import NavBar from './navbar';
-import Header from './header'
 import Details from './details';
 import Bio from './biography';
 import Linkblock from './linkblock';
@@ -8,4 +7,4 @@ import Splash from './splash';
 import MainPage from './main';
 import Portfolio from './portfolio';
 
-export { MainPage, Header, Projects, Details, NavBar, Bio, Linkblock, Splash, Portfolio};
+export { MainPage, Projects, Details, NavBar, Bio, Linkblock, Splash, Portfolio};

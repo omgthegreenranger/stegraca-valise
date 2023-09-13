@@ -49,7 +49,7 @@
     flex-direction: row;
     width: auto;
     justify-self:center;
-    /* margin-bottom: 5px; */
+    padding: 1rem;
 }
 
 .link-text {

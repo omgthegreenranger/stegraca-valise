@@ -4,7 +4,7 @@ import { MainPage } from "./components";
 
 const App = () => {
   return(
-    <div>
+    <div className="main">
       <MainPage />
     </div>
   )

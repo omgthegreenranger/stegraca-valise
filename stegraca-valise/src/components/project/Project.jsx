@@ -4,15 +4,14 @@ import { Details } from "../index.js";
 import { Tab, Nav } from "react-bootstrap";
 import { run as runHolder } from "holderjs/holder";
 import { extractColors } from "extract-colors";
-import projectDB from "../project/projects.json";  
+import projectDB from "../project/projects.json"; 
+import monkey from "./images/typing_monkey.svg";
 
 export default function Project(props) {
-      const {
-      portOpen,
-      setPortOpen,
-      section,
-    } = props;
     const works = projectDB.projects
+    const [projectData, setProjectData] = useState();
+    const [portOpen, setPortOpen] = useState(false)
+
     const completers = works.filter(function (work) {
       return work.status === "complete";
     });
@@ -44,7 +43,6 @@ export default function Project(props) {
   };
     return (
       <>
-        <div className="projectpanels">
           <ProjectDisplay
             works={completers}
             portOpen={portOpen}
@@ -54,18 +52,6 @@ export default function Project(props) {
             setProjectData={setProjectData}
             section="complete"
           />
-        </div>
-        <div className="projectpanels">
-          <ProjectDisplay
-            works={progressives}
-            portOpen={portOpen}
-            setPortOpen={setPortOpen}
-            handleCards={handleCards}
-            projectData={projectData}
-            setProjectData={setProjectData}
-            section="complete"
-          />
-        </div>
       </>
     );
   }
@@ -115,13 +101,15 @@ export default function Project(props) {
             }
             const mapImg =
               work.logo === ""
-                ? `holder.js/300x200?auto=yes&text=${work.name}&theme=social`
+                // ? `holder.js/300x200?auto=yes&text=${work.name}&theme=social`
+                ? monkey
                 : require(`./images/${work.logo}`);
   
             const extracted = () => {
               var mapImg =
                 work.logo === ""
-                  ? `holder.js/300x200?auto=yes&text=${work.name}&theme=social`
+                  // ? `holder.js/300x200?auto=yes&text=${work.name}&theme=social`
+                  ? {monkey}
                   : require(`./images/${work.logo}`);
               extractColors(mapImg).then(console.log);
             };

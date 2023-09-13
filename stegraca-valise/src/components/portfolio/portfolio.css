@@ -1,0 +1,62 @@
+.portfolio {
+    display: grid;
+    grid-template-areas: "portfolio-heading"
+    "portfolio-linkblock";
+    width: 85%;
+    justify-self:center;
+}
+
+.heading {
+    grid-area: portfolio-heading;
+    justify-content: center;
+    border-top: 3px black solid;
+    border-bottom: 3px black solid;
+    display: inline-flex;
+}
+
+.portfolio-linkblock {
+    grid-area: portfolio-linkblock;
+    margin-top: 10px;
+    border: 2px black solid;
+    border-radius: 1rem;
+    width:fit-content;
+    justify-self:center;
+}
+
+.projectpanels{
+    display: grid;
+    margin-top: 10px;
+    width: auto;
+}
+
+.complete {
+    grid-template-areas: "complete-title project .";
+    grid-template-columns: 0.5fr auto 0.5fr;
+}
+
+.project {
+    grid-area: project;
+    justify-self:center;
+    border: 2px black solid;
+    border-radius: 1rem;
+}
+
+.progressive {
+    grid-template-areas: ". project progressive-title";
+    grid-template-columns: 0.5fr auto 0.5fr;
+
+}
+
+.complete-title {
+    grid-area: complete-title;
+}
+
+.progressive-title {
+    grid-area: progressive-title;
+    text-align:end;
+    vertical-align: middle;
+}
+
+.title {
+    font-size: 2cqw;
+}
