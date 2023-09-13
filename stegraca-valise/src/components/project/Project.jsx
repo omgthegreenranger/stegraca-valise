@@ -20,7 +20,7 @@ export default function Project(props) {
 
     
     });
-      // Function to handle tags on card mouseover
+
   const handleCards = () => {
   };
 

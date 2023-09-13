@@ -1,36 +1,57 @@
 .splash {
-    display: grid;
-    grid-template-areas: "splash-hello"
-    "splash-name"
-    "splash-i-am"
-    "splash-position"
-    "splash-find";
+  display: grid;
+  grid-template-areas:
+    "splash-sub-box splash-sub-box"
+    "splash-i-am splash-position";
+  grid-template-columns: auto 1fr;
 }
 
 .splash-hello {
-    grid-area: splash-hello;
-    justify-self:start;
-    font-size: 2cqw;
+  grid-area: splash-hello;
+  justify-self: end;
+  font-size: 2cqw;
 }
-.splash-name {
-    grid-area: splash-name;
-    font-size: 7cqw;
-    font-weight: bolder;
-    margin-top: -1rem;
-
+.splash-name-1 {
+  grid-area: splash-name-1;
+  font-size: 7cqw;
+  font-weight: bolder;
+  justify-self: start;
+  line-height: 1;
 }
 
+.splash-name-2 {
+  grid-area: splash-name-2;
+  font-size: 7cqw;
+  font-weight: bolder;
+  align-self: end;
+  line-height: 1;
+}
+
+.splash-top-sub-box {
+  display: grid;
+  grid-area: splash-sub-box;
+  grid-template-areas: "splash-hello splash-name-2" "splash-name-1 splash-name-2";
+}
 .splash-i-am {
-    grid-area: splash-i-am;
-    justify-self:end;
+  grid-area: splash-i-am;
+  justify-self: end;
+  font-size: 1.5cqw;
 }
 
 .splash-position {
-    grid-area: splash-position;
-    font-size: 4cqw;
-    justify-self: end;
+  grid-area: splash-position;
+  font-size: 4cqw;
+  justify-self: end;
+  line-height: 1;
 }
 
 .splash-find {
-    grid-area: splash-find;
+  grid-area: splash-find;
+  font-size: 2cqw;
+  align-self: self-start;
+}
+
+.splash-nav {
+  grid-area: splash-nav;
+  justify-self: end;
 }
