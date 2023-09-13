@@ -8,7 +8,6 @@ import projectDB from "../project/projects.json";
 
 export default function Project(props) {
       const {
-      handleCards,
       projectData,
       setProjectData,
       portOpen,
@@ -16,13 +15,17 @@ export default function Project(props) {
       handleTab,
       section,
     } = props;
-  console.log(projectDB)
-    const completers = projectDB.filter(function (work) {
+    const works = projectDB.projects
+    const completers = works.filter(function (work) {
       return work.status === "complete";
     });
-    // const progressives = projectDB.filter(function (work) {
-    //   return work.status === "in-progress";
-    // });
+    const progressives = works.filter(function (work) {
+      return work.status === "in-progress";
+
+    
+    });
+    const handleCards = () => {
+    }
     return (
       <>
         {/* <div className="overview"> */}
