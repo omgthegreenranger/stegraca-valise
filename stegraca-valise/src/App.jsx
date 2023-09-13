@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Main } from "./components";
+import { MainPage } from "./components";
 
 const App = () => {
   return(
     <div>
-      <Main />
+      <MainPage />
     </div>
   )
 };

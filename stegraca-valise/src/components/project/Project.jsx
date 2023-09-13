@@ -8,11 +8,8 @@ import projectDB from "../project/projects.json";
 
 export default function Project(props) {
       const {
-      projectData,
-      setProjectData,
       portOpen,
       setPortOpen,
-      handleTab,
       section,
     } = props;
     const works = projectDB.projects
@@ -24,27 +21,43 @@ export default function Project(props) {
 
     
     });
-    const handleCards = () => {
+      // Function to handle tags on card mouseover
+  const handleCards = () => {
+  };
+
+  const handleTransition = (event) => {
+    console.log("This is a transition function!", event);
+  };
+
+  // generate arrays for project categories
+  function handleWorks(type) {
+    works.filter(function (work) {
+      return work.status === type;
+    });
+  }
+
+  const handleTab = () => {
+    setProjectData("");
+    if (portOpen === true) {
+      setPortOpen(false);
     }
+  };
     return (
       <>
-        {/* <div className="overview"> */}
-        {/* <Tab.Container
-            className="project-status"
-            defaultActiveKey="completed"
-            onSelect={handleTab}
-          >
-            <Nav variant="nav" className="navs navs-status">
-              <Nav.Item>
-                <Nav.Link eventKey="completed">Completed</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="in-progress">In-Progress</Nav.Link>
-              </Nav.Item>
-            </Nav> */}
         <div className="projectpanels">
           <ProjectDisplay
             works={completers}
+            portOpen={portOpen}
+            setPortOpen={setPortOpen}
+            handleCards={handleCards}
+            projectData={projectData}
+            setProjectData={setProjectData}
+            section="complete"
+          />
+        </div>
+        <div className="projectpanels">
+          <ProjectDisplay
+            works={progressives}
             portOpen={portOpen}
             setPortOpen={setPortOpen}
             handleCards={handleCards}
@@ -69,13 +82,6 @@ export default function Project(props) {
     } = props;
     const [mouseOver, setMouseOver] = useState({ toggle: false, id: "" });
     const [selectedType, setSelectedType] = useState();
-  
-    const completers = works.filter(function (work) {
-      return work.status === "complete";
-    });
-    const progressives = works.filter(function (work) {
-      return work.status === "in-progress";
-    });
   
     function handleProjectClick(work) {
       setProjectData(work);
