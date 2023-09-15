@@ -2,7 +2,7 @@
     width:4cqw;
     /* flex: 0 0 1cqw; */
     font-size: 3cqw;
-    color: white;
+    color: var(--port-font-col);
     /* margin: 1cqw; */
     text-align: center;
     animation-name: spin-arrive;

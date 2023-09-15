@@ -1,19 +1,46 @@
 .splash {
   display: grid;
-  grid-template-areas:
-    "splash-sub-box splash-sub-box"
-    "splash-i-am splash-position";
-  grid-template-columns: auto 1fr;
+  transition: 0.1s;
+}
+/* 
+.splash > * {
+  will-change: transform;
+} */
+
+.splash-container {
+  display:grid;
+  container-type: inline-size;
+  justify-self: center;
+  width: 45vw;
+  transition: 0.3s;
 }
 
+.splash-welcome {
+  grid-template-areas:
+  "splash-hello splash-hello . . ."
+  "splash-name-1 splash-name-1 splash-name-1 splash-name-2 splash-name-2"
+  ". splash-i-am splash-position splash-position splash-position"
+  ". . . splash-find splash-nav";
+grid-template-columns: 1fr auto auto auto auto;
+}
+
+.splash-top {
+  grid-template-areas: 
+    "splash-hello . splash-i-am . ."
+    "splash-name-1 splash-name-2 splash-position splash-position splash-position";
+    grid-template-columns: 1fr auto auto auto auto;
+    column-gap: 1rem
+}
 .splash-hello {
   grid-area: splash-hello;
-  justify-self: end;
-  font-size: 2cqw;
+  font-size: 3cqw;
+  line-height: 1;
+  margin-bottom: -1cqw;
+  padding-left: 4cqw;
 }
 .splash-name-1 {
   grid-area: splash-name-1;
-  font-size: 7cqw;
+  font-size: 13cqw;
   font-weight: bolder;
   justify-self: start;
   line-height: 1;
@@ -21,37 +48,46 @@
 
 .splash-name-2 {
   grid-area: splash-name-2;
-  font-size: 7cqw;
+  font-size: 13cqw;
   font-weight: bolder;
   align-self: end;
+  justify-self: end;
   line-height: 1;
 }
-
+/* 
 .splash-top-sub-box {
   display: grid;
   grid-area: splash-sub-box;
   grid-template-areas: "splash-hello splash-name-2" "splash-name-1 splash-name-2";
-}
+} */
 .splash-i-am {
   grid-area: splash-i-am;
   justify-self: end;
-  font-size: 1.5cqw;
+  font-size: 3cqw;
 }
 
 .splash-position {
   grid-area: splash-position;
-  font-size: 4cqw;
+  font-size: 7cqw;
   justify-self: end;
   line-height: 1;
 }
 
 .splash-find {
   grid-area: splash-find;
-  font-size: 2cqw;
-  align-self: self-start;
+  font-size: 3cqw;
+  display: none;
 }
 
 .splash-nav {
+  display: none;
   grid-area: splash-nav;
-  justify-self: end;
+}
+
+.splash-contact {
+    grid-area: splash-contact;
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
 }

@@ -1,5 +1,16 @@
 :root {
   --font-col: white;
+  --block-back: rgba(171, 163, 97, 1);
+  --port-font-col: black;
+}
+
+.top-border {
+  background: black;
+  width: 100%;
+  position:fixed;
+  padding-bottom: 1em;
+  z-index: 1;
+  height: 1em;
 }
 
 .App {
@@ -49,7 +60,6 @@
   width: 95%;
   padding: 1rem;
   min-height: 100vh;
-
 }
 
 .retained {

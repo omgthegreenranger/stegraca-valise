@@ -1,28 +1,69 @@
 import React from "react";
+import {
+  Bounce,
+  Flip,
+  Hinge,
+  JackInTheBox,
+  Rotate,
+  Zoom,
+  Fade,
+  Slide,
+  Roll,
+} from "react-awesome-reveal";
 import "./portfolio.css";
-import { Linkblock, Projects } from "../index";
+import { Linkblock, Projects, Bio } from "../index";
 
 export default function Portfolio(props) {
   return (
     <div className="portfolio">
-      <div className="heading">
-        <h1>THIS IS MY PORTFOLIO</h1>
+      <div className="portfolio-block portfolio-bio">
+        <Bounce cascade duration="45" className="title tech-title">
+          Things about myself
+        </Bounce>
+        <Bounce>
+          <div></div>
+          {/* <Bio /> */}
+        </Bounce>
       </div>
-      <div className="portfolio-linkblock">
-        <Linkblock />
-        <div className="title tech-title">These are some of the things I can do</div>
+      <div className="portfolio-block portfolio-linkblock">
+        <Bounce>
+          <Linkblock />
+        </Bounce>
+        <Roll cascade duration="45" className="title tech-title">
+          Things I can do
+        </Roll>
       </div>
       <div className="projectpanels complete">
-        <div className="title complete-title">Here are some things I made</div>
-        <div className="project">
-        <Projects section="complete" />
+        <div className="title complete-title">
+          <Slide cascade direction="left">
+            <div>Things</div>
+            <div>I</div>
+            <div>made</div>
+          </Slide>
         </div>
+        <Slide
+          direction="right"
+          fraction={0.5}
+          className="portfolio-block project"
+        >
+          <Projects section="complete" />
+        </Slide>
       </div>
       <div className="projectpanels progressive">
-        <div className="project">
-        <Projects section="in-progress" />
+        <Slide
+          direction="left"
+          fraction={0.5}
+          className="portfolio-block project"
+        >
+          <Projects section="in-progress" />
+        </Slide>
+        <div className="title progressive-title">
+          <Slide cascade direction="right">
+            <div>Things</div>
+            <div>I am</div>
+            <div> making</div>
+          </Slide>
         </div>
-        <div className="title progressive-title">Here are some things I am making</div>
       </div>
     </div>
   );
