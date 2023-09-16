@@ -14,53 +14,45 @@ import "./portfolio.css";
 import { Linkblock, Projects, Bio } from "../index";
 
 export default function Portfolio(props) {
+  const {portOpen, setPortOpen} = props;
   return (
     <div className="portfolio">
       <div className="portfolio-block portfolio-bio">
-        <Bounce cascade duration="45" className="title tech-title">
+        <div cascade duration="30" className="title bio-title">
           Things about myself
-        </Bounce>
-        <Bounce>
-          <div></div>
-          {/* <Bio /> */}
-        </Bounce>
+        </div>
+        <div>
+          <div>
+            <Bio />
+          </div>
+        </div>
       </div>
       <div className="portfolio-block portfolio-linkblock">
-        <Bounce>
-          <Linkblock />
-        </Bounce>
-        <Roll cascade duration="45" className="title tech-title">
+        {/* <div cascade duration="45" className="title tech-title">
           Things I can do
-        </Roll>
-      </div>
-      <div className="projectpanels complete">
-        <div className="title complete-title">
-          <Slide cascade direction="left">
-            <div>Things</div>
-            <div>I</div>
-            <div>made</div>
-          </Slide>
+        </div> */}
+        <div>
+          <Linkblock />
         </div>
-        <Bounce
-          fraction={0.5}
-          className="portfolio-block project"
-        >
-          <Projects section="complete" />
-        </Bounce>
       </div>
-      <div className="projectpanels progressive">
-        <Bounce
-          fraction={0.5}
-          className="portfolio-block project"
-        >
-          <Projects section="in-progress" />
-        </Bounce>
-        <div className="title progressive-title">
-          <Slide cascade direction="right">
-            <div>Things</div>
-            <div>I am</div>
-            <div> making</div>
-          </Slide>
+      <div className="portfolio-block portfolio-complete">
+        <div className="projectpanels">
+          <div fraction={0.5} className="project">
+            <Projects section="complete" />
+          </div>
+          <div className="title complete-title">
+            <Slide direction={"left"}>Things I made</Slide>
+          </div>
+        </div>
+      </div>
+      <div className="portfolio-block portfolio-progressive">
+        <div className="projectpanels">
+          <div fraction={0.5} className="project">
+            <Projects section="in-progress" />
+          </div>
+          <div className="title progressive-title">
+            <Slide direction={"left"}>Things I am making</Slide>
+          </div>
         </div>
       </div>
     </div>

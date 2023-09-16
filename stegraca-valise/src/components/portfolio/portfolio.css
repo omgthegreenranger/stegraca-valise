@@ -1,8 +1,4 @@
-.portfolio-block {
-    background: var(--block-back);
-    color: var(--port-font-col);
-    margin: 1rem;
-}
+/* TOP portfolio classes */
 
 .portfolio {
     display: grid;
@@ -10,65 +6,79 @@
     "portfolio-bio portfolio-bio"
     "portfolio-linkblock portfolio-complete"
     "portfolio-linkblock portfolio-progressives";
-    width: 85%;
+    width: 65%;
     justify-self:center;
+    grid-template-columns: auto 1fr;
 }
+
+.portfolio-block {
+    background: var(--block-back);
+    color: var(--port-font-col);
+    margin: 0.5rem;
+    border: 2px black solid;
+    border-radius: 1rem;
+}
+
+/* portfolio grid subclasses */
 
 .portfolio-linkblock {
     grid-area: portfolio-linkblock;
-    margin-top: 10px;
-    border: 2px black solid;
-    border-radius: 1rem;
     width:fit-content;
-    justify-self:center;
-
 }
 
-.projectpanels{
-    display: grid;
-    margin-top: 10px;
-    width: auto;
-}
-
-.complete {
+.portfolio-complete {
     grid-area: portfolio-complete;
-    grid-template-areas: "complete-title project .";
-    grid-template-columns: 0.5fr auto 0.5fr;
+    grid-template-areas: "complete-title"
+    "project";
 }
 
-.project {
-    grid-area: project;
-    justify-self:center;
-    border: 2px black solid;
-    border-radius: 1rem;
-}
-
-.progressive {
+.portfolio-progressive {
     grid-area: portfolio-progressives;
-    grid-template-areas: ". project progressive-title";
-    grid-template-columns: 0.5fr auto 0.5fr;
-
-}
-
-.complete-title {
-    grid-area: complete-title;
-    text-align:center;
-    display: flex;
-    flex-direction:column;
-}
-
-.progressive-title {
-    grid-area: progressive-title;
-    vertical-align: middle;
-    text-align:center;
-    display: flex;
-    flex-direction:column;
-}
-
-.title {
-    font-size: 2cqw;
+    grid-template-areas: "progressive-title"
+    "project";
 }
 
 .portfolio-bio {
     grid-area: portfolio-bio;
 }
+
+/* title classes */
+
+.title {
+    font-size: 2cqw;
+}
+
+.bio-title {
+    /* placeholder */
+}
+
+.tech-title {
+    font-size: 1cqw;
+}
+
+.complete-title {
+    grid-area: complete-title;
+    justify-content:flex-end;
+    display: flex;
+    flex-direction:row;
+}
+
+.progressive-title {
+    grid-area: progressive-title;
+    justify-content: flex-end;
+    display: flex;
+    flex-direction:row;
+}
+
+
+
+.projectpanels{
+    display: grid;
+    width: auto;
+}
+
+.project {
+    grid-area: project;
+}
+
+

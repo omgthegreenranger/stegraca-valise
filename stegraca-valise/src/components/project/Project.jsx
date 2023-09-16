@@ -84,7 +84,7 @@ export default function Project(props) {
   
     return (
       <>
-        <div className={portOpen ? "project-cards open" : "project-cards closed"}>
+        <div className="project-cards">
           {works.map((work, key) => {
             function handleMouseOver(e) {
               handleCards(work.techTags);

@@ -195,22 +195,14 @@
     position:relative;
 }
 
-.open {
-    width: 25%;
-}
-
-.closed {
-    width: 100%;
-}
 
 
-
-/* .hd-off {
-    opacity: 0;
+.hd-off {
+    display: none;
     padding: 0px ;
     margin-left: 10px;
 }
-
+/*
 .hd-on {
     opacity: 1;
     padding: 10px 10px 10px 10px ;

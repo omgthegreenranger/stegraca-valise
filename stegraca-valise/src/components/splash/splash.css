@@ -1,6 +1,6 @@
 .splash {
   display: grid;
-  transition: 0.1s;
+  transition: 0.3s;
 }
 /* 
 .splash > * {
@@ -11,7 +11,7 @@
   display:grid;
   container-type: inline-size;
   justify-self: center;
-  width: 45vw;
+  width: 50vw;
   transition: 0.3s;
 }
 

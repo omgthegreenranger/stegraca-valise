@@ -19,9 +19,9 @@ export default function Bio(props) {
             build that feature.
           </p>
           </div>
-          <div className="bio-photos">
+          {/* <div className="bio-photos">
             <img src={ProfilePic} className="imager" alt="Taken by enfysphotography" />
-          </div>
+          </div> */}
         </div>
     </>
   );

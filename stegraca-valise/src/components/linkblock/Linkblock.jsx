@@ -15,10 +15,10 @@ import {
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 import { IconContext } from "react-icons";
+import {Zoom, AttentionSeeker } from "react-awesome-reveal";
 
 export default function Linkblock(props) {
-  // const { display, setDisplay, tags, lbRight } = props;
-
+  
   return (
       <TechLine />
   );
@@ -43,22 +43,22 @@ function TechLine(props) {
     return <></>;
   };
   return (
-    <div className={`tech-block`}>
+    <div className="tech-block">
+      <Zoom cascade stagger={2} triggerOnce={true}>
+        <AttentionSeeker effect="headShake">
       {techList.map((tech, key) => {
 
         return (
           <div
-            className={`tech-icons`}
+            className="tech-icons"
             key={key}
-            onClick={() => {
-              handleTechClick(techList[key].tech);
-            }}
-            style={{'--i': key}}
           >
-            {techList[key].icon}
+            {tech.icon}
           </div>
         );
       })}
+      </AttentionSeeker>
+    </Zoom>
     </div>
   );
 }

@@ -1,73 +1,68 @@
 .tech-icons {
-    width:4cqw;
-    /* flex: 0 0 1cqw; */
-    font-size: 3cqw;
-    color: var(--port-font-col);
-    /* margin: 1cqw; */
-    text-align: center;
-    /* animation-name: spin-arrive;
-    animation-direction:normal;
-    animation-iteration-count: 1;
-    animation-duration: 0.75s;
-    animation-delay: calc(0.055s * var(--i)); */
+  width: 3cqw;
+  /* flex: 0 0 1cqw; */
+  font-size: 2cqw;
+  color: var(--port-font-col);
+  /* margin: 1cqw; */
+  text-align: center;
 }
 
 @keyframes spin-arrive {
-    0% {opacity: 0;
-        transform: rotate3d(0, 1, 0, 0deg);
-    }
-    100% { opacity: 1;
-    transform: rotate3D(0, 1, 0,-360deg);
+  0% {
+    opacity: 0;
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate3D(0, 1, 0, -360deg);
+  }
 }
-}
-
 
 .tech-icons:hover {
-    color: yellow;
-    stroke: 1px yellowgreen;
-    border-radius: 1cqw;
-    transform: scale(1.5);
-    -webkit-transition-duration: 0.4s;
-    -moz-transition-duration: 0.4s;
-    -o-transition-duration: 0.4s;
-    transition-duration: 0.4s;
+  color: yellow;
+  stroke: 1px yellowgreen;
+  border-radius: 1cqw;
+  transform: scale(1.5);
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
 }
 
 .tech-used {
-    color:yellow;
-    transform: scale(1.5);
-    -webkit-transition-duration: 0.4s;
-    -moz-transition-duration: 0.4s;
-    -o-transition-duration: 0.4s;
-    transition-duration: 0.4s;
+  color: yellow;
+  transform: scale(1.5);
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
 }
 
 .tech-block {
-    grid-area: tech;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: auto;
-    justify-self:center;
-    padding: 1rem;
+  grid-area: tech;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: auto;
+  justify-self: center;
+  padding: 1rem;
 }
 
 .link-text {
-    container-type: inline-size;
-    color: white;
-    text-align:center;
-    width:100%;
+  container-type: inline-size;
+  color: white;
+  text-align: center;
+  width: 100%;
 }
 
 .page-portfolio {
-    grid-area: portfolio;
+  grid-area: portfolio;
 }
 
 .page-about {
-    grid-area: about;
+  grid-area: about;
 }
 
-
 .back {
-    grid-area: back;
+  grid-area: back;
 }
