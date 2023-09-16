@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/stegraca-valise/static/css/main.99940a0c.css",
-    "main.js": "/stegraca-valise/static/js/main.f16e6339.js",
+    "main.css": "/stegraca-valise/static/css/main.4c84bbe5.css",
+    "main.js": "/stegraca-valise/static/js/main.95cc20de.js",
     "static/js/787.64b3bfa0.chunk.js": "/stegraca-valise/static/js/787.64b3bfa0.chunk.js",
     "static/media/profile-photo.jpg": "/stegraca-valise/static/media/profile-photo.f9e22cf1473e75502a77.jpg",
     "static/media/astronomy.png": "/stegraca-valise/static/media/astronomy.a1d20a2db05f1664212b.png",
@@ -13,14 +13,15 @@
     "static/media/project5.jpg": "/stegraca-valise/static/media/project5.fdb770b6ce2a88aca73f.jpg",
     "static/media/pupscale-logo.png": "/stegraca-valise/static/media/pupscale-logo.153b018631124455d843.png",
     "static/media/muntil-logo.png": "/stegraca-valise/static/media/muntil-logo.b06730f76b283b7d795a.png",
+    "static/media/typing_monkey.svg": "/stegraca-valise/static/media/typing_monkey.9f1cec0098250fea81b00a5f3cd0779b.svg",
     "static/media/react.svg": "/stegraca-valise/static/media/react.ec5ac92922556b304a0d.svg",
     "index.html": "/stegraca-valise/index.html",
-    "main.99940a0c.css.map": "/stegraca-valise/static/css/main.99940a0c.css.map",
-    "main.f16e6339.js.map": "/stegraca-valise/static/js/main.f16e6339.js.map",
+    "main.4c84bbe5.css.map": "/stegraca-valise/static/css/main.4c84bbe5.css.map",
+    "main.95cc20de.js.map": "/stegraca-valise/static/js/main.95cc20de.js.map",
     "787.64b3bfa0.chunk.js.map": "/stegraca-valise/static/js/787.64b3bfa0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.99940a0c.css",
-    "static/js/main.f16e6339.js"
+    "static/css/main.4c84bbe5.css",
+    "static/js/main.95cc20de.js"
   ]
 }
