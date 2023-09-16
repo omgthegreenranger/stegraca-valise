@@ -1,24 +1,27 @@
 import React, { useState } from "react";
 import "./Project.css";
-import projectDB from "../project/projects.json";
-import { Bio, Linkblock } from "../index";
-import { ProjectStack } from "./index";
+import { Details } from "../index.js";
 import { Tab, Nav } from "react-bootstrap";
-import { animated, useSpring } from "@react-spring/web";
+import { run as runHolder } from "holderjs/holder";
+import { extractColors } from "extract-colors";
+import projectDB from "../project/projects.json"; 
+import monkey from "./images/typing_monkey.svg";
 
 export default function Project(props) {
-  // set the state as needed
-  const { tags, setTags, portOpen, setPortOpen } = props;
-  const [projectData, setProjectData] = useState();
+    const works = projectDB.projects
+    const [projectData, setProjectData] = useState();
+    const [portOpen, setPortOpen] = useState(false)
 
-  // define variables
-  const works = projectDB.projects;
+    const completers = works.filter(function (work) {
+      return work.status === "complete";
+    });
+    const progressives = works.filter(function (work) {
+      return work.status === "in-progress";
 
-  // Create functions
+    
+    });
 
-  // Function to handle tags on card mouseover
-  const handleCards = (tagList) => {
-    setTags(tagList);
+  const handleCards = () => {
   };
 
   const handleTransition = (event) => {
@@ -38,53 +41,111 @@ export default function Project(props) {
       setPortOpen(false);
     }
   };
-
-//   let el = document.getElementsBy
-// console.log(el)
-
-  return (
-    <>
-      <div className="main-panel">
-        <Tab.Container
-          className="project-tabs"
-          defaultActiveKey="bio"
-          onSelect={handleTab}
+    return (
+      <>
+          <ProjectDisplay
+            works={completers}
+            portOpen={portOpen}
+            setPortOpen={setPortOpen}
+            handleCards={handleCards}
+            projectData={projectData}
+            setProjectData={setProjectData}
+            section="complete"
+          />
+      </>
+    );
+  }
+  
+  function ProjectDisplay(props) {
+    const {
+      works,
+      portOpen,
+      setPortOpen,
+      handleCards,
+      projectData,
+      setProjectData,
+      section,
+    } = props;
+    const [mouseOver, setMouseOver] = useState({ toggle: false, id: "" });
+    const [selectedType, setSelectedType] = useState();
+  
+    function handleProjectClick(work) {
+      setProjectData(work);
+      setSelectedType(section);
+      console.log(section);
+      if (portOpen === false) {
+        setPortOpen(true);
+      }
+      let detailCatch = document.getElementsByClassName("details-view");
+      console.log(detailCatch);
+  
+      console.log("PORT", portOpen);
+    }
+  
+    return (
+      <>
+        <div className={portOpen ? "project-cards open" : "project-cards closed"}>
+          {works.map((work, key) => {
+            function handleMouseOver(e) {
+              handleCards(work.techTags);
+              setMouseOver({
+                toggle: true,
+                id: work.id,
+                name: work.name,
+                shortDesc: work.shortDesc,
+              });
+            }
+            function handleMouseLeave(e) {
+              handleCards([]);
+              setMouseOver({ toggle: false });
+            }
+            const mapImg =
+              work.logo === ""
+                // ? `holder.js/300x200?auto=yes&text=${work.name}&theme=social`
+                ? monkey
+                : require(`./images/${work.logo}`);
+  
+            const extracted = () => {
+              var mapImg =
+                work.logo === ""
+                  // ? `holder.js/300x200?auto=yes&text=${work.name}&theme=social`
+                  ? {monkey}
+                  : require(`./images/${work.logo}`);
+              extractColors(mapImg).then(console.log);
+            };
+  
+            return (
+              <div
+                className={
+                  portOpen && projectData.id === work.id
+                    ? "project-card card-open card-selected"
+                    : "project-card card-open"
+                }
+                key={key}
+                onMouseEnter={handleMouseOver}
+                onMouseLeave={handleMouseLeave}
+                onClick={() => handleProjectClick(work)}
+              >
+                <img className="card-image" alt="Project Logo" src={mapImg} />
+              </div>
+            );
+          })}
+        </div>
+        <div
+          className={
+            portOpen ? "project-details hd-on" : "project-details hd-off"
+          }
         >
-          <Nav variant="nav" className="navs navs-menu">
-            <Nav.Item>
-              <Nav.Link eventKey="bio">Biography</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="portfolio">Portfolio</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="other-stuff">Other Stuff</Nav.Link>
-            </Nav.Item>
-          </Nav>
-          <Tab.Content className="displays">
-            <Tab.Pane eventKey="bio" title="Biography">
-              <Bio />
-            </Tab.Pane>
-            <Tab.Pane eventKey="portfolio" title="Portfolio">
-              <ProjectStack
-                works={works}
-                portOpen={portOpen}
-                setPortOpen={setPortOpen}
-                handleCards={handleCards}
-                projectData={projectData}
-                setProjectData={setProjectData}
-                handleTab={handleTab}
-                section="portfolio"
-              />
-            </Tab.Pane>
-            <Tab.Pane
-              eventKey="other-stuff"
-              title="Other stuff"
-              className="overview"
-            />
-          </Tab.Content>
-        </Tab.Container>
-      </div>
-    </>
-  );
-}
+          <Details
+            projectData={projectData}
+            setProjectData={setProjectData}
+            portOpen={portOpen}
+            setPortOpen={setPortOpen}
+            mouseOver={mouseOver}
+            setMouseOver={setMouseOver}
+            works={works}
+          />
+        </div>
+      </>
+    );
+  }

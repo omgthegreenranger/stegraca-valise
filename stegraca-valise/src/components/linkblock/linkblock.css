@@ -2,14 +2,14 @@
     width:4cqw;
     /* flex: 0 0 1cqw; */
     font-size: 3cqw;
-    color: white;
+    color: var(--port-font-col);
     /* margin: 1cqw; */
     text-align: center;
-    animation-name: spin-arrive;
+    /* animation-name: spin-arrive;
     animation-direction:normal;
     animation-iteration-count: 1;
     animation-duration: 0.75s;
-    animation-delay: calc(0.055s * var(--i));
+    animation-delay: calc(0.055s * var(--i)); */
 }
 
 @keyframes spin-arrive {
@@ -46,10 +46,10 @@
     grid-area: tech;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     width: auto;
     justify-self:center;
-    /* margin-bottom: 5px; */
+    padding: 1rem;
 }
 
 .link-text {

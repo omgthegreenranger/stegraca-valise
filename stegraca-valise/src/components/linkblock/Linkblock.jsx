@@ -17,16 +17,15 @@ import { TbBrandReactNative } from "react-icons/tb";
 import { IconContext } from "react-icons";
 
 export default function Linkblock(props) {
-  const { display, setDisplay, tags, lbRight } = props;
+  // const { display, setDisplay, tags, lbRight } = props;
 
   return (
-      <TechLine tagList={tags} display={display} setDisplay={setDisplay} />
+      <TechLine />
   );
 }
 
 
 function TechLine(props) {
-  const { display, setDisplay } = props;
   let techList = [
     { tech: "Bootstrap", icon: <SiBootstrap /> },
     { tech: "CSS", icon: <SiCss3 /> },
@@ -46,18 +45,12 @@ function TechLine(props) {
   return (
     <div className={`tech-block`}>
       {techList.map((tech, key) => {
-        let techClass = "";
-        for (let i = 0; props.tagList.length > i; i++) {
-          if (props.tagList[i] === tech.tech) {
-            techClass = "tech-used";
-          }
-        }
+
         return (
           <div
-            className={`tech-icons ${techClass}`}
+            className={`tech-icons`}
             key={key}
             onClick={() => {
-              setDisplay(true);
               handleTechClick(techList[key].tech);
             }}
             style={{'--i': key}}

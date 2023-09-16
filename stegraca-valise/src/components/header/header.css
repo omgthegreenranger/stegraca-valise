@@ -1,8 +1,0 @@
-header {
-    grid-area: header;
-    align-content: center;
-    justify-content: space-between;
-    background: darkgreen;
-    /* width: 100%; */
-    z-index: 1;
-}

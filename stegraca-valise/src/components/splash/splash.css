@@ -1,132 +1,93 @@
-/* :root {
-    --delay: 0.75s;
-} */
-/* Splash-level CSS rules */
-
 .splash {
-  container-type: inline-size;
   display: grid;
-  width: 100%;
-  grid-area: main-splash;
-  justify-items: start;
-  align-items: end;
-  opacity: 1;
-  position: relative;
-  animation: shrinkNGrow 1s;
-  transition-property: opacity;
-  transition-duration: 1s;
-  transition-timing-function: linear;
+  transition: 0.1s;
+}
+/* 
+.splash > * {
+  will-change: transform;
+} */
+
+.splash-container {
+  display:grid;
+  container-type: inline-size;
+  justify-self: center;
+  width: 45vw;
+  transition: 0.3s;
 }
 
-.shrunk {
+.splash-welcome {
   grid-template-areas:
-    "splash-box splash-pos";
+  "splash-hello splash-hello . . ."
+  "splash-name-1 splash-name-1 splash-name-1 splash-name-2 splash-name-2"
+  ". splash-i-am splash-position splash-position splash-position"
+  ". . . splash-find splash-nav";
+grid-template-columns: 1fr auto auto auto auto;
 }
 
-.grown {
-  opacity: 1;
+.splash-top {
   grid-template-areas: 
-  "splash-box splash-box"
-  ". splash-pos";
-    grid-template-rows: auto auto;
+    "splash-hello . splash-i-am . ."
+    "splash-name-1 splash-name-2 splash-position splash-position splash-position";
+    grid-template-columns: 1fr auto auto auto auto;
+    column-gap: 1rem
+}
+.splash-hello {
+  grid-area: splash-hello;
+  font-size: 3cqw;
+  line-height: 1;
+  margin-bottom: -1cqw;
+  padding-left: 4cqw;
+}
+.splash-name-1 {
+  grid-area: splash-name-1;
+  font-size: 13cqw;
+  font-weight: bolder;
+  justify-self: start;
+  line-height: 1;
 }
 
-@keyframes shrinkNGrow {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.splash-name-2 {
+  grid-area: splash-name-2;
+  font-size: 13cqw;
+  font-weight: bolder;
+  align-self: end;
+  justify-self: end;
+  line-height: 1;
 }
-
-.splash-box {
-  container-type: inline-size;
-  width: 100%;
-  height: 100%;
-  grid-area: splash-box;
-  z-index: -99;
-  transition: 0.5s opacity;
-}
-
-.splash-name {
-  /* font-weight:bolder; */
-  font-family: "Righteous", cursive;
-  font-size: 12cqw;
-  color: white;
-  position: relative;
-  margin-bottom: -4.5cqw;
-}
-
-.letters:nth-child(n) {
-  animation: move-text 0.6s ease-out;
-  animation-delay: var(--delay);
-  font-size: 8cqw;
-  position: relative;
-  opacity: 0;
-}
-
-@keyframes move-text {
-  0% {
-    bottom: 15em;
-    opacity: 0;
-  }
-  50% {
-    bottom: 3em;
-    opacity: 0.8;
-  }
-  100% {
-    bottom: 0em;
-    opacity: 1;
-  }
-}
-
-.splash-logo-top {
-  container-type: inline-size;
-  display: inline-flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-between;
-  position: relative;
-  align-items: flex-end;
+/* 
+.splash-top-sub-box {
+  display: grid;
+  grid-area: splash-sub-box;
+  grid-template-areas: "splash-hello splash-name-2" "splash-name-1 splash-name-2";
+} */
+.splash-i-am {
+  grid-area: splash-i-am;
+  justify-self: end;
+  font-size: 3cqw;
 }
 
 .splash-position {
-  grid-area: splash-pos;
-  text-align: end;
+  grid-area: splash-position;
+  font-size: 7cqw;
+  justify-self: end;
+  line-height: 1;
 }
 
-.position-string {
-  font-family: "Dangrek", cursive;
-  color: white;
+.splash-find {
+  grid-area: splash-find;
   font-size: 3cqw;
-  grid-area: splash-pos;
-  text-align: end;
-  position: relative;
-  display: flex;
-  animation: slide-in 1.5s ease-in-out;
+  display: none;
 }
 
-@keyframes slide-in {
-  0% {
-    left: -100%;
-  }
-  50% {
-    left: 100%;
-  }
-  100% {
-    left: 0%;
-  }
+.splash-nav {
+  display: none;
+  grid-area: splash-nav;
 }
 
-@keyframes slide-back {
-  0% {
-    left: 100%;
-  }
-  100% {
-    left: 0%;
-  }
+.splash-contact {
+    grid-area: splash-contact;
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
 }
-
-
-@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Anton&family=Dangrek&family=Holtwood+One+SC&family=Righteous&family=Roboto+Slab:wght@900&family=Secular+One&family=Sigmar&display=swap");

@@ -1,0 +1,30 @@
+.main-box {
+    display:grid;
+    grid-template-areas: "splash-main""portfolio-heading""portfolio-main";
+    justify-items: center;
+    color: var(--font-col);
+    grid-gap: 3em;
+    padding-top: 25vh;
+}
+
+.splash-main {
+    grid-area: splash-main;
+    top: 2;
+}
+.heading {
+    grid-area: portfolio-heading;
+    justify-content: center;
+    border-top: 3px black solid;
+    border-bottom: 3px black solid;
+    display: inline-flex;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+
+.portfolio-main {
+    grid-area: portfolio-main;
+    justify-self:start;
+    width:100%;
+    display:grid;
+
+}

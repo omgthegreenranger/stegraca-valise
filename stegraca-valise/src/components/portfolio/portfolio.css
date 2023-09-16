@@ -1,0 +1,74 @@
+.portfolio-block {
+    background: var(--block-back);
+    color: var(--port-font-col);
+    margin: 1rem;
+}
+
+.portfolio {
+    display: grid;
+    grid-template-areas:
+    "portfolio-bio portfolio-bio"
+    "portfolio-linkblock portfolio-complete"
+    "portfolio-linkblock portfolio-progressives";
+    width: 85%;
+    justify-self:center;
+}
+
+.portfolio-linkblock {
+    grid-area: portfolio-linkblock;
+    margin-top: 10px;
+    border: 2px black solid;
+    border-radius: 1rem;
+    width:fit-content;
+    justify-self:center;
+
+}
+
+.projectpanels{
+    display: grid;
+    margin-top: 10px;
+    width: auto;
+}
+
+.complete {
+    grid-area: portfolio-complete;
+    grid-template-areas: "complete-title project .";
+    grid-template-columns: 0.5fr auto 0.5fr;
+}
+
+.project {
+    grid-area: project;
+    justify-self:center;
+    border: 2px black solid;
+    border-radius: 1rem;
+}
+
+.progressive {
+    grid-area: portfolio-progressives;
+    grid-template-areas: ". project progressive-title";
+    grid-template-columns: 0.5fr auto 0.5fr;
+
+}
+
+.complete-title {
+    grid-area: complete-title;
+    text-align:center;
+    display: flex;
+    flex-direction:column;
+}
+
+.progressive-title {
+    grid-area: progressive-title;
+    vertical-align: middle;
+    text-align:center;
+    display: flex;
+    flex-direction:column;
+}
+
+.title {
+    font-size: 2cqw;
+}
+
+.portfolio-bio {
+    grid-area: portfolio-bio;
+}

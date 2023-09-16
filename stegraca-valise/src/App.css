@@ -1,5 +1,22 @@
+:root {
+  --font-col: white;
+  --block-back: rgba(171, 163, 97, 1);
+  --port-font-col: black;
+}
+
+.top-border {
+  background: black;
+  width: 100%;
+  position:fixed;
+  padding-bottom: 1em;
+  z-index: 1;
+  height: 1em;
+}
+
 .App {
   text-align: center;
+  min-height: 100vh;
+  color: var(--font-col);
 }
 
 .App-logo {
@@ -21,7 +38,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgba(132, 130, 143, 1);;
 }
 
 .App-link {
@@ -38,16 +55,11 @@
 }
 
 .main {  
-  display: grid;
-  grid-template-areas:
-    "main-splash main-nav"
-    "tech main-nav"
-    "main-panel main-nav";
-  background: rgb(0,100,00);
-  align-items: start;
-  justify-items: start;
-  margin-left: 1rem;
-  grid-template-columns: 1fr auto;
+  background: rgba(0, 100, 0, 1);
+  margin: auto;
+  width: 95%;
+  padding: 1rem;
+  min-height: 100vh;
 }
 
 .retained {
