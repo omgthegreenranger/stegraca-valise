@@ -41,22 +41,20 @@ export default function Portfolio(props) {
             <div>made</div>
           </Slide>
         </div>
-        <Slide
-          direction="right"
+        <Bounce
           fraction={0.5}
           className="portfolio-block project"
         >
           <Projects section="complete" />
-        </Slide>
+        </Bounce>
       </div>
       <div className="projectpanels progressive">
-        <Slide
-          direction="left"
+        <Bounce
           fraction={0.5}
           className="portfolio-block project"
         >
           <Projects section="in-progress" />
-        </Slide>
+        </Bounce>
         <div className="title progressive-title">
           <Slide cascade direction="right">
             <div>Things</div>

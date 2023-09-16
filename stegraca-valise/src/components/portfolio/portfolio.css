@@ -7,10 +7,9 @@
 .portfolio {
     display: grid;
     grid-template-areas:
-    "portfolio-bio"
-    "portfolio-linkblock"
-    "portfolio-complete"
-    "portfolio-progressives";
+    "portfolio-bio portfolio-bio"
+    "portfolio-linkblock portfolio-complete"
+    "portfolio-linkblock portfolio-progressives";
     width: 85%;
     justify-self:center;
 }
