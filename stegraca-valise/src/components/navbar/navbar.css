@@ -5,13 +5,13 @@
     list-style:none;
     margin-bottom: 0;
     padding: 0;
-}
+}   
 
 .nav-btn {
     color: aliceblue;
     text-decoration: none;
     padding: 0.5rem;
-    font-size: 1cqw;
+    font-size: 5cqw;
     display:flex;
     align-items: center;
     flex-direction: column;

@@ -3,11 +3,9 @@
     grid-template-areas:
         "bio-text bio-photos";
     grid-template-columns: 8fr 2fr;
-    background-color: rgba(0, 0, 0, 0.25);
     /* padding: 20px;
     margin: 10px;
     border-radius: 25px; */
-    color: white;
     height: -moz-fit-content;
 
 }

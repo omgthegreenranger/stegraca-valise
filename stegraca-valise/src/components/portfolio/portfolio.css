@@ -2,13 +2,14 @@
 
 .portfolio {
     display: grid;
+    grid-area: portfolio;
     grid-template-areas:
-    "portfolio-bio portfolio-bio"
-    "portfolio-linkblock portfolio-complete"
-    "portfolio-linkblock portfolio-progressives";
-    width: 65%;
+    "portfolio-heading"
+    "portfolio-body";
+    border-top: 3px black solid;
+    border-bottom: 3px black solid;
+    justify-items: center;
     justify-self:center;
-    grid-template-columns: auto 1fr;
 }
 
 .portfolio-block {
@@ -19,12 +20,20 @@
     border-radius: 1rem;
 }
 
+.portfolio-body {
+    grid-area: portfolio-body;
+    display: grid;
+    grid-template-areas: 
+    "portfolio-bio"
+    "portfolio-complete"
+    "portfolio-progressives";
+    /* grid-template-columns: auto 1fr; */
+    width: 75%;
+    justify-content: center;
+}
+
 /* portfolio grid subclasses */
 
-.portfolio-linkblock {
-    grid-area: portfolio-linkblock;
-    width:fit-content;
-}
 
 .portfolio-complete {
     grid-area: portfolio-complete;
@@ -82,3 +91,19 @@
 }
 
 
+.heading {
+    grid-area: portfolio-heading;
+    justify-content: center;
+    display: inline-flex;
+    /* margin-top: 10vh; */
+    /* margin-bottom: 10vh; */
+    /* animation: pulse 5s infinite ease-in-out; */
+}
+
+.port-on {
+    /* display: grid; */
+}
+
+.port-off {
+    display: none;
+}

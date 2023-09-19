@@ -1,36 +1,57 @@
 .splash {
   display: grid;
   transition: 0.3s;
-}
-/* 
-.splash > * {
-  will-change: transform;
-} */
-
-.splash-container {
-  display:grid;
-  container-type: inline-size;
-  justify-self: center;
-  width: 50vw;
-  transition: 0.3s;
+  grid-area: splash;
 }
 
 .splash-welcome {
   grid-template-areas:
-  "splash-hello splash-hello . . ."
-  "splash-name-1 splash-name-1 splash-name-1 splash-name-2 splash-name-2"
-  ". splash-i-am splash-position splash-position splash-position"
-  ". . . splash-find splash-nav";
-grid-template-columns: 1fr auto auto auto auto;
+    "splash-hello splash-hello . . ."
+    "splash-name-1 splash-name-1 splash-name-1 splash-name-2 splash-name-2"
+    ". splash-i-am splash-position splash-position splash-position";
+  grid-template-columns: 1fr auto auto auto auto;
+  width: 50vw;
 }
 
 .splash-top {
   grid-template-areas: 
-    "splash-hello . splash-i-am . ."
-    "splash-name-1 splash-name-2 splash-position splash-position splash-position";
-    grid-template-columns: 1fr auto auto auto auto;
-    column-gap: 1rem
+  "splash-hello ."
+  "splash-name-1 splash-name-2"
+  "splash-i-am ."
+  "splash-position splash-position";
+    /* grid-template-columns: 1fr auto auto auto auto; */
+    /* column-gap: 1rem;     */
+  /* opacity: 0; */
+  width: 15vw;
 }
+
+.splash-container {
+  display: grid;
+  container-type: inline-size;
+  justify-self: center;
+  transition: 0.3s;
+}
+
+.splash-hide {
+  /* opacity: 0; */
+  /* animation: hide-plans 1s; */
+  transition: 1s;
+  height: 0vh;
+  margin: 0rem;
+  width: 25vw;
+  grid-gap:1rem;
+  grid-template-areas: "splash"
+  "splash-contact"
+  "splash-linkblock";
+}
+
+.splash-show {
+  opacity: 1;
+  /* animation: hide-plans 1s reverse; */
+  transition: 1s;
+  width: 50vw
+}
+
 .splash-hello {
   grid-area: splash-hello;
   font-size: 3cqw;
@@ -76,18 +97,39 @@ grid-template-columns: 1fr auto auto auto auto;
 .splash-find {
   grid-area: splash-find;
   font-size: 3cqw;
-  display: none;
 }
 
 .splash-nav {
-  display: none;
   grid-area: splash-nav;
+  margin: auto;
 }
 
 .splash-contact {
-    grid-area: splash-contact;
-    display:flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: row;
+  grid-area: splash-contact;
+  display: flex;
+  justify-content: flex-start;
+
+  flex-direction: column;
 }
+
+.portfolio-block {
+  background: var(--block-back);
+  color: var(--port-font-col);
+  margin: 0.5rem;
+  border: 2px black solid;
+  border-radius: 1rem;
+}
+
+.splash-linkblock {
+  grid-area: splash-linkblock;
+  width:fit-content;
+}
+
+
+/* 
+@splash-hide {
+  0% { opacity: 1;}
+  30% { opacity: 0;}
+  50% { height: 10vh; width: 30vw}
+  70% { height: 0vh; width: 20vw}
+} */

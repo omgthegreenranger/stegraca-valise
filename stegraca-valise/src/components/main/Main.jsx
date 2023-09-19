@@ -4,6 +4,7 @@ import "./main.css";
 import { Splash, Portfolio} from "../index";
 import { wrapGrid } from "animate-css-grid";
 
+
 export default function MainPage(props) {
   const [scrollToTop, setScrollToTop] = useState();
   const [thingsOpen, setThingsOpen] = useState(false);
@@ -42,18 +43,20 @@ export default function MainPage(props) {
     animateGrid();
   }
 console.log(thingsOpen)
+
   return (
-  <div className="main-box main-welcome">
-    <div className="splash-main" >
+  <div className={thingsOpen ? `main-box main-expanded` : `main-box main-welcome`}>
+    <div className="splash-main">
+    {/* {thingsOpen ? `splash-main splash-show` : `splash-main splash-hide`}> */}
     <Splash thingsOpen={thingsOpen} />
     {thingsOpen}
     </div>
-    <div className="heading"
+    {/* <div className="heading"
       onClick={()=> portfolioExpand()} >
         <h1>THIS IS MY PORTFOLIO OF THINGS</h1>
-      </div>
+      </div> */}
     <div className="portfolio-main">
-    {thingsOpen ? <Portfolio /> : <div></div> }
+    <Portfolio thingsOpen={thingsOpen} setThingsOpen={setThingsOpen} />
     </div>
   </div>
   )

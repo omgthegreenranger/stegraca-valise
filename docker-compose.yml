@@ -12,3 +12,6 @@ services:
       PGID: 1001
     ports:
       - 3000:3000
+    volumes:
+    - "/home/dad/.docker/stegraca-valise:/workspaces:cached"
+    command: /bin/sh -c "while sleep 1000; do :; done"
