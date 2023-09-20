@@ -8,28 +8,38 @@
     "portfolio-body";
     border-top: 3px black solid;
     border-bottom: 3px black solid;
-    justify-items: center;
-    justify-self:center;
+    transition: width 2s;
+    padding: 2rem;
+}
+
+.open {
+    width: 95%;
+}
+
+.closed {
+    width: 50%;
 }
 
 .portfolio-block {
-    background: var(--block-back);
-    color: var(--port-font-col);
-    margin: 0.5rem;
-    border: 2px black solid;
-    border-radius: 1rem;
+    /* background: var(--block-back); */
+    /*color: var(--port-font-col); */
+    margin-bottom: 0.5rem;
+    /* border: 2px black solid; */
+    /* border-radius: 1rem; */
 }
 
 .portfolio-body {
     grid-area: portfolio-body;
     display: grid;
     grid-template-areas: 
-    "portfolio-bio"
+    /* "portfolio-bio" */
+    "portfolio-linkblock"
     "portfolio-complete"
     "portfolio-progressives";
     /* grid-template-columns: auto 1fr; */
-    width: 75%;
+    width: 95%;
     justify-content: center;
+    grid-gap: 1rem;
 }
 
 /* portfolio grid subclasses */
@@ -37,13 +47,11 @@
 
 .portfolio-complete {
     grid-area: portfolio-complete;
-    grid-template-areas: "complete-title"
-    "project";
 }
 
 .portfolio-progressive {
     grid-area: portfolio-progressives;
-    grid-template-areas: "progressive-title"
+    grid-template-areas: "title"
     "project";
 }
 
@@ -54,7 +62,11 @@
 /* title classes */
 
 .title {
-    font-size: 2cqw;
+    grid-area: title;
+    /* justify-content:center; */
+    display: flex;
+    flex-direction:row;
+    font-size: 1.25cqw;
 }
 
 .bio-title {
@@ -79,15 +91,17 @@
     flex-direction:row;
 }
 
-
-
 .projectpanels{
     display: grid;
     width: auto;
+    grid-template-areas: "title" "project";
 }
 
 .project {
     grid-area: project;
+    background: var(--block-back);
+    border-radius: 1rem;
+    padding: 0.5rem;
 }
 
 
@@ -95,8 +109,8 @@
     grid-area: portfolio-heading;
     justify-content: center;
     display: inline-flex;
-    /* margin-top: 10vh; */
-    /* margin-bottom: 10vh; */
+    /* margin-top: 1rem; */
+    margin-bottom: 1rem;
     /* animation: pulse 5s infinite ease-in-out; */
 }
 
@@ -107,3 +121,8 @@
 .port-off {
     display: none;
 }
+
+.portfolio-linkblock {
+    grid-area: portfolio-linkblock;
+    width: 100%;
+  }

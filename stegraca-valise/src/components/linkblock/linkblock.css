@@ -1,10 +1,8 @@
 .tech-icons {
-  width: 3cqw;
-  /* flex: 0 0 1cqw; */
-  font-size: 2cqw;
-  color: var(--port-font-col);
-  /* margin: 1cqw; */
-  text-align: center;
+  font-size: 7cqw;
+  /* color: var(--port-font-col); */
+  margin-bottom: 1cqw;
+  margin-top: 1cqw;
 }
 
 @keyframes spin-arrive {
@@ -29,6 +27,7 @@
   transition-duration: 0.4s;
 }
 
+
 .tech-used {
   color: yellow;
   transform: scale(1.5);
@@ -41,11 +40,11 @@
 .tech-block {
   grid-area: tech;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  width: auto;
-  justify-self: center;
-  padding: 1rem;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-direction: row;
+  justify-content: space-evenly;
+  container-type: inline-size;
 }
 
 .link-text {

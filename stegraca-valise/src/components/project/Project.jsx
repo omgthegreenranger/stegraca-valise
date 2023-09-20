@@ -8,17 +8,13 @@ import projectDB from "../project/projects.json";
 import monkey from "./images/typing_monkey.svg";
 
 export default function Project(props) {
+    const {section, portOpen, setPortOpen} = props
     const works = projectDB.projects
     const [projectData, setProjectData] = useState();
-    const [portOpen, setPortOpen] = useState(false)
 
-    const completers = works.filter(function (work) {
-      return work.status === "complete";
-    });
-    const progressives = works.filter(function (work) {
-      return work.status === "in-progress";
 
-    
+    const worksFiltered = works.filter(function (work) {
+      return work.status === section;
     });
 
   const handleCards = () => {
@@ -44,13 +40,13 @@ export default function Project(props) {
     return (
       <>
           <ProjectDisplay
-            works={completers}
+            works={worksFiltered}
             portOpen={portOpen}
             setPortOpen={setPortOpen}
             handleCards={handleCards}
             projectData={projectData}
             setProjectData={setProjectData}
-            section="complete"
+            section={section}
           />
       </>
     );
@@ -84,7 +80,10 @@ export default function Project(props) {
   
     return (
       <>
-        <div className="project-cards">
+        <div className= {portOpen 
+                  // && projectData.id === work.id
+                    ? "project-cards card-closed"
+                    : "project-cards card-open"}>
           {works.map((work, key) => {
             function handleMouseOver(e) {
               handleCards(work.techTags);
@@ -117,9 +116,10 @@ export default function Project(props) {
             return (
               <div
                 className={
-                  portOpen && projectData.id === work.id
-                    ? "project-card card-open card-selected"
-                    : "project-card card-open"
+                  portOpen 
+                  // && projectData.id === work.id
+                    ? "project-card card-closed card-selected"
+                    : "project-card card-closed"
                 }
                 key={key}
                 onMouseEnter={handleMouseOver}
@@ -131,7 +131,7 @@ export default function Project(props) {
             );
           })}
         </div>
-        <div
+        {/* <div
           className={
             portOpen ? "project-details hd-on" : "project-details hd-off"
           }
@@ -145,7 +145,7 @@ export default function Project(props) {
             setMouseOver={setMouseOver}
             works={works}
           />
-        </div>
+        </div> */}
       </>
     );
   }

@@ -44,8 +44,8 @@ function TechLine(props) {
   };
   return (
     <div className="tech-block">
-      <Zoom cascade stagger={2} triggerOnce={true}>
-        <AttentionSeeker effect="headShake">
+      {/* <Zoom cascade stagger={2} triggerOnce={true}>
+        <AttentionSeeker effect="headShake"> */}
       {techList.map((tech, key) => {
 
         return (
@@ -57,8 +57,8 @@ function TechLine(props) {
           </div>
         );
       })}
-      </AttentionSeeker>
-    </Zoom>
+      {/* </AttentionSeeker>
+    </Zoom> */}
     </div>
   );
 }

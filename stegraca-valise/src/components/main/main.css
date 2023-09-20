@@ -44,10 +44,9 @@
   grid-area: portfolio-main;
   grid-template-areas:
     "portfolio";
-  justify-self: start;
-  justify-content: center;
+  justify-self: center;
   justify-items: center;
-  width: 100%;
+  width: 90%;
   display: grid;
   transition: opacity 3s;
 }

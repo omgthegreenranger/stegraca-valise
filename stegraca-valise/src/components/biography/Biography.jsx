@@ -1,8 +1,18 @@
 import React from "react";
+import {animated, useSpring } from "@react-spring/web";
 import ProfilePic from "./images/profile-photo.jpg";
 import "./biography.css";
 
+
 export default function Bio(props) {
+  // const MysteriousText = ({ children, ...props }) => {
+  //   const animation = i => {useSpring({ opacity: 1, from: { opacity: 0 }, delay: Math.random() * 350 })};
+  //   return children.split("").map((item, index) => (
+  //     <animated.span key={index} style={animation(index)} {...props}>
+  //       {item}
+  //     </animated.span>
+  //   ));
+  // };
   return (
     <>
         <div className="bio-block">

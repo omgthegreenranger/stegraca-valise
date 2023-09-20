@@ -1,6 +1,6 @@
 :root {
   --font-col: white;
-  --block-back: rgba(171, 163, 97, 1);
+  --block-back: rgba(171, 163, 97, 0.5);
   --port-font-col: black;
 }
 

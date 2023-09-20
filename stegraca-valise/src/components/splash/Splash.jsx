@@ -1,11 +1,29 @@
 import React, { useRef, useEffect } from "react";
+import {
+  animated,
+  useSpring,
+  useTrail,
+  useChain,
+  Controller,
+  useScroll,
+  useSpringRef,
+  useSpringValue
+} from "@react-spring/web";
 import "./splash.css";
-import { NavBar, Linkblock } from "../index";
+import { NavBar, Linkblock, Bio } from "../index";
 import { wrapGrid } from "animate-css-grid";
 
 export default function Splash(props) {
-  const { thingsOpen, setThingsOpen } = props;
-
+  const { thingsOpen, setThingsOpen, scrollYProgress } = props;
+  
+  // const [splashWidth, api] = useSpring(
+  //   () => ({
+  //     from: { width: '50vw'},
+  //     to: {  height: "0vh",
+  //       margin: "0rem",
+  //       width: "25vw",
+  //       gridGap: "1rem"},
+    // }),[])
   // const object = useRef(null);
 
   // useEffect(() => {
@@ -32,17 +50,25 @@ export default function Splash(props) {
   //   wrapGrid(object, { duration: 400 });
   //   animateGrid();
   // });
+
+
+
   return (
     <>
-      <div
+      <animated.div
         className={
-          thingsOpen
-            ? `splash-container splash-hide`
-            : `splash-container splash-show`
+          // thingsOpen ? 
+          `splash-container splash-hide`
+            // : `splash-container splash-show`
         }
+        // style={splashWidth}
       >
         <div
-          className={thingsOpen ? `splash splash-top` : `splash splash-welcome`}
+          className={
+            // thingsOpen ? 
+            `splash splash-top`
+            // : `splash splash-welcome`
+          }
         >
           <div className="splash-hello">Hello, my name is</div>
           <div className="splash-name-1">Stephen</div>
@@ -52,20 +78,23 @@ export default function Splash(props) {
         </div>
         <div
           className={
-            thingsOpen ? `splash-contact port-on` : `splash-contact port-off`
+            // thingsOpen ? 
+            `splash-contact port-on` 
+            // : `splash-contact port-off`
           }
         >
-          <div className="splash-find">You can find me here</div>
           <div className="splash-nav">
             <NavBar />
           </div>
         </div>
         <div className={
-            thingsOpen ? `splash-linkblock port-on` : `splash-linkblock port-off`
+            // thingsOpen ? 
+            `splash-linkblock port-on`
+            //  : `splash-linkblock port-off`
           }>
-          <Linkblock />
+          <Bio />
         </div>
-      </div>
+      </animated.div>
     </>
   );
 }

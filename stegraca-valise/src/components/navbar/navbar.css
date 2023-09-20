@@ -5,7 +5,9 @@
     list-style:none;
     margin-bottom: 0;
     padding: 0;
-}   
+    width:100%;
+    justify-content: space-evenly;
+}
 
 .nav-btn {
     color: aliceblue;
