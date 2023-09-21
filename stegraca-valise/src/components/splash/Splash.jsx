@@ -87,13 +87,13 @@ export default function Splash(props) {
             <NavBar />
           </div>
         </div>
-        <div className={
+        <block className={
             // thingsOpen ? 
             `splash-linkblock port-on`
             //  : `splash-linkblock port-off`
           }>
           <Bio />
-        </div>
+        </block>
       </animated.div>
     </>
   );

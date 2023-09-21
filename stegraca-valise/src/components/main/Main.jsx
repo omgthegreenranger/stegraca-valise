@@ -22,40 +22,6 @@ export default function MainPage(props) {
   const [thingsOpen, setThingsOpen] = useState(true);
   const { scrollYProgress } = useScroll();
 
-  // function portfolioExpand() {
-  //   setThingsOpen((current) => !current)
-  //   var scrollListener = document.getElementsByClassName('splash-container')[0]
-  //   if (thingsOpen === false) {
-  //     scrollListener.style.width = "15vw";
-  //     scrollListener.style.justifySelf = "left";
-  //   } else if (thingsOpen === true) {
-  //     scrollListener.style.width = "50vw";
-  //     scrollListener.style.justifySelf = "center";
-  //   }
-  //   const mainGrid = document.getElementsByClassName("main-box")[0]
-  //   const animateGrid = () => {
-  //     if (thingsOpen === false) {
-  //       requestAnimationFrame(() => {
-  //         console.log("true")
-  //         mainGrid.classList.remove("main-welcome");
-  //         mainGrid.classList.add("main-expanded");
-  //       });
-  //     } else if (thingsOpen === true ) {
-  //       console.log("False!")
-  //       requestAnimationFrame(() => {
-  //        mainGrid.classList.remove("main-expanded");
-  //        mainGrid.classList.add("main-welcome");
-  //       });
-  //     } else {
-  //       console.log("Nothing!")
-  //       mainGrid.classList.add("main-welcome");
-  //     }
-  //   };
-  //   console.log(mainGrid);
-  //   wrapGrid(mainGrid, {duration: 400})
-  //   animateGrid();
-  // }
-
   return (
     <div
       className={

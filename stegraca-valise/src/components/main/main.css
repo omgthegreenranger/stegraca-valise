@@ -5,6 +5,8 @@
   grid-template-columns: auto 1fr;
   transition: all 1s;
   transition-delay: 1s ease-in-out;
+  height:100vh;
+  padding:3rem;
 }
 
 .main-welcome {
@@ -17,8 +19,8 @@
 .main-expanded {
   grid-template-areas:
   "splash-main portfolio-main "
-  "splash-main portfolio-main";
-  margin-top:1vh;
+  /* "splash-main portfolio-main"; */
+  /* grid-template */
 }
 
 .splash-main {
@@ -49,4 +51,12 @@
   width: 90%;
   display: grid;
   transition: opacity 3s;
+  align-items: start;
+  align-content: space-between;
+}
+
+block {
+  /* background: var(--block-back); */
+  border-radius: 1rem;
+  /* padding: 0.5rem; */
 }

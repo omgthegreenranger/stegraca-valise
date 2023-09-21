@@ -1,8 +1,4 @@
 .bio-block {
-    display: grid;
-    grid-template-areas:
-        "bio-text bio-photos";
-    grid-template-columns: 8fr 2fr;
     /* padding: 20px;
     margin: 10px;
     border-radius: 25px; */

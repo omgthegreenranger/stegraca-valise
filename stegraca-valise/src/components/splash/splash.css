@@ -113,9 +113,9 @@
   grid-area: splash-linkblock;
   width: 100%;
   /* border-top: 2px black solid; */
-  background-color:  var(--block-back);
-  padding: 1rem;
-  border-radius: 1rem;
+  /* background-color:  var(--block-back); */
+  /* padding: 1rem;
+  border-radius: 1rem; */
   
 }
 

@@ -13,12 +13,17 @@ import {
   SiPython,
   SiExpo,
 } from "react-icons/si";
+import {TextToSVG} from 'text-to-svg';
 import { TbBrandReactNative } from "react-icons/tb";
 import { IconContext } from "react-icons";
 import {Zoom, AttentionSeeker } from "react-awesome-reveal";
 
 export default function Linkblock(props) {
-  
+  const { stack } = props
+
+  const attributes = {fill: 'red', stroke: 'black'};
+  const options = {x: 0, y: 0, fontSize: 72, anchor: 'top', attributes: attributes};
+
   return (
       <TechLine />
   );
@@ -43,7 +48,14 @@ function TechLine(props) {
     return <></>;
   };
   return (
-    <div className="tech-block">
+    <div style={{
+      gridArea: "tech",
+      display: "flex",
+      flex: '0 0',
+      flexDirection: "row",
+      justifyContent: "space-evenly",
+      containerType: "inline-size",
+    }}>
       {/* <Zoom cascade stagger={2} triggerOnce={true}>
         <AttentionSeeker effect="headShake"> */}
       {techList.map((tech, key) => {

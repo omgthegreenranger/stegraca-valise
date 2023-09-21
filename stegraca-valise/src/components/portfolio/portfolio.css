@@ -1,15 +1,17 @@
 /* TOP portfolio classes */
 
 .portfolio {
-    display: grid;
+    display: flex;
     grid-area: portfolio;
     grid-template-areas:
     "portfolio-heading"
     "portfolio-body";
     border-top: 3px black solid;
-    border-bottom: 3px black solid;
     transition: width 2s;
-    padding: 2rem;
+    height:100%;
+    justify-items: center;
+    flex-direction: column;
+    width: 100%
 }
 
 .open {
@@ -26,6 +28,8 @@
     margin-bottom: 0.5rem;
     /* border: 2px black solid; */
     /* border-radius: 1rem; */
+    display: flex;
+    flex-direction: column;
 }
 
 .portfolio-body {
@@ -99,11 +103,15 @@
 
 .project {
     grid-area: project;
-    background: var(--block-back);
+    /* background: var(--block-back);
+    border-radius: 1rem;
+    padding: 0.5rem; */
+}
+
+.linkblock {
     border-radius: 1rem;
     padding: 0.5rem;
 }
-
 
 .heading {
     grid-area: portfolio-heading;
@@ -124,5 +132,4 @@
 
 .portfolio-linkblock {
     grid-area: portfolio-linkblock;
-    width: 100%;
   }

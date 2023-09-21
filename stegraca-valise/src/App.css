@@ -56,10 +56,8 @@
 
 .main {  
   background: rgba(0, 100, 0, 1);
-  margin: auto;
-  width: 95%;
-  padding: 1rem;
-  min-height: 100vh;
+  /* margin: auto;
+  min-height: 100vh; */
 }
 
 .retained {
