@@ -2,7 +2,17 @@
   --font-col: white;
   --block-back: rgba(171, 163, 97, 0.5);
   --port-font-col: black;
+  --font-marker: 'Permanent Marker', cursive;
+  --font-alfa: 'Alfa Slab One', cursive;
+  --font-anton: 'Anton', sans-serif;
+  --font-dangrek: 'Dangrek', cursive;
+  --font-holdwood: 'Holtwood One SC', serif;
+  --font-righteous: 'Righteous', cursive;
+  --font-roboto: 'Roboto Slab', serif;
+  --font-secular: 'Secular One', sans-serif;
+  --font-sigman: 'Sigmar', cursive;
 }
+
 
 .top-border {
   background: black;

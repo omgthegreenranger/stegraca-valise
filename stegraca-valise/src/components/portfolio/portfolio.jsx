@@ -1,52 +1,41 @@
-import React, { Component, createRef, useState } from "react";
+import React, { useState } from "react";
 import {
   animated,
   useSpring,
-  useTrail,
-  useChain,
-  Controller,
-  useScroll,
-  useSpringRef,
-  useSpringValue,
+  useTransition,
 } from "@react-spring/web";
 import "./portfolio.css";
-import { wrapGrid } from "animate-css-grid";
-import { Linkblock, Projects, Bio, Details } from "../index";
+import { Linkblock, Projects, Details } from "../index";
 
 export default function Portfolio(props) {
   const { thingsOpen, setThingsOpen, scrollYProgress } = props;
-  // const springref = useSpringRef({})
   const [portOpen, setPortOpen] = useState(false);
   const [projectData, setProjectData] = useState();
-  const opacityValue = useSpringValue(0);
+  const [opacityValue, api] = useSpring(
+    ()=> ({
+    opacity: 0}));
 
-  function portfolioExpand() {
+
+  if (portOpen) api.start({opacity: 1,});
+  // if (!portOpen) api.start({opacity: 0,});
+
+  const portfolioExpand = () => {
     setThingsOpen((current) => !current);
 
-    opacityValue.start(1);
+    api.start({
+      opacity: 1,
+    });
   }
-  // const springs = useSpring({
-  // ref: springref,
-  //  opacity: 1
-  // })
-
   return (
     <div className="portfolio">
-      {/* {thingsOpen ? `portfolio open` : `portfolio closed`}> */}
-      <div className="heading" onClick={() => portfolioExpand()}>
-        {/* <div className="heading"> */}
+      <div className="heading" 
+      >
         <h1>THIS IS MY PORTFOLIO OF THINGS</h1>
       </div>
-      {/* <PortfolioShow /> */}
       <animated.div
         className="portfolio-body"
-        // thingsOpen ? `portfolio-body port-on` : `portfolio-body port-off`
-        // }
       >
-        <div className="portfolio-block portfolio-linkblock">
-          <animated.div className="title" style={{ opacityValue }}>
-            Things I can do
-          </animated.div>
+        <div className="portfolio-block portfolio-linkblock" style={portOpen ? {width: '45%'} : {width: '85%'}}>
           <div className="project linkblock">
             <Linkblock />
           </div>
@@ -57,21 +46,19 @@ export default function Portfolio(props) {
             setPortOpen={setPortOpen}
             projectData={projectData}
             setProjectData={setProjectData}
+            setThingsOpen={setThingsOpen}
+            thingsOpen={thingsOpen}
           />
         </div>
       </animated.div>
-      <div
-        className={
-          portOpen ? "project-details hd-on" : "project-details hd-off"
-        }
-      >
+      <animated.div className="project-details" style={opacityValue}>
         <Details
           projectData={projectData}
           setProjectData={setProjectData}
           portOpen={portOpen}
           setPortOpen={setPortOpen}
         />
-      </div>
+      </animated.div>
     </div>
   );
 }

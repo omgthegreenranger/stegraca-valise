@@ -1,150 +1,152 @@
 .details-view {
-    grid-area: details;
-    background: rgba(184, 184, 184, 0.67);
-    border-radius: 5px;
-    padding: 25px;
-    /* height: 100%; */
-    width: 100%;
-    max-width: 100%;
-    grid-template-columns: 1fr 5fr;
-    display: grid;
-    grid-template-areas:"photo-column project-title project-title"
+  grid-area: details;
+  /* background: rgba(184, 184, 184, 0.67); */
+  border-radius: 5px;
+  padding: 25px;
+  /* height: 100%; */
+  width: 100%;
+  max-width: 100%;
+  grid-template-columns: 1fr 5fr;
+  display: grid;
+  grid-template-areas:
+    "photo-column project-title project-title"
     "photo-column project-meat tech-stack";
-    grid-template-rows: auto 1fr;
-    /* transition-property: all;
-    transition-delay: 1.25s;
-    transition-timing-function: ease-in-out;
-    transition-duration: 0.5s; */
+  grid-template-rows: auto 1fr;
 }
 
-.details-closed {
-    opacity: 0;
+/* .details-closed {
+  opacity: 0;
+  transition: opacity 0.5s ease 1s;
 }
 
 .details-open {
-    opacity: 1;
-    overflow-y: scroll;
-    
-}
+  opacity: 1;
+  transition: opacity 0.5s ease 1s;
+} */
 
 .on {
-    opacity: 1;
+  opacity: 1;
 }
 
 .off {
-    opacity: 0;
+  opacity: 0;
 }
 
 .details-photo-column {
-    grid-area: photo-column;
+  grid-area: photo-column;
 }
 
 .link-icons {
-    cursor:pointer;
-    color:black;
+  cursor: pointer;
+  color: black;
 }
 
 .link-pics {
-    grid-area: link-pics;
+  grid-area: link-pics;
 }
 
 .project-title {
-    container-type: inline-size;
-    grid-area: project-title;
-    border-bottom: 1px solid black;
-    margin: 1rem;
-    display: grid;
-    grid-template-areas: "name-title link-pics icon-box";
-    grid-template-columns: 1fr auto auto;
+  container-type: inline-size;
+  grid-area: project-title;
+  border-bottom: 1px solid black;
+  margin: 1rem;
+  display: grid;
+  grid-template-areas: "name-title link-pics icon-box";
+  grid-template-columns: 1fr auto auto;
 }
 
 .project-descs {
-    overflow-y: auto;
+  overflow-y: auto;
 }
 
 .project-meat {
-    grid-area: project-meat;
-    padding: 1rem;
-    white-space: pre-line;
-    vertical-align: bottom;
+  grid-area: project-meat;
+  padding: 1rem;
+  white-space: pre-line;
+  vertical-align: bottom;
 }
 
 .project-desc {
-    padding-top: 2em;
+  padding-top: 2em;
 }
 
 .name-title {
-    grid-area: name-title;
-    font-size: 2rem;
-    color: black;
-    font-weight: bolder;
+  grid-area: name-title;
+  font-size: 2rem;
+  color: black;
+  font-weight: bolder;
 }
 
 .icon-box {
-    justify-content:flex-end;
+  justify-content: flex-end;
 }
 
 .picture-stack {
-    object-fit: contain;
-    aspect-ratio: 1.5/1;
-    width: 100%
+  object-fit: contain;
+  aspect-ratio: 1.5/1;
+  width: 100%;
 }
 
 .tech-stack {
-    grid-area: tech-stack;
-    border-left: 1px solid black;
+  grid-area: tech-stack;
+  border-left: 1px solid black;
 }
 
 .card-image-details {
-    object-fit: contain;
-    aspect-ratio: 1.5/1;
-    margin-bottom: 5%;
+  object-fit: contain;
+  aspect-ratio: 1.5/1;
+  margin-bottom: 5%;
 }
 
 .card-screenshots {
-    object-fit: contain;
-    margin-bottom: 5%;
-    width: 300px;
+  object-fit: contain;
+  margin-bottom: 5%;
+  width: 48%;
 }
 
-.link-icons:hover{
-    color:white;
+.link-icons:hover {
+  color: white;
 }
 
 .read-more {
-    color: black;
-    border-radius: 0.5rem;
-    background-color: grey;
-    cursor: pointer;
-    padding: 0.25rem;
-    margin: 1rem;
+  color: black;
+  border-radius: 0.5rem;
+  background-color: grey;
+  cursor: pointer;
+  padding: 0.25rem;
+  margin: 1rem;
 }
 
 .hover-details {
-    display:flex;
-    /* flex-direction: row; */
-    background: rgba(184, 184, 184, 0.67);
-    width:100%;
-        background-color: rgba(0, 0, 0, 0.25);
-    padding-left: 20px;
-    margin-right: 10px;
-    /* margin-left: 10px; */
-    /* margin-right: 10px; */
-    /* margin-bottom: 10px;
+  display: flex;
+  /* flex-direction: row; */
+  background: rgba(184, 184, 184, 0.67);
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding-left: 20px;
+  margin-right: 10px;
+  /* margin-left: 10px; */
+  /* margin-right: 10px; */
+  /* margin-bottom: 10px;
     border-radius: 25px; */
-    border-top-left-radius: 0;
-
+  border-top-left-radius: 0;
 }
 
 .no-details {
-    background: rgba(184, 184, 184, 0.67);
+  background: rgba(184, 184, 184, 0.67);
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.screenshots-flex {
+    display: flex;
+    flex: 0 0 50%;
+    justify-content: space-around;
 }

@@ -23,4 +23,6 @@
 
 .bio-photos {
     grid-area: bio-photos;
+    width:50%;
+    margin: auto;
 }

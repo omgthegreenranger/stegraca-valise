@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./linkblock.css";
 import {
   SiJavascript,
@@ -13,13 +13,11 @@ import {
   SiPython,
   SiExpo,
 } from "react-icons/si";
-import {TextToSVG} from 'text-to-svg';
 import { TbBrandReactNative } from "react-icons/tb";
-import { IconContext } from "react-icons";
-import {Zoom, AttentionSeeker } from "react-awesome-reveal";
+import { animated, useSprings, useTrail, easings } from "@react-spring/web";
 
 export default function Linkblock(props) {
-  const { stack } = props
+  const { stack } = props;
 
   const attributes = {fill: 'red', stroke: 'black'};
   const options = {x: 0, y: 0, fontSize: 72, anchor: 'top', attributes: attributes};
@@ -44,9 +42,36 @@ function TechLine(props) {
     { tech: "React-Native", icon: <TbBrandReactNative /> },
   ];
 
+
+
+  const [spinning] = useTrail(techList.length,
+    () => ({
+    from: { transform: "rotate3d(0,0,0,0deg)", opacity: 0 },
+    to: { transform: "rotate3d(0,1,0, 720deg)", opacity: 1 },
+  }), []
+  )
+
+  const [bouncein] = useSprings(techList.length,
+    () => (
+      {
+      from: { transform: "scale(0.0", opacity: 0 },
+      to: { transform: "scale(1.0", opacity: 1 },
+      config: {
+        easings: easings.easeInBounce(5),
+          duration: 200
+          }
+        })
+    )
+
   const handleTechClick = (tech) => {
-    return <></>;
+
+
+
+  return <></>;
   };
+
+  const [techMouse, setTechMouse] = useState([false, '']);
+  console.log(techMouse); 
   return (
     <div style={{
       gridArea: "tech",
@@ -56,21 +81,25 @@ function TechLine(props) {
       justifyContent: "space-evenly",
       containerType: "inline-size",
     }}>
-      {/* <Zoom cascade stagger={2} triggerOnce={true}>
-        <AttentionSeeker effect="headShake"> */}
-      {techList.map((tech, key) => {
-
-        return (
-          <div
+      {/* {techList.map((tech, key) => { */}
+      {spinning.map((props, key) => {
+        return(
+          <animated.div
             className="tech-icons"
             key={key}
+            style={props}
+            onMouseEnter={() => setTechMouse([true, key])}
+            onMouseLeave={() => setTechMouse([false, ''])}
           >
-            {tech.icon}
-          </div>
-        );
-      })}
-      {/* </AttentionSeeker>
-    </Zoom> */}
+            {techList[key].icon}
+            {/* <div className="tech-name">
+          {techMouse[0] && techMouse[1] === key ? techList[key].tech : <></>}</div>
+           */}
+          </animated.div>
+
+      )}
+      )
+  }
     </div>
   );
 }

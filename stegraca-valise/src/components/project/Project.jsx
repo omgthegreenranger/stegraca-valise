@@ -40,16 +40,16 @@ export default function Project(props) {
     <>
       <Tabs
       defaultActiveKey="complete"
-      className="tab-block"
+      className="tab-block navs"
       onClick={()=>handleTransition()}
       fill>
         <Tab
           eventKey="complete"
           title="Things I made"
-          className="projectpanels"
-          // onClick={()=>handleTransition()}
+          className=""
         >
-          <block className="project">
+          <div className="projectpanels">
+          {/* <div className="project"> */}
             <ProjectDisplay
               works={works.filter(function (work) {
                 return work.status === "complete";
@@ -63,18 +63,16 @@ export default function Project(props) {
               setMouseOver={setMouseOver}
               section="complete"
             />
-          </block>
+          {/* </div> */}
+          </div>
         </Tab>
         <Tab
           eventKey="in-progress"
           title="Things I am making"
-          className="projectpanels"
-          onClick={()=>handleTransition()}
+          // className="projectpanels"
         >
-          {/*  <div className="title">
-          <div direction={"left"}>Things I'm making</div>
-        </div> */}
-          <block className="project">
+          <div className="projectpanels">
+          {/* <div className="project"> */}
             <ProjectDisplay
               works={works.filter(function (work) {
                 return work.status === "in-progress";
@@ -88,26 +86,12 @@ export default function Project(props) {
               setMouseOver={setMouseOver}
               section="in-progress"
             />
-          </block>
+          {/* </div> */}
+          </div>
         </Tab>
       </Tabs>
-      {/* <div
-        className={
-          portOpen ? "project-details hd-on" : "project-details hd-off"
-        }
-      >
-        <Details
-          projectData={projectData}
-          setProjectData={setProjectData}
-          portOpen={portOpen}
-          setPortOpen={setPortOpen}
-          mouseOver={mouseOver}
-          setMouseOver={setMouseOver}
-          works={works}
-        />
-      </div> */}
-    </>
-  );
+      </>
+  )
 }
 
 function ProjectDisplay(props) {
@@ -121,6 +105,8 @@ function ProjectDisplay(props) {
     section,
     mouseOver,
     setMouseOver,
+    thingsOpen,
+    setThingsOpen
   } = props;
   // const [mouseOver, setMouseOver] = useState({ toggle: false, id: "" });
   const [selectedType, setSelectedType] = useState();
@@ -134,7 +120,6 @@ function ProjectDisplay(props) {
     }
     let detailCatch = document.getElementsByClassName("details-view");
     console.log(detailCatch);
-
     console.log("PORT", portOpen);
   }
 
@@ -144,8 +129,8 @@ function ProjectDisplay(props) {
         className={
           portOpen
             ? // && projectData.id === work.id
-              "project-cards card-closed"
-            : "project-cards card-open"
+              "project-cards cards-closed"
+            : "project-cards cards-open"
         }
       >
         {works.map((work, key) => {
@@ -176,39 +161,42 @@ function ProjectDisplay(props) {
                 : require(`./images/${work.logo}`);
             extractColors(mapImg).then(console.log);
           };
+          // const randomColor = Math.floor(Math.random()*16777215).toString(16);
+          // console.log(randomColor);
+          // const styleColor = { backgroundColor: "#" + randomColor};
+          // console.log(styleColor);
+          
           return (
             <div
               className={
                 portOpen
                   ? // && projectData.id === work.id
-                    "project-card card-closed card-selected"
-                  : "project-card card-closed"
+                    "project-card card-closed"
+                  : "project-card card-open"
               }
               key={key}
               onMouseEnter={handleMouseOver}
               onMouseLeave={handleMouseLeave}
               onClick={() => handleProjectClick(work)}
-            >
+>
+  {section === "in-progress" ?
+  <div className="card-name">{work.name}</div> : <></> }
+    {mouseOver.toggle && work.id === mouseOver.id ? 
+        <div className={portOpen ? "shortDesc shortDesc-shrunk" : "shortDesc shortDesc-big"}>
+        <p className="shortDesc-desc">{mouseOver.shortDesc}</p></div>
+        :
+        <div className={portOpen ? "shortDesc shortDesc-shrunk" : "shortDesc shortDesc-big"}>&nbsp;</div>}
+    
               <img className="card-image" alt="Project Logo" src={mapImg} />
             </div>
           );
         })}
       </div>
-      {/* <div
-          className={
-            portOpen ? "project-details hd-on" : "project-details hd-off"
-          }
-        >
-          <Details
-            projectData={projectData}
-            setProjectData={setProjectData}
-            portOpen={portOpen}
-            setPortOpen={setPortOpen}
-            mouseOver={mouseOver}
-            setMouseOver={setMouseOver}
-            works={works}
-          />
-        </div> */}
+      {/* {mouseOver.toggle ? 
+        <div className={portOpen ? "shortDesc shortDesc-shrunk" : "shortDesc shortDesc-big"}>
+        <p className="shortDesc-desc">{mouseOver.shortDesc}</p></div>
+        :
+        <div className={portOpen ? "shortDesc shortDesc-shrunk" : "shortDesc shortDesc-big"}>&nbsp;</div>} */}
     </>
   );
 }

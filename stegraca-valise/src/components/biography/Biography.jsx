@@ -5,14 +5,7 @@ import "./biography.css";
 
 
 export default function Bio(props) {
-  // const MysteriousText = ({ children, ...props }) => {
-  //   const animation = i => {useSpring({ opacity: 1, from: { opacity: 0 }, delay: Math.random() * 350 })};
-  //   return children.split("").map((item, index) => (
-  //     <animated.span key={index} style={animation(index)} {...props}>
-  //       {item}
-  //     </animated.span>
-  //   ));
-  // };
+
   return (
     <>
         <div className="bio-block">
@@ -29,9 +22,9 @@ export default function Bio(props) {
             build that feature.
           </p>
           </div>
-          {/* <div className="bio-photos">
+          <div className="bio-photos">
             <img src={ProfilePic} className="imager" alt="Taken by enfysphotography" />
-          </div> */}
+          </div>
         </div>
     </>
   );

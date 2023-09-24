@@ -3,6 +3,9 @@
   /* color: var(--port-font-col); */
   margin-bottom: 1cqw;
   margin-top: 1cqw;
+  display: flex;
+  opacity: 1;
+  flex-direction: column;
 }
 
 @keyframes spin-arrive {
@@ -14,6 +17,10 @@
     opacity: 1;
     transform: rotate3D(0, 1, 0, -360deg);
   }
+}
+
+.tech-name {
+  font-size: 1cqw;
 }
 
 .tech-icons:hover {

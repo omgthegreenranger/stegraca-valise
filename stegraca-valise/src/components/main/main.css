@@ -55,8 +55,3 @@
   align-content: space-between;
 }
 
-block {
-  /* background: var(--block-back); */
-  border-radius: 1rem;
-  /* padding: 0.5rem; */
-}

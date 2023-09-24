@@ -2,6 +2,7 @@
   display: grid;
   transition: 0.3s;
   grid-area: splash;
+  text-shadow: rebeccapurple 0 0 10px;
 }
 
 .splash-welcome {
@@ -27,6 +28,7 @@
   display: grid;
   container-type: inline-size;
   justify-self: center;
+  background-color: rgba(255,255,255,0.5);
   /* transition: 0.3s; */
 }
 
@@ -61,18 +63,20 @@
 .splash-name-1 {
   grid-area: splash-name-1;
   font-size: 13cqw;
-  font-weight: bolder;
+  /* font-weight: bolder; */
   justify-self: start;
   line-height: 1;
+  font-family: var(--font-marker)
 }
 
 .splash-name-2 {
   grid-area: splash-name-2;
   font-size: 13cqw;
-  font-weight: bolder;
+  /* font-weight: bolder; */
   align-self: end;
   justify-self: end;
   line-height: 1;
+  font-family: var(--font-marker)
 }
 /* 
 .splash-top-sub-box {
