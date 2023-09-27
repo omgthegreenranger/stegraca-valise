@@ -14,7 +14,7 @@ import {
   SiExpo,
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
-import { animated, useSprings, useTrail, easings } from "@react-spring/web";
+import { animated, useSprings, useTrail, easings, useChain, useSpringRef } from "@react-spring/web";
 
 export default function Linkblock(props) {
   const { stack } = props;
@@ -42,12 +42,13 @@ function TechLine(props) {
     { tech: "React-Native", icon: <TbBrandReactNative /> },
   ];
 
-
+  const [iconType, setIconType] = useState(true);
 
   const [spinning] = useTrail(techList.length,
     () => ({
     from: { transform: "rotate3d(0,0,0,0deg)", opacity: 0 },
     to: { transform: "rotate3d(0,1,0, 720deg)", opacity: 1 },
+    onRest: () => setIconType(current => !current),
   }), []
   )
 
@@ -71,6 +72,7 @@ function TechLine(props) {
   };
 
   const [techMouse, setTechMouse] = useState([false, '']);
+
   console.log(techMouse); 
   return (
     <div style={{
@@ -83,6 +85,8 @@ function TechLine(props) {
     }}>
       {/* {techList.map((tech, key) => { */}
       {spinning.map((props, key) => {
+        const techItem = techList[key]; 
+        console.log(iconType);
         return(
           <animated.div
             className="tech-icons"
@@ -91,10 +95,8 @@ function TechLine(props) {
             onMouseEnter={() => setTechMouse([true, key])}
             onMouseLeave={() => setTechMouse([false, ''])}
           >
-            {techList[key].icon}
-            {/* <div className="tech-name">
-          {techMouse[0] && techMouse[1] === key ? techList[key].tech : <></>}</div>
-           */}
+              {techItem ?  techItem.tech : <div className="tech-name">{techItem.tech}</div> }
+            
           </animated.div>
 
       )}

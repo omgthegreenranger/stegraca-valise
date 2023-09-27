@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createRef } from "react";
 import { Button, ListGroup, Collapse } from "react-bootstrap";
 import "./details.css";
 import { IconContext } from "react-icons";
@@ -11,6 +11,7 @@ import {
   useTrail,
   easings,
   useSpringRef,
+  SpringValue
 } from "@react-spring/web";
 
 export default function Details(props) {
@@ -30,6 +31,13 @@ export default function Details(props) {
 
   const screenshots = useSpringRef();
 
+  const springOpacity = new SpringValue(1)
+
+  const toggle = () => {
+    this.springOpacity.start(portOpen ? 1 : 0)
+  }
+
+
   const [clear] = useSpring(
     () => ({
       ref: screenshots,
@@ -45,15 +53,16 @@ export default function Details(props) {
       ref: screenshots,
       from: { opacity: 1 },
       to: { opacity: 0 },
-      onRest: () => console.log("This went as well!"),
+      onRest: () => {setProjectData();
+      setPortOpen(false);},
     }),
     []
   );
 
   const clearProjects = () => {
-    screenshots.start();
-    // setProjectData();
-    // setPortOpen(false);
+    // screenshots.start();
+    setProjectData();
+    setPortOpen(false);
   };
 
   useEffect(() => {

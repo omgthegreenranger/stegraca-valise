@@ -6,6 +6,8 @@ WORKDIR /usr/src/app/
 # where available (npm@5+)
 COPY package*.json ./
 RUN npm install
+# RUN apk --no-cache add curl
+# RUN curl -fsSL https://code-server.dev/install.sh | sh
 # If you are building your code for production
 # RUN npm ci --omit=dev
 COPY . .
