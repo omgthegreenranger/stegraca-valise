@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./linkblock.css";
 import {
   SiJavascript,
@@ -14,19 +14,32 @@ import {
   SiExpo,
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
-import { animated, useSprings, useTrail, easings, useChain, useSpringRef } from "@react-spring/web";
+import {
+  animated,
+  useSprings,
+  useSpring,
+  useTrail,
+  easings,
+  useChain,
+  useSpringRef,
+  useTransition,
+  easeInBounce
+} from "@react-spring/web";
 
 export default function Linkblock(props) {
   const { stack } = props;
 
-  const attributes = {fill: 'red', stroke: 'black'};
-  const options = {x: 0, y: 0, fontSize: 72, anchor: 'top', attributes: attributes};
+  const attributes = { fill: "red", stroke: "black" };
+  const options = {
+    x: 0,
+    y: 0,
+    fontSize: 72,
+    anchor: "top",
+    attributes: attributes,
+  };
 
-  return (
-      <TechLine />
-  );
+  return <TechLine />;
 }
-
 
 function TechLine(props) {
   let techList = [
@@ -44,64 +57,95 @@ function TechLine(props) {
 
   const [iconType, setIconType] = useState(true);
 
-  const [spinning] = useTrail(techList.length,
-    () => ({
-    from: { transform: "rotate3d(0,0,0,0deg)", opacity: 0 },
-    to: { transform: "rotate3d(0,1,0, 720deg)", opacity: 1 },
-    onRest: () => setIconType(current => !current),
-  }), []
-  )
+  const spinning = useSpringRef();
+  const bouncein = useSpringRef();
+  const spinout = useSpringRef();
+  const spinin = useSpringRef();
 
-  const [bouncein] = useSprings(techList.length,
-    () => (
-      {
-      from: { transform: "scale(0.0", opacity: 0 },
-      to: { transform: "scale(1.0", opacity: 1 },
-      config: {
-        easings: easings.easeInBounce(5),
-          duration: 200
-          }
-        })
-    )
+  // const [spin] = useTrail(techList.length,
+  //   () => ({
+  //     ref: spinning,
+  //   from: { transform: "rotate3d(0,0,0,0deg)", opacity: 0 },
+  //   to: { transform: "rotate3d(0,1,0, 720deg)", opacity: 1 },
+  //   onRest: () => setIconType(current => !current),
+  // }), []
+  // )
+
+  const [iconTrans] = useTransition([], () => ({
+      // ref: spinout,
+      from: { transform: "rotate3d(0,1,0, 0deg)", opacity: 0, transformer: "scale(1.0)" },
+      enter: { transform: "rotate3d(0,1,0, 720deg)", opacity: 1, transform: "scale(1.0)" },
+      update: { transform: "rotate3d(0,1,0, 720deg)", opacity: 1 },
+      onStart: () => console.log("starting!"),
+      // delay: key => 50 * key,
+    }), [])
+
+  // const [bounce] = useTransition(techList, () => ({
+  //   ref: bouncein,
+  //   from: { transform: "scale(0.5)", opacity: 0 },
+  //   enter: { transform: "scale(1.0)", opacity: 1},
+  //   // leave: { transform: "scale(1)", opacity: 1 },
+  //   config: { duration: 200, easing: easings.easeOutBounce },
+  //   // onRest: () => {spinout.start()}
+  // }));
+
+  // const [bounce] = useTrail(techList.length, () => ({
+  //   ref: bouncein,
+  //   from: { transform: "scale(0.5)", opacity: 0 },
+  //   to: { transform: "scale(1.0)", opacity: 1},
+  //   // leave: { transform: "scale(1)", opacity: 1 },
+  //   // config: { duration: 150, easing: {bounce: 3, precision: 2}},
+  //   onRest: () => {spinout.start()}
+  // }), []);
+
+
+  // console.log(bounce);
+  // useChain([bouncein, spinout], [0,1], 1)
 
   const handleTechClick = (tech) => {
-
-
-
-  return <></>;
+    return <></>;
   };
 
-  const [techMouse, setTechMouse] = useState([false, '']);
+  const [techMouse, setTechMouse] = useState([false, ""]);
 
-  console.log(techMouse); 
+  console.log(techMouse);
   return (
-    <div style={{
-      gridArea: "tech",
-      display: "flex",
-      flex: '0 0',
-      flexDirection: "row",
-      justifyContent: "space-evenly",
-      containerType: "inline-size",
-    }}>
-      {/* {techList.map((tech, key) => { */}
-      {spinning.map((props, key) => {
-        const techItem = techList[key]; 
-        console.log(iconType);
-        return(
+    <div
+      style={{
+        gridArea: "tech",
+        display: "flex",
+        flex: "0 0",
+        flexDirection: "row",
+        justifyContent: "space-evenly",
+        containerType: "inline-size",
+      }}
+    >
+      {/* {bounce.map((props, item) => {
+        const techItem = techList[item];
+        console.log(item);
+        return (
+            <animated.div
+            className="tech-icons"
+            style={props}
+            key={item}
+          > */}
+            {iconTrans((spins, item) => {
+              const techItem = techList[item];
+                      return(
           <animated.div
             className="tech-icons"
-            key={key}
-            style={props}
-            onMouseEnter={() => setTechMouse([true, key])}
-            onMouseLeave={() => setTechMouse([false, ''])}
+            style={spins}
+            onMouseEnter={() => setTechMouse([true, item])}
+            onMouseLeave={() => setTechMouse([false, ""])}
           >
-              {techItem ?  techItem.tech : <div className="tech-name">{techItem.tech}</div> }
-            
+            {techItem.icon}
+            {/* <div className="tech-name">{item.tech}</div>  */}
+            {/* } */}
           </animated.div>
-
-      )}
-      )
-  }
+            )})}
+ 
+           {/* </animated.div>
+        )})} */}
     </div>
   );
 }

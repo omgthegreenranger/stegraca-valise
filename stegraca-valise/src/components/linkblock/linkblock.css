@@ -4,8 +4,9 @@
   margin-bottom: 1cqw;
   margin-top: 1cqw;
   display: flex;
-  opacity: 1;
+  opacity: 0;
   flex-direction: column;
+  transform: scale(1.0);
 }
 
 @keyframes spin-arrive {
