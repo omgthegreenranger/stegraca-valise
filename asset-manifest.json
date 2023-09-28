@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/stegraca-valise/static/css/main.d5551b5d.css",
-    "main.js": "/stegraca-valise/static/js/main.0252ef2f.js",
+    "main.js": "/stegraca-valise/static/js/main.280f0c69.js",
     "static/js/787.64b3bfa0.chunk.js": "/stegraca-valise/static/js/787.64b3bfa0.chunk.js",
     "static/media/profile-photo.jpg": "/stegraca-valise/static/media/profile-photo.f9e22cf1473e75502a77.jpg",
     "static/media/astronomy.png": "/stegraca-valise/static/media/astronomy.a1d20a2db05f1664212b.png",
@@ -17,11 +17,11 @@
     "static/media/react.svg": "/stegraca-valise/static/media/react.ec5ac92922556b304a0d.svg",
     "index.html": "/stegraca-valise/index.html",
     "main.d5551b5d.css.map": "/stegraca-valise/static/css/main.d5551b5d.css.map",
-    "main.0252ef2f.js.map": "/stegraca-valise/static/js/main.0252ef2f.js.map",
+    "main.280f0c69.js.map": "/stegraca-valise/static/js/main.280f0c69.js.map",
     "787.64b3bfa0.chunk.js.map": "/stegraca-valise/static/js/787.64b3bfa0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d5551b5d.css",
-    "static/js/main.0252ef2f.js"
+    "static/js/main.280f0c69.js"
   ]
 }
