@@ -21,6 +21,7 @@ export default function MainPage(props) {
   const [scrollToTop, setScrollToTop] = useState();
   const [thingsOpen, setThingsOpen] = useState(true);
   const { scrollYProgress } = useScroll();
+  const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <div
@@ -30,7 +31,7 @@ export default function MainPage(props) {
     >
       <div className="splash-main">
         {/* {thingsOpen ? `splash-main splash-show` : `splash-main splash-hide`}> */}
-        <Splash thingsOpen={thingsOpen} scrollYProgress={scrollYProgress}/>
+        <Splash thingsOpen={thingsOpen} scrollYProgress={scrollYProgress} setIsLoaded={setIsLoaded} />
         {thingsOpen}
       </div>
       {/* <div className="heading"
@@ -38,7 +39,7 @@ export default function MainPage(props) {
         <h1>THIS IS MY PORTFOLIO OF THINGS</h1>
       </div> */}
       <div className="portfolio-main">
-        <Portfolio thingsOpen={thingsOpen} setThingsOpen={setThingsOpen} scrollYProgress={scrollYProgress} />
+        <Portfolio thingsOpen={thingsOpen} setThingsOpen={setThingsOpen} scrollYProgress={scrollYProgress} isLoaded={isLoaded} setIsLoaded={setIsLoaded} />
       </div>
     </div>
   );

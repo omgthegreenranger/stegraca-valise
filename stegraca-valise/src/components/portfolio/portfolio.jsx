@@ -8,7 +8,7 @@ import "./portfolio.css";
 import { Linkblock, Projects, Details } from "../index";
 
 export default function Portfolio(props) {
-  const { thingsOpen, setThingsOpen, scrollYProgress } = props;
+  const { thingsOpen, setThingsOpen, scrollYProgress, isLoaded, setIsLoaded } = props;
   const [portOpen, setPortOpen] = useState(false);
   const [projectData, setProjectData] = useState();
   const [opacityValue, api] = useSpring(
@@ -37,7 +37,7 @@ export default function Portfolio(props) {
       >
         <div className="portfolio-block portfolio-linkblock" style={portOpen ? {width: '45%'} : {width: '85%'}}>
           <div className="project linkblock">
-            <Linkblock />
+            <Linkblock isLoaded={isLoaded} setIsLoaded={setIsLoaded}/>
           </div>
         </div>
         <div direction={"right"} className="portfolio-block portfolio-complete">

@@ -7,7 +7,7 @@ import "./splash.css";
 import { NavBar, Bio } from "../index";
 
 export default function Splash(props) {
-  const { thingsOpen, setThingsOpen, scrollYProgress } = props;
+  const { thingsOpen, setThingsOpen, scrollYProgress, setIsLoaded } = props;
   const [sampleState, setSampleState] = useState(true);
 const splash1 = useSpringRef();
 const splash2 = useSpringRef();
@@ -36,6 +36,7 @@ const splash2 = useSpringRef();
   from: { opacity: 0, left: "-150px", position: "relative"},
   to: {opacity: 1, left: "0px"},
   delay: 1000,
+  onRest: () => setIsLoaded(true)
 }), [])
 
 // useChain([splash2, splash1])
