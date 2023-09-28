@@ -1,11 +1,10 @@
 {
-    "sqltools.useNodeRuntime": true,
     "sqltools.connections": [
         {
             "previewLimit": 50,
             "driver": "SQLite",
-            "name": "valiseDB",
-            "database": "${workspaceFolder:stegraca-valise}/db/valise.db"
+            "name": "ValiseDB",
+            "database": "/home/shaggy/Documents/fullstack-bootcamp-folder/stegraca-valise/stegraqa-valise/valiseDB"
         }
     ]
 }
