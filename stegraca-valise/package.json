@@ -2,7 +2,7 @@
   "name": "stegraca-valise",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://omgthegreenranger.github.io/stegraca-valise",
+  "homepage": "https://omgthegreenranger.github.io/",
   "dependencies": {
     "@jridgewell/sourcemap-codec": "^1.4.15",
     "@react-spring/web": "^9.7.2",

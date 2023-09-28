@@ -99,20 +99,23 @@ function ProjectDetails(props) {
             {/* These are the GitHub, direct link, etc as required */}
             <div className="link-pics">
               <IconContext.Provider
-                value={{ size: "3rem", className: "link-icons" }}
-              >
+                value={{ className: "link-icons" }}
+              >{work.gitLink ? 
                 <a href={work.gitLink} target="_blank" rel="noreferrer">
                   <RxGithubLogo />
                 </a>
+                : <></>}
+                {work.appLink ?
                 <a href={work.appLink} target="_blank" rel="noreferrer">
                   <RxExternalLink />
                 </a>
+                : <></>}
               </IconContext.Provider>
             </div>
             {/* This is the close icon */}
             <div className="icon-box">
               <IconContext.Provider
-                value={{ size: "3rem", className: "link-icons" }}
+                value={{ className: "link-icons" }}
               >
                 <span onClick={clearProjects}>
                   <RxCross1 />
@@ -131,7 +134,7 @@ function ProjectDetails(props) {
                   : require(`../project/images/${work.logo}`)
               }
             />
-            <div>SCREENSHOTS</div>
+            <div className="sidebar-headers">Screenshots</div>
             <div className="screenshots-flex">
               {work.screenshots == "" ? (
                 <div>None taken yet. Check back soon.</div>
@@ -150,6 +153,7 @@ function ProjectDetails(props) {
           </animated.div>
           <div className="project-meat">
             <div>{work.midDesc}</div>
+            {work.projDesc ? 
             <div className="project-desc">
               <Collapse in={open}>
                 <div id="project-description">{work.projDesc}</div>
@@ -164,15 +168,16 @@ function ProjectDetails(props) {
                 </Button>
               </div>
             </div>
+            : <></>}
           </div>
           <animated.div className="tech-stack" style={brand}>
-            <span>Tech Stack</span>
+            <div className="sidebar-header">Tech Stack</div>
             <ListGroup>
               {work.techTags.map((tag) => {
                 return <ListGroup.Item>{tag}</ListGroup.Item>;
               })}
             </ListGroup>
-            <span>Contributing team</span>
+            <div className="sidebar-header">Contributing team</div>
             <ListGroup>
               {work.team.map((mem) => {
                 return (

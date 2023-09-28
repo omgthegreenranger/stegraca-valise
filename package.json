@@ -17,7 +17,7 @@
     },
     "author": "",
     "license": "ISC",
-    "homepage": "https://omgthegreenranger.github.io/stegraca-valise",
+    "homepage": "https://omgthegreenranger.github.io",
     "devDependencies": {
         "concurrently": "^7.6.0",
         "gh-pages": "^5.0.0"
