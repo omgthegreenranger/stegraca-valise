@@ -204,11 +204,11 @@ function ProjectDetails(props) {
 function HoverDetails(props) {
   const { work, setMouseOver } = props;
 
-  return (
-    <>
-      {/* <div className="hover-details" style={styleHeight}>
-        <div className="hover-text">{work.shortDesc}</div>
-    </div> */}
-    </>
-  );
+//   return (
+//     <>
+//       <div className="hover-details">
+//         <div className="hover-text">{work.shortDesc}</div>
+//     </div>
+//     </>
+//   );
 }

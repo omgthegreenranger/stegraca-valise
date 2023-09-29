@@ -1,6 +1,6 @@
 .splash {
   display: grid;
-  transition: 0.3s;
+  /* transition: 0.3s; */
   grid-area: splash;
   text-shadow: rgb(102, 51, 153) 0 0 10px;
 }
@@ -36,7 +36,7 @@
 .splash-hide {
   /* opacity: 0; */
   /* animation: hide-plans 1s; */
-  transition: 1s;
+  /* transition: 1s; */
   height: 0vh;
   margin: 0rem;
   width: 25vw;
@@ -50,7 +50,7 @@
 .splash-show {
   opacity: 1;
   /* animation: hide-plans 1s reverse; */
-  transition: 1s;
+  /* transition: 1s; */
   width: 50vw;
 }
 

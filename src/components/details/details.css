@@ -1,8 +1,8 @@
 .details-view {
   grid-area: details;
   /* background: rgba(184, 184, 184, 0.67); */
-  border-radius: 5px;
-  padding: 25px;
+  /* border-radius: 5px; */
+  /* padding: 25px; */
   /* height: 100%; */
   width: 100%;
   max-width: 100%;
@@ -34,11 +34,15 @@
 
 .details-photo-column {
   grid-area: photo-column;
+  margin: 1rem;
+  border: grey 0.2rem solid;
+  border-radius: 1rem;
+  padding: 1rem;
 }
 
 .link-icons {
   cursor: pointer;
-  color: black;
+  color: white;
   font-size: 5cqw;
 
 }
@@ -50,11 +54,18 @@
 .project-title {
   container-type: inline-size;
   grid-area: project-title;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--boundary-color);
   margin: 1rem;
+  margin-bottom: 0;
   display: grid;
   grid-template-areas: "name-title link-pics icon-box";
   grid-template-columns: 1fr auto auto;
+  background-color: grey;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  padding: 1rem;
+  border-bottom-right-radius: 1rem;
+
 }
 
 .project-descs {
@@ -66,6 +77,11 @@
   padding: 1rem;
   white-space: pre-line;
   vertical-align: bottom;
+  border: 0.2rem grey solid;
+  margin: 1rem;
+  margin-top: 0;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
 .project-desc {
@@ -74,8 +90,8 @@
 
 .name-title {
   grid-area: name-title;
-  font-size: 2rem;
-  color: black;
+  font-size: 3cqh;
+  color: white;
   font-weight: bolder;
 }
 
@@ -91,13 +107,18 @@
 
 .tech-stack {
   grid-area: tech-stack;
-  border-left: 1px solid black;
+  border-left: 1px solid var(--boundary-color);
+  padding: 1rem;
+  background-color: grey;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-top: 2rem;
 }
 
 .card-image-details {
   object-fit: contain;
   aspect-ratio: 1.5/1;
-  margin-bottom: 5%;
+  width: 12cqw;
 }
 
 .card-screenshots {

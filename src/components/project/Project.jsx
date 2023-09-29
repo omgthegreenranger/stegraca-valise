@@ -12,6 +12,7 @@ export default function Project(props) {
   const works = projectDB.projects;
   // const [projectData, setProjectData] = useState();
   const [mouseOver, setMouseOver] = useState({ toggle: false, id: "" });
+  const [hoverWork, setHoverWork] = useState([]);
 
   const worksFiltered = works.filter(function (work) {
     return work.status === section;
@@ -49,7 +50,6 @@ export default function Project(props) {
           className=""
         >
           <div className="projectpanels">
-          {/* <div className="project"> */}
             <ProjectDisplay
               works={works.filter(function (work) {
                 return work.status === "complete";
@@ -63,16 +63,13 @@ export default function Project(props) {
               setMouseOver={setMouseOver}
               section="complete"
             />
-          {/* </div> */}
           </div>
         </Tab>
         <Tab
           eventKey="in-progress"
           title="Things I am making"
-          // className="projectpanels"
         >
           <div className="projectpanels">
-          {/* <div className="project"> */}
             <ProjectDisplay
               works={works.filter(function (work) {
                 return work.status === "in-progress";
@@ -86,13 +83,32 @@ export default function Project(props) {
               setMouseOver={setMouseOver}
               section="in-progress"
             />
-          {/* </div> */}
           </div>
         </Tab>
       </Tabs>
+      {/* <div> */}
+      {/* {mouseOver.toggle ?  */}
+        <div className={portOpen ? "shortDesc shortDesc-shrunk" : "shortDesc shortDesc-big"}>
+        <div className="shortDesc-desc">{mouseOver.shortDesc}</div></div>
+        {/* : */}
+        {/* <div className={portOpen ? "shortDesc shortDesc-shrunk" : "shortDesc shortDesc-big"}>&nbsp;</div>} */}
+        {/* </div> */}
       </>
   )
 }
+
+// function HoverDetails(props) {
+//   const { work, setMouseOver } = props;
+
+//   return (
+//     <>
+//       <div className="hover-details">
+//         <div className="hover-text">{work.shortDesc}</div>
+//     </div>
+//     </>
+//   );
+// }
+
 
 function ProjectDisplay(props) {
   const {
@@ -108,7 +124,6 @@ function ProjectDisplay(props) {
     thingsOpen,
     setThingsOpen
   } = props;
-  // const [mouseOver, setMouseOver] = useState({ toggle: false, id: "" });
   const [selectedType, setSelectedType] = useState();
 
   function handleProjectClick(work) {
@@ -167,6 +182,7 @@ function ProjectDisplay(props) {
           // console.log(styleColor);
           
           return (
+            <>
             <div
               className={
                 portOpen
@@ -179,24 +195,15 @@ function ProjectDisplay(props) {
               onMouseLeave={handleMouseLeave}
               onClick={() => handleProjectClick(work)}
 >
-  {section === "in-progress" ?
-  <div className="card-name">{work.name}</div> : <></> }
-    {mouseOver.toggle && work.id === mouseOver.id ? 
-        <div className={portOpen ? "shortDesc shortDesc-shrunk" : "shortDesc shortDesc-big"}>
-        <p className="shortDesc-desc">{mouseOver.shortDesc}</p></div>
-        :
-        <div className={portOpen ? "shortDesc shortDesc-shrunk" : "shortDesc shortDesc-big"}>&nbsp;</div>}
-    
-              <img className="card-image" alt="Project Logo" src={mapImg} />
-            </div>
-          );
-        })}
+              {section === "in-progress" ?
+              <div className="card-name"><div>{work.name}</div></div> : <></> }
+                <img className="card-image" alt="Project Logo" src={mapImg} />
+                <div className="card-overlay"></div>
+        </div>
+
+        </>
+          )})}
       </div>
-      {/* {mouseOver.toggle ? 
-        <div className={portOpen ? "shortDesc shortDesc-shrunk" : "shortDesc shortDesc-big"}>
-        <p className="shortDesc-desc">{mouseOver.shortDesc}</p></div>
-        :
-        <div className={portOpen ? "shortDesc shortDesc-shrunk" : "shortDesc shortDesc-big"}>&nbsp;</div>} */}
     </>
-  );
+  )
 }
