@@ -11,6 +11,7 @@ export default function Portfolio(props) {
   const { thingsOpen, setThingsOpen, scrollYProgress, isLoaded, setIsLoaded } = props;
   const [portOpen, setPortOpen] = useState(false);
   const [projectData, setProjectData] = useState();
+  const [hoverWork, setHoverWork] = useState([]);
   const [opacityValue, api] = useSpring(
     ()=> ({
     opacity: 0}));
@@ -33,11 +34,11 @@ export default function Portfolio(props) {
         <h1>THIS IS MY PORTFOLIO OF THINGS</h1>
       </div>
       <animated.div
-        className="portfolio-body"
+        className="portfolio-body" style={portOpen ? {gap: "2rem"} : {gap:"5rem"}}
       >
         <div className="portfolio-block portfolio-linkblock" style={portOpen ? {width: '45%'} : {width: '85%'}}>
           <div className="project linkblock">
-            <Linkblock isLoaded={isLoaded} setIsLoaded={setIsLoaded}/>
+            <Linkblock isLoaded={isLoaded} setIsLoaded={setIsLoaded} hoverWork={hoverWork} />
           </div>
         </div>
         <div direction={"right"} className="portfolio-block portfolio-complete">
@@ -48,6 +49,8 @@ export default function Portfolio(props) {
             setProjectData={setProjectData}
             setThingsOpen={setThingsOpen}
             thingsOpen={thingsOpen}
+            hoverWork={hoverWork}
+            setHoverWork={setHoverWork}
           />
         </div>
       </animated.div>

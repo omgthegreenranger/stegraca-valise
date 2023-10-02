@@ -11,7 +11,7 @@ import {
   useTrail,
   easings,
   useSpringRef,
-  SpringValue
+  SpringValue,
 } from "@react-spring/web";
 
 export default function Details(props) {
@@ -31,12 +31,11 @@ export default function Details(props) {
 
   const screenshots = useSpringRef();
 
-  const springOpacity = new SpringValue(1)
+  const springOpacity = new SpringValue(1);
 
   const toggle = () => {
-    this.springOpacity.start(portOpen ? 1 : 0)
-  }
-
+    this.springOpacity.start(portOpen ? 1 : 0);
+  };
 
   const [clear] = useSpring(
     () => ({
@@ -53,8 +52,10 @@ export default function Details(props) {
       ref: screenshots,
       from: { opacity: 1 },
       to: { opacity: 0 },
-      onRest: () => {setProjectData();
-      setPortOpen(false);},
+      onRest: () => {
+        setProjectData();
+        setPortOpen(false);
+      },
     }),
     []
   );
@@ -93,40 +94,9 @@ function ProjectDetails(props) {
     <>
       {work ? (
         <div className="details-view details-open">
-          <div className="project-title">
-            {/* Project Headline */}
-            <span className="name-title">{work.name}</span>
-            {/* These are the GitHub, direct link, etc as required */}
-            <div className="link-pics">
-              <IconContext.Provider
-                value={{ className: "link-icons" }}
-              >{work.gitLink ? 
-                <a href={work.gitLink} target="_blank" rel="noreferrer">
-                  <RxGithubLogo />
-                </a>
-                : <></>}
-                {work.appLink ?
-                <a href={work.appLink} target="_blank" rel="noreferrer">
-                  <RxExternalLink />
-                </a>
-                : <></>}
-              </IconContext.Provider>
-            </div>
-            {/* This is the close icon */}
-            <div className="icon-box">
-              <IconContext.Provider
-                value={{ className: "link-icons" }}
-              >
-                <span onClick={clearProjects}>
-                  <RxCross1 />
-                </span>
-              </IconContext.Provider>
-            </div>
-          </div>
-          {/* Project Logo and screenshots column */}
-          <animated.div className="details-photo-column" style={clear}>
-            <img
-              className="card-image-details"
+          <div className="details-surround-boxes card-logo-box">
+          <img
+              className="card-logo"
               alt="Project Logo"
               src={
                 work.logo == ""
@@ -134,6 +104,40 @@ function ProjectDetails(props) {
                   : require(`../project/images/${work.logo}`)
               }
             />
+            </div>
+          <div className="details-surround-boxes project-title">
+            {/* Project Headline */}
+            <div className="name-title">{work.name}</div>
+            {/* These are the GitHub, direct link, etc as required */}
+            <div className="link-pics">
+              <IconContext.Provider value={{ className: "link-icons" }}>
+                {work.gitLink ? (
+                  <a href={work.gitLink} target="_blank" rel="noreferrer">
+                    <RxGithubLogo />
+                  </a>
+                ) : (
+                  <></>
+                )}
+                {work.appLink ? (
+                  <a href={work.appLink} target="_blank" rel="noreferrer">
+                    <RxExternalLink />
+                  </a>
+                ) : (
+                  <></>
+                )}
+              </IconContext.Provider>
+            </div>
+            {/* This is the close icon */}
+            <div className="icon-box">
+              <IconContext.Provider value={{ className: "link-icons" }}>
+                <span onClick={clearProjects}>
+                  <RxCross1 />
+                </span>
+              </IconContext.Provider>
+            </div>
+          </div>
+          {/* Project Logo and screenshots column */}
+          <animated.div className="details-surround-boxes details-sideboxes details-photo-column" style={clear}>
             <div className="sidebar-headers">Screenshots</div>
             <div className="screenshots-flex">
               {work.screenshots == "" ? (
@@ -153,31 +157,33 @@ function ProjectDetails(props) {
           </animated.div>
           <div className="project-meat">
             <div>{work.midDesc}</div>
-            {work.projDesc ? 
-            <div className="project-desc">
-              <Collapse in={open}>
-                <div id="project-description">{work.projDesc}</div>
-              </Collapse>
-              <div>
-                <Button
-                  onClick={() => setOpen(!open)}
-                  aria-controls="example-collapse-text"
-                  aria-expanded={open}
-                >
-                  Read more
-                </Button>
+            {work.projDesc ? (
+              <div className="project-desc">
+                <Collapse in={open}>
+                  <div id="project-description">{work.projDesc}</div>
+                </Collapse>
+                <div>
+                  <Button
+                    onClick={() => setOpen(!open)}
+                    aria-controls="example-collapse-text"
+                    aria-expanded={open}
+                  >
+                    Read more
+                  </Button>
+                </div>
               </div>
-            </div>
-            : <></>}
+            ) : (
+              <></>
+            )}
           </div>
-          <animated.div className="tech-stack" style={brand}>
-            <div className="sidebar-header">Tech Stack</div>
+          <animated.div className="details-surround-boxes details-sideboxes tech-stack" style={brand}>
+            <div className="sidebar-headers">Tech Stack</div>
             <ListGroup>
               {work.techTags.map((tag) => {
                 return <ListGroup.Item>{tag}</ListGroup.Item>;
               })}
             </ListGroup>
-            <div className="sidebar-header">Contributing team</div>
+            <div className="sidebar-headers">Contributing team</div>
             <ListGroup>
               {work.team.map((mem) => {
                 return (
@@ -204,11 +210,11 @@ function ProjectDetails(props) {
 function HoverDetails(props) {
   const { work, setMouseOver } = props;
 
-//   return (
-//     <>
-//       <div className="hover-details">
-//         <div className="hover-text">{work.shortDesc}</div>
-//     </div>
-//     </>
-//   );
+  //   return (
+  //     <>
+  //       <div className="hover-details">
+  //         <div className="hover-text">{work.shortDesc}</div>
+  //     </div>
+  //     </>
+  //   );
 }

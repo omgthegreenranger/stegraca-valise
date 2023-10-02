@@ -1,24 +1,32 @@
 import React, { useState } from "react";
 import "./Project.css";
-import { Details } from "../index.js";
-import { Tab, Tabs, TabContainer } from "react-bootstrap";
-import { run as runHolder } from "holderjs/holder";
+import { Tab, Tabs } from "react-bootstrap";
 import { extractColors } from "extract-colors";
 import projectDB from "../project/projects.json";
 import monkey from "./images/typing_monkey.svg";
+import {Palette, usePalette } from "react-palette";
 
 export default function Project(props) {
-  const { section, portOpen, setPortOpen, projectData, setProjectData } = props;
+  const {
+    section,
+    portOpen,
+    setPortOpen,
+    projectData,
+    setProjectData,
+    hoverWork,
+    setHoverWork,
+  } = props;
   const works = projectDB.projects;
   // const [projectData, setProjectData] = useState();
   const [mouseOver, setMouseOver] = useState({ toggle: false, id: "" });
-  const [hoverWork, setHoverWork] = useState([]);
 
   const worksFiltered = works.filter(function (work) {
     return work.status === section;
   });
 
-  const handleCards = () => {};
+  function handleCards(techTags) {
+    setHoverWork(techTags);
+  }
 
   const handleTransition = (event) => {
     console.log("This is a transition function!", event);
@@ -40,15 +48,12 @@ export default function Project(props) {
   return (
     <>
       <Tabs
-      defaultActiveKey="complete"
-      className="tab-block navs"
-      onClick={()=>handleTransition()}
-      fill>
-        <Tab
-          eventKey="complete"
-          title="Things I made"
-          className=""
-        >
+        defaultActiveKey="complete"
+        className="tab-block navs"
+        onClick={() => handleTransition()}
+        fill
+      >
+        <Tab eventKey="complete" title="Things I made" className="">
           <div className="projectpanels">
             <ProjectDisplay
               works={works.filter(function (work) {
@@ -65,10 +70,7 @@ export default function Project(props) {
             />
           </div>
         </Tab>
-        <Tab
-          eventKey="in-progress"
-          title="Things I am making"
-        >
+        <Tab eventKey="in-progress" title="Things I am making">
           <div className="projectpanels">
             <ProjectDisplay
               works={works.filter(function (work) {
@@ -88,27 +90,19 @@ export default function Project(props) {
       </Tabs>
       {/* <div> */}
       {/* {mouseOver.toggle ?  */}
-        <div className={portOpen ? "shortDesc shortDesc-shrunk" : "shortDesc shortDesc-big"}>
-        <div className="shortDesc-desc">{mouseOver.shortDesc}</div></div>
-        {/* : */}
-        {/* <div className={portOpen ? "shortDesc shortDesc-shrunk" : "shortDesc shortDesc-big"}>&nbsp;</div>} */}
-        {/* </div> */}
-      </>
-  )
+      <div
+        className={
+          portOpen ? "shortDesc shortDesc-shrunk" : "shortDesc shortDesc-big"
+        }
+      >
+        <div className="shortDesc-desc">{mouseOver.shortDesc}</div>
+      </div>
+      {/* : */}
+      {/* <div className={portOpen ? "shortDesc shortDesc-shrunk" : "shortDesc shortDesc-big"}>&nbsp;</div>} */}
+      {/* </div> */}
+    </>
+  );
 }
-
-// function HoverDetails(props) {
-//   const { work, setMouseOver } = props;
-
-//   return (
-//     <>
-//       <div className="hover-details">
-//         <div className="hover-text">{work.shortDesc}</div>
-//     </div>
-//     </>
-//   );
-// }
-
 
 function ProjectDisplay(props) {
   const {
@@ -122,10 +116,10 @@ function ProjectDisplay(props) {
     mouseOver,
     setMouseOver,
     thingsOpen,
-    setThingsOpen
+    setThingsOpen,
   } = props;
   const [selectedType, setSelectedType] = useState();
-
+  
   function handleProjectClick(work) {
     setProjectData(work);
     setSelectedType(section);
@@ -149,8 +143,10 @@ function ProjectDisplay(props) {
         }
       >
         {works.map((work, key) => {
-          function handleMouseOver(e) {
-            handleCards(work.techTags);
+          function handleMouseOver(e, shadowBox) {
+ console.log(e.target.children[0])
+            e.target.children[0].style.boxShadow = shadowBox;
+                        handleCards(work.techTags);
             setMouseOver({
               toggle: true,
               id: work.id,
@@ -159,6 +155,7 @@ function ProjectDisplay(props) {
             });
           }
           function handleMouseLeave(e) {
+            e.target.children[0].style.boxShadow = "";
             handleCards([]);
             setMouseOver({ toggle: false });
           }
@@ -176,34 +173,41 @@ function ProjectDisplay(props) {
                 : require(`./images/${work.logo}`);
             extractColors(mapImg).then(console.log);
           };
-          // const randomColor = Math.floor(Math.random()*16777215).toString(16);
-          // console.log(randomColor);
-          // const styleColor = { backgroundColor: "#" + randomColor};
-          // console.log(styleColor);
-          
+          console.log(mapImg);
+
           return (
             <>
-            <div
-              className={
-                portOpen
-                  ? // && projectData.id === work.id
-                    "project-card card-closed"
-                  : "project-card card-open"
-              }
-              key={key}
-              onMouseEnter={handleMouseOver}
-              onMouseLeave={handleMouseLeave}
-              onClick={() => handleProjectClick(work)}
->
-              {section === "in-progress" ?
-              <div className="card-name"><div>{work.name}</div></div> : <></> }
+              <Palette src={mapImg}>
+                {({ data, loading, error }) => {
+                  const shadowBox = "0 0 1rem 0.7rem " + data.vibrant;
+                  return (
+              <div
+                className={
+                  portOpen
+                    ? // && projectData.id === work.id
+                      "project-card card-closed"
+                    : "project-card card-open"
+                }
+                key={key}
+                onMouseEnter={(e) => {handleMouseOver(e, shadowBox)}}
+                onMouseLeave={handleMouseLeave}
+                onClick={() => handleProjectClick(work)}
+              >
+                {section === "in-progress" ? (
+                  <div className="card-name">
+                    <div>{work.name}</div>
+                  </div>
+                ) : (
+                  <></>
+                )}
                 <img className="card-image" alt="Project Logo" src={mapImg} />
                 <div className="card-overlay"></div>
-        </div>
-
-        </>
-          )})}
+              </div>
+                          )}}</Palette>
+            </>
+          );
+        })}
       </div>
     </>
-  )
+  );
 }

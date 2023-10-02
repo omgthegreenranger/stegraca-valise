@@ -63,6 +63,7 @@ button.nav-link:hover {
     height: 100%;
     width: 100%;
     max-height: 100%;
+    transition: box-shadow 0.2s ease;
 }
 
 .project-card {
@@ -80,9 +81,7 @@ button.nav-link:hover {
 }
 
 .project-card:hover .card-image {
-    filter: blur(2px);
-    --webkit-filter: blur(2px);
-    transition: inherit;
+    box-shadow: 0 0 0 0 var(--mouseOver);
 }
 
 .project-card .card-overlay {

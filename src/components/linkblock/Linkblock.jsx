@@ -27,7 +27,7 @@ import {
 } from "@react-spring/web";
 
 export default function Linkblock(props) {
-  const { stack, isLoaded, setIsLoaded } = props;
+  const { stack, isLoaded, setIsLoaded, hoverWork } = props;
 
   const attributes = { fill: "red", stroke: "black" };
   const options = {
@@ -38,11 +38,11 @@ export default function Linkblock(props) {
     attributes: attributes,
   };
 
-  return <TechLine isLoaded={isLoaded}/>;
+  return <TechLine isLoaded={isLoaded} hoverWork={hoverWork} />;
 }
 
 function TechLine(props) {
-  const { isLoaded } = props;
+  const { isLoaded, hoverWork } = props;
   let techList = [
     { tech: "Bootstrap", icon: <SiBootstrap /> },
     { tech: "CSS", icon: <SiCss3 /> },
@@ -72,53 +72,46 @@ function TechLine(props) {
   // }), []
   // )
 
-  const [iconTrans, iconAPI] = useTransition(
-    techList,
-    () => ({
-      ref: spinout,
-      initial: {
-        transformer: "scale(1.0)",
-        transform: "rotate3d(0,1,0, 0deg)",
-        opacity: 1,
-      },
-      from: {
-        transformer: "scale(1.0)",
-        transform: "rotate3d(0,1,0, 0deg)",
-        opacity: 1,
-      },
-      enter: {
-        transform: "scale(1.0)",
-        transform: "rotate3d(0,1,0, 720deg)",
-        opacity: 1,
-      },
-      update: { transform: "scale(1.0)", transform: "rotate3d(0,1,0, 720deg)", opacity: 1, },
-      onStart: () => console.log("starting!"),
-      // delay: key => 50 * key,
-    }),
-    techList
-  );
+  // const [iconTrans, iconAPI] = useTransition(
+  //   techList,
+  //   () => ({
+  //     ref: spinout,
+  //     initial: {
+  //       transformer: "scale(1.0)",
+  //       transform: "rotate3d(0,1,0, 0deg)",
+  //       opacity: 1,
+  //     },
+  //     from: {
+  //       transformer: "scale(1.0)",
+  //       transform: "rotate3d(0,1,0, 0deg)",
+  //       opacity: 1,
+  //     },
+  //     enter: {
+  //       transform: "scale(1.0)",
+  //       transform: "rotate3d(0,1,0, 720deg)",
+  //       opacity: 1,
+  //     },
+  //     update: { transform: "scale(1.0)", transform: "rotate3d(0,1,0, 720deg)", opacity: 1, },
+  //     onStart: () => console.log("starting!"),
+  //     // delay: key => 50 * key,
+  //   }),
+  //   techList
+  // );
 
-  const [bounce] = useTrail(techList.length, () => ({
-    // ref: bouncein,
-    from: { transform: "scale(0.5)", opacity: 0 },
-    to: { transform: "scale(1.0)", opacity: 1},
-    // leave: { transform: "scale(1)", opacity: 1 },
-    // config: { duration: 150, easing: {bounce: 3, precision: 2}},
-    onRest: () => {spinout.start()}
-  }), []);
+  // const [bounce] = useTrail(techList.length, () => ({
+  
+  //   from: { transform: "scale(0.5)", opacity: 0 },
+  //   to: { transform: "scale(1.0)", opacity: 1},
+  //   onRest: () => {spinout.start()}
+  // }), []);
 
-  // console.log(bounce);
-  // useChain([bouncein, spinout], [0,1], 1)
 
   const handleTechClick = (tech) => {
     return <></>;
   };
 
-  // if(isLoaded) {bouncein.start(); console.log(isLoaded)}
-
   const [techMouse, setTechMouse] = useState([false, ""]);
   // iconAPI.start();
-  console.log(techMouse);
   return (
     <div
       style={{
@@ -130,8 +123,32 @@ function TechLine(props) {
         containerType: "inline-size",
       }}
     >
-      {bounce.map((props, item) => {
+           {techList.map((techs, key) => {
+            let usedIcon = "tech-icons"; 
+            if(hoverWork) {
+            for(let i = 0; i < hoverWork.length; i++) {
+              if (hoverWork[i] === techs.tech) usedIcon = "tech-icons tech-used"
+            }
+          }
+        return (
+            <div
+            className={usedIcon}
+            // style={props}
+            key={key}
+          >
+           
+            {techs.icon}
+           
+          </div>
+        )})}
+      {/* {bounce.map((props, item) => {
         const techItem = techList[item];
+        // const classNames = hoverWork.map(tech => {
+        //   if(tech == techItem.tech) {
+        //   return("tech-icons, tech-used")}
+        //   else {
+        //     "tech-icons"}
+        //   })
         console.log(item);
         return (
             <animated.div
@@ -150,11 +167,11 @@ function TechLine(props) {
             onMouseLeave={() => setTechMouse([false, ""])}
           > */}
            
-            {techItem.icon}
+            {/* {techItem.icon} */}
            
-          </animated.div>
-      // </animated.div>
-        )})}
+          {/* </animated.div> */}
+      {/* </animated.div> */}
+        {/* )})} */}
     </div>
 )}
 
