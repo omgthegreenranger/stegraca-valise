@@ -1,6 +1,11 @@
 import React, { useState, useEffect, createRef } from "react";
 import { Button, ListGroup, Collapse } from "react-bootstrap";
+import Lightbox from "yet-another-react-lightbox";
+import Inline from "yet-another-react-lightbox/plugins/inline";
+import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import "./details.css";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
 import { IconContext } from "react-icons";
 import { RxExternalLink, RxGithubLogo, RxCross1 } from "react-icons/rx";
 import { run as runHolder } from "holderjs/holder";
@@ -13,6 +18,8 @@ import {
   useSpringRef,
   SpringValue,
 } from "@react-spring/web";
+import { wrapGrid } from "animate-css-grid";
+import "yet-another-react-lightbox/styles.css";
 
 export default function Details(props) {
   const {
@@ -90,12 +97,33 @@ export default function Details(props) {
 
 function ProjectDetails(props) {
   const { work, clearProjects, open, setOpen, clear, brand } = props;
+  const [screenshotsOpen, setScreenshotsOpen] = useState(false);
+  const [index, setIndex] = useState(0);
+
+  function screenshotList(screenshots) {
+    console.log(screenshots)
+    screenshots.map(screenshot => {
+      console.log(        require(
+        `../project/images/${screenshot}`
+        )) 
+      return (
+        require(
+          `../project/images/${screenshot}`
+          )
+          )
+        }
+        )
+  }
+  console.log(screenshotList)
   return (
     <>
       {work ? (
-        <div className="details-view details-open">
+        <div
+          className="details-view details-open"
+          // {screenshotsOpen ? "details-view details-screens" : "details-view details-open"}
+        >
           <div className="details-surround-boxes card-logo-box">
-          <img
+            <img
               className="card-logo"
               alt="Project Logo"
               src={
@@ -104,7 +132,7 @@ function ProjectDetails(props) {
                   : require(`../project/images/${work.logo}`)
               }
             />
-            </div>
+          </div>
           <div className="details-surround-boxes project-title">
             {/* Project Headline */}
             <div className="name-title">{work.name}</div>
@@ -137,24 +165,68 @@ function ProjectDetails(props) {
             </div>
           </div>
           {/* Project Logo and screenshots column */}
-          <animated.div className="details-surround-boxes details-sideboxes details-photo-column" style={clear}>
+          <div
+            className="details-surround-boxes details-sideboxes details-photo-column"
+            style={clear}
+          >
             <div className="sidebar-headers">Screenshots</div>
             <div className="screenshots-flex">
               {work.screenshots == "" ? (
                 <div>None taken yet. Check back soon.</div>
-              ) : (
-                work.screenshots.map((screenshot) => {
-                  return (
-                    <img
-                      className="card-screenshots"
-                      alt="Project Screenshot"
-                      src={require(`../project/images/${screenshot}`)}
-                    />
-                  );
-                })
-              )}
+              ) :  (
+                    <>
+                      <Lightbox
+                        index={index}
+                        slides={work.screenshots.map((item) => ({
+                          src: require(`../project/images/${item}`
+          )
+                        }))}
+                        plugins={[Inline]}
+                        on={{
+                          view: () => setIndex(index),
+                          click: () => setScreenshotsOpen(true),
+                        }}
+                        carousel={{
+                          padding: 0,
+                          spacing: 0,
+                          imageFit: "cover",
+                        }}
+                        inline={{
+                          style: {
+                            width: "100%",
+                            maxWidth: "900px",
+                            aspectRatio: "3 / 2",
+                            margin: "0 auto",
+                          },
+                        }}
+                      />
+                      <Lightbox
+                        open={screenshotsOpen}
+                        close={ () => setScreenshotsOpen(false)}
+                        index={index}
+                        slides={work.screenshots.map((item) => ({
+                          src: require(`../project/images/${item}`
+          )
+                        }))}
+                        styles={{ container:{ backgroundColor: "rgba(0,0,0,0.25)", width: "100%", height: "100%"}}}
+                        plugins={[Slideshow, Thumbnails]}
+                        on={{view: () => setIndex(index) }}
+                        animation={{ fade: 0 }}
+                        controller={{
+                          closeOnPullDown: true,
+                          closeOnBackdropClick: true,
+                        }}
+                      />
+                    </>
+                    // <img
+                    //   className="card-screenshots"
+                    //   alt="Project Screenshot"
+                    //   src={require(`../project/images/${screenshot}`)}
+                    //   onClick={() => setScreenshotsOpen(true)}
+                    // />
+                  )}
             </div>
-          </animated.div>
+          </div>
           <div className="project-meat">
             <div>{work.midDesc}</div>
             {work.projDesc ? (
@@ -176,7 +248,10 @@ function ProjectDetails(props) {
               <></>
             )}
           </div>
-          <animated.div className="details-surround-boxes details-sideboxes tech-stack" style={brand}>
+          <animated.div
+            className="details-surround-boxes details-sideboxes tech-stack"
+            style={brand}
+          >
             <div className="sidebar-headers">Tech Stack</div>
             <ListGroup>
               {work.techTags.map((tag) => {

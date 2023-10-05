@@ -1,6 +1,6 @@
 import React from "react";
 import {animated, useSpring } from "@react-spring/web";
-import ProfilePic from "./images/profile-photo.jpg";
+import ProfilePic from "./images/profile-photo-small.jpg";
 import "./biography.css";
 
 

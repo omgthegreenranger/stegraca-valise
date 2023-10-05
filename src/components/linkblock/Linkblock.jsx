@@ -124,13 +124,18 @@ function TechLine(props) {
       }}
     >
            {techList.map((techs, key) => {
-            let usedIcon = "tech-icons"; 
+            let usedIcon = "tech-icons";
+            let usedTech = false;
             if(hoverWork) {
             for(let i = 0; i < hoverWork.length; i++) {
-              if (hoverWork[i] === techs.tech) usedIcon = "tech-icons tech-used"
+              if (hoverWork[i] === techs.tech) {
+                usedIcon = "tech-icons tech-used";
+                usedTech = true;
+              }
             }
           }
         return (
+          <>
             <div
             className={usedIcon}
             // style={props}
@@ -140,6 +145,7 @@ function TechLine(props) {
             {techs.icon}
            
           </div>
+          </>
         )})}
       {/* {bounce.map((props, item) => {
         const techItem = techList[item];

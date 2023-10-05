@@ -12,13 +12,14 @@
   /* height: 100%; */
   width: 100%;
   max-width: 100%;
-  grid-template-columns: 1fr 5fr;
+  /* grid-template-columns: 1fr 5fr; */
   display: grid;
-  grid-template-areas:
+  /* grid-template-areas:
     "card-logo project-title project-title"
     "card-logo project-meat tech-stack"
     "photo-column project-meat tech-stack";
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto auto 1fr; */
+  transition: ease 1s;
 }
 
 .details-surround-boxes {
@@ -27,15 +28,31 @@
 
 }
 
-/* .details-closed {
+.details-closed {
   opacity: 0;
   transition: opacity 0.5s ease 1s;
 }
 
 .details-open {
+  grid-template-columns: 1fr 5fr;
+  grid-template-areas:
+    "card-logo project-title project-title"
+    "card-logo project-meat tech-stack"
+    "photo-column project-meat tech-stack";
+  grid-template-rows: auto auto 1fr;
   opacity: 1;
   transition: opacity 0.5s ease 1s;
-} */
+}
+
+.details-screens {
+  grid-template-columns: 1fr 5fr;
+  grid-template-areas:
+  "card-logo project-title project-title"
+  "card-logo project-meat tech-stack"
+  "photo-column photo-column tech-stack";
+  grid-template-rows: auto auto 2fr;
+
+}
 
 .on {
   opacity: 1;
@@ -147,6 +164,10 @@
   border-bottom-left-radius: 1rem;
   /* box-shadow: 0.7rem 0.3rem 1.5rem 0.1rem black; */
   margin-bottom: 1rem;
+}
+
+.lightbox {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .card-screenshots {

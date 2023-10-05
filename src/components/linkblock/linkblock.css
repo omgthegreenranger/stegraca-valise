@@ -20,7 +20,12 @@
   }
 }
 
+.tech-box {
+
+}
+
 .tech-name {
+  display: block;
   font-size: 1cqw;
 }
 

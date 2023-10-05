@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./Project.css";
 import { Tab, Tabs } from "react-bootstrap";
-import { extractColors } from "extract-colors";
+// import { extractColors } from "extract-colors";
 import projectDB from "../project/projects.json";
 import monkey from "./images/typing_monkey.svg";
 import {Palette, usePalette } from "react-palette";
+
+// const getColors = require('get-image-colors')
 
 export default function Project(props) {
   const {
@@ -119,8 +121,9 @@ function ProjectDisplay(props) {
     setThingsOpen,
   } = props;
   const [selectedType, setSelectedType] = useState();
+  const [mousedOver, setMousedOver] = useState([false, 0]);
   
-  function handleProjectClick(work) {
+  function handleProjectClick(work, e, shadowBox) {
     setProjectData(work);
     setSelectedType(section);
     console.log(section);
@@ -143,10 +146,8 @@ function ProjectDisplay(props) {
         }
       >
         {works.map((work, key) => {
-          function handleMouseOver(e, shadowBox) {
- console.log(e.target.children[0])
-            e.target.children[0].style.boxShadow = shadowBox;
-                        handleCards(work.techTags);
+          function handleMouseOver(e) {
+            handleCards(work.techTags);
             setMouseOver({
               toggle: true,
               id: work.id,
@@ -155,7 +156,6 @@ function ProjectDisplay(props) {
             });
           }
           function handleMouseLeave(e) {
-            e.target.children[0].style.boxShadow = "";
             handleCards([]);
             setMouseOver({ toggle: false });
           }
@@ -171,15 +171,18 @@ function ProjectDisplay(props) {
                 ? // ? `holder.js/300x200?auto=yes&text=${work.name}&theme=social`
                   { monkey }
                 : require(`./images/${work.logo}`);
-            extractColors(mapImg).then(console.log);
-          };
-          console.log(mapImg);
+                // getColors(mapImg).then(colors => {
 
+                // })
+            // extractColors(mapImg).then(console.log);
+          };
+          // const colors = getColors('./images', work.logo).then(colors => {})
+          console.log(work.id, projectData)
           return (
             <>
               <Palette src={mapImg}>
                 {({ data, loading, error }) => {
-                  const shadowBox = "0 0 1rem 0.7rem " + data.vibrant;
+                  const shadowBox = data.vibrant;
                   return (
               <div
                 className={
@@ -189,19 +192,22 @@ function ProjectDisplay(props) {
                     : "project-card card-open"
                 }
                 key={key}
-                onMouseEnter={(e) => {handleMouseOver(e, shadowBox)}}
-                onMouseLeave={handleMouseLeave}
-                onClick={() => handleProjectClick(work)}
+                onMouseEnter={(e) => {handleMouseOver(e)}}
+                onMouseLeave={(e) => {handleMouseLeave(e)}}
+                onClick={(e) => handleProjectClick(work)}
               >
                 {section === "in-progress" ? (
-                  <div className="card-name">
+                  <div className="card-name"
+                  >
                     <div>{work.name}</div>
+                    {monkey}
                   </div>
                 ) : (
-                  <></>
+                  <><img className="card-image" alt="Project Logo" src={mapImg} style={mouseOver.toggle && work.id === mouseOver.id ? {boxShadow: '0 0 1rem 0.7rem ' + shadowBox} : {boxShadow: '0 0 0rem 0rem ' + shadowBox}}/>
+                  <div className="card-overlay"></div></>
                 )}
-                <img className="card-image" alt="Project Logo" src={mapImg} />
-                <div className="card-overlay"></div>
+                {/* <img className="card-image" alt="Project Logo" src={mapImg} style={mouseOver.toggle && work.id === mouseOver.id ? {boxShadow: '0 0 1rem 0.7rem ' + shadowBox} : {boxShadow: '0 0 0rem 0rem ' + shadowBox}}/>
+                <div className="card-overlay"></div> */}
               </div>
                           )}}</Palette>
             </>
