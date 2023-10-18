@@ -1,0 +1,28 @@
+.bio-block {
+    /* padding: 20px;
+    margin: 10px;
+    border-radius: 25px; */
+    height: -moz-fit-content;
+
+}
+
+.title-line {
+    color: black;
+    font-size:large;
+    font-weight: bolder;
+}
+
+.imager {
+    width: 100%;
+}
+
+.bio-text {
+    grid-area: bio-text;
+    margin: 3px;
+}
+
+.bio-photos {
+    grid-area: bio-photos;
+    width:50%;
+    margin: auto;
+}

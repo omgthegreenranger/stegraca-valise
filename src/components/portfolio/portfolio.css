@@ -1,0 +1,129 @@
+/* TOP portfolio classes */
+
+.portfolio {
+    display: flex;
+    grid-area: portfolio;
+    /* grid-template-areas:
+    "portfolio-heading"
+    "portfolio-body"; */
+    border-top: 3px black solid;
+    /* transition: width 2s; */
+    height:100%;
+    justify-items: center;
+    flex-direction: column;
+    width: 100%
+}
+
+.open {
+    width: 95%;
+}
+
+.closed {
+    width: 50%;
+}
+
+.portfolio-block {
+    /* background: var(--block-back); */
+    /*color: var(--port-font-col); */
+    margin-bottom: 0.5rem;
+    /* border: 2px black solid; */
+    /* border-radius: 1rem; */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.portfolio-body {
+    grid-area: portfolio-body;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-items: center;
+    gap: 5rem;
+}
+.portfolio-complete {
+    grid-area: portfolio-complete;
+    width: 100%;
+}
+
+.portfolio-progressive {
+    grid-area: portfolio-progressives;
+    grid-template-areas: "title"
+    "project";
+}
+
+.portfolio-bio {
+    grid-area: portfolio-bio;
+}
+
+/* title classes */
+
+.title {
+    grid-area: title;
+    /* justify-content:center; */
+    display: flex;
+    flex-direction:row;
+    font-size: 1.25cqw;
+}
+
+.bio-title {
+    /* placeholder */
+}
+
+.tech-title {
+    font-size: 1cqw;
+}
+
+.complete-title {
+    grid-area: complete-title;
+    justify-content:flex-end;
+    display: flex;
+    flex-direction:row;
+}
+
+.progressive-title {
+    grid-area: progressive-title;
+    justify-content: flex-end;
+    display: flex;
+    flex-direction:row;
+}
+
+.projectpanels{
+    display: flex;
+    justify-content: center;
+}
+
+.project {
+    grid-area: project;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.linkblock {
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+.heading {
+    grid-area: portfolio-heading;
+    justify-content: center;
+    display: inline-flex;
+    margin-bottom: 1rem;
+    font-family: var(--font-sigman);
+    text-shadow: rebeccapurple 0 0 1cqw;
+}
+
+.port-on {
+    /* display: grid; */
+}
+
+.port-off {
+    display: none;
+}
+
+.portfolio-linkblock {
+    width: 85%;
+    align-self: center;
+    /* transition: all 0.5s ease-in; */
+  }

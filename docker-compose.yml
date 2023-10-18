@@ -1,10 +1,9 @@
 version: '3.4'
 
 services:
-  stegracavalise:
+  valise:
     image: stegracavalise
     build:
-      context: stegraca-valise
       dockerfile: ./Dockerfile
     environment:
       NODE_ENV: production
@@ -12,3 +11,13 @@ services:
       PGID: 1001
     ports:
       - 3000:3000
+    volumes:
+    - "/home/dad/.docker/stegraca-valise:/workspaces:cached"
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    networks:
+    - casa-net
+    - host
+networks:
+  casa-net:
+    external: true
+    name: "casa-net"

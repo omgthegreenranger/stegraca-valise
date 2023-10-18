@@ -1,28 +1,67 @@
 {
-    "name": "stegraca-valise",
-    "version": "1.0.0",
-    "description": "",
-    "main": "backend/server.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node backend/server.js",
-        "develop": "concurrently \"cd backend && npm start\" \"cd stegraca-valise && npm start\"",
-        "install": "cd backend  && npm i && cd ../stegraca-valise && npm i",
-        "seed": "cd backend  && npm run seed",
-        "build": "cd stegraca-valise && npm run build"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/omgthegreenranger/stegraca-valise.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "homepage": "https://omgthegreenranger.github.io/stegraca-valise",
-    "devDependencies": {
-        "concurrently": "^7.6.0",
-        "gh-pages": "^5.0.0"
-    },
-    "dependencies": {
-        "jwt-decode": "^3.1.2"
-    }
+  "name": "stegraca-valise",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://valise.stegra.ca",
+  "dependencies": {
+    "@jridgewell/sourcemap-codec": "^1.4.15",
+    "@react-spring/web": "^9.7.2",
+    "@rollup/plugin-terser": "^0.4.3",
+    "@szhsin/react-accordion": "^1.2.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "animate-css-grid": "^1.5.1",
+    "bootstrap": "^5.2.3",
+    "cheerio": "^1.0.0-rc.12",
+    "eslint-config-react-app": "^7.0.1",
+    "extract-colors": "^4.0.2",
+    "get-image-colors": "^4.0.1",
+    "gh-pages": "^5.0.0",
+    "holderjs": "^2.9.9",
+    "parse5-htmlparser2-tree-adapter": "^7.0.0",
+    "path-browserify": "^1.0.1",
+    "react": "^18.2.0",
+    "react-awesome-reveal": "^4.2.5",
+    "react-bootstrap": "^2.7.2",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0",
+    "react-modal-image": "^2.6.0",
+    "react-palette": "^1.0.2",
+    "react-scripts": "^5.0.1",
+    "react-tabs": "^6.0.2",
+    "sass": "^1.62.1",
+    "text-to-svg": "^3.1.5",
+    "web-vitals": "^2.1.4",
+    "yet-another-react-lightbox": "^3.12.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+  }
 }

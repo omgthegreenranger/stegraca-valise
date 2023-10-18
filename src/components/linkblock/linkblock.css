@@ -1,0 +1,81 @@
+.tech-icons {
+  font-size: 7cqw;
+  /* color: var(--port-font-col); */
+  margin-bottom: 1cqw;
+  margin-top: 1cqw;
+  display: flex;
+  /* opacity: 0; */
+  flex-direction: column;
+  transform: scale(1.0);
+}
+
+@keyframes spin-arrive {
+  0% {
+    opacity: 0;
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate3D(0, 1, 0, -360deg);
+  }
+}
+
+.tech-box {
+
+}
+
+.tech-name {
+  display: block;
+  font-size: 1cqw;
+}
+
+.tech-icons:hover {
+  color: yellow;
+  stroke: 1px yellowgreen;
+  border-radius: 1cqw;
+  transform: scale(1.5);
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+
+.tech-used {
+  color: yellow;
+  /* transform: scale(1.5); */
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+.tech-block {
+  grid-area: tech;
+  display: flex;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-direction: row;
+  justify-content: space-evenly;
+  container-type: inline-size;
+  
+}
+
+.link-text {
+  container-type: inline-size;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+.page-portfolio {
+  grid-area: portfolio;
+}
+
+.page-about {
+  grid-area: about;
+}
+
+.back {
+  grid-area: back;
+}

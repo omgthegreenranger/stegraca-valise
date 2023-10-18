@@ -1,0 +1,259 @@
+.main-panel {
+    grid-area: main-panel;
+    grid-template-rows: auto 1fr;
+    height:100%;
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+        "panel-menu"
+        "displays";
+}
+
+.project-cards {
+    container-type:inline-size;
+    grid-area: projects;
+    /* width: 100%; */
+    display: flex;
+    flex-direction: row;
+    /* margin: 5px; */
+    justify-content: center;
+    align-items: center;
+}
+
+.navs {
+
+}
+
+
+button.nav-link {
+    color: white;
+}
+
+button.nav-link:hover {
+    color: black;
+}
+
+.project-display {
+    display: grid;
+    grid-template:
+        "projects"
+        "project-details";
+    grid-area: project-display;
+    width:100%;
+}
+
+.project-details {
+    grid-area: project-details;
+    /* position:inherit; */
+    /* padding: 10px 10px 10px 10px ; */
+    /* margin-left: 10px; */
+    /* margin-right: 10px; */
+    /* background: rgba(0, 0, 0, 0.25); */
+    /* transition: ease-in 0.25s; */
+}
+
+.project-status {
+    font-size: small;
+}
+
+.card-image {
+    object-fit: fill;
+    aspect-ratio: 1.5/1;
+    margin: 0%;
+    border: #000000;
+    height: 100%;
+    width: 100%;
+    max-height: 100%;
+    transition: box-shadow 0.2s ease;
+    border-radius: 1cqw;
+}
+
+.project-card {
+    position: relative;
+    /* color: white; */
+    /* box-shadow: 0px 0px 1px #000000; */
+    font-size: larger;
+    cursor: pointer;
+    padding: 2%;
+    transition: all 0.25s ease-in-out
+}
+
+.project-card:hover .overlay {
+    opacity: 1;
+}
+
+.project-card:hover .card-image {
+    box-shadow: 0 0 0 0 var(--mouseOver);
+}
+
+.project-card .card-overlay {
+    position: relative;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    opacity: 0;
+    color: black;
+    display: block;
+    transition: inherit;
+}
+
+.semper {
+    position: relative;
+}
+
+.project-card .card-overlay:hover {
+    /* background: rgba(0, 0, 0, 0.25); */
+    /* transform: scale(1.2); */
+    opacity: 1;
+    /* transition: all ease-in-out 0.25s; */
+    /* transition: all ease-in-out 0.25s; */
+}
+
+
+.card-open {
+    /* padding: 5px; */
+}
+
+.card-open:hover {
+    /* background: rgba(0, 0, 0, 0.25); */
+    /* transition: all ease-in-out 0.25s; */
+}
+
+.cards-open {
+    width: 100%;
+    /* transition: all 1s ease-out; */
+}
+.cards-closed {
+    height: fit-content;
+    /* transition: all 1s ease-in-out; */
+    width: 33%;
+}
+
+
+.card-selected {
+    background: rgba(0, 0, 0, 0.25);
+    /* transition: all ease-in-out 0.25s; */
+}
+
+.card-closed {
+
+}
+
+.card-name {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hover-text {
+    /* height: auto; */
+    width: 100%;
+    /* opacity: 1; */
+    color: white;
+    /* box-shadow: 0px 0px 1px #000000; */
+    cursor: pointer;
+    margin: auto;
+    position: relative;
+    font-size:x-large;
+}
+
+.test-back {
+    /* position:absolute; */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: auto;
+    width: 100%;
+    opacity: 0;
+    padding: 10px;
+    background-color: black;
+    /* transition: 1s ease-in; */
+}
+
+
+#css {
+    color: yellow;
+}
+
+@keyframes grow-box {
+    0% {
+        height: 50%;
+    }
+    100% {
+        height: 100%;
+    }
+}
+
+.biography h3,
+.completed h3,
+.in-progress h3 {
+    background: rgba(0, 0, 0, 0.3);
+    border-end-end-radius: 1rem;
+    width: 100%;
+}
+
+.image-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.detailpane {
+    grid-area: detailpane;
+}
+
+.overview {
+    width:100%;
+    display: grid;
+    justify-items: start;
+    align-items: start;
+    grid-template-areas:
+    "navs-status"
+    "project-display";
+    /* grid-template-columns: 3fr 14fr; */
+    /* transition: all ease-in-out 0.25s; */
+    position:relative;
+}
+
+
+
+.hd-off {
+    display: none;
+    padding: 0px ;
+    margin-left: 10px;
+}
+/*
+.hd-on {
+    opacity: 1;
+    padding: 10px 10px 10px 10px ;
+    margin-left: 10px;
+} */
+
+.shortDesc-title {
+    font-size: xx-large;
+}
+
+.shortDesc-desc {
+    margin: auto;
+    display: inline-block;
+}
+
+.shortDesc {
+    display: block;
+    line-height: 1;
+    text-align: center;
+    /* position:fixed; */
+}
+
+.shortDesc-shrunk {
+    /* flex-direction: row; */
+}
+
+.shortDesc-big {
+    /* flex-direction: column; */
+}

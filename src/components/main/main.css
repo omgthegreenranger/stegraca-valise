@@ -1,0 +1,56 @@
+.main-box {
+  display: grid;
+  justify-items: center;
+  color: var(--font-col);
+  grid-template-columns: auto 1fr;
+  /* transition: all 1s; */
+  height:100vh;
+  padding:3rem;
+}
+
+.main-welcome {
+  grid-template-areas:
+    "splash-main splash-main"
+    "portfolio-main portfolio-main";
+  padding-top: 25vh;
+}
+
+.main-expanded {
+  grid-template-areas:
+  "splash-main portfolio-main "
+  /* "splash-main portfolio-main"; */
+  /* grid-template */
+}
+
+.splash-main {
+  grid-area: splash-main;
+}
+
+/* @keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        text-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        text-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+    100% {
+		transform: scale(0.95);
+		text-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+} */
+
+.portfolio-main {
+  grid-area: portfolio-main;
+  grid-template-areas:
+    "portfolio";
+  justify-self: center;
+  justify-items: center;
+  width: 90%;
+  display: grid;
+  transition: opacity 3s;
+  align-items: start;
+  align-content: space-between;
+}
+
