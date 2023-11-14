@@ -5,6 +5,7 @@ import { Tab, Tabs } from "react-bootstrap";
 import projectDB from "../project/projects.json";
 import monkey from "./images/typing_monkey.svg";
 import {Palette, usePalette } from "react-palette";
+import { GiSpy } from "react-icons/gi";
 
 // const getColors = require('get-image-colors')
 
@@ -90,8 +91,6 @@ export default function Project(props) {
           </div>
         </Tab>
       </Tabs>
-      {/* <div> */}
-      {/* {mouseOver.toggle ?  */}
       <div
         className={
           portOpen ? "shortDesc shortDesc-shrunk" : "shortDesc shortDesc-big"
@@ -99,9 +98,6 @@ export default function Project(props) {
       >
         <div className="shortDesc-desc">{mouseOver.shortDesc}</div>
       </div>
-      {/* : */}
-      {/* <div className={portOpen ? "shortDesc shortDesc-shrunk" : "shortDesc shortDesc-big"}>&nbsp;</div>} */}
-      {/* </div> */}
     </>
   );
 }
@@ -169,14 +165,9 @@ function ProjectDisplay(props) {
             var mapImg =
               work.logo === ""
                 ? // ? `holder.js/300x200?auto=yes&text=${work.name}&theme=social`
-                  { monkey }
+                  monkey
                 : require(`./images/${work.logo}`);
-                // getColors(mapImg).then(colors => {
-
-                // })
-            // extractColors(mapImg).then(console.log);
-          };
-          // const colors = getColors('./images', work.logo).then(colors => {})
+          }
           console.log(work.id, projectData)
           return (
             <>
@@ -200,12 +191,10 @@ function ProjectDisplay(props) {
                   <div className="card-name"
                   >
                     <div>{work.name}</div>
-                    {monkey}
                   </div>
-                ) : (
+                ) : ( <></> )}
                   <><img className="card-image" alt="Project Logo" src={mapImg} style={mouseOver.toggle && work.id === mouseOver.id ? {boxShadow: '0 0 1rem 0.7rem ' + shadowBox} : {boxShadow: '0 0 0rem 0rem ' + shadowBox}}/>
                   <div className="card-overlay"></div></>
-                )}
                 {/* <img className="card-image" alt="Project Logo" src={mapImg} style={mouseOver.toggle && work.id === mouseOver.id ? {boxShadow: '0 0 1rem 0.7rem ' + shadowBox} : {boxShadow: '0 0 0rem 0rem ' + shadowBox}}/>
                 <div className="card-overlay"></div> */}
               </div>

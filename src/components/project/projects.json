@@ -93,7 +93,7 @@
             {
                 "id": 7,
                 "name": "mastermind",
-                "status": "in-progress",
+                "status": "complete",
                 "shortDesc": "An implementation of the classic logic game",
                 "midDesc": "This is being built in straight JavaScript, with no bells and whistles out of the door, as a refresher to keep my vanilla JS skills sharp.",
                 "projDesc": "I really wanted to get back to basics instead of pushing ahead with new languages. Mastermind has always been a fun game for me, and I really headed in to the challenge of trying to put in multiple conditional results and scoring.",
