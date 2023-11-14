@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Project.css";
+import { Games } from "../index";
 import { Tab, Tabs } from "react-bootstrap";
 // import { extractColors } from "extract-colors";
 import projectDB from "../project/projects.json";
@@ -89,6 +90,12 @@ export default function Project(props) {
               section="in-progress"
             />
           </div>
+        </Tab>
+        <Tab eventKey="fun-stuff" title="Things to do">
+        <div className="projectpanels">
+            <Games
+            />
+            </div>
         </Tab>
       </Tabs>
       <div
