@@ -6,7 +6,7 @@ import "./styles.css";
 
 export function Mastermind() {
   const [gameOn, setGameOn] = useState(false);
-  const [choices, setChoices] = useState([]);
+  const [choices, setChoices] = useState([null, null, null, null]);
   const colours = [
     "#EE4266",
     "#FFD23F",
@@ -25,7 +25,14 @@ export function Mastermind() {
           <GameOn />
         </>
       ) : (
-        <Button onClick={() => setGameOn(true)}>BEGIN GAME</Button>
+        <Button
+          onClick={() => {
+            setGameOn(true);
+            setChoices([null, null, null, null]);
+          }}
+        >
+          BEGIN GAME
+        </Button>
       )}
     </div>
   );
@@ -67,76 +74,113 @@ export function Mastermind() {
   }
 
   function GameChoices(props) {
-    const [show0, setShow0] = useState(false)
-    const [show1, setShow1] = useState(false)
-    const [show2, setShow2] = useState(false)
-    const [show3, setShow3] = useState(false)
-    const [popped, setPopped] = useState('');
+    const [show0, setShow0] = useState(false);
+    const [show1, setShow1] = useState(false);
+    const [show2, setShow2] = useState(false);
+    const [show3, setShow3] = useState(false);
+    const [popped, setPopped] = useState("");
+    const [show, setShow] = useState();
 
-    const handlePopover = (close, i) => {
-      console.log(i, close, popped)
-      console.log(colours[i])
-      if(close === true) {
-        let chosen = "choice" + popped;
-        let choice = document.getElementById(chosen);
-        choice.style.backgroundColor = colours[i];
-        console.log("Choice", choice)
-      } else if(close === false) {
-        console.log(popped)
+    const handlePopover = (i) => {
+      show.style.backgroundColor = colours[i];
+      show.nextSibling.style.display = "none";
+      choices[show.id] = i;
+
+      submitCheck();
+    };
+
+    function submitCheck() {
+      for(let i = 0; i < choices.length; i++) {
+        if(choices[i]) {
+          console.log("Yes!")
+          break;
+        } else {
+          console.log("No!")
+        }
+        break;
       }
-      switch (popped) {
-        case 0: 
-          setShow0((prev) => !prev);
-          break;
-        case 1:
-          setShow1((prev) => !prev);
-          break;
-        case 2:
-          setShow2((prev) => !prev);
-          break;
-        case 3:
-          setShow3((prev) => !prev);
-          break;
-      }
-  }
+
+    };
+
+    function handleClick(e) {
+      setShow(e.target);
+      setPopped(e.target.id);
+      let elementArray = Array.from(
+        document.getElementsByClassName("colour-popover")
+      );
+
+      const closePop = (obj) => {
+        obj.style.display = "none";
+      };
+
+      elementArray.forEach((element, key) => {
+        if (parseInt(e.target.id) === key) {
+          element.style.display = "block";
+        } else {
+          closePop(element);
+        }
+      });
+    }
+
     const popover = (
-      <Popover id="popover-basic">
-        <Popover.Header as="h3">Popover right</Popover.Header>
-        <Popover.Body>
-          {colours.map((colour, i) => (
-            <div
-              style={{ backgroundColor: colour }}
-              id={`chosen${i}`}
-              key={i}
-              onClick={() => {handlePopover(i, true);}}
-            >
-              {" "}
-              &nbsp;
-            </div>
-          ))}
-        </Popover.Body>
-      </Popover>
-    );
-    return (
-      <div className="colour-selection">
-        <OverlayTrigger trigger="click" placement="bottom" overlay={popover} show={show0} id="0" 
-        onToggle={
-          () => 
-          {setPopped(0); handlePopover(false, '')}
-          }>
-          <div className="colour-selector" id="choice0"></div>
-        </OverlayTrigger>
-        <OverlayTrigger trigger="click" placement="bottom" overlay={popover} show={show1} id="1" onToggle={() => {setPopped(1); handlePopover(1, false);}}>
-          <div className="colour-selector" id="choice1"></div>
-        </OverlayTrigger>
-        <OverlayTrigger trigger="click" placement="bottom" overlay={popover} show={show2} id="2" onToggle={() => {setPopped(2); handlePopover(2, false);}}>
-          <div className="colour-selector" id="choice2"></div>
-        </OverlayTrigger>
-        <OverlayTrigger trigger="click" placement="bottom" overlay={popover} show={show3} id="3" onToggle={() => {setPopped(3); handlePopover(3, false);}}>
-          <div className="colour-selector" id="choice3"></div>
-        </OverlayTrigger>
+      <div>
+        {colours.map((colour, i) => (
+          <div
+            style={{ backgroundColor: colour }}
+            id={show}
+            key={i}
+            onClick={() => {
+              handlePopover(i);
+            }}
+          >
+            {" "}
+            &nbsp;
+          </div>
+        ))}
       </div>
     );
+
+    return (
+      <>
+        <div className="colour-selection">
+          <div className="colour-selectBox" id="choice0">
+            <div className="colour-selector" id="0" onClick={handleClick}>
+              &nbsp;
+            </div>
+            <div className="colour-popover" style={{ display: "none" }}>
+              {popover}
+            </div>
+          </div>
+          <div className="colour-selectBox" id="choice1">
+            <div className="colour-selector" id="1" onClick={handleClick}></div>
+            <div className="colour-popover" style={{ display: "none" }}>
+              {popover}
+            </div>
+          </div>
+          <div className="colour-selectBox" id="choice2">
+            <div className="colour-selector" id="2" onClick={handleClick}></div>
+            <div className="colour-popover" style={{ display: "none" }}>
+              {popover}
+            </div>
+          </div>
+          <div className="colour-selectBox" id="choice3">
+            <div className="colour-selector" id="3" onClick={handleClick}></div>
+            <div className="colour-popover" style={{ display: "none" }}>
+              {popover}
+            </div>
+          </div>
+        </div>
+        <ChoiceDisplay />
+      </>
+    );
+  }
+
+  function ChoiceDisplay() {
+    <div style={{ border: "0px solid, black" }}>
+      {useEffect(() => {
+        choices.map((choice) => <div>{choice}</div>);
+      }, [])}
+    </div>;
   }
 
   function SideBar(props) {

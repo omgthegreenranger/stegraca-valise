@@ -147,7 +147,7 @@ function scoreBoard(reset) { // builds the score history in 12 rounds. Also hand
   let rounds = document.getElementById("rounds");
   let roundCount = document.getElementById("round-counter");
   let roundsBoard = document.getElementById("roundsBoard");
-  let scoreBox = document.getElementById("score-box");
+  // let scoreBox = document.getElementById("score-box");
   let board = document.getElementById("board");
 
   let codebreaker = JSON.parse(localStorage.getItem("CodeGame"));
@@ -167,11 +167,8 @@ function scoreBoard(reset) { // builds the score history in 12 rounds. Also hand
       } else {
       console.log(codebreaker, codebreaker[codebreaker.length - 1]);
       roundCount.innerHTML = `${codebreaker.length + 1} of 12`;
-      // console.log(codebreaker);
-      if (codebreaker.length < 12) {
-        // display round
 
-        // scoreboard history
+      if (codebreaker.length < 12) {
         roundsBoard.innerHTML = "";
         codebreaker.forEach((round, i) => {
           let scoreColours = round[0];

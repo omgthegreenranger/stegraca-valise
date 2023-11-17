@@ -27,10 +27,6 @@ const splash2 = useSpringRef();
   onRest: () => setIsLoaded(true)
 }), [])
 
-// useChain([splash2, splash1])
-
-console.log(sampleState)
-
   return (
     <>
       <div
@@ -41,7 +37,7 @@ console.log(sampleState)
 
       {splashAppear.map((splash, key) => (
         
-        <animated.div className={splashBundle[key][0]} style={splash}>{splashBundle[key][1]}</animated.div>       
+        <animated.div className={splashBundle[key][0]} key={key} style={splash}>{splashBundle[key][1]}</animated.div>       
       ))}
       </animated.div>
         <div className="splash-contact port-on">

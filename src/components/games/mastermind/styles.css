@@ -55,11 +55,15 @@
 }
 
 .colour-selector {
-    width: 25%;
     border: 1px black solid;
     margin: 10px;
-    height: 25%;
+    height: 100%;
 
+}
+
+.colour-selectBox {
+    width: 25%;
+    height: 100%;
 }
 
 .colour-popover {
