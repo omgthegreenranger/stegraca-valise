@@ -21,8 +21,8 @@ export function Mastermind() {
       <MasterSplash />
       {gameOn ? (
         <>
-          <GameOn />
           <Button onClick={() => setGameOn(false)}>End Game </Button>
+          <GameOn />
         </>
       ) : (
         <Button onClick={() => setGameOn(true)}>BEGIN GAME</Button>
