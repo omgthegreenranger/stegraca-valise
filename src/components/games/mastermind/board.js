@@ -12,12 +12,13 @@ export function codeMaker() {
     let codeChoice = Math.floor(Math.random() * choiceCount);
     codemaker[i] = codeChoice;
   }
+  localStorage.setItem("CodeGame", null)
   // console.log("Solution", codemaker);
 }
 
 export function codeBreaker(guessArray) {
   // begin the game; allow the codebreaker to begin guessing
-  // console.log("CodeBreaker function ", codemaker);
+  console.log("CodeBreaker function ", codemaker);
 
   // Set variables
   let codebreaker = JSON.parse(localStorage.getItem("CodeGame")); // the ongoing guess history in local storage. Get that.

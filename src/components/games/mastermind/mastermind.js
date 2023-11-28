@@ -3,9 +3,10 @@ import { Button } from "react-bootstrap";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 import "./styles.css";
+import { codeMaker, codeBreaker } from "./board.js";
 
 export function Mastermind() {
-  const [gameOn, setGameOn] = useState(false);
+  const [gameOn, setGameOn] = useState([false, true]);
   const [choices, setChoices] = useState([null, null, null, null]);
   const colours = [
     "#EE4266",
@@ -19,15 +20,15 @@ export function Mastermind() {
   return (
     <div>
       <MasterSplash />
-      {gameOn ? (
+      {gameOn[0] ? (
         <>
-          <Button onClick={() => setGameOn(false)}>End Game </Button>
+          <Button onClick={() => setGameOn([false, true])}>End Game </Button>
           <GameOn />
         </>
       ) : (
         <Button
           onClick={() => {
-            setGameOn(true);
+            setGameOn([true, true]);
             setChoices([null, null, null, null]);
           }}
         >
@@ -47,8 +48,15 @@ export function Mastermind() {
   }
 
   function GameOn(props) {
+    if(gameOn[1] === true) {
+    codeMaker();
+    }
+    console.log(gameOn)
     return (
       <div className="game-board">
+        {gameOn[1] === false ? 
+        <GameHistory /> : <div></div>
+  }
         <div className=""></div>
         <GameChoices />
         <div></div>
@@ -59,8 +67,8 @@ export function Mastermind() {
   }
 
   function GameHistory(props) {
-    var history = localStorage.getItem("CodeGame");
-
+    var history = JSON.parse(localStorage.getItem("CodeGame"));
+    console.log("Hello!", history)
     return (
       <>
         {history.map((hist, i) => (
@@ -85,7 +93,7 @@ export function Mastermind() {
       show.style.backgroundColor = colours[i];
       show.nextSibling.style.display = "none";
       choices[show.id] = i;
-
+      console.log(choices)
       submitCheck();
     };
 
@@ -120,6 +128,14 @@ export function Mastermind() {
           closePop(element);
         }
       });
+    }
+
+    function handleSubmit() {
+      console.log("Submitting!")
+      gameOn[1] = false;
+      let codeResult = codeBreaker(choices)
+      console.log(codeResult, gameOn)
+
     }
 
     const popover = (
@@ -169,6 +185,12 @@ export function Mastermind() {
               {popover}
             </div>
           </div>
+        </div>
+        <div>
+        <Button
+          onClick={() => handleSubmit()
+          }
+        >Submit Code</Button>
         </div>
         <ChoiceDisplay />
       </>
