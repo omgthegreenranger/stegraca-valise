@@ -1,0 +1,4 @@
+[submodule "mastermind"]
+	path = mastermind
+	url = https://github.com/omgthegreenranger/mastermind.git
+	branch = main
