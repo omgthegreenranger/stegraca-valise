@@ -3,11 +3,15 @@ import { Button } from "react-bootstrap";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 import "./styles.css";
-import { codeMaker, codeBreaker } from "./board.js";
+import { codeMaker, codeBreaker } from ".//mastermind/assets/scripts/board.js";
 
 export function Mastermind() {
-  const [gameOn, setGameOn] = useState([false, true]);
+  const [gameOn, setGameOn] = useState(false);
+  const [newGame, setNewGame] = useState(true);
+  const [results, setResults] = useState([]);
+  const [allChosen, setAllChosen] = useState(false)
   const [choices, setChoices] = useState([null, null, null, null]);
+
   const colours = [
     "#EE4266",
     "#FFD23F",
@@ -20,16 +24,26 @@ export function Mastermind() {
   return (
     <div>
       <MasterSplash />
-      {gameOn[0] ? (
+      {gameOn ? (
         <>
-          <Button onClick={() => setGameOn([false, true])}>End Game </Button>
+          <Button
+            onClick={() => {
+              setGameOn(false);
+              setNewGame(true);
+            }}
+          >
+            End Game{" "}
+          </Button>
           <GameOn />
         </>
       ) : (
         <Button
           onClick={() => {
-            setGameOn([true, true]);
+            localStorage.removeItem("CodeGame");
+            setGameOn(true);
+            setNewGame(true);
             setChoices([null, null, null, null]);
+            setAllChosen(false)
           }}
         >
           BEGIN GAME
@@ -48,71 +62,101 @@ export function Mastermind() {
   }
 
   function GameOn(props) {
-    if(gameOn[1] === true) {
-    codeMaker();
+    if (newGame === true) {
+      codeMaker();
     }
-    console.log(gameOn)
     return (
       <div className="game-board">
-        {gameOn[1] === false ? 
-        <GameHistory /> : <div></div>
-  }
         <div className=""></div>
         <GameChoices />
         <div></div>
         {/* <SideBar /> */}
-        <div></div>
+        <GameHistory results = {results} />
       </div>
     );
   }
 
   function GameHistory(props) {
-    var history = JSON.parse(localStorage.getItem("CodeGame"));
-    console.log("Hello!", history)
+    const { results } = props;
+    console.log("Hello!", results);
     return (
       <>
-        {history.map((hist, i) => (
-          <div>
-            <div style={{ backgroundColor: hist[i][1] }}></div>
-            <div></div>
+        {results.map((hist, i) => {
+          console.log(hist) 
+          return (
+          <div className="history-round">
+            <div className="round-guesses">
+            {hist[0].map((guess, i) => {console.log(guess)
+              return (
+                <div style={{ backgroundColor: colours[guess] }}>
+                  {colours[guess]}
+                </div>
+              );
+            })}
+            </div>
+            <div className="round-scores">
+              {hist[1].map((score, i) => {
+                console.log(score)
+                let scorePip;
+              if (score === 1) scorePip = "white";
+              if (score === 2) scorePip = "black";
+              
+              return(                
+                <div className="score-pip" style={{ backgroundColor: scorePip }}> </div>
+              )
+            }
+                
+              )}
+              </div>
           </div>
-        ))}
+        )})}
       </>
     );
   }
 
   function GameChoices(props) {
-    const [show0, setShow0] = useState(false);
-    const [show1, setShow1] = useState(false);
-    const [show2, setShow2] = useState(false);
-    const [show3, setShow3] = useState(false);
-    const [popped, setPopped] = useState("");
     const [show, setShow] = useState();
-
+    // const [choices, setChoices] = useState([null, null, null, null]);
+    
     const handlePopover = (i) => {
+      let guessRound = Array.from(choices)
+      console.log(colours[i], show)
+
       show.style.backgroundColor = colours[i];
       show.nextSibling.style.display = "none";
-      choices[show.id] = i;
-      console.log(choices)
-      submitCheck();
+
+      guessRound.map((guess, key) => {
+        console.log(guess, key, parseInt(show.id))
+        if(key === parseInt(show.id)) {
+      return guessRound[key] = i;
+      } else {
+        return guessRound[key] = guessRound[key]
+      }
+    } )
+    console.log(guessRound)
+    setChoices(guessRound)
+    console.log(choices)
+    submitCheck(guessRound);
     };
 
-    function submitCheck() {
-      for(let i = 0; i < choices.length; i++) {
-        if(choices[i]) {
-          console.log("Yes!")
-          break;
+    function submitCheck(guesses) {
+      let chosen;
+      for (let i = 0; i < guesses.length; i++) {
+        if (guesses[i] === null ) {
+          chosen = false;  
+          continue
         } else {
-          console.log("No!")
+          chosen = true;
+          continue
         }
         break;
       }
+      setAllChosen(chosen)
 
-    };
+    }
 
     function handleClick(e) {
       setShow(e.target);
-      setPopped(e.target.id);
       let elementArray = Array.from(
         document.getElementsByClassName("colour-popover")
       );
@@ -131,16 +175,18 @@ export function Mastermind() {
     }
 
     function handleSubmit() {
-      console.log("Submitting!")
-      gameOn[1] = false;
-      let codeResult = codeBreaker(choices)
-      console.log(codeResult, gameOn)
-
+      console.log("Submitting!");
+      setNewGame(false);
+      let codeResult = codeBreaker(choices);
+      setResults(codeResult);
+      setChoices([null, null, null, null])
+      setAllChosen(false)
     }
 
     const popover = (
       <div>
-        {colours.map((colour, i) => (
+        {colours.map((colour, i) => { 
+        return (
           <div
             style={{ backgroundColor: colour }}
             id={show}
@@ -152,9 +198,9 @@ export function Mastermind() {
             {" "}
             &nbsp;
           </div>
-        ))}
+        )})}
       </div>
-    );
+          );
 
     return (
       <>
@@ -187,23 +233,22 @@ export function Mastermind() {
           </div>
         </div>
         <div>
-        <Button
-          onClick={() => handleSubmit()
-          }
-        >Submit Code</Button>
+          {/* {allChosen === true ?  */}
+          <Button onClick={() => handleSubmit()}>Submit Code</Button> 
+          {/* : <></>} */}
         </div>
-        <ChoiceDisplay />
+        {/* <ChoiceDisplay /> */}
       </>
     );
   }
 
-  function ChoiceDisplay() {
-    <div style={{ border: "0px solid, black" }}>
-      {useEffect(() => {
-        choices.map((choice) => <div>{choice}</div>);
-      }, [])}
-    </div>;
-  }
+  // function ChoiceDisplay() {
+  //   <div style={{ border: "0px solid, black" }}>
+  //     {useEffect(() => {
+  //       choices.map((choice) => <div>{choice}</div>);
+  //     }, [])}
+  //   </div>;
+  // }
 
   function SideBar(props) {
     return (
