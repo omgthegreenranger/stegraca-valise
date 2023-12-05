@@ -50,8 +50,6 @@
 .colour-selection {
     display: flex;
     flex-direction: row;
-    height: 25px;
-
 }
 
 .colour-selector {
