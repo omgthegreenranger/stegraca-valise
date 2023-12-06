@@ -1,18 +1,19 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Button } from "react-bootstrap";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Popover from "react-bootstrap/Popover";
 import "./styles.css";
 import { codeMaker, codeBreaker } from ".//mastermind/assets/scripts/board.js";
+import { SlArrowLeft } from "react-icons/sl";
+
 
 export function Mastermind() {
   const [gameOn, setGameOn] = useState(false);
   const [newGame, setNewGame] = useState(true);
   const [results, setResults] = useState([]);
 
-  const reversedResults = results.sort((a, b) => {return b[3] - a[3]})
+  const reversedResults = results.sort((a, b) => {
+    return b[3] - a[3];
+  });
 
-  console.log(results, reversedResults);
   const colours = [
     "#EE4266",
     "#FFD23F",
@@ -21,48 +22,113 @@ export function Mastermind() {
     "#86836D",
     "#05A8AA",
   ];
+
+  const startGame = (e) => {
+    setGameOn((prevState) => !prevState);
+    setNewGame(true);
+    localStorage.removeItem("CodeGame");
+    console.log("Game On!", gameOn, "New Game?", true);
+    setResults([])
+  };
+
   return (
     <div>
+      <div><SlArrowLeft />
+</div>
+<div>
       <MasterSplash />
-      {gameOn ? (
-        <>
-          <Button
-            onClick={() => {
-              setGameOn(false);
-              setNewGame(true);
-              setResults([]);
-            }}
-          >
-            Restart Game{" "}
-          </Button>
-          <GameBoard results={results} setResults={setResults} reversedResults = {reversedResults} colours={colours} setNewGame = {setNewGame} newGame={newGame} />
-        </>
-      ) : (
-        <Button
-          onClick={() => {
-            localStorage.removeItem("CodeGame");
-            setGameOn(true);
-            setNewGame(true);
-            // setAllChosen(false);
-          }}
-        >
-          BEGIN GAME
-        </Button>
-      )}
+      </div>
+      <Button onClick={startGame}>
+        {gameOn ? "Begin Game" : "Restart Game"}
+      </Button>
+      <GameBoard
+        gameOn={gameOn}
+        results={results}
+        setResults={setResults}
+        reversedResults={reversedResults}
+        colours={colours}
+        setNewGame={setNewGame}
+        newGame={newGame}
+      />
     </div>
   );
 }
 
 function GameBoard(props) {
-  const {results, setResults, reversedResults, colours, setNewGame, newGame} = props;
+  const {
+    gameOn,
+    results,
+    setResults,
+    reversedResults,
+    colours,
+    setNewGame,
+    newGame,
+  } = props;
 
-  console.log(results.sort((a, b) => { return b[3] - a[3]}))
+  let winState;;
+    if(!reversedResults[0]) {
+    winState = 1;
+  } else {
+    winState = reversedResults[0][2];
+  }
+  function BoardDeploy(props) {
+    const {
+      results,
+      setResults,
+      colours,
+      reversedResults,
+      setNewGame,
+      newGame,
+    } = props;
+      if (winState === 0) {
+        console.log("Awww, you lose!");
+        return (
+          <>
+            <div>GAME OVER, YOU LOSE</div>
+          </>
+        );
+      } else if (winState === 1) {
+        return (
+          <>
+            <GameOn
+              setResults={setResults}
+              colours={colours}
+              setNewGame={setNewGame}
+              newGame={newGame}
+            />
+            <GameHistory
+              results={results}
+              colours={colours}
+              reversedResults={reversedResults}
+            />
+          </>
+        );
+      } else if (winState === 2) {
+        console.log("Congrats, you win!");
+        return (
+          <>
+            <div>CONGRATULATIONS, YOU WON</div>
+          </>
+        );
+      }
+    }
+  // }
+
   return (
     <>
-      <GameOn setResults={setResults} colours={colours} setNewGame = {setNewGame} newGame={newGame} />
-      <GameHistory results={results} colours ={colours} reversedResults={reversedResults} />
+    {gameOn ? <div>Click the button to start!</div> :
+
+      <BoardDeploy
+        results={results}
+        setResults={setResults}
+        colours={colours}
+        reversedResults={reversedResults}
+        setNewGame={setNewGame}
+        newGame={newGame}
+      />
+  }
     </>
-  )
+  );
 }
 
 function MasterSplash(props) {
@@ -88,7 +154,9 @@ function GameOn(props) {
     setAllChosen(false);
   }
   if (newGame === true) {
+    console.log("Creating code");
     codeMaker();
+    setNewGame(false);
   }
   return (
     <div className="game-board">
@@ -97,32 +165,26 @@ function GameOn(props) {
       ) : (
         <></>
       )}
-      <div className=""></div>
       <GameChoices
         choices={choices}
         setChoices={setChoices}
         setAllChosen={setAllChosen}
-        colours = {colours}
+        colours={colours}
       />
-      <div></div>
-      {/* <SideBar /> */}
     </div>
   );
 }
 
 function GameHistory(props) {
   const { results, reversedResults, colours } = props;
-  console.log("Hello!", reversedResults);
   return (
     <>
       {reversedResults.map((hist, i) => {
-        console.log(hist);
         return (
           <div className="history-round">
             <div class="round-number">{hist[3]}</div>
             <div className="round-guesses">
               {hist[0].map((guess, i) => {
-                console.log(guess);
                 return (
                   <div style={{ backgroundColor: colours[guess] }}>
                     {colours[guess]}
@@ -132,7 +194,6 @@ function GameHistory(props) {
             </div>
             <div className="round-scores">
               {hist[1].map((score, i) => {
-                console.log(score);
                 let scorePip;
                 if (score === 1) scorePip = "white";
                 if (score === 2) scorePip = "black";
@@ -157,17 +218,12 @@ function GameHistory(props) {
 function GameChoices(props) {
   const { choices, setChoices, setAllChosen, colours } = props;
   const [show, setShow] = useState();
-  console.log(colours)
 
   const handlePopover = (i) => {
     let guessRound = Array.from(choices);
-    console.log(colours[i], show);
-
-    // show.style.backgroundColor = colours[i];
     show.nextSibling.style.display = "none";
 
     guessRound.map((guess, key) => {
-      console.log(guess, key, parseInt(show.id));
       if (key === parseInt(show.id)) {
         return (guessRound[key] = i);
       } else {
@@ -236,40 +292,59 @@ function GameChoices(props) {
       })}
     </div>
   );
-console.log(colours[choices[0]])
   return (
     <>
       <div className="colour-selection">
         <div className="colour-selectBox" id="choice0">
-          <div className="colour-selector" id="0" onClick={handleClick} style={{backgroundColor: colours[choices[0]]}}>
+          <div
+            className="colour-selector"
+            id="0"
+            onClick={handleClick}
+            style={{ backgroundColor: colours[choices[0]] }}
+          >
             &nbsp;
           </div>
           <div className="colour-popover" style={{ display: "none" }}>
             {popover}
           </div>
         </div>
-        <div className="colour-selectBox" id="choice1" >
-          <div className="colour-selector" id="1" onClick={handleClick} style={{backgroundColor: colours[choices[1]]}}>
+        <div className="colour-selectBox" id="choice1">
+          <div
+            className="colour-selector"
+            id="1"
+            onClick={handleClick}
+            style={{ backgroundColor: colours[choices[1]] }}
+          >
             &nbsp;
           </div>
-          <div className="colour-popover" style={{ display: "none"}}>
-          {popover}
+          <div className="colour-popover" style={{ display: "none" }}>
+            {popover}
           </div>
         </div>
         <div className="colour-selectBox" id="choice2">
-          <div className="colour-selector" id="2" onClick={handleClick} style={{backgroundColor: colours[choices[2]]}}>
+          <div
+            className="colour-selector"
+            id="2"
+            onClick={handleClick}
+            style={{ backgroundColor: colours[choices[2]] }}
+          >
             &nbsp;
           </div>
           <div className="colour-popover" style={{ display: "none" }}>
-          {popover}
+            {popover}
           </div>
         </div>
         <div className="colour-selectBox" id="choice3">
-          <div className="colour-selector" id="3" onClick={handleClick} style={{backgroundColor: colours[choices[3]]}}>
+          <div
+            className="colour-selector"
+            id="3"
+            onClick={handleClick}
+            style={{ backgroundColor: colours[choices[3]] }}
+          >
             &nbsp;
           </div>
           <div className="colour-popover" style={{ display: "none" }}>
-          {popover}
+            {popover}
           </div>
         </div>
       </div>
