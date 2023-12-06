@@ -1,19 +1,23 @@
+// Import React and necessary components/styles
 import React, { useState, useRef, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import "./styles.css";
 import { codeMaker, codeBreaker } from ".//mastermind/assets/scripts/board.js";
 import { SlArrowLeft } from "react-icons/sl";
 
-
+// Main Mastermind component
 export function Mastermind() {
+  // State variables
   const [gameOn, setGameOn] = useState(false);
   const [newGame, setNewGame] = useState(true);
   const [results, setResults] = useState([]);
 
+  // Sort results in reverse order
   const reversedResults = results.sort((a, b) => {
     return b[3] - a[3];
   });
 
+  // Colour options for the game
   const colours = [
     "#EE4266",
     "#FFD23F",
@@ -23,20 +27,23 @@ export function Mastermind() {
     "#05A8AA",
   ];
 
+  // Function to start or restart the game
   const startGame = (e) => {
     setGameOn((prevState) => !prevState);
     setNewGame(true);
     localStorage.removeItem("CodeGame");
     console.log("Game On!", gameOn, "New Game?", true);
-    setResults([])
+    setResults([]);
   };
 
+  // JSX structure of the Mastermind component
   return (
     <div>
-      <div><SlArrowLeft />
-</div>
-<div>
-      <MasterSplash />
+      <div>
+        <SlArrowLeft />
+      </div>
+      <div>
+        <MasterSplash />
       </div>
       <Button onClick={startGame}>
         {gameOn ? "Begin Game" : "Restart Game"}
@@ -54,84 +61,91 @@ export function Mastermind() {
   );
 }
 
-function GameBoard(props) {
-  const {
-    gameOn,
-    results,
-    setResults,
-    reversedResults,
-    colours,
-    setNewGame,
-    newGame,
-  } = props;
-
-  let winState;;
-    if(!reversedResults[0]) {
+// Gameboard component
+function GameBoard({
+  // Props
+  gameOn,
+  results,
+  setResults,
+  reversedResults,
+  colours,
+  setNewGame,
+  newGame,
+}) {
+  // determine win state of the round.
+  let winState;
+  if (!reversedResults[0]) {
     winState = 1;
   } else {
     winState = reversedResults[0][2];
   }
-  function BoardDeploy(props) {
-    const {
-      results,
-      setResults,
-      colours,
-      reversedResults,
-      setNewGame,
-      newGame,
-    } = props;
-      if (winState === 0) {
-        console.log("Awww, you lose!");
-        return (
-          <>
-            <div>GAME OVER, YOU LOSE</div>
-          </>
-        );
-      } else if (winState === 1) {
-        return (
-          <>
-            <GameOn
-              setResults={setResults}
-              colours={colours}
-              setNewGame={setNewGame}
-              newGame={newGame}
-            />
-            <GameHistory
-              results={results}
-              colours={colours}
-              reversedResults={reversedResults}
-            />
-          </>
-        );
-      } else if (winState === 2) {
-        console.log("Congrats, you win!");
-        return (
-          <>
-            <div>CONGRATULATIONS, YOU WON</div>
-          </>
-        );
-      }
-    }
-  // }
 
+  // JSX structure to display board or win banners
+  function BoardDeploy({
+    // Props
+    results,
+    setResults,
+    colours,
+    reversedResults,
+    setNewGame,
+    newGame,
+  }) {
+    // Check win state to render accordingly
+
+    if (winState === 0) {
+      console.log("Awww, you lose!");
+      return (
+        <>
+          <div>GAME OVER, YOU LOSE</div>
+        </>
+      );
+    } else if (winState === 1) {
+      return (
+        <>
+          <GameOn
+            setResults={setResults}
+            colours={colours}
+            setNewGame={setNewGame}
+            newGame={newGame}
+          />
+          <GameHistory
+            results={results}
+            colours={colours}
+            reversedResults={reversedResults}
+          />
+        </>
+      );
+    } else if (winState === 2) {
+      console.log("Congrats, you win!");
+      return (
+        <>
+          <div>CONGRATULATIONS, YOU WON</div>
+        </>
+      );
+    }
+  }
+
+  // JSX structure of the game board/banners
   return (
     <>
-    {gameOn ? <div>Click the button to start!</div> :
-
-      <BoardDeploy
-        results={results}
-        setResults={setResults}
-        colours={colours}
-        reversedResults={reversedResults}
-        setNewGame={setNewGame}
-        newGame={newGame}
-      />
-  }
+      {gameOn ? (
+        <div>Click the button to start!</div>
+      ) : (
+        <BoardDeploy
+          results={results}
+          setResults={setResults}
+          colours={colours}
+          reversedResults={reversedResults}
+          setNewGame={setNewGame}
+          newGame={newGame}
+        />
+      )}
     </>
   );
 }
 
-function MasterSplash(props) {
+// Splash title component
+function MasterSplash() {
   return (
     <>
       <div className="master-splash">MASTERMIND</div>
@@ -140,10 +154,18 @@ function MasterSplash(props) {
   );
 }
 
-function GameOn(props) {
-  const { setResults, newGame, setNewGame, colours } = props;
+// Component for running the game
+function GameOn({
+  // Props
+  setResults,
+  newGame,
+  setNewGame,
+  colours,
+}) {
   const [choices, setChoices] = useState([null, null, null, null]);
   const [allChosen, setAllChosen] = useState(false);
+
+  // Submit your guess
 
   function handleSubmit() {
     console.log("Submitting!");
@@ -153,11 +175,15 @@ function GameOn(props) {
     setChoices([null, null, null, null]);
     setAllChosen(false);
   }
+
+  // If it is a new game, create secret code and change NewGame
   if (newGame === true) {
     console.log("Creating code");
     codeMaker();
     setNewGame(false);
   }
+
+  // JSX structure for the game board
   return (
     <div className="game-board">
       {allChosen === true ? (
@@ -175,14 +201,20 @@ function GameOn(props) {
   );
 }
 
-function GameHistory(props) {
-  const { results, reversedResults, colours } = props;
+// Show round history and scores
+
+function GameHistory({
+  // Props
+  reversedResults,
+  colours,
+}) {
+  // JSX structure of round history
   return (
     <>
       {reversedResults.map((hist, i) => {
         return (
           <div className="history-round">
-            <div class="round-number">{hist[3]}</div>
+            <div className="round-number">{hist[3]}</div>
             <div className="round-guesses">
               {hist[0].map((guess, i) => {
                 return (
@@ -215,10 +247,15 @@ function GameHistory(props) {
   );
 }
 
-function GameChoices(props) {
-  const { choices, setChoices, setAllChosen, colours } = props;
+// Game selection component
+
+function GameChoices({
+  // Props
+  choices, setChoices, setAllChosen, colours }) {
   const [show, setShow] = useState();
 
+
+  // How we handle the colour-selection popover
   const handlePopover = (i) => {
     let guessRound = Array.from(choices);
     show.nextSibling.style.display = "none";
@@ -240,6 +277,7 @@ function GameChoices(props) {
     }
   };
 
+  // Confirm all boxes selected; prevent Submit if not
   function submitCheck(guesses) {
     for (let i = 0; i < guesses.length; i++) {
       var chosen = "";
@@ -254,6 +292,7 @@ function GameChoices(props) {
     return chosen;
   }
 
+  // Handle popover open
   function handleClick(e) {
     setShow(e.target);
     let elementArray = Array.from(
@@ -273,6 +312,7 @@ function GameChoices(props) {
     });
   }
 
+  // This is the popover JSX.
   const popover = (
     <div>
       {colours.map((colour, i) => {
@@ -292,6 +332,8 @@ function GameChoices(props) {
       })}
     </div>
   );
+
+  // JSX for the four-box selection
   return (
     <>
       <div className="colour-selection">
@@ -348,20 +390,6 @@ function GameChoices(props) {
           </div>
         </div>
       </div>
-      <div></div>
-      {/* <ChoiceDisplay /> */}
     </>
   );
 }
-
-// function SideBar(props) {
-//     return (
-//       <div className="colour-options">
-//         {colours.map((colour, i) => (
-//           <div className="colour-option" style={{ backgroundColor: colour }}>
-//             &nbsp;
-//           </div>
-//         ))}
-//       </div>
-//     );
-//   }
