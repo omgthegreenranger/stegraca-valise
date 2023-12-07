@@ -43,7 +43,7 @@
 
 .tech-used {
   color: yellow;
-  /* transform: scale(1.5); */
+  transform: scale(1.5);
   -webkit-transition-duration: 0.4s;
   -moz-transition-duration: 0.4s;
   -o-transition-duration: 0.4s;
