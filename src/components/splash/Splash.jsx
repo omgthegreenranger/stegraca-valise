@@ -11,18 +11,6 @@ export default function Splash(props) {
   const [sampleState, setSampleState] = useState(true);
 const splash1 = useSpringRef();
 const splash2 = useSpringRef();
-
-  // const springSplash = useSpring({
-  //   ref: splash1,
-  //   from: {opacity: 1, textShadow: "red 0px 0px 10px"},
-  //   to: async (next, cancel) => {
-  //     await next({opacity: 1, textShadow: "blue 0px 0px 10px"})
-  //     await next({opacity: 1, textShadow: "red 0px 0px 10px"})
-  //   },
-  //   loop: true,
-  // }
-  // )
-
   const splashBundle = [["splash-hello", "Hello, my name is"],
   ["splash-name-1","Stephen"],
   ["splash-name-2", "Cardie"],
@@ -39,10 +27,6 @@ const splash2 = useSpringRef();
   onRest: () => setIsLoaded(true)
 }), [])
 
-// useChain([splash2, splash1])
-
-console.log(sampleState)
-
   return (
     <>
       <div
@@ -53,16 +37,9 @@ console.log(sampleState)
 
       {splashAppear.map((splash, key) => (
         
-        <animated.div className={splashBundle[key][0]} style={splash}>{splashBundle[key][1]}</animated.div>       
+        <animated.div className={splashBundle[key][0]} key={key} style={splash}>{splashBundle[key][1]}</animated.div>       
       ))}
       </animated.div>
-      {/* <animated.div className="splash splash-top" style={splashAppear}>
-<animated.div className="splash-hello" style={springSplash}>Hello, my name is</animated.div>
-  <animated.div className="splash-name-1" style={springSplash}>Stephen</animated.div>
-  <animated.div className="splash-name-2" style={springSplash}>Cardie</animated.div>
-  <animated.div className="splash-i-am" style={springSplash}>I am a</animated.div>
-  <animated.div className="splash-position" style={springSplash}>Full Stack Developer</animated.div>
-        </animated.div> */}
         <div className="splash-contact port-on">
           <div className="splash-nav">
             <NavBar />

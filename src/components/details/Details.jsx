@@ -101,11 +101,8 @@ function ProjectDetails(props) {
   const [index, setIndex] = useState(0);
 
   function screenshotList(screenshots) {
-    console.log(screenshots)
     screenshots.map(screenshot => {
-      console.log(        require(
-        `../project/images/${screenshot}`
-        )) 
+
       return (
         require(
           `../project/images/${screenshot}`
@@ -114,7 +111,6 @@ function ProjectDetails(props) {
         }
         )
   }
-  console.log(screenshotList)
   return (
     <>
       {work ? (

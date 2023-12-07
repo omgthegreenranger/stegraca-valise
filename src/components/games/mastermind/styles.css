@@ -1,0 +1,103 @@
+.master-splash {
+    position: absolute;
+    font-size: 46.5px;
+    font-family: 'Orbitron', sans-serif;
+    margin: auto;
+    z-index: 4;
+}
+
+.master-slash {
+    position: relative;
+    font-size: 75px;
+    font-family: 'Libre Barcode 39 Extended';
+    margin: auto;
+    color: purple;
+    z-index: 3;
+}
+
+.colour-options {
+    display: flex;
+    flex-direction: columns;
+    width: 100%;
+}
+
+.game-board {
+    display: flex;
+    flex-direction: column;
+}
+
+.options {
+    display: flex;
+}
+.rounds-round {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+.colour {
+    padding: 10px;
+    width:100%;
+}
+
+.choice {
+    border: 1px solid blue;
+    width:100%;
+    background-color: grey;
+
+}
+
+.colour-selection {
+    display: flex;
+    flex-direction: row;
+}
+
+.colour-selector {
+    border: 1px black solid;
+    margin: 10px;
+    height: 100%;
+
+}
+
+.colour-selectBox {
+    width: 25%;
+    height: 100%;
+}
+
+.colour-popover {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 2;
+    position: relative;
+    background-color: rgb(194, 194, 194);
+    padding: 5px;
+}
+
+.colour-popover ul {
+    list-style-type: none;
+    list-style: none;
+}
+
+.popover-panel {
+    display: none;
+}
+
+.history-round {
+    display: flex;
+    flex-direction: row;
+}
+
+.round-guesses {
+    display: flex;
+    flex-direction: row;
+}
+
+.round-scores {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+.score-pip {
+    width: 10px;
+    padding: 10px;
+}

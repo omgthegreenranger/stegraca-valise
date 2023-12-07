@@ -1,52 +1,31 @@
 import React, { useState } from "react";
 import "./Project.css";
+import { Games } from "../index";
 import { Tab, Tabs } from "react-bootstrap";
-// import { extractColors } from "extract-colors";
 import projectDB from "../project/projects.json";
 import monkey from "./images/typing_monkey.svg";
 import {Palette, usePalette } from "react-palette";
+import { GiSpy } from "react-icons/gi";
 
-// const getColors = require('get-image-colors')
 
 export default function Project(props) {
   const {
-    section,
     portOpen,
     setPortOpen,
     projectData,
     setProjectData,
-    hoverWork,
     setHoverWork,
   } = props;
   const works = projectDB.projects;
-  // const [projectData, setProjectData] = useState();
   const [mouseOver, setMouseOver] = useState({ toggle: false, id: "" });
-
-  const worksFiltered = works.filter(function (work) {
-    return work.status === section;
-  });
 
   function handleCards(techTags) {
     setHoverWork(techTags);
   }
 
   const handleTransition = (event) => {
-    console.log("This is a transition function!", event);
   };
 
-  // generate arrays for project categories
-  function handleWorks(type) {
-    works.filter(function (work) {
-      return work.status === type;
-    });
-  }
-
-  const handleTab = () => {
-    setProjectData("");
-    if (portOpen === true) {
-      setPortOpen(false);
-    }
-  };
   return (
     <>
       <Tabs
@@ -89,9 +68,13 @@ export default function Project(props) {
             />
           </div>
         </Tab>
+        <Tab eventKey="fun-stuff" title="Things to do">
+        <div className="projectpanels">
+            <Games
+            />
+            </div>
+        </Tab>
       </Tabs>
-      {/* <div> */}
-      {/* {mouseOver.toggle ?  */}
       <div
         className={
           portOpen ? "shortDesc shortDesc-shrunk" : "shortDesc shortDesc-big"
@@ -99,9 +82,6 @@ export default function Project(props) {
       >
         <div className="shortDesc-desc">{mouseOver.shortDesc}</div>
       </div>
-      {/* : */}
-      {/* <div className={portOpen ? "shortDesc shortDesc-shrunk" : "shortDesc shortDesc-big"}>&nbsp;</div>} */}
-      {/* </div> */}
     </>
   );
 }
@@ -112,13 +92,10 @@ function ProjectDisplay(props) {
     portOpen,
     setPortOpen,
     handleCards,
-    projectData,
     setProjectData,
     section,
     mouseOver,
     setMouseOver,
-    thingsOpen,
-    setThingsOpen,
   } = props;
   const [selectedType, setSelectedType] = useState();
   const [mousedOver, setMousedOver] = useState([false, 0]);
@@ -126,13 +103,9 @@ function ProjectDisplay(props) {
   function handleProjectClick(work, e, shadowBox) {
     setProjectData(work);
     setSelectedType(section);
-    console.log(section);
     if (portOpen === false) {
       setPortOpen(true);
     }
-    let detailCatch = document.getElementsByClassName("details-view");
-    console.log(detailCatch);
-    console.log("PORT", portOpen);
   }
 
   return (
@@ -140,8 +113,7 @@ function ProjectDisplay(props) {
       <div
         className={
           portOpen
-            ? // && projectData.id === work.id
-              "project-cards cards-closed"
+            ? "project-cards cards-closed"
             : "project-cards cards-open"
         }
       >
@@ -161,23 +133,9 @@ function ProjectDisplay(props) {
           }
           const mapImg =
             work.logo === ""
-              ? // ? `holder.js/300x200?auto=yes&text=${work.name}&theme=social`
-                monkey
+              ? monkey
               : require(`./images/${work.logo}`);
 
-          const extracted = () => {
-            var mapImg =
-              work.logo === ""
-                ? // ? `holder.js/300x200?auto=yes&text=${work.name}&theme=social`
-                  { monkey }
-                : require(`./images/${work.logo}`);
-                // getColors(mapImg).then(colors => {
-
-                // })
-            // extractColors(mapImg).then(console.log);
-          };
-          // const colors = getColors('./images', work.logo).then(colors => {})
-          console.log(work.id, projectData)
           return (
             <>
               <Palette src={mapImg}>
@@ -187,8 +145,7 @@ function ProjectDisplay(props) {
               <div
                 className={
                   portOpen
-                    ? // && projectData.id === work.id
-                      "project-card card-closed"
+                    ? "project-card card-closed"
                     : "project-card card-open"
                 }
                 key={key}
@@ -200,14 +157,10 @@ function ProjectDisplay(props) {
                   <div className="card-name"
                   >
                     <div>{work.name}</div>
-                    {monkey}
                   </div>
-                ) : (
+                ) : ( <></> )}
                   <><img className="card-image" alt="Project Logo" src={mapImg} style={mouseOver.toggle && work.id === mouseOver.id ? {boxShadow: '0 0 1rem 0.7rem ' + shadowBox} : {boxShadow: '0 0 0rem 0rem ' + shadowBox}}/>
                   <div className="card-overlay"></div></>
-                )}
-                {/* <img className="card-image" alt="Project Logo" src={mapImg} style={mouseOver.toggle && work.id === mouseOver.id ? {boxShadow: '0 0 1rem 0.7rem ' + shadowBox} : {boxShadow: '0 0 0rem 0rem ' + shadowBox}}/>
-                <div className="card-overlay"></div> */}
               </div>
                           )}}</Palette>
             </>
