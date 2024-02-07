@@ -17,29 +17,41 @@
 
 .main-expanded {
   grid-template-areas:
-  "splash-main portfolio-main "
-  /* "splash-main portfolio-main"; */
-  /* grid-template */
+  "bar-left portfolio-main "
 }
 
-.splash-main {
-  grid-area: splash-main;
+.bar-left {
+  grid-area: bar-left;
+  grid-template-areas: "bar-left-splash"
+  "bar-left-nav"
+  "bar-left-bio";
+  display: grid;
+  container-type: inline-size;
+  grid-template-rows: auto auto auto;
+  width: 25vw;
 }
 
-/* @keyframes pulse {
-    0% {
-        transform: scale(0.95);
-        text-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-    }
-    70% {
-        transform: scale(1);
-        text-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-    }
-    100% {
-		transform: scale(0.95);
-		text-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-	}
-} */
+.bar-left-splash {
+  grid-area: bar-left-splash;
+  /* width: 25vw; */
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.bar-left-nav {
+  grid-area: bar-left-nav;
+  display: flex;
+  /* justify-content: flex-end;
+  flex-direction: column; */
+  /* container-type: size; */
+  /* height: 100% */
+}
+
+.bar-left-bio {
+  grid-area: bar-left-bio;
+  width: 100%;
+}
 
 .portfolio-main {
   grid-area: portfolio-main;

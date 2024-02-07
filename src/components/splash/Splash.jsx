@@ -29,10 +29,6 @@ const splash2 = useSpringRef();
 
   return (
     <>
-      <div
-        className=
-          "splash-container splash-hide"
-      >
         <animated.div className="splash splash-top">
 
       {splashAppear.map((splash, key) => (
@@ -40,15 +36,15 @@ const splash2 = useSpringRef();
         <animated.div className={splashBundle[key][0]} key={key} style={splash}>{splashBundle[key][1]}</animated.div>       
       ))}
       </animated.div>
-        <div className="splash-contact port-on">
+        {/* <div className="splash-contact port-on">
           <div className="splash-nav">
             <NavBar />
           </div>
         </div>
         <block className="splash-linkblock port-on">
           <Bio />
-        </block>
-      </div>
+        </block> */}
+      
     </>
   );
 }

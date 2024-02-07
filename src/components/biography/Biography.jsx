@@ -10,7 +10,7 @@ export default function Bio(props) {
     <>
         <div className="bio-block">
           <div className="bio-text">
-          <p>STEPHEN CARDIE is a fullstack web developer as a second career.</p>
+          <p>STEPHEN CARDIE is a fullstack web developer as a second career, and is also a <span className="mastermind">Mastermind</span>.</p>
           <p>
             Spending over a decade on the client-facing, sales-enabling side of
             tech, it became very apparent that his motivation was about creating

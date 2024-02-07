@@ -6,7 +6,7 @@ import { Mastermind } from "./mastermind/mastermind";
 export default function Games() {
     return (
         <div>
-    <Mastermind />
+    {/* <Mastermind /> */}
     </div>
     )
 
