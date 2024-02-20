@@ -5,7 +5,22 @@ import "./biography.css";
 
 
 export default function Bio(props) {
+  const { peepingTom } = props;
+  console.log(peepingTom)
+  return (
+    <>
+      {peepingTom ? 
+        <div>
+          <p>READ ABOUT ME</p>
+        </div>
+      :
+        <BioText />
+  }
+    </>
+  );
+}
 
+function BioText() {
   return (
     <>
         <div className="bio-block">

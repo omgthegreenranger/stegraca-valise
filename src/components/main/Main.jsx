@@ -9,7 +9,14 @@ export default function MainPage(props) {
   const [thingsOpen, setThingsOpen] = useState(true);
   const { scrollYProgress } = useScroll();
   const [isLoaded, setIsLoaded] = useState(false);
+  const x = window.matchMedia("(max-width: 750px)");
+  const [peepingTom, setPeepingTom] = useState(x.matches)
 
+  x.addEventListener("change", () => {
+
+      setPeepingTom(x.matches)
+}
+  )
   return (
     <div
       className={
@@ -22,14 +29,15 @@ export default function MainPage(props) {
             thingsOpen={thingsOpen}
             scrollYProgress={scrollYProgress}
             setIsLoaded={setIsLoaded}
+            peepingTom={peepingTom}
           />
           {thingsOpen}
         </div>
         <div className="bar-left-nav">
-            <NavBar />
+            <NavBar peepingTom={peepingTom} />
         </div>
         <div className="bar-left-bio">
-          <Bio />
+          <Bio peepingTom={peepingTom} />
         </div>
       </div>
       <div className="portfolio-main">
@@ -39,6 +47,7 @@ export default function MainPage(props) {
           scrollYProgress={scrollYProgress}
           isLoaded={isLoaded}
           setIsLoaded={setIsLoaded}
+          peepingTom={peepingTom}
         />
       </div>
     </div>
