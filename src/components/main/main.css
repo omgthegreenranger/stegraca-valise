@@ -2,7 +2,7 @@
   display: grid;
   justify-items: center;
   color: var(--font-col);
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto auto;
   /* transition: all 1s; */
   height:100vh;
   padding:3rem;
@@ -17,7 +17,7 @@
 
 .main-expanded {
   grid-template-areas:
-  "bar-left portfolio-main "
+  "bar-left portfolio-main"
 }
 
 .bar-left {
@@ -28,7 +28,7 @@
   display: grid;
   container-type: inline-size;
   grid-template-rows: auto auto auto;
-  width: 25vw;
+  width: 100%;
 }
 
 .bar-left-splash {
