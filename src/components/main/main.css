@@ -9,6 +9,8 @@
   /* grid-auto-flow: row; */
   /* height:100vh; */
   padding:3rem;
+  grid-template-areas:
+  "bar-left portfolio-main"
 }
 
 .bar-left-splash {
