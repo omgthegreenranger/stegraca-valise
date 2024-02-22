@@ -10,7 +10,10 @@
   /* height:100vh; */
   padding:3rem;
   grid-template-areas:
-  "bar-left portfolio-main"
+    "bar-left-splash portfolio-main"
+    "bar-left-nav portfolio-main"
+    "bar-left-bio portfolio-main";
+  grid-template-rows: auto auto auto;
 }
 
 .bar-left-splash {
