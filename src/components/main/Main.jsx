@@ -23,22 +23,20 @@ export default function MainPage(props) {
         thingsOpen ? `main-box main-expanded` : `main-box main-welcome`
       }
     >
-      <div className="bar-left">
-        <div className="bar-left-splash">
-          <Splash
-            thingsOpen={thingsOpen}
-            scrollYProgress={scrollYProgress}
-            setIsLoaded={setIsLoaded}
-            peepingTom={peepingTom}
-          />
-          {thingsOpen}
-        </div>
-        <div className="bar-left-nav">
-            <NavBar peepingTom={peepingTom} />
-        </div>
-        <div className="bar-left-bio">
-          <Bio peepingTom={peepingTom} />
-        </div>
+      <div className="bar-left-splash">
+        <Splash
+          thingsOpen={thingsOpen}
+          scrollYProgress={scrollYProgress}
+          setIsLoaded={setIsLoaded}
+          peepingTom={peepingTom}
+        />
+        {thingsOpen}
+      </div>
+      <div className="bar-left-nav">
+          <NavBar peepingTom={peepingTom} />
+      </div>
+      <div className="bar-left-bio">
+        <Bio peepingTom={peepingTom} />
       </div>
       <div className="portfolio-main">
         <Portfolio

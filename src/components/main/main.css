@@ -2,12 +2,15 @@
   display: grid;
   justify-items: center;
   color: var(--font-col);
-  grid-template-columns: auto auto;
+  grid-template-columns: 25% 75%;
   /* transition: all 1s; */
   height:100vh;
   padding:3rem;
   grid-template-areas:
-  "bar-left portfolio-main"
+    "bar-left-splash portfolio-main"
+    "bar-left-nav portfolio-main"
+    "bar-left-bio portfolio-main";
+  grid-template-rows: auto auto auto;
 }
 
 .main-welcome {
@@ -35,19 +38,20 @@
 
 .bar-left-splash {
   grid-area: bar-left-splash;
-  /* width: 25vw; */
-  height: 100%;
+  width: 100%;
+  /* height: 100%; */
   margin-right: auto;
-  margin-left: auto;
+  /* margin-left: auto; */
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 }
 
 .bar-left-nav {
   grid-area: bar-left-nav;
   display: flex;
-  /* justify-content: flex-end;
-  flex-direction: column; */
-  /* container-type: size; */
-  /* height: 100% */
+  container-type: size;
+  height: 100%;
+  width: 100%;
 }
 
 .bar-left-bio {

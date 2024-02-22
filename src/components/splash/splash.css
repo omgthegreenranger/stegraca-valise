@@ -20,6 +20,8 @@
     "splash-name-1 splash-name-1 splash-name-2"
     "splash-i-am splash-position splash-position";
   position: relative;
+  container-type: size;
+  height: 100%;
 }
 
 .splash-container {
@@ -62,7 +64,7 @@
   grid-area: splash-name-2;
   font-size: 13cqw;
   /* font-weight: bolder; */
-  align-self: end;
+  /* align-self: end; */
   justify-self: end;
   line-height: 1;
   font-family: var(--font-marker)
