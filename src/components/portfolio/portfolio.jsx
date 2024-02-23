@@ -29,12 +29,12 @@ export default function Portfolio(props) {
   }
   return (
     <div className="portfolio">
-      <div className="heading" 
+      {/* <div className="heading" 
       >
         <h1>THIS IS MY PORTFOLIO OF THINGS</h1>
-      </div>
+      </div> */}
       <animated.div
-        className="portfolio-body" style={portOpen ? {gap: "2rem"} : {gap:"5rem"}}
+        className="portfolio-body"
       >
         <div className="portfolio-block portfolio-linkblock" style={portOpen ? {width: '45%'} : {width: '85%'}}>
           <div className="project linkblock">
