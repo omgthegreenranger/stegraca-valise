@@ -57,15 +57,15 @@ function TechLine(props) {
   ];
 
   return (
-    <div
-      style={{
-        gridArea: "tech",
-        display: "flex",
-        flex: "0 0",
-        flexDirection: "row",
-        justifyContent: "space-evenly",
-        containerType: "inline-size",
-      }}
+    <div className="tech-block"
+      // style={{
+      //   gridArea: "tech",
+      //   display: "flex",
+      //   flex: "0 0",
+      //   flexDirection: "row",
+      //   justifyContent: "space-evenly",
+      //   containerType: "inline-size",
+      // }}
     >
       {techList.map((techs, key) => {
         let usedIcon = "tech-icons";

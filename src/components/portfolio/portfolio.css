@@ -94,9 +94,9 @@
 }
 
 .project {
-    grid-area: project;
-    display: flex;
-    flex-direction: column;
+    /* grid-area: project; */
+    /* display: flex; */
+    /* flex-direction: column; */
     height: auto;
 }
 

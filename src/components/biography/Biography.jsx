@@ -10,8 +10,8 @@ export default function Bio(props) {
   return (
     <>
       {peepingTom ? 
-        <div>
-          <p>READ ABOUT ME</p>
+        <div className="bio-mobile bio-closed">
+          READ ABOUT ME
         </div>
       :
         <BioText />

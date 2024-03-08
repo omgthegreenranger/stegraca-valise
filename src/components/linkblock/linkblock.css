@@ -51,13 +51,19 @@
 }
 
 .tech-block {
-  grid-area: tech;
+  /* grid-area: tech;
   display: flex;
   flex-shrink: 0;
   flex-grow: 0;
   flex-direction: row;
   justify-content: space-evenly;
+  container-type: inline-size; */
+  display: inline-grid;
+  justify-content:space-evently;
   container-type: inline-size;
+  width: 100%;
+  height: auto;
+  grid-template-columns: repeat(10, 1fr);
   
 }
 

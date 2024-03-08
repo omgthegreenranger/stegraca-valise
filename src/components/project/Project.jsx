@@ -153,12 +153,12 @@ function ProjectDisplay(props) {
                 onMouseLeave={(e) => {handleMouseLeave(e)}}
                 onClick={(e) => handleProjectClick(work)}
               >
-                {section === "in-progress" ? (
-                  <div className="card-name"
+                {section === "in-progress" ?
+                portOpen ? (<></>) : (<div className="card-name"
                   >
                     <div>{work.name}</div>
-                  </div>
-                ) : ( <></> )}
+                  </div>)
+                 : ( <></> )}
                   <><img className="card-image" alt="Project Logo" src={mapImg} style={mouseOver.toggle && work.id === mouseOver.id ? {boxShadow: '0 0 1rem 0.7rem ' + shadowBox} : {boxShadow: '0 0 0rem 0rem ' + shadowBox}}/>
                   <div className="card-overlay"></div></>
               </div>

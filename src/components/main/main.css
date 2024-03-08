@@ -3,61 +3,45 @@
   justify-items: center;
   color: var(--font-col);
   grid-template-columns: 1fr 3fr;
-  grid-template-rows: fit-content(1cqw) fit-content(1cqw) 5fr auto;
+  grid-template-rows: auto auto 10fr;
+  grid-auto-rows: max-content;
   /* transition: all 1s; */
-  grid-auto-flow: row;
-  height:100vh;
+  /* grid-auto-flow: row; */
+  /* height:100vh; */
   padding:3rem;
-  grid-template-areas:
-    "bar-left-splash portfolio-main"
-    "bar-left-nav portfolio-main"
-    "bar-left-bio portfolio-main";
-}
-
-.main-welcome {
-  grid-template-areas:
-    "splash-main splash-main"
-    "portfolio-main portfolio-main";
-  padding-top: 25vh;
-}
-
-/* .main-expanded {
-  grid-template-areas:
-  "bar-left portfolio-main"
-} */
-
-.bar-left {
-  grid-area: bar-left;
-  grid-template-areas: "bar-left-splash"
-  "bar-left-nav"
-  "bar-left-bio";
-  display: grid;
-  container-type: inline-size;
-  grid-template-rows: 1fr auto 8fr;
-  width: 100%;
 }
 
 .bar-left-splash {
   grid-area: bar-left-splash;
   width: 100%;
-  height: 6cqw;
+  height: fit-content;
   margin-right: auto;
-  /* margin-left: auto; */
   grid-column: 1 / 2;
   grid-row: 1 / 2;
+  container-type: inline-size;
+  box-sizing: border-box;
+  display: inline-flex;
 }
 
 .bar-left-nav {
   grid-area: bar-left-nav;
   display: flex;
-  container-type: size;
-  height: 4cqw;
+  container-type: inline-size;
+  height: fit-content;
   width: 100%;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
 }
 
 .bar-left-bio {
   grid-area: bar-left-bio;
   width: 100%;
+  display: inline-flex;
+  height: fit-content;
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+  justify-content: center;
+  align-items: center;
 }
 
 .portfolio-main {
@@ -71,17 +55,32 @@
   transition: opacity 3s;
   align-items: start;
   align-content: space-between;
+  grid-column: 2 / 3;
+  grid-row: 1 / -1;
 }
 
 @media screen and (max-width : 750px) {
   .main-box {
-    grid-template-areas: "bar-left"
-    "portfolio-main";
-    grid-template-columns: none;
+    grid-template-columns: 1fr;
     padding: 1rem;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto;
   }
-  .bar-left {
-    grid-template-rows: auto auto auto;
+  .bar-left-splash {
+    grid-row: 1 / 2;
   }
+  
+  .bar-left-nav {
+    grid-row: 2 / 3;
+  }
+
+  .bar-left-bio {
+    grid-row: 3 / 4;
+  }
+
+  .portfolio-main {
+    grid-row: 4 / 5;
+    grid-column: 1 / 2;
+    width: 100%;
+  }
+
 }

@@ -26,3 +26,12 @@
     width:50%;
     margin: auto;
 }
+
+.bio-mobile {
+    display: flex;
+    height: fit-content;
+    background-color: rebeccapurple;
+    width: 100%;
+    justify-content: center;
+
+}

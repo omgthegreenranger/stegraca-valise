@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import "./styles.css";
-import { codeMaker, codeBreaker } from ".//mastermind/assets/scripts/board.js";
+import { codeMaker, codeBreaker } from "./mastermind/assets/scripts/board.js";
 import { SlArrowLeft } from "react-icons/sl";
 
 // Main Mastermind component

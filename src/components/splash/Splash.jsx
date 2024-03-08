@@ -11,11 +11,12 @@ export default function Splash(props) {
   const [sampleState, setSampleState] = useState(true);
 const splash1 = useSpringRef();
 const splash2 = useSpringRef();
-  const splashBundle = [["splash-hello", "Hello, my name is"],
+  const splashBundle = [//["splash-hello", "Hello, my name is"],
   ["splash-name-1","Stephen"],
   ["splash-name-2", "Cardie"],
-  ["splash-i-am", "I am a"],
-  ["splash-position", "Full Stack Developer"]]
+  // ["splash-i-am", "I am a"],
+ ["splash-position", "Full Stack Developer"]
+]
 
   splashBundle.sort(() => Math.random() - 0.5)
 
