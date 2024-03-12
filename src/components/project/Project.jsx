@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Project.css";
-import { Games } from "../index";
+// import { Demos } from "../index";
 import { Tab, Tabs } from "react-bootstrap";
 import projectDB from "../project/projects.json";
 import monkey from "./images/typing_monkey.svg";
@@ -132,7 +132,7 @@ function ProjectDisplay(props) {
 
           return (
             <>
-            <button value="load imagem" onClick={() => loadColors()}>Hello</button>
+            {/* <button value="load imagem" onClick={() => loadColors()}>Hello</button> */}
               <div
                 className={
                   portOpen
@@ -172,7 +172,7 @@ function ProjectDisplay(props) {
                     }
                     onLoad={() => loadColors(mapImg)}
                   />
-                  <canvas id="canvas"></canvas>
+                  {/* <canvas id="canvas"></canvas> */}
                   {/* <div className="card-overlay"></div> */}
                 </>
               </div>
