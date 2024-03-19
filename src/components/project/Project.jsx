@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Project.css";
-// import { Demos } from "../index";
+import { Demos } from "../index";
 import { Tab, Tabs } from "react-bootstrap";
 import projectDB from "../project/projects.json";
 import monkey from "./images/typing_monkey.svg";
@@ -62,11 +62,11 @@ export default function Project(props) {
             />
           </div>
         </Tab>
-        {/* <Tab eventKey="fun-stuff" title="Things to do">
+        <Tab eventKey="fun-stuff" title="Things to do">
           <div className="projectpanels">
-            <Games />
+            <Demos />
           </div>
-        </Tab> */}
+        </Tab>
       </Tabs>
       <div
         className={
