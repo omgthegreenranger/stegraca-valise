@@ -1,0 +1,4 @@
+[submodule "src/components/demo/mastermind/mastermind"]
+	path = src/components/demo/mastermind/mastermind
+	url = https://github.com/omgthegreenranger/mastermind
+	branch = refresh-code-for-valise-integration
