@@ -23,17 +23,29 @@ export default function Demos() {
 
 
 function DemoList({enablePortal, setEnablePortal, enableGame, setEnableGame}) {
-return (
-    <div className="demo-list">
-    {/* This is the list of demos available to us */}
-<div onClick={() => {setEnablePortal(!enablePortal); setEnableGame("mastermind")}}>
-<MasterSplash />
-</div>
-</div>
+
+    return (
+        <div className="demo-list">
+        {/* This is the list of demos available to us */}
+    <div onClick={() => {setEnablePortal(!enablePortal); setEnableGame("mastermind")}}>
+    <MasterSplash />
+    </div>
+    </div>
 )
 }
 
 function DemoPortal({enablePortal, setEnablePortal, enableGame, setEnableGame}) {
+    const ActiveDemo = () => {    
+        switch(enableGame) {
+        case "mastermind":
+            console.log("Mastermind!")
+            // return (<div><Mastermind /></div>)
+            return (<></>);
+        default:
+            console.log()
+            return <></>;
+        }
+    }
 
     return (
         <>
@@ -41,6 +53,7 @@ function DemoPortal({enablePortal, setEnablePortal, enableGame, setEnableGame}) 
             () => {setEnablePortal(!enablePortal); setEnableGame("none")}}><SlArrowLeft /></div>
         <div className="demo-portal">
         {/* This will be the portal in to which the selected game will load. */}
+        <ActiveDemo />
     </div>
     </>
     )

@@ -3,10 +3,9 @@ import React, { useState, useRef, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import "./styles.css";
 import { codeMaker, codeBreaker } from "./mastermind/scripts/board.js";
-import { SlArrowLeft } from "react-icons/sl";
 
 // Main Mastermind component
-export function Mastermind() {
+export default function Mastermind() {
   // State variables
   const [gameOn, setGameOn] = useState(false);
   const [newGame, setNewGame] = useState(true);
@@ -30,9 +29,9 @@ export function Mastermind() {
 
   // Function to start or restart the game
   const startGame = (e) => {
-    setGameOn((prevState) => !prevState);
+    setGameOn(!gameOn);
     setSecretCode(codeMaker());
-    setNewGame(true);
+    setNewGame(!newGame);
     localStorage.removeItem("CodeGame");
     console.log("Game On!", gameOn, "New Game?", true);
     setResults([]);
@@ -46,7 +45,9 @@ export function Mastermind() {
         <MasterSplash />
       </div>
       <Button onClick={startGame}>
-        {gameOn ? "Begin Game" : "Restart Game"}
+        {!gameOn && newGame ? "Begin Game" 
+        : gameOn && !newGame ? "Restart Game"
+        : "Begin Game"}
       </Button>
       <GameBoard
         gameOn={gameOn}
@@ -77,8 +78,6 @@ function GameBoard({
   setSecretCode
 }) {
 
-
-  
   // determine win state of the round.
   let winState;
   if (!reversedResults[0]) {
@@ -139,7 +138,7 @@ function GameBoard({
   // JSX structure of the game board/banners
   return (
     <>
-      {gameOn ? (
+      {!gameOn && newGame ? (
         <div>Click the button to start!</div>
       ) : (
         <BoardDeploy

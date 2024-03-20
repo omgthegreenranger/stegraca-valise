@@ -1,30 +1,33 @@
-import React from "react";
+import React, {useState} from "react";
 import ProfilePic from "./images/profile-photo-small.jpg";
 import "./biography.css";
+import {Mastermind} from "../index";
+import { SlArrowLeft } from "react-icons/sl";
 
-
-export default function Bio(props) {
-  const { peepingTom } = props;
+export default function Bio({peepingTom}) {
+  const [bioPanel, setBioPanel] = useState(false);
+  // const { peepingTom } = props;
   console.log(peepingTom)
   return (
     <>
-      {peepingTom ? 
+    {!bioPanel ? 
+      peepingTom ? 
         <div className="bio-mobile bio-closed">
           READ ABOUT ME
         </div>
       :
-        <BioText />
-  }
+        <BioText setBioPanel={setBioPanel} />
+   : <BioMind setBioPanel={setBioPanel} />}
     </>
   );
 }
 
-function BioText() {
+function BioText({setBioPanel}) {
   return (
     <>
         <div className="bio-block">
           <div className="bio-text">
-          <p>STEPHEN CARDIE is a fullstack web developer as a second career, and is also a <span className="mastermind">Mastermind</span>.</p>
+          <p>STEPHEN CARDIE is a fullstack web developer as a second career, and is also a <span className="mastermind" onClick={() => setBioPanel(true)}>Mastermind</span>.</p>
           <p>
             Spending over a decade on the client-facing, sales-enabling side of
             tech, it became very apparent that his motivation was about creating
@@ -42,4 +45,12 @@ function BioText() {
         </div>
     </>
   );
+}
+
+function BioMind({setBioPanel}) {
+  return(
+  <>
+  <div><span onClick={() => setBioPanel(false)}><SlArrowLeft /></span></div>
+  <Mastermind />
+  </>)
 }

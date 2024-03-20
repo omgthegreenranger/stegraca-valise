@@ -50,14 +50,6 @@ export default function Portfolio(props) {
           />
         </div>
       </animated.div>
-      <animated.div className="project-details" style={opacityValue}>
-        <Details
-          projectData={projectData}
-          setProjectData={setProjectData}
-          portOpen={portOpen}
-          setPortOpen={setPortOpen}
-        />
-      </animated.div>
     </div>
   );
 }

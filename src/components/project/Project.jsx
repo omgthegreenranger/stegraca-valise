@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Project.css";
-import { Demos } from "../index";
+import { Demos, Details } from "../index";
 import { Tab, Tabs } from "react-bootstrap";
 import projectDB from "../project/projects.json";
 import monkey from "./images/typing_monkey.svg";
@@ -18,7 +18,10 @@ export default function Project(props) {
     setHoverWork(techTags);
   }
 
-  const handleTransition = (event) => {};
+  const handleTransition = (event) => {
+    setProjectData('');
+    setPortOpen(false);
+  };
 
   return (
     <>
@@ -86,6 +89,7 @@ function ProjectDisplay(props) {
     setPortOpen,
     handleCards,
     setProjectData,
+    projectData,
     section,
     mouseOver,
     setMouseOver,
@@ -179,6 +183,15 @@ function ProjectDisplay(props) {
             </>
           );
         })}
+
+      </div>
+      <div className="project-details">
+        <Details
+          projectData={projectData}
+          setProjectData={setProjectData}
+          portOpen={portOpen}
+          setPortOpen={setPortOpen}
+        />
       </div>
     </>
   );

@@ -7,6 +7,6 @@ import Splash from './splash';
 import MainPage from './main';
 import Portfolio from './portfolio';
 import Demos from './demo';
-import Mastermind from './demo';
+import Mastermind from './demo/mastermind/mastermind';
 
 export { MainPage, Projects, Details, NavBar, Bio, Linkblock, Splash, Portfolio, Demos, Mastermind};

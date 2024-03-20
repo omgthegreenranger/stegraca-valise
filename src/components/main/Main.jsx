@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useScroll } from "@react-spring/web";
 import "./main.css";
-import { Splash, Portfolio, NavBar, Bio } from "../index";
+import { Splash, Portfolio, NavBar, Bio, Mastermind } from "../index";
 import { wrapGrid } from "animate-css-grid";
 
 export default function MainPage(props) {
@@ -11,6 +11,7 @@ export default function MainPage(props) {
   const [isLoaded, setIsLoaded] = useState(false);
   const x = window.matchMedia("(max-width: 750px)");
   const [peepingTom, setPeepingTom] = useState(x.matches)
+
 
   x.addEventListener("change", () => {
 
