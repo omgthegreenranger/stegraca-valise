@@ -86,8 +86,6 @@ function GameBoard({
   location
 }) {
 
-
-  
   // determine win state of the round.
   let winState;
   if (!reversedResults[0]) {
