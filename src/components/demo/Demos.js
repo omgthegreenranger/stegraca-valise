@@ -4,7 +4,7 @@ import { Tab, Tabs } from "react-bootstrap";
 import { GiSpy } from "react-icons/gi";
 import { Mastermind, MasterSplash } from "./mastermind/mastermind";
 import { SlArrowLeft } from "react-icons/sl";
-import './styles.css';
+import './demos.css';
 
 export default function Demos() {
     // enableDemo can take the key of the selected demo to enable the new component.

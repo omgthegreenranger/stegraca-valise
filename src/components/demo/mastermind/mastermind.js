@@ -1,11 +1,12 @@
 // Import React and necessary components/styles
 import React, { useState, useRef, useEffect } from "react";
 import { Button } from "react-bootstrap";
-import "./styles.css";
+import "./mastermind.css";
 import { codeMaker, codeBreaker } from "./mastermind/scripts/board.js";
+import { SlArrowLeft } from "react-icons/sl";
 
 // Main Mastermind component
-export default function Mastermind() {
+export default function Mastermind({ setBioPanel, location }) {
   // State variables
   const [gameOn, setGameOn] = useState(false);
   const [newGame, setNewGame] = useState(true);
@@ -35,19 +36,26 @@ export default function Mastermind() {
     localStorage.removeItem("CodeGame");
     console.log("Game On!", gameOn, "New Game?", true);
     setResults([]);
-    console.log(secretCode)
+    console.log(secretCode);
   };
 
   // JSX structure of the Mastermind component
   return (
-    <div>
-      <div>
-        <MasterSplash />
+    <div className={location + '-panel'}>
+      <div className={location + '-head'}>
+        <div onClick={() => setBioPanel(false)} className={location + '-back'}>
+          <SlArrowLeft />
+        </div>
+        <div className={location + '-splash'}>
+          <MasterSplash setBioPanel={setBioPanel} />
+        </div>
       </div>
       <Button onClick={startGame}>
-        {!gameOn && newGame ? "Begin Game" 
-        : gameOn && !newGame ? "Restart Game"
-        : "Begin Game"}
+        {!gameOn && newGame
+          ? "Begin Game"
+          : gameOn && !newGame
+          ? "Restart Game"
+          : "Begin Game"}
       </Button>
       <GameBoard
         gameOn={gameOn}
@@ -59,6 +67,7 @@ export default function Mastermind() {
         newGame={newGame}
         secretCode={secretCode}
         setSecretCode={setSecretCode}
+        location={location}
       />
     </div>
   );
@@ -75,9 +84,9 @@ function GameBoard({
   setNewGame,
   newGame,
   secretCode,
-  setSecretCode
+  setSecretCode,
+  location
 }) {
-
   // determine win state of the round.
   let winState;
   if (!reversedResults[0]) {
@@ -96,7 +105,8 @@ function GameBoard({
     setNewGame,
     newGame,
     secretCode,
-    setSecretCode
+    setSecretCode,
+    location
   }) {
     // Check win state to render accordingly
 
@@ -122,6 +132,7 @@ function GameBoard({
             results={results}
             colours={colours}
             reversedResults={reversedResults}
+            location={location}
           />
         </>
       );
@@ -150,6 +161,7 @@ function GameBoard({
           newGame={newGame}
           secretCode={secretCode}
           setSecretCode={setSecretCode}
+          location={location}
         />
       )}
     </>
@@ -157,11 +169,11 @@ function GameBoard({
 }
 
 // Splash title component
-export function MasterSplash() {
+export function MasterSplash({ setBioPanel }) {
   return (
     <>
       <div className="master-splash">MASTERMIND</div>
-      <div className="master-slash">MASTERMIND</div>
+      {/* <div className="master-slash">MASTERMIND</div> */}
     </>
   );
 }
@@ -174,11 +186,11 @@ function GameOn({
   setNewGame,
   colours,
   secretCode,
-  setSecretCode
+  setSecretCode,
 }) {
   const [choices, setChoices] = useState([null, null, null, null]);
   const [allChosen, setAllChosen] = useState(false);
-  console.log("LOOK HERE!",secretCode)
+  console.log("LOOK HERE!", secretCode);
   // Submit your guess
 
   function handleSubmit() {
@@ -223,10 +235,11 @@ function GameHistory({
   // Props
   reversedResults,
   colours,
+  location
 }) {
   // JSX structure of round history
   return (
-    <>
+    <div className={location + '-history'}>
       {reversedResults.map((hist, i) => {
         return (
           <div className="history-round">
@@ -259,7 +272,7 @@ function GameHistory({
           </div>
         );
       })}
-    </>
+      </div>
   );
 }
 
@@ -267,9 +280,12 @@ function GameHistory({
 
 function GameChoices({
   // Props
-  choices, setChoices, setAllChosen, colours }) {
+  choices,
+  setChoices,
+  setAllChosen,
+  colours,
+}) {
   const [show, setShow] = useState();
-
 
   // How we handle the colour-selection popover
   const handlePopover = (i) => {

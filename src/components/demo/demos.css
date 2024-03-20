@@ -1,0 +1,14 @@
+
+
+.options {
+    display: flex;
+}
+.demo-portal {
+    background-color: black;
+    height: 75vh;
+    width: auto;
+}
+
+.demo-list {
+    border-color: yellow;
+}
