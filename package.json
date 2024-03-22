@@ -20,6 +20,7 @@
     "color-image-detector": "^1.0.3",
     "eslint-config-react-app": "^7.0.1",
     "extract-colors": "^4.0.2",
+    "framer-motion": "^11.0.20",
     "get-image-colors": "^4.0.1",
     "gh-pages": "^5.0.0",
     "holderjs": "^2.9.9",

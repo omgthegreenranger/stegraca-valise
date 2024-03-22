@@ -4,6 +4,9 @@ import { Button } from "react-bootstrap";
 import "./mastermind.css";
 import { codeMaker, codeBreaker } from "./mastermind/scripts/board.js";
 import { SlArrowLeft } from "react-icons/sl";
+import { FaUserSecret } from "react-icons/fa";
+import { IconContext } from "react-icons";
+import {motion} from "framer-motion";
 
 // Main Mastermind component
 export default function Mastermind({ setBioPanel, location }) {
@@ -42,21 +45,16 @@ export default function Mastermind({ setBioPanel, location }) {
   // JSX structure of the Mastermind component
   return (
     <div className={location + '-panel'}>
-      <div className={location + '-head'}>
-        <div onClick={() => setBioPanel(false)} className={location + '-back'}>
-          <SlArrowLeft />
-        </div>
-        <div className={location + '-splash'}>
-          <MasterSplash setBioPanel={setBioPanel} />
-        </div>
-      </div>
-      <Button onClick={startGame}>
+          <MasterSplash setBioPanel={setBioPanel} location={location} />
+        {/* </div>
+      </div> */}
+      <motion.div className={location + '-game-button'} onClick={startGame}>
         {!gameOn && newGame
-          ? "Begin Game"
+          ? (<span className={location + '-button-text'} style={{"marginLeft": "auto", "transition": "inherit"}}>Begin</span>)
           : gameOn && !newGame
-          ? "Restart Game"
-          : "Begin Game"}
-      </Button>
+          ? (<span className={location + '-button-text'} style={{"marginLeft": "75cqw", "transition": "inherit"}}>Restart</span>)
+          : (<span className={location + '-button-text'} style={{"marginLeft": "auto", "transition": "inherit"}}>Begin</span>)}
+      </motion.div>
       <GameBoard
         gameOn={gameOn}
         results={results}
@@ -169,11 +167,21 @@ function GameBoard({
 }
 
 // Splash title component
-export function MasterSplash({ setBioPanel }) {
+export function MasterSplash({ setBioPanel, location }) {
   return (
     <>
+    <div className={location + '-head'}>
+        <div onClick={() => setBioPanel(false)} className={location + '-back'}>
+          <SlArrowLeft />
+        </div>
+        {/* <div className={location + '-splash'}> */}
+      <IconContext.Provider value={{size: "10rem"}} className="master-logo">
+      <FaUserSecret />
+      </IconContext.Provider>
       <div className="master-splash">MASTERMIND</div>
       {/* <div className="master-slash">MASTERMIND</div> */}
+      </div>
+      {/* </div> */}
     </>
   );
 }

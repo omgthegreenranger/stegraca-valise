@@ -1,9 +1,16 @@
 .master-splash {
     /* position: absolute; */
-    font-size: 46.5px;
+    font-size: xx-large;
     font-family: 'Orbitron', sans-serif;
     margin: auto;
     z-index: 4;
+    grid-column: 1/3;
+    grid-row: 2/3;
+}
+
+.master-logo {
+    grid-column: 2/3;
+    grid-row: 1/2;
 }
 
 .master-slash {
@@ -23,6 +30,7 @@
 
 .game-board {
     display: grid;
+    container-type: inline-size;
 }
 
 .options {
@@ -49,12 +57,16 @@
 .colour-selection {
     display: grid;
     grid-template-columns: repeat(4, 25%);
+    container-type: inline-size;
+    padding: 10px;
 }
 
 .colour-selector {
     border: 1px black solid;
-    margin: 10px;
-    /* height: 100%; */
+    /* margin: 10px; */
+    border-radius: 24cqw;
+    width: 24cqw;
+    height: 24cqw;
 
 }
 
@@ -103,7 +115,9 @@
 .biomind-panel {
     display: grid;
     margin: 3px;
-    width: 100%;
+    width: 100cqw;
+    background-color: rgba(0,0,0,0.15);
+    padding: 1vw;
 }
 
 .biomind-head {
@@ -111,23 +125,20 @@
     grid-column: 1/-1;
     grid-template-columns: 0.5fr 2fr;
     align-items: center;
-    column-gap: 1vw;
-
+    column-gap: 5cqw;
+    width: 100%;
+    container-type: inline-size;
 }
 
 .biomind-back {
-    grid-column: 1/2;
-    grid-row: 1/2;
     cursor: pointer;
-}
-
-.biomind-back {
     display: grid;
     align-items: center;
     grid-column: 1/2;
     grid-row: 1/2;
     height: 100%;
 }
+
 
 .biomind-back:hover {
     background-color: black;
@@ -138,8 +149,17 @@
 .biomind-splash {
     grid-column: 2/3;
     grid-row: 1/2;
+    margin: auto;
+    /* width: 90cqw; */
 }
 
 .biomind-history {
     display: grid;
+}
+
+.biomind-game-button {
+}
+
+.biomind-button-text {
+    transition: 1s all ease-in;
 }
