@@ -1,6 +1,6 @@
 .master-splash {
     /* position: absolute; */
-    font-size: xx-large;
+    font-size: 12cqw;
     font-family: 'Orbitron', sans-serif;
     margin: auto;
     z-index: 4;
@@ -95,12 +95,13 @@
 
 .history-round {
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: auto 1fr auto;
 }
 
 .round-guesses {
     display: grid;
     grid-template-columns: repeat(4, 25%);
+    /* padding-top: 10px; */
 }
 
 .round-scores {
@@ -117,7 +118,8 @@
     margin: 3px;
     width: 100cqw;
     background-color: rgba(0,0,0,0.15);
-    padding: 1vw;
+    padding: 5cqw;
+    container-type: inline-size;
 }
 
 .biomind-head {
@@ -127,7 +129,7 @@
     align-items: center;
     column-gap: 5cqw;
     width: 100%;
-    container-type: inline-size;
+    /* container-type: inline-size; */
 }
 
 .biomind-back {

@@ -256,7 +256,6 @@ function GameHistory({
               {hist[0].map((guess, i) => {
                 return (
                   <div style={{ backgroundColor: colours[guess] }}>
-                    {colours[guess]}
                   </div>
                 );
               })}
@@ -266,6 +265,7 @@ function GameHistory({
                 let scorePip;
                 if (score === 1) scorePip = "white";
                 if (score === 2) scorePip = "black";
+                if (score === 0) scorePip = "empty";
 
                 return (
                   <div
