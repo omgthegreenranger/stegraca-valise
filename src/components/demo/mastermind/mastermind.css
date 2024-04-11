@@ -125,10 +125,11 @@
 .biomind-head {
     display: grid;
     grid-column: 1/-1;
-    grid-template-columns: 0.5fr 2fr;
+    grid-template-columns: auto 2fr;
     align-items: center;
     column-gap: 5cqw;
     width: 100%;
+    justify-items: center;
     /* container-type: inline-size; */
 }
 

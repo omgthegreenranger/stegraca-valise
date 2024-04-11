@@ -175,9 +175,11 @@ export function MasterSplash({ setBioPanel, location }) {
           <SlArrowLeft />
         </div>
         {/* <div className={location + '-splash'}> */}
-      <IconContext.Provider value={{size: "10rem"}} className="master-logo">
+        {/* <div className="master-logo"> */}
+      <IconContext.Provider value={{size: "25cqw"}} className="master-logo">
       <FaUserSecret />
       </IconContext.Provider>
+      {/* </div> */}
       <div className="master-splash">MASTERMIND</div>
       {/* <div className="master-slash">MASTERMIND</div> */}
       </div>

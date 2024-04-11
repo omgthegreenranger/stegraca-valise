@@ -35,3 +35,21 @@
     justify-content: center;
 
 }
+
+.mastermind {
+    font-weight: bolder;
+}
+
+.mastermind:hover {
+    font-family: 'Orbitron', sans-serif;
+    cursor:crosshair;
+    text-transform:uppercase;
+}
+
+.bio-visible {
+
+}
+
+.bio-invisible {
+    
+}
