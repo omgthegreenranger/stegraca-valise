@@ -1,3 +1,12 @@
+.noto-serif-variable {
+    font-family: "Noto Serif", serif;
+    font-optical-sizing: auto;
+    font-weight: 20;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+  }
+
 .bio-block {
     padding: 10px;
     border: 1px solid white;
@@ -41,15 +50,34 @@
 }
 
 .mastermind:hover {
-    font-family: 'Orbitron', sans-serif;
+    animation-name: text-flip;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
     cursor:crosshair;
     text-transform:uppercase;
 }
 
-.bio-visible {
+.bio-words {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: all 0.14s ease-out;
+}
 
+.bio-visible {
+    opacity: 1
 }
 
 .bio-invisible {
-    
+    opacity: 0;
+    y: 15;
+}
+
+@keyframes bio-disappear {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes text-flip {
+    0% {font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+    50% {font-family: 'Orbitron', sans-serif;}
+    100% {font-family: 'Noto-Serif', serif;}
 }
