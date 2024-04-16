@@ -166,3 +166,22 @@
 .biomind-button-text {
     transition: 1s all ease-in;
 }
+
+
+.masterpanel-enter {
+    opacity: 1;
+}
+.masterpanel-enter-active {
+    opacity: 1;
+    transition: opacity 1000ms, transform 1000ms;
+    border: 1px solid white;
+  }
+.masterpanel-exit {
+    opacity: 0;
+  }
+
+.masterpanel-exit-active {
+    opacity: 0;
+    transition: opacity 1000ms, transform 1000ms;
+  }
+  

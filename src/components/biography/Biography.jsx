@@ -1,37 +1,70 @@
-import React, { useState, useRef, useEffect, useTransition } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import * as ReactDOM from 'react-dom';
 import ProfilePic from "./images/profile-photo-small.jpg";
 import "./biography.css";
 import { Mastermind } from "../index";
 import bio_text from './bio.json';
+import { Transition, CSSTransition } from 'react-transition-group';
 // import {
-//   animated, useTrail, SpringValue, useSpring, useSprings, useChain, useSpringRef, useTransition
+//    animated, useTrail, SpringValue, useSpring, useSprings, useChain, useSpringRef, useTransition
 // } from "@react-spring/web";
-import { motion, useTime, AnimatePresence, useAnimationControls, useAnimate } from "framer-motion";
+// import { motion, useTime, AnimatePresence, useAnimationControls, useAnimate } from "framer-motion";
 
 
 export default function Bio({ peepingTom }) {
   const [bioPanel, setBioPanel] = useState(false);
+  const [inProp, setInProp] = useState(true);
+  const [mindProp, setMindProp] = useState(false);
+  const nodeRef = useRef(null);
+  const mindRef = useRef(null);
   console.log(peepingTom);
+
+  const launchApp = () => {
+    console.log(inProp)
+    setInProp(!inProp)
+    setMindProp(!mindProp)
+  }
   return (
     <>
       {!bioPanel ? (
         peepingTom ? (
           <div className="bio-mobile bio-closed">READ ABOUT ME</div>
         ) : (
-          <BioText setBioPanel={setBioPanel} />
+          <CSSTransition
+            nodeRef={nodeRef}
+            in={inProp}
+            timeout={1000}
+            classNames="biopanel"
+            appear
+            mountOnEnter
+            unmountOnExit
+            onExited={() => setBioPanel(true)}>
+            <BioText setBioPanel={setBioPanel} inProp={inProp} setInProp={setInProp} nodeRef={nodeRef} setMindProp={setMindProp} launchApp={launchApp}/>
+          </CSSTransition>
         )
       ) : (
-        <BioMind setBioPanel={setBioPanel} />
+        <CSSTransition
+          nodeRef={mindRef}
+          in={mindProp}
+          timeout={1000}
+          classNames="masterpanel"
+          appear
+          mountOnEnter
+          unmountOnExit
+          onExited={() => setBioPanel(false)}>
+          <BioMind setBioPanel={setBioPanel} mindProp={mindProp} setInProp={setInProp} setMindProp={setMindProp} mindRef={mindRef} launchApp={launchApp} />
+        </CSSTransition>
       )}
     </>
   );
 }
 
-function BioText({ setBioPanel }) {
+function BioText({ setBioPanel, nodeRef, inProp, setInProp, setMindProp, launchApp }) {
   let bioText = bio_text["biography"]
   const [dropArray, setDropArray] = useState([]);
   const bioPlace = [];
+  // const [inProp, setInProp] = useState(true);
+  // const nodeRef = useRef(null);
 
   bioText.map((para, i) => {
     let bioWords = para.split(" ");
@@ -47,54 +80,76 @@ function BioText({ setBioPanel }) {
     bioPlace[i] = bioWords
     return bioWords
   })
-  // console.log(dropArray)
-
-  // console.log(bioPlace)
   const dropRandom = dropArray.sort(() => Math.random() - 0.5)
-  const [isPending, startTransition] = useTransition();
 
-  function launchApp() {
-    startTransition(() => {
-      dropRandom.map((drop, i) => {
-        let delay = (i + 1) / 100;
-        console.log(delay)
-        document.getElementById(drop[0]).style.transitionDelay = delay + "s"
-        document.getElementById(drop[0]).classList.replace("bio-visible", "bio-invisible");
-      console.log("Done!")
-      console.log(isPending, "In function")
-    })
-    }
-    )
-    console.log("We're done!")
-    setBioPanel(true)
-    
+  const duration = 300;
+
+  const defaultStyle = {
+    transition: `opacity ${duration}ms ease-in-out`,
+    opacity: 0,
   }
+
+  const transitionStyles = {
+    entering: { opacity: 1 },
+    entered: { opacity: 1 },
+    exiting: { opacity: 0 },
+    exited: { opacity: 0 },
+  };
+
+
+  // function launchApp() {
+  //   console.log(inProp)
+  //   setInProp(!inProp)
+  //   setMindProp(!mindProp)
+    // startTransition(() => {
+
+    // dropRandom.map((drop, i) => {
+    // let delay = (i + 1) / 100;
+    //   console.log(delay)
+    //   document.getElementById(drop[0]).style.transitionDelay = delay + "s"
+    //   document.getElementById(drop[0]).classList.replace("bio-visible", "bio-invisible");
+    // console.log("Done!")
+    //console.log(isPending, "In function")
+    //})
+    // }
+    // )
+    // console.log("We're done!")
+  // }
 
   return (
     <>
-      <div className="bio-block">
+      {/* <CSSTransition 
+        nodeRef={nodeRef}
+        in={inProp}
+        timeout={1000}
+        classNames="biopanel"
+        unmountOnExit
+        onExited={() => setBioPanel(true)}> */}
+
+      <div className="bio-block" ref={nodeRef}>
+
         <div className="bio-text">
           {bioPlace.map((para, i) => {
             // console.log(para)
             return (
-                <p 
-                  // variants={container}
-                  // initial="show"
-                  // animate="hidden"
-                  id={i}>
-                  {para.map((word, j) => {
-                    if (word[1].includes(":link:")) {
-                      return <span className="mastermind" id={word[0]} onClick={() => launchApp(bioPlace)}>Mastermind.</span>
-                    } else {
-                      return (
-                        <span className="bio-words bio-visible" id={word[0]}>{word[1]} </span>
+              <p
+                // variants={container}
+                // initial="show"
+                // animate="hidden"
+                id={i}>
+                {para.map((word, j) => {
+                  if (word[1].includes(":link:")) {
+                    return <span className="mastermind" key={j} id={word[0]} onClick={launchApp}>Mastermind.</span>
+                  } else {
+                    return (
+                      <span className="bio-words bio-visible" key={j} id={word[0]}>{word[1]} </span>
 
-                      )
-                    }
+                    )
                   }
-                  )}
+                }
+                )}
 
-                </p>
+              </p>
             )
           })}
         </div>
@@ -106,12 +161,13 @@ function BioText({ setBioPanel }) {
           />
         </div>
       </div>
+      {/* </CSSTransition> */}
     </>
   );
 }
 
-function BioMind({ setBioPanel }) {
+function BioMind({ setBioPanel, mindRef, mindProp, setMindProp, setInProp, launchApp }) {
   return (
-    <Mastermind setBioPanel={setBioPanel} location="biomind" />
+    <Mastermind setBioPanel={setBioPanel} location="biomind" nodeRef={mindRef} mindProp={mindProp} setMindProp={setMindProp} setInProp={setInProp} launchApp={launchApp} />
   );
 }

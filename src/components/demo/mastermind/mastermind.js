@@ -9,7 +9,7 @@ import { IconContext } from "react-icons";
 import {motion} from "framer-motion";
 
 // Main Mastermind component
-export default function Mastermind({ setBioPanel, location }) {
+export default function Mastermind({ setBioPanel, location, mindRef, setMindProp, setInProp, launchApp }) {
   // State variables
   const [gameOn, setGameOn] = useState(false);
   const [newGame, setNewGame] = useState(true);
@@ -44,8 +44,8 @@ export default function Mastermind({ setBioPanel, location }) {
 
   // JSX structure of the Mastermind component
   return (
-    <div className={location + '-panel'}>
-          <MasterSplash setBioPanel={setBioPanel} location={location} />
+    <div className={location + '-panel'} ref={mindRef}>
+          <MasterSplash setBioPanel={setBioPanel} location={location} setMindProp={setMindProp} setInProp={setInProp} launchApp={launchApp}/>
         {/* </div>
       </div> */}
       <motion.div className={location + '-game-button'} onClick={startGame}>
@@ -167,11 +167,11 @@ function GameBoard({
 }
 
 // Splash title component
-export function MasterSplash({ setBioPanel, location }) {
+export function MasterSplash({ setBioPanel, location,setMindProp, setInProp, launchApp}) {
   return (
     <>
     <div className={location + '-head'}>
-        <div onClick={() => setBioPanel(false)} className={location + '-back'}>
+        <div onClick={launchApp} className={location + '-back'}>
           <SlArrowLeft />
         </div>
         {/* <div className={location + '-splash'}> */}
