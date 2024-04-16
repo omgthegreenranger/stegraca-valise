@@ -1,0 +1,9 @@
+##### THIS ALLOWS US TO DEPLOY THE SITE FROM A GIT REPO #####
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/cardicr/public_html/valise
+    - /bin/cp -R .vscode $DEPLOYPATH
+    - /bin/cp -R public $DEPLOYPATH
+    - /bin/cp -R src $DEPLOYPATH
+    /bin/cp index.html $DEPLOYPATH
