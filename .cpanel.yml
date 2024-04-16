@@ -2,7 +2,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/cardicr/public_html/valise
+    - export DEPLOYPATH=/home2/cardicr/public_html/valise
     - /bin/cp -R .vscode $DEPLOYPATH
     - /bin/cp -R public $DEPLOYPATH
     - /bin/cp -R src $DEPLOYPATH
