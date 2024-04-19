@@ -99,24 +99,29 @@ function ProjectDetails(props) {
   const { work, clearProjects, open, setOpen, clear, brand } = props;
   const [screenshotsOpen, setScreenshotsOpen] = useState(false);
   const [index, setIndex] = useState(0);
-
+  const [linkText, setLinkText] = useState();
   function screenshotList(screenshots) {
     screenshots.map(screenshot => {
 
       return (
         require(
           `../project/images/${screenshot}`
-          )
-          )
-        }
         )
+      )
+    }
+    )
+  }
+  const linkTexter = (e) => {
+    
+    console.log(e.target.parentNode)
+    setLinkText(e.target.parentNode.id)
   }
   return (
     <>
       {work ? (
         <div
           className="details-view details-open"
-          // {screenshotsOpen ? "details-view details-screens" : "details-view details-open"}
+        // {screenshotsOpen ? "details-view details-screens" : "details-view details-open"}
         >
           <div className="details-surround-boxes card-logo-box">
             <img
@@ -132,18 +137,20 @@ function ProjectDetails(props) {
           <div className="details-surround-boxes project-title">
             {/* Project Headline */}
             <div className="name-title">{work.name}</div>
-            {/* These are the GitHub, direct link, etc as required */}
-            <div className="link-pics">
+          </div>
+          {/* These are the GitHub, direct link, etc as required */}
+          <div className="navicons">
+            <div className="link-pics" onMouseLeave={() => setLinkText()}>
               <IconContext.Provider value={{ className: "link-icons" }}>
                 {work.gitLink ? (
-                  <a href={work.gitLink} target="_blank" rel="noreferrer">
+                  <a href={work.gitLink} target="_blank" rel="noreferrer" id="Visit GitHub" onMouseEnter={linkTexter}>
                     <RxGithubLogo />
                   </a>
                 ) : (
                   <></>
                 )}
                 {work.appLink ? (
-                  <a href={work.appLink} target="_blank" rel="noreferrer">
+                  <a href={work.appLink} target="_blank" rel="noreferrer" id="See the page!" onMouseEnter={linkTexter} >
                     <RxExternalLink />
                   </a>
                 ) : (
@@ -159,6 +166,9 @@ function ProjectDetails(props) {
                 </span>
               </IconContext.Provider>
             </div>
+            <div className="link-text">
+                {linkText}
+              </div>
           </div>
           {/* Project Logo and screenshots column */}
           <div
@@ -169,58 +179,58 @@ function ProjectDetails(props) {
             <div className="screenshots-flex">
               {work.screenshots == "" ? (
                 <div>None taken yet. Check back soon.</div>
-              ) :  (
-                    <>
-                      <Lightbox
-                        index={index}
-                        slides={work.screenshots.map((item) => ({
-                          src: require(`../project/images/${item}`
-          )
-                        }))}
-                        plugins={[Inline]}
-                        on={{
-                          view: () => setIndex(index),
-                          click: () => setScreenshotsOpen(true),
-                        }}
-                        carousel={{
-                          padding: 0,
-                          spacing: 0,
-                          imageFit: "cover",
-                        }}
-                        inline={{
-                          style: {
-                            width: "100%",
-                            maxWidth: "900px",
-                            aspectRatio: "3 / 2",
-                            margin: "0 auto",
-                          },
-                        }}
-                      />
-                      <Lightbox
-                        open={screenshotsOpen}
-                        close={ () => setScreenshotsOpen(false)}
-                        index={index}
-                        slides={work.screenshots.map((item) => ({
-                          src: require(`../project/images/${item}`
-          )
-                        }))}
-                        styles={{ container:{ backgroundColor: "rgba(0,0,0,0.25)", width: "100%", height: "100%"}}}
-                        plugins={[Slideshow, Thumbnails]}
-                        on={{view: () => setIndex(index) }}
-                        animation={{ fade: 0 }}
-                        controller={{
-                          closeOnPullDown: true,
-                          closeOnBackdropClick: true,
-                        }}
-                      />
-                    </>
-                    // <img
-                    //   className="card-screenshots"
-                    //   alt="Project Screenshot"
-                    //   src={require(`../project/images/${screenshot}`)}
-                    //   onClick={() => setScreenshotsOpen(true)}
-                    // />
-                  )}
+              ) : (
+                <>
+                  <Lightbox
+                    index={index}
+                    slides={work.screenshots.map((item) => ({
+                      src: require(`../project/images/${item}`
+                      )
+                    }))}
+                    plugins={[Inline]}
+                    on={{
+                      view: () => setIndex(index),
+                      click: () => setScreenshotsOpen(true),
+                    }}
+                    carousel={{
+                      padding: 0,
+                      spacing: 0,
+                      imageFit: "cover",
+                    }}
+                    inline={{
+                      style: {
+                        width: "100%",
+                        maxWidth: "900px",
+                        aspectRatio: "3 / 2",
+                        margin: "0 auto",
+                      },
+                    }}
+                  />
+                  <Lightbox
+                    open={screenshotsOpen}
+                    close={() => setScreenshotsOpen(false)}
+                    index={index}
+                    slides={work.screenshots.map((item) => ({
+                      src: require(`../project/images/${item}`
+                      )
+                    }))}
+                    styles={{ container: { backgroundColor: "rgba(0,0,0,0.25)", width: "100%", height: "100%" } }}
+                    plugins={[Slideshow, Thumbnails]}
+                    on={{ view: () => setIndex(index) }}
+                    animation={{ fade: 0 }}
+                    controller={{
+                      closeOnPullDown: true,
+                      closeOnBackdropClick: true,
+                    }}
+                  />
+                </>
+                // <img
+                //   className="card-screenshots"
+                //   alt="Project Screenshot"
+                //   src={require(`../project/images/${screenshot}`)}
+                //   onClick={() => setScreenshotsOpen(true)}
+                // />
+              )}
             </div>
           </div>
           <div className="project-meat">
