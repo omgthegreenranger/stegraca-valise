@@ -29,14 +29,10 @@ export default function Portfolio(props) {
   }
   return (
     <div className="portfolio">
-      <div className="heading" 
-      >
-        <h1>THIS IS MY PORTFOLIO OF THINGS</h1>
-      </div>
       <animated.div
-        className="portfolio-body" style={portOpen ? {gap: "2rem"} : {gap:"5rem"}}
+        className="portfolio-body"
       >
-        <div className="portfolio-block portfolio-linkblock" style={portOpen ? {width: '45%'} : {width: '85%'}}>
+        <div className="portfolio-block portfolio-linkblock">
           <div className="project linkblock">
             <Linkblock isLoaded={isLoaded} setIsLoaded={setIsLoaded} hoverWork={hoverWork} />
           </div>
@@ -53,14 +49,6 @@ export default function Portfolio(props) {
             setHoverWork={setHoverWork}
           />
         </div>
-      </animated.div>
-      <animated.div className="project-details" style={opacityValue}>
-        <Details
-          projectData={projectData}
-          setProjectData={setProjectData}
-          portOpen={portOpen}
-          setPortOpen={setPortOpen}
-        />
       </animated.div>
     </div>
   );

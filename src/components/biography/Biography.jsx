@@ -1,31 +1,173 @@
-import React from "react";
-import {animated, useSpring } from "@react-spring/web";
+import React, { useState, useRef, useEffect } from "react";
+import * as ReactDOM from 'react-dom';
 import ProfilePic from "./images/profile-photo-small.jpg";
 import "./biography.css";
+import { Mastermind } from "../index";
+import bio_text from './bio.json';
+import { Transition, CSSTransition } from 'react-transition-group';
+// import {
+//    animated, useTrail, SpringValue, useSpring, useSprings, useChain, useSpringRef, useTransition
+// } from "@react-spring/web";
+// import { motion, useTime, AnimatePresence, useAnimationControls, useAnimate } from "framer-motion";
 
 
-export default function Bio(props) {
+export default function Bio({ peepingTom }) {
+  const [bioPanel, setBioPanel] = useState(false);
+  const [inProp, setInProp] = useState(true);
+  const [mindProp, setMindProp] = useState(false);
+  const nodeRef = useRef(null);
+  const mindRef = useRef(null);
+  console.log(peepingTom);
+
+  const launchApp = () => {
+    console.log(inProp)
+    setInProp(!inProp)
+    setMindProp(!mindProp)
+  }
+  return (
+    <>
+      {!bioPanel ? (
+        peepingTom ? (
+          <div className="bio-mobile bio-closed">READ ABOUT ME</div>
+        ) : (
+          <CSSTransition
+            nodeRef={nodeRef}
+            in={inProp}
+            timeout={1000}
+            classNames="biopanel"
+            appear
+            mountOnEnter
+            unmountOnExit
+            onExited={() => setBioPanel(true)}>
+            <BioText setBioPanel={setBioPanel} inProp={inProp} setInProp={setInProp} nodeRef={nodeRef} setMindProp={setMindProp} launchApp={launchApp}/>
+          </CSSTransition>
+        )
+      ) : (
+        <CSSTransition
+          nodeRef={mindRef}
+          in={mindProp}
+          timeout={1000}
+          classNames="masterpanel"
+          appear
+          mountOnEnter
+          unmountOnExit
+          onExited={() => setBioPanel(false)}>
+          <BioMind setBioPanel={setBioPanel} mindProp={mindProp} setInProp={setInProp} setMindProp={setMindProp} mindRef={mindRef} launchApp={launchApp} />
+        </CSSTransition>
+      )}
+    </>
+  );
+}
+
+function BioText({ setBioPanel, nodeRef, inProp, setInProp, setMindProp, launchApp }) {
+  let bioText = bio_text["biography"]
+  const [dropArray, setDropArray] = useState([]);
+  const bioPlace = [];
+  // const [inProp, setInProp] = useState(true);
+  // const nodeRef = useRef(null);
+
+  bioText.map((para, i) => {
+    let bioWords = para.split(" ");
+    bioWords.map((word, j) => {
+      let wordId = i + "-" + j;
+      let wordly = [wordId, word];
+      dropArray.push([wordId])
+      bioWords[j] = wordly
+      return wordly;
+
+    })
+
+    bioPlace[i] = bioWords
+    return bioWords
+  })
+  const dropRandom = dropArray.sort(() => Math.random() - 0.5)
+
+  const duration = 300;
+
+  const defaultStyle = {
+    transition: `opacity ${duration}ms ease-in-out`,
+    opacity: 0,
+  }
+
+  const transitionStyles = {
+    entering: { opacity: 1 },
+    entered: { opacity: 1 },
+    exiting: { opacity: 0 },
+    exited: { opacity: 0 },
+  };
+
+
+  // function launchApp() {
+  //   console.log(inProp)
+  //   setInProp(!inProp)
+  //   setMindProp(!mindProp)
+    // startTransition(() => {
+
+    // dropRandom.map((drop, i) => {
+    // let delay = (i + 1) / 100;
+    //   console.log(delay)
+    //   document.getElementById(drop[0]).style.transitionDelay = delay + "s"
+    //   document.getElementById(drop[0]).classList.replace("bio-visible", "bio-invisible");
+    // console.log("Done!")
+    //console.log(isPending, "In function")
+    //})
+    // }
+    // )
+    // console.log("We're done!")
+  // }
 
   return (
     <>
-        <div className="bio-block">
-          <div className="bio-text">
-          <p>STEPHEN CARDIE is a fullstack web developer as a second career.</p>
-          <p>
-            Spending over a decade on the client-facing, sales-enabling side of
-            tech, it became very apparent that his motivation was about creating
-            tools to make the job easier than the sales job itself.
-          </p>
-          <p>Clearly, he should be doing that instead.</p>
-          <p>
-            He is available for support work, code refactoring, or to help you
-            build that feature.
-          </p>
-          </div>
-          <div className="bio-photos">
-            <img src={ProfilePic} className="imager" alt="Taken by enfysphotography" />
-          </div>
+      {/* <CSSTransition 
+        nodeRef={nodeRef}
+        in={inProp}
+        timeout={1000}
+        classNames="biopanel"
+        unmountOnExit
+        onExited={() => setBioPanel(true)}> */}
+
+      <div className="bio-block" ref={nodeRef}>
+
+        <div className="bio-text">
+          {bioPlace.map((para, i) => {
+            // console.log(para)
+            return (
+              <p
+                // variants={container}
+                // initial="show"
+                // animate="hidden"
+                id={i}>
+                {para.map((word, j) => {
+                  if (word[1].includes(":link:")) {
+                    return <span className="mastermind" key={j} id={word[0]} onClick={launchApp}>Mastermind.</span>
+                  } else {
+                    return (
+                      <span className="bio-words bio-visible" key={j} id={word[0]}>{word[1]} </span>
+
+                    )
+                  }
+                }
+                )}
+
+              </p>
+            )
+          })}
         </div>
+        <div className="bio-photos">
+          <img
+            src={ProfilePic}
+            className="imager"
+            alt="Taken by enfysphotography"
+          />
+        </div>
+      </div>
+      {/* </CSSTransition> */}
     </>
+  );
+}
+
+function BioMind({ setBioPanel, mindRef, mindProp, setMindProp, setInProp, launchApp }) {
+  return (
+    <Mastermind setBioPanel={setBioPanel} location="biomind" nodeRef={mindRef} mindProp={mindProp} setMindProp={setMindProp} setInProp={setInProp} launchApp={launchApp} />
   );
 }

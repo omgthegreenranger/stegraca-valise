@@ -1,0 +1,187 @@
+.master-splash {
+    /* position: absolute; */
+    font-size: 12cqw;
+    font-family: 'Orbitron', sans-serif;
+    margin: auto;
+    z-index: 4;
+    grid-column: 1/3;
+    grid-row: 2/3;
+}
+
+.master-logo {
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.master-slash {
+    /* position: relative;
+    font-size: 75px; */
+    font-family: 'Libre Barcode 39 Extended';
+    margin: auto;
+    color: purple;
+    z-index: 3;
+}
+
+.colour-options {
+    display: flex;
+    flex-direction: columns;
+    width: 100%;
+}
+
+.game-board {
+    display: grid;
+    container-type: inline-size;
+}
+
+.options {
+    display: flex;
+}
+.rounds-round {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+.colour {
+    padding: 10px;
+    width:100%;
+}
+
+.choice {
+    border: 1px solid blue;
+    width:100%;
+    background-color: grey;
+
+}
+
+.colour-selection {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    container-type: inline-size;
+    padding: 10px;
+}
+
+.colour-selector {
+    border: 1px black solid;
+    /* margin: 10px; */
+    border-radius: 24cqw;
+    width: 24cqw;
+    height: 24cqw;
+
+}
+
+.colour-selectBox {
+    /* width: 25%;
+    height: 100%; */
+}
+
+.colour-popover {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 2;
+    position: relative;
+    background-color: rgb(194, 194, 194);
+    padding: 5px;
+}
+
+.colour-popover ul {
+    list-style-type: none;
+    list-style: none;
+}
+
+.popover-panel {
+    display: none;
+}
+
+.history-round {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+}
+
+.round-guesses {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    /* padding-top: 10px; */
+}
+
+.round-scores {
+    display: grid;
+    grid-template: repeat(2, 45%) / repeat(2, 45%);
+}
+.score-pip {
+    width: 10px;
+    padding: 10px;
+}
+
+.biomind-panel {
+    display: grid;
+    margin: 3px;
+    width: 100cqw;
+    background-color: rgba(0,0,0,0.15);
+    padding: 5cqw;
+    container-type: inline-size;
+}
+
+.biomind-head {
+    display: grid;
+    grid-column: 1/-1;
+    grid-template-columns: auto 2fr;
+    align-items: center;
+    column-gap: 5cqw;
+    width: 100%;
+    justify-items: center;
+    /* container-type: inline-size; */
+}
+
+.biomind-back {
+    cursor: pointer;
+    display: grid;
+    align-items: center;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    height: 100%;
+}
+
+
+.biomind-back:hover {
+    background-color: black;
+    opacity: 0.5;
+    transition: all 0.5s;
+}
+
+.biomind-splash {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    margin: auto;
+    /* width: 90cqw; */
+}
+
+.biomind-history {
+    display: grid;
+}
+
+.biomind-game-button {
+}
+
+.biomind-button-text {
+    transition: 1s all ease-in;
+}
+
+
+.masterpanel-enter {
+    opacity: 1;
+}
+.masterpanel-enter-active {
+    opacity: 1;
+    transition: opacity 1000ms, transform 1000ms;
+    border: 1px solid white;
+  }
+.masterpanel-exit {
+    opacity: 0;
+  }
+
+.masterpanel-exit-active {
+    opacity: 0;
+    transition: opacity 1000ms, transform 1000ms;
+  }
+  

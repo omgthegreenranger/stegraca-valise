@@ -1,21 +1,15 @@
 import React, { useState } from "react";
 import "./Project.css";
-import { Games } from "../index";
+import { Demos, Details } from "../index";
 import { Tab, Tabs } from "react-bootstrap";
 import projectDB from "../project/projects.json";
 import monkey from "./images/typing_monkey.svg";
-import {Palette, usePalette } from "react-palette";
 import { GiSpy } from "react-icons/gi";
-
+import ColorDetector from "color-image-detector";
 
 export default function Project(props) {
-  const {
-    portOpen,
-    setPortOpen,
-    projectData,
-    setProjectData,
-    setHoverWork,
-  } = props;
+  const { portOpen, setPortOpen, projectData, setProjectData, setHoverWork } =
+    props;
   const works = projectDB.projects;
   const [mouseOver, setMouseOver] = useState({ toggle: false, id: "" });
 
@@ -24,6 +18,8 @@ export default function Project(props) {
   }
 
   const handleTransition = (event) => {
+    setProjectData('');
+    setPortOpen(false);
   };
 
   return (
@@ -69,10 +65,9 @@ export default function Project(props) {
           </div>
         </Tab>
         <Tab eventKey="fun-stuff" title="Things to do">
-        <div className="projectpanels">
-            <Games
-            />
-            </div>
+          <div className="projectpanels">
+            <Demos />
+          </div>
         </Tab>
       </Tabs>
       <div
@@ -93,13 +88,14 @@ function ProjectDisplay(props) {
     setPortOpen,
     handleCards,
     setProjectData,
+    projectData,
     section,
     mouseOver,
     setMouseOver,
   } = props;
   const [selectedType, setSelectedType] = useState();
   const [mousedOver, setMousedOver] = useState([false, 0]);
-  
+
   function handleProjectClick(work, e, shadowBox) {
     setProjectData(work);
     setSelectedType(section);
@@ -107,14 +103,17 @@ function ProjectDisplay(props) {
       setPortOpen(true);
     }
   }
+  async function loadColors(img) {
+    console.log(img)
+    let colordetector = new ColorDetector();
+    let pallets = await colordetector.detectColorPalete(img);
+ }
 
   return (
     <>
       <div
         className={
-          portOpen
-            ? "project-cards cards-closed"
-            : "project-cards cards-open"
+          portOpen ? "project-cards cards-closed" : "project-cards cards-open"
         }
       >
         {works.map((work, key) => {
@@ -132,16 +131,11 @@ function ProjectDisplay(props) {
             setMouseOver({ toggle: false });
           }
           const mapImg =
-            work.logo === ""
-              ? monkey
-              : require(`./images/${work.logo}`);
+            work.logo === "" ? monkey : require(`./images/${work.logo}`);
 
           return (
             <>
-              <Palette src={mapImg}>
-                {({ data, loading, error }) => {
-                  const shadowBox = data.vibrant;
-                  return (
+            {/* <button value="load imagem" onClick={() => loadColors()}>Hello</button> */}
               <div
                 className={
                   portOpen
@@ -149,23 +143,54 @@ function ProjectDisplay(props) {
                     : "project-card card-open"
                 }
                 key={key}
-                onMouseEnter={(e) => {handleMouseOver(e)}}
-                onMouseLeave={(e) => {handleMouseLeave(e)}}
+                onMouseEnter={(e) => {
+                  handleMouseOver(e);
+                }}
+                onMouseLeave={(e) => {
+                  handleMouseLeave(e);
+                }}
                 onClick={(e) => handleProjectClick(work)}
               >
                 {section === "in-progress" ? (
-                  <div className="card-name"
-                  >
-                    <div>{work.name}</div>
-                  </div>
-                ) : ( <></> )}
-                  <><img className="card-image" alt="Project Logo" src={mapImg} style={mouseOver.toggle && work.id === mouseOver.id ? {boxShadow: '0 0 1rem 0.7rem ' + shadowBox} : {boxShadow: '0 0 0rem 0rem ' + shadowBox}}/>
-                  <div className="card-overlay"></div></>
+                  portOpen ? (
+                    <></>
+                  ) : (
+                    <div className="card-name">
+                      <div>{work.name}</div>
+                    </div>
+                  )
+                ) : (
+                  <></>
+                )}
+                <>
+                  <img
+                    className="card-image"
+                    id="img"
+                    alt="Project Logo"
+                    src={mapImg}
+                    style={
+                      mouseOver.toggle && work.id === mouseOver.id
+                        ? { boxShadow: "0 0 1rem 0.7rem " }
+                        : { boxShadow: "0 0 0rem 0rem " }
+                    }
+                    onLoad={() => loadColors(mapImg)}
+                  />
+                  {/* <canvas id="canvas"></canvas> */}
+                  {/* <div className="card-overlay"></div> */}
+                </>
               </div>
-                          )}}</Palette>
             </>
           );
         })}
+
+      </div>
+      <div className="project-details">
+        <Details
+          projectData={projectData}
+          setProjectData={setProjectData}
+          portOpen={portOpen}
+          setPortOpen={setPortOpen}
+        />
       </div>
     </>
   );

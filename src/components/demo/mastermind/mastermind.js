@@ -1,16 +1,20 @@
 // Import React and necessary components/styles
 import React, { useState, useRef, useEffect } from "react";
 import { Button } from "react-bootstrap";
-import "./styles.css";
-import { codeMaker, codeBreaker } from ".//mastermind/assets/scripts/board.js";
+import "./mastermind.css";
+import { codeMaker, codeBreaker } from "./mastermind/scripts/board.js";
 import { SlArrowLeft } from "react-icons/sl";
+import { FaUserSecret } from "react-icons/fa";
+import { IconContext } from "react-icons";
+import {motion} from "framer-motion";
 
 // Main Mastermind component
-export function Mastermind() {
+export default function Mastermind({ setBioPanel, location, mindRef, setMindProp, setInProp, launchApp }) {
   // State variables
   const [gameOn, setGameOn] = useState(false);
   const [newGame, setNewGame] = useState(true);
   const [results, setResults] = useState([]);
+  const [secretCode, setSecretCode] = useState([]);
 
   // Sort results in reverse order
   const reversedResults = results.sort((a, b) => {
@@ -29,25 +33,28 @@ export function Mastermind() {
 
   // Function to start or restart the game
   const startGame = (e) => {
-    setGameOn((prevState) => !prevState);
-    setNewGame(true);
+    setGameOn(!gameOn);
+    setSecretCode(codeMaker());
+    setNewGame(!newGame);
     localStorage.removeItem("CodeGame");
     console.log("Game On!", gameOn, "New Game?", true);
     setResults([]);
+    console.log(secretCode);
   };
 
   // JSX structure of the Mastermind component
   return (
-    <div>
-      <div>
-        <SlArrowLeft />
-      </div>
-      <div>
-        <MasterSplash />
-      </div>
-      <Button onClick={startGame}>
-        {gameOn ? "Begin Game" : "Restart Game"}
-      </Button>
+    <div className={location + '-panel'} ref={mindRef}>
+          <MasterSplash setBioPanel={setBioPanel} location={location} setMindProp={setMindProp} setInProp={setInProp} launchApp={launchApp}/>
+        {/* </div>
+      </div> */}
+      <motion.div className={location + '-game-button'} onClick={startGame}>
+        {!gameOn && newGame
+          ? (<span className={location + '-button-text'} style={{"marginLeft": "auto", "transition": "inherit"}}>Begin</span>)
+          : gameOn && !newGame
+          ? (<span className={location + '-button-text'} style={{"marginLeft": "75cqw", "transition": "inherit"}}>Restart</span>)
+          : (<span className={location + '-button-text'} style={{"marginLeft": "auto", "transition": "inherit"}}>Begin</span>)}
+      </motion.div>
       <GameBoard
         gameOn={gameOn}
         results={results}
@@ -56,6 +63,9 @@ export function Mastermind() {
         colours={colours}
         setNewGame={setNewGame}
         newGame={newGame}
+        secretCode={secretCode}
+        setSecretCode={setSecretCode}
+        location={location}
       />
     </div>
   );
@@ -71,6 +81,9 @@ function GameBoard({
   colours,
   setNewGame,
   newGame,
+  secretCode,
+  setSecretCode,
+  location
 }) {
   // determine win state of the round.
   let winState;
@@ -89,6 +102,9 @@ function GameBoard({
     reversedResults,
     setNewGame,
     newGame,
+    secretCode,
+    setSecretCode,
+    location
   }) {
     // Check win state to render accordingly
 
@@ -107,11 +123,14 @@ function GameBoard({
             colours={colours}
             setNewGame={setNewGame}
             newGame={newGame}
+            secretCode={secretCode}
+            setSecretCode={setSecretCode}
           />
           <GameHistory
             results={results}
             colours={colours}
             reversedResults={reversedResults}
+            location={location}
           />
         </>
       );
@@ -128,7 +147,7 @@ function GameBoard({
   // JSX structure of the game board/banners
   return (
     <>
-      {gameOn ? (
+      {!gameOn && newGame ? (
         <div>Click the button to start!</div>
       ) : (
         <BoardDeploy
@@ -138,6 +157,9 @@ function GameBoard({
           reversedResults={reversedResults}
           setNewGame={setNewGame}
           newGame={newGame}
+          secretCode={secretCode}
+          setSecretCode={setSecretCode}
+          location={location}
         />
       )}
     </>
@@ -145,11 +167,23 @@ function GameBoard({
 }
 
 // Splash title component
-function MasterSplash() {
+export function MasterSplash({ setBioPanel, location,setMindProp, setInProp, launchApp}) {
   return (
     <>
+    <div className={location + '-head'}>
+        <div onClick={launchApp} className={location + '-back'}>
+          <SlArrowLeft />
+        </div>
+        {/* <div className={location + '-splash'}> */}
+        {/* <div className="master-logo"> */}
+      <IconContext.Provider value={{size: "25cqw"}} className="master-logo">
+      <FaUserSecret />
+      </IconContext.Provider>
+      {/* </div> */}
       <div className="master-splash">MASTERMIND</div>
-      <div className="master-slash">MASTERMIND</div>
+      {/* <div className="master-slash">MASTERMIND</div> */}
+      </div>
+      {/* </div> */}
     </>
   );
 }
@@ -161,16 +195,18 @@ function GameOn({
   newGame,
   setNewGame,
   colours,
+  secretCode,
+  setSecretCode,
 }) {
   const [choices, setChoices] = useState([null, null, null, null]);
   const [allChosen, setAllChosen] = useState(false);
-
+  console.log("LOOK HERE!", secretCode);
   // Submit your guess
 
   function handleSubmit() {
     console.log("Submitting!");
     setNewGame(false);
-    let codeResult = codeBreaker(choices);
+    let codeResult = codeBreaker(choices, secretCode);
     setResults(codeResult);
     setChoices([null, null, null, null]);
     setAllChosen(false);
@@ -196,6 +232,8 @@ function GameOn({
         setChoices={setChoices}
         setAllChosen={setAllChosen}
         colours={colours}
+        secretCode={secretCode}
+        setSecretCode={setSecretCode}
       />
     </div>
   );
@@ -207,10 +245,11 @@ function GameHistory({
   // Props
   reversedResults,
   colours,
+  location
 }) {
   // JSX structure of round history
   return (
-    <>
+    <div className={location + '-history'}>
       {reversedResults.map((hist, i) => {
         return (
           <div className="history-round">
@@ -219,7 +258,6 @@ function GameHistory({
               {hist[0].map((guess, i) => {
                 return (
                   <div style={{ backgroundColor: colours[guess] }}>
-                    {colours[guess]}
                   </div>
                 );
               })}
@@ -229,6 +267,7 @@ function GameHistory({
                 let scorePip;
                 if (score === 1) scorePip = "white";
                 if (score === 2) scorePip = "black";
+                if (score === 0) scorePip = "empty";
 
                 return (
                   <div
@@ -243,7 +282,7 @@ function GameHistory({
           </div>
         );
       })}
-    </>
+      </div>
   );
 }
 
@@ -251,9 +290,12 @@ function GameHistory({
 
 function GameChoices({
   // Props
-  choices, setChoices, setAllChosen, colours }) {
+  choices,
+  setChoices,
+  setAllChosen,
+  colours,
+}) {
   const [show, setShow] = useState();
-
 
   // How we handle the colour-selection popover
   const handlePopover = (i) => {

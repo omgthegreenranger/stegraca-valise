@@ -1,20 +1,7 @@
-import React, {
-  Component,
-  createRef,
-  useState,
-  useRef,
-  useEffect
-} from "react";
-import {
-  animated,
-  useSpring,
-  useTrail,
-  useChain,
-  Controller,
-  useScroll
-} from "@react-spring/web";
+import React, { useState } from "react";
+import { useScroll } from "@react-spring/web";
 import "./main.css";
-import { Splash, Portfolio } from "../index";
+import { Splash, Portfolio, NavBar, Bio, Mastermind } from "../index";
 import { wrapGrid } from "animate-css-grid";
 
 export default function MainPage(props) {
@@ -22,24 +9,45 @@ export default function MainPage(props) {
   const [thingsOpen, setThingsOpen] = useState(true);
   const { scrollYProgress } = useScroll();
   const [isLoaded, setIsLoaded] = useState(false);
+  const x = window.matchMedia("(max-width: 750px)");
+  const [peepingTom, setPeepingTom] = useState(x.matches)
 
+
+  x.addEventListener("change", () => {
+
+      setPeepingTom(x.matches)
+}
+  )
   return (
     <div
       className={
         thingsOpen ? `main-box main-expanded` : `main-box main-welcome`
       }
     >
-      <div className="splash-main">
-        {/* {thingsOpen ? `splash-main splash-show` : `splash-main splash-hide`}> */}
-        <Splash thingsOpen={thingsOpen} scrollYProgress={scrollYProgress} setIsLoaded={setIsLoaded} />
+      <div className="bar-left-splash">
+        <Splash
+          thingsOpen={thingsOpen}
+          scrollYProgress={scrollYProgress}
+          setIsLoaded={setIsLoaded}
+          peepingTom={peepingTom}
+        />
         {thingsOpen}
       </div>
-      {/* <div className="heading"
-      onClick={()=> portfolioExpand()} >
-        <h1>THIS IS MY PORTFOLIO OF THINGS</h1>
-      </div> */}
+      <div className="bar-left-nav">
+          <NavBar peepingTom={peepingTom} />
+      </div>
+      <div className="bar-left-bio">
+        <Bio peepingTom={peepingTom} />
+      </div>
       <div className="portfolio-main">
-        <Portfolio thingsOpen={thingsOpen} setThingsOpen={setThingsOpen} scrollYProgress={scrollYProgress} isLoaded={isLoaded} setIsLoaded={setIsLoaded} />
+        <Portfolio
+          thingsOpen={thingsOpen}
+          setThingsOpen={setThingsOpen}
+          scrollYProgress={scrollYProgress}
+          isLoaded={isLoaded}
+          setIsLoaded={setIsLoaded}
+          peepingTom={peepingTom}
+        />
       </div>
     </div>
   );
