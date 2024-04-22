@@ -1,8 +1,8 @@
 {
-  "name": "stegraca-valise",
+  "name": "cardiecraft-valise",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://valise.stegra.ca",
+  "homepage": "http://www.cardiecraft.ca/valise",
   "dependencies": {
     "@jridgewell/sourcemap-codec": "^1.4.15",
     "@react-spring/web": "^9.7.2",
