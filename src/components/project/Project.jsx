@@ -4,7 +4,6 @@ import { Demos, Details } from "../index";
 import { Tab, Tabs } from "react-bootstrap";
 import projectDB from "../project/projects.json";
 import monkey from "./images/typing_monkey.svg";
-// import {Palette, usePalette } from "react-palette";
 import { GiSpy } from "react-icons/gi";
 import ColorDetector from "color-image-detector";
 
