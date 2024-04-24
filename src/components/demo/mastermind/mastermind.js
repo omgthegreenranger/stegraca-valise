@@ -13,14 +13,8 @@ export default function Mastermind({ setBioPanel, location, nodeRef, setMindProp
   // State variables
   const [gameOn, setGameOn] = useState(false);
   const [newGame, setNewGame] = useState(true);
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState();
   const [secretCode, setSecretCode] = useState([]);
-
-  // Sort results in reverse order
-  const reversedResults = results.sort((a, b) => {
-    return b[3] - a[3];
-  });
-
   // Colour options for the game
   const colours = [
     "#EE4266",
@@ -31,28 +25,42 @@ export default function Mastermind({ setBioPanel, location, nodeRef, setMindProp
     "#05A8AA",
   ];
 
-  // Function to start or restart the game
+
+  // return (
+  //   <div>
+  //     <MasterSplash />
+  //     <GameControls />
+  //     <GameOn />
+  //       <GameBoard />
+  //       <GameHistory />
+  //   </div>
+  // )
+
+
+  // // Function to start or restart the game
   const startGame = (e) => {
     setGameOn(!gameOn);
     setSecretCode(codeMaker());
     setNewGame(!newGame);
     // localStorage.removeItem("CodeGame");
-    console.log("Game On!", gameOn, "New Game?", true);
-    setResults([]);
+    setResults(localStorage.getItem(JSON.stringify("CodeGame")));
     console.log(secretCode);
   };
 
-  // JSX structure of the Mastermind component
+  // // JSX structure of the Mastermind component
   return (
     <div className={location + '-panel'} ref={nodeRef}>
       <div>
         <MasterSplash setBioPanel={setBioPanel} location={location} setMindProp={setMindProp} setInProp={setInProp} launchApp={launchApp} />
-        {gameOn ? <><p>You have <b>12 rounds</b> to guess the Mastermind's code!</p><Button className={location + '-button-text'} onClick={startGame}>Restart</Button></> : <Button className={location + '-button-text'} onClick={startGame}>Begin</Button>}
+        {gameOn ?
+          <><p>You have <b>12 rounds</b> to guess the Mastermind's code!</p><Button className={location + '-button-text'} onClick={startGame}>Restart</Button></>
+          :
+          <Button className={location + '-button-text'} onClick={startGame}>Begin</Button>}
         <GameBoard
           gameOn={gameOn}
           results={results}
           setResults={setResults}
-          reversedResults={reversedResults}
+          // reversedResults={reversedResults}
           colours={colours}
           setNewGame={setNewGame}
           newGame={newGame}
@@ -65,13 +73,38 @@ export default function Mastermind({ setBioPanel, location, nodeRef, setMindProp
   );
 }
 
+
+// Splash title component
+
+export function MasterSplash({ setBioPanel, location, setMindProp, setInProp, launchApp }) {
+  return (
+    <>
+      <div className={location + '-head'}>
+        <div onClick={launchApp} className={location + '-back'}>
+          <SlArrowLeft />
+        </div>
+        {/* <div className={location + '-splash'}> */}
+        {/* <div className="master-logo"> */}
+        <IconContext.Provider value={{ size: "25cqw" }} className="master-logo">
+          <FaUserSecret />
+        </IconContext.Provider>
+        {/* </div> */}
+        <div className="master-splash">MASTERMIND</div>
+        {/* <div className="master-slash">MASTERMIND</div> */}
+      </div>
+      {/* </div> */}
+    </>
+  );
+}
+
+
 // Gameboard component
 function GameBoard({
   // Props
   gameOn,
   results,
   setResults,
-  reversedResults,
+  // reversedResults,
   colours,
   setNewGame,
   newGame,
@@ -79,6 +112,19 @@ function GameBoard({
   setSecretCode,
   location
 }) {
+  // Sort results in reverse order
+  const resultsPrep = () => {
+    if (newGame === true) {
+      return results
+    } else if (newGame === false) {
+      results.sort((a, b) => {
+        return b[3] - a[3];
+      })
+    }
+  }
+
+  const reversedResults = resultsPrep;
+  console.log(reversedResults)
   // determine win state of the round.
   let winState;
   if (!reversedResults[0]) {
@@ -156,28 +202,6 @@ function GameBoard({
           location={location}
         />
       )}
-    </>
-  );
-}
-
-// Splash title component
-export function MasterSplash({ setBioPanel, location, setMindProp, setInProp, launchApp }) {
-  return (
-    <>
-      <div className={location + '-head'}>
-        <div onClick={launchApp} className={location + '-back'}>
-          <SlArrowLeft />
-        </div>
-        {/* <div className={location + '-splash'}> */}
-        {/* <div className="master-logo"> */}
-        <IconContext.Provider value={{ size: "25cqw" }} className="master-logo">
-          <FaUserSecret />
-        </IconContext.Provider>
-        {/* </div> */}
-        <div className="master-splash">MASTERMIND</div>
-        {/* <div className="master-slash">MASTERMIND</div> */}
-      </div>
-      {/* </div> */}
     </>
   );
 }
