@@ -260,15 +260,15 @@ function ProjectDetails(props) {
           >
             <div className="sidebar-headers">Tech Stack</div>
             <ListGroup>
-              {work.techTags.map((tag) => {
-                return <ListGroup.Item>{tag}</ListGroup.Item>;
+              {work.techTags.map((tag, i) => {
+                return <ListGroup.Item key={i}>{tag}</ListGroup.Item>;
               })}
             </ListGroup>
             <div className="sidebar-headers">Contributing team</div>
             <ListGroup>
-              {work.team.map((mem) => {
+              {work.team.map((mem, i) => {
                 return (
-                  <ListGroup.Item>
+                  <ListGroup.Item key={i}>
                     <a href={mem.url} target="_blank" rel="noreferrer">
                       {mem.name}
                     </a>

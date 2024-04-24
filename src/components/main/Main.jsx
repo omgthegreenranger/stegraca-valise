@@ -3,6 +3,8 @@ import { useScroll } from "@react-spring/web";
 import "./main.css";
 import { Splash, Portfolio, NavBar, Bio, Mastermind } from "../index";
 import { wrapGrid } from "animate-css-grid";
+import "../../functions/functions";
+import useWindowDimensions from "../../functions/functions";
 
 export default function MainPage(props) {
   const [scrollToTop, setScrollToTop] = useState();
@@ -13,11 +15,13 @@ export default function MainPage(props) {
   const [peepingTom, setPeepingTom] = useState(x.matches)
 
 
-  x.addEventListener("change", () => {
+  console.log(useWindowDimensions())
 
-      setPeepingTom(x.matches)
-}
+  x.addEventListener("change", () => {
+    setPeepingTom(x.matches)
+  }
   )
+
   return (
     <div
       className={
@@ -34,7 +38,7 @@ export default function MainPage(props) {
         {thingsOpen}
       </div>
       <div className="bar-left-nav">
-          <NavBar peepingTom={peepingTom} />
+        <NavBar peepingTom={peepingTom} />
       </div>
       <div className="bar-left-bio">
         <Bio peepingTom={peepingTom} />

@@ -133,9 +133,7 @@ function ProjectDisplay(props) {
           const mapImg =
             work.logo === "" ? monkey : require(`./images/${work.logo}`);
 
-          return (
-            <>
-            {/* <button value="load imagem" onClick={() => loadColors()}>Hello</button> */}
+          return (           
               <div
                 className={
                   portOpen
@@ -179,7 +177,6 @@ function ProjectDisplay(props) {
                   {/* <div className="card-overlay"></div> */}
                 </>
               </div>
-            </>
           );
         })}
 

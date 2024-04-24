@@ -115,11 +115,10 @@
 
 .biomind-panel {
     display: grid;
-    margin: 3px;
-    width: 100cqw;
+    padding: 10px;
+    border: 1px solid white;
     background-color: rgba(0,0,0,0.15);
-    padding: 5cqw;
-    container-type: inline-size;
+    border-radius: 10px;
 }
 
 .biomind-head {
@@ -169,19 +168,19 @@
 
 
 .masterpanel-enter {
-    opacity: 1;
+    opacity: 0;
 }
 .masterpanel-enter-active {
     opacity: 1;
     transition: opacity 1000ms, transform 1000ms;
-    border: 1px solid white;
+    height:100%;
   }
 .masterpanel-exit {
-    opacity: 0;
+    opacity: 1;
+    height: 100%;
   }
 
 .masterpanel-exit-active {
     opacity: 0;
     transition: opacity 1000ms, transform 1000ms;
   }
-  

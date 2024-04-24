@@ -6,10 +6,10 @@ import { codeMaker, codeBreaker } from "./mastermind/scripts/board.js";
 import { SlArrowLeft } from "react-icons/sl";
 import { FaUserSecret } from "react-icons/fa";
 import { IconContext } from "react-icons";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 
 // Main Mastermind component
-export default function Mastermind({ setBioPanel, location, mindRef, setMindProp, setInProp, launchApp }) {
+export default function Mastermind({ setBioPanel, location, nodeRef, setMindProp, setInProp, launchApp }) {
   // State variables
   const [gameOn, setGameOn] = useState(false);
   const [newGame, setNewGame] = useState(true);
@@ -36,7 +36,7 @@ export default function Mastermind({ setBioPanel, location, mindRef, setMindProp
     setGameOn(!gameOn);
     setSecretCode(codeMaker());
     setNewGame(!newGame);
-    localStorage.removeItem("CodeGame");
+    // localStorage.removeItem("CodeGame");
     console.log("Game On!", gameOn, "New Game?", true);
     setResults([]);
     console.log(secretCode);
@@ -44,29 +44,23 @@ export default function Mastermind({ setBioPanel, location, mindRef, setMindProp
 
   // JSX structure of the Mastermind component
   return (
-    <div className={location + '-panel'} ref={mindRef}>
-          <MasterSplash setBioPanel={setBioPanel} location={location} setMindProp={setMindProp} setInProp={setInProp} launchApp={launchApp}/>
-        {/* </div>
-      </div> */}
-      <motion.div className={location + '-game-button'} onClick={startGame}>
-        {!gameOn && newGame
-          ? (<span className={location + '-button-text'} style={{"marginLeft": "auto", "transition": "inherit"}}>Begin</span>)
-          : gameOn && !newGame
-          ? (<span className={location + '-button-text'} style={{"marginLeft": "75cqw", "transition": "inherit"}}>Restart</span>)
-          : (<span className={location + '-button-text'} style={{"marginLeft": "auto", "transition": "inherit"}}>Begin</span>)}
-      </motion.div>
-      <GameBoard
-        gameOn={gameOn}
-        results={results}
-        setResults={setResults}
-        reversedResults={reversedResults}
-        colours={colours}
-        setNewGame={setNewGame}
-        newGame={newGame}
-        secretCode={secretCode}
-        setSecretCode={setSecretCode}
-        location={location}
-      />
+    <div className={location + '-panel'} ref={nodeRef}>
+      <div>
+        <MasterSplash setBioPanel={setBioPanel} location={location} setMindProp={setMindProp} setInProp={setInProp} launchApp={launchApp} />
+        {gameOn ? <><p>You have <b>12 rounds</b> to guess the Mastermind's code!</p><Button className={location + '-button-text'} onClick={startGame}>Restart</Button></> : <Button className={location + '-button-text'} onClick={startGame}>Begin</Button>}
+        <GameBoard
+          gameOn={gameOn}
+          results={results}
+          setResults={setResults}
+          reversedResults={reversedResults}
+          colours={colours}
+          setNewGame={setNewGame}
+          newGame={newGame}
+          secretCode={secretCode}
+          setSecretCode={setSecretCode}
+          location={location}
+        />
+      </div>
     </div>
   );
 }
@@ -148,7 +142,7 @@ function GameBoard({
   return (
     <>
       {!gameOn && newGame ? (
-        <div>Click the button to start!</div>
+        <></>
       ) : (
         <BoardDeploy
           results={results}
@@ -167,21 +161,21 @@ function GameBoard({
 }
 
 // Splash title component
-export function MasterSplash({ setBioPanel, location,setMindProp, setInProp, launchApp}) {
+export function MasterSplash({ setBioPanel, location, setMindProp, setInProp, launchApp }) {
   return (
     <>
-    <div className={location + '-head'}>
+      <div className={location + '-head'}>
         <div onClick={launchApp} className={location + '-back'}>
           <SlArrowLeft />
         </div>
         {/* <div className={location + '-splash'}> */}
         {/* <div className="master-logo"> */}
-      <IconContext.Provider value={{size: "25cqw"}} className="master-logo">
-      <FaUserSecret />
-      </IconContext.Provider>
-      {/* </div> */}
-      <div className="master-splash">MASTERMIND</div>
-      {/* <div className="master-slash">MASTERMIND</div> */}
+        <IconContext.Provider value={{ size: "25cqw" }} className="master-logo">
+          <FaUserSecret />
+        </IconContext.Provider>
+        {/* </div> */}
+        <div className="master-splash">MASTERMIND</div>
+        {/* <div className="master-slash">MASTERMIND</div> */}
       </div>
       {/* </div> */}
     </>
@@ -252,7 +246,7 @@ function GameHistory({
     <div className={location + '-history'}>
       {reversedResults.map((hist, i) => {
         return (
-          <div className="history-round">
+          <div className="history-round" key={i}>
             <div className="round-number">{hist[3]}</div>
             <div className="round-guesses">
               {hist[0].map((guess, i) => {
@@ -282,7 +276,7 @@ function GameHistory({
           </div>
         );
       })}
-      </div>
+    </div>
   );
 }
 

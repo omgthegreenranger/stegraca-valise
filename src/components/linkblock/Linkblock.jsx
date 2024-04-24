@@ -57,16 +57,7 @@ function TechLine(props) {
   ];
 
   return (
-    <div className="tech-block"
-      // style={{
-      //   gridArea: "tech",
-      //   display: "flex",
-      //   flex: "0 0",
-      //   flexDirection: "row",
-      //   justifyContent: "space-evenly",
-      //   containerType: "inline-size",
-      // }}
-    >
+    <div className="tech-block">
       {techList.map((techs, key) => {
         let usedIcon = "tech-icons";
         if (hoverWork) {
@@ -78,11 +69,9 @@ function TechLine(props) {
           }
         }
         return (
-          <>
             <div className={usedIcon} key={key}>
               {techs.icon}
             </div>
-          </>
         );
       })}
     </div>
