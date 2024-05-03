@@ -1,0 +1,60 @@
+.front-layout {
+    width: 100%;
+    height: 100%;
+}
+
+.front-splash {
+    background-color: rgba(58, 58, 58, 0.4);
+    display: grid;
+    justify-items: center;
+    container-type: inline-size;
+}
+
+.front-welcome {
+    font-family: var(--font-righteous);
+}
+
+.front-craft {
+    font-size:8cqw;
+    line-height:15cqw;
+    text-decoration: underline;
+}
+
+.front-title{
+    display: grid;
+    grid-template-columns: auto auto;
+    /* background-color: rgba(255, 0, 0, 0.479); */
+    border-radius: 5cqw;
+    margin-top:auto;
+}
+
+.front-craft::first-letter {
+    font-size:15cqw;
+    vertical-align:text-top;
+}
+
+
+.front-tag {
+    font-size: 4cqw;
+    color: white;
+    font-family: var(--font-righteous);
+}
+
+.front-business {
+    background-color: green;
+}
+
+.front-page {
+    background-color: green;
+    container-type: inline-size;
+    display: grid;
+    grid-gap: 5ch;
+    padding: 1rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+.front-cards {
+    width: auto;
+    padding: 1rem;
+    border: 10px white solid;
+}

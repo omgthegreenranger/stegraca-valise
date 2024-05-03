@@ -5,7 +5,18 @@ import "./navbar.css";
 import { IconContext } from "react-icons";
 import { animated, useSprings } from "@react-spring/web";
 
-export default function NavBar(props) {
+export default function NavBar({position}) {
+
+  let dimension;
+  let barstyle;
+
+  if (position === "top") {
+    dimension = '1cqw';
+    barstyle = `padding: 0 0.5cqw 0 0.5cqw;`
+    };
+  if (position === "portfolio") {
+    dimension = '2rem';
+  }
   const contacts = [
     {
       id: "github",
@@ -46,10 +57,10 @@ export default function NavBar(props) {
   return (
     <>
       <ul className="nav-bar">
-        <IconContext.Provider value={{ size: "2em" }}>
-          {springs.map((props, key) => (
-            <animated.li id={contacts[key].id} style={props} key={key}>
-              <a className="nav-btn" href={contacts[key].link}>
+        <IconContext.Provider value={{ size: dimension }}>
+          {springs.map((spring, key) => (
+            <animated.li id={contacts[key].id} style={spring} key={key}>
+              <a className={`nav-btn nav-${position}`} href={contacts[key].link}>
                 <div>{contacts[key].icon}</div>
               </a>
             </animated.li>

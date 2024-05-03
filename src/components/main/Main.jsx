@@ -38,7 +38,7 @@ export default function MainPage(props) {
         {thingsOpen}
       </div>
       <div className="bar-left-nav">
-        <NavBar peepingTom={peepingTom} />
+        <NavBar peepingTom={peepingTom} position="portfolio" />
       </div>
       <div className="bar-left-bio">
         <Bio peepingTom={peepingTom} />

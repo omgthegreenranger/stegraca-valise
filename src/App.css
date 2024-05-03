@@ -11,8 +11,10 @@
   --font-roboto: 'Roboto Slab', serif;
   --font-secular: 'Secular One', sans-serif;
   --font-sigman: 'Sigmar', cursive;
+  --font-rubik: 'Rubik Mono One', sans-serif;
   --boundary-color: white;
 }
+
 
 
 .top-border {
@@ -66,9 +68,21 @@
 }
 
 .main {  
+  /* background: rgba(0, 100, 0, 1); */
+  /* margin: auto; */
+  /* padding: 3rem; */
+}
+
+.valise {
   background: rgba(0, 100, 0, 1);
-  /* margin: auto;
-  min-height: 100vh; */
+
+}
+
+.front {
+  background-image: url('./components/front/images/pillars.png');
+  background-size: cover;
+  min-height: 100vh;
+  padding: 3rem;
 }
 
 .retained {
@@ -90,4 +104,11 @@
 
 ::-webkit-scrollbar-thumb {
   background: green;
+}
+
+.craft {
+  font-family: var(--font-rubik);
+  color: white;
+  -webkit-text-stroke-color:black;
+  -webkit-text-stroke-width:medium;
 }

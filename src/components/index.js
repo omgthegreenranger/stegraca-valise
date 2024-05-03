@@ -8,5 +8,7 @@ import MainPage from './main';
 import Portfolio from './portfolio';
 import Demos from './demo';
 import Mastermind from './demo/mastermind/mastermind';
+import Front from './front'
+import Frames from './frames'
 
-export { MainPage, Projects, Details, NavBar, Bio, Linkblock, Splash, Portfolio, Demos, Mastermind};
+export { MainPage, Projects, Details, NavBar, Bio, Linkblock, Splash, Portfolio, Demos, Mastermind, Front, Frames};
