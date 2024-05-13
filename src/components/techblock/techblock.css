@@ -1,6 +1,6 @@
 .tech-icons {
   font-size: 7cqw;
-  /* color: var(--port-font-col); */
+  color: var(--font-col);
   margin-bottom: 1cqw;
   margin-top: 1cqw;
   display: flex;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./linkblock.css";
+import "./techblock.css";
 import {
   SiJavascript,
   SiCss3,
@@ -26,7 +26,7 @@ import {
   // easeInBounce,
 } from "@react-spring/web";
 
-export default function Linkblock(props) {
+export default function Techblock(props) {
   const { isLoaded, hoverWork } = props;
 
   // const attributes = { fill: "red", stroke: "black" };

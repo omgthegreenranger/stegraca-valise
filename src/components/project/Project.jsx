@@ -64,11 +64,6 @@ export default function Project(props) {
             />
           </div>
         </Tab>
-        <Tab eventKey="fun-stuff" title="Things to do">
-          <div className="projectpanels">
-            <Demos />
-          </div>
-        </Tab>
       </Tabs>
       <div
         className={

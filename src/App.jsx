@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Front, Frames } from "./components";
+import { Main, Frames } from "./components";
 
 const App = () => {
   const [frontNav, setFrontNav] = useState(true);
@@ -8,7 +8,7 @@ const App = () => {
     <>
       <Frames layout="topbar" frontNav={frontNav} setFrontNav={setFrontNav} />
       <div className="main front">
-        <Front frontNav={frontNav} setFrontNav={setFrontNav} />
+        <Main frontNav={frontNav} setFrontNav={setFrontNav} />
       </div>
     </>
   )

@@ -5,7 +5,7 @@ import {
   useTransition,
 } from "@react-spring/web";
 import "./portfolio.css";
-import { Linkblock, Projects, Details } from "../index";
+import { Techblock, Projects, Details } from "../index";
 
 export default function Portfolio(props) {
   const { thingsOpen, setThingsOpen, scrollYProgress, isLoaded, setIsLoaded } = props;
@@ -33,8 +33,9 @@ export default function Portfolio(props) {
         className="portfolio-body"
       >
         <div className="portfolio-block portfolio-linkblock">
+          <div>STEPHEN CARDIE - FULLSTACK WEB DEVELOPER</div>
           <div className="project linkblock">
-            <Linkblock isLoaded={isLoaded} setIsLoaded={setIsLoaded} hoverWork={hoverWork} />
+            <Techblock isLoaded={isLoaded} setIsLoaded={setIsLoaded} hoverWork={hoverWork} />
           </div>
         </div>
         <div direction={"right"} className="portfolio-block portfolio-complete">

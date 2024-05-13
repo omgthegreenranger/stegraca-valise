@@ -5,11 +5,6 @@ import "./biography.css";
 import { Mastermind } from "../index";
 import bio_text from './bio.json';
 import { Transition, CSSTransition } from 'react-transition-group';
-// import {
-//    animated, useTrail, SpringValue, useSpring, useSprings, useChain, useSpringRef, useTransition
-// } from "@react-spring/web";
-// import { motion, useTime, AnimatePresence, useAnimationControls, useAnimate } from "framer-motion";
-
 
 export default function Bio({ peepingTom }) {
   const [bioPanel, setBioPanel] = useState(false);
