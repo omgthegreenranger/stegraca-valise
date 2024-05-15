@@ -33,7 +33,6 @@ export default function Portfolio(props) {
         className="portfolio-body"
       >
         <div className="portfolio-block portfolio-linkblock">
-          <div>STEPHEN CARDIE - FULLSTACK WEB DEVELOPER</div>
           <div className="project linkblock">
             <Techblock isLoaded={isLoaded} setIsLoaded={setIsLoaded} hoverWork={hoverWork} />
           </div>

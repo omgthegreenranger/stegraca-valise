@@ -123,6 +123,7 @@
   border-radius: 1rem;
   grid-column: 2 / 3;
   grid-row: 2 / -1;
+  background-color: rgba(128, 128, 128,0.5);
 }
 
 .project-desc {

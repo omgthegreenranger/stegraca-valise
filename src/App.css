@@ -78,12 +78,12 @@
 }
 
 .valise {
-  background: rgba(0, 100, 0, 1);
+  background: black;
 
 }
 
 .front {
-  background: url('./components/front/images/pillars.png');
+  background: url('./components/main/images/pillars.png');
   background-size: cover;
   min-height: 100vh;
   padding: 3rem;
@@ -107,7 +107,9 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: green;
+  background: rgba(0, 0, 0, 0.877);
+  position:fixed;
+
 }
 
 .craft {

@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from "react";
 import './frames.css';
-import {NavBar} from '../index'
+import {Contact} from '../index'
 
 export default function Frames({ layout, frontNav, setFrontNav }) {
     const [time, setTime] = useState({
@@ -34,7 +34,7 @@ export default function Frames({ layout, frontNav, setFrontNav }) {
         <div className="frametop">
             <div className="top-elements top-craft craft" onClick={() => setFrontNav(true)}>CARDIECRAFT.CA</div>
             <div className="top-elements">{convertToTwoDigit(time.hours)}:{convertToTwoDigit(time.minutes)}:{convertToTwoDigit(time.seconds)}</div>
-            <div className="top-elements"><NavBar position="top" /></div>
+            <div className="top-elements"><Contact position="top" /></div>
         </div>
     )
 }
