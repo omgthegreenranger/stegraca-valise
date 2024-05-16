@@ -1,6 +1,7 @@
 :root {
   /* Font colours */
-  --font-col: white;
+  --font-col: black;
+  --font-alt-color:white;
   --port-font-col: black;
   /* Various Font variables */
   --font-marker: 'Permanent Marker', cursive;
@@ -14,9 +15,11 @@
   --font-sigman: 'Sigmar', cursive;
   --font-rubik: 'Rubik Mono One', sans-serif;
   /* formatting colours */
-  --block-back: rgba(171, 163, 97, 0.5);
+  --site-back: rgb(192, 192, 192);
+  --block-back: rgba(171, 163, 97, 0.5) */;
   --boundary-color: white;
   --panel-back: rgba(58, 58, 58, 0.4);
+  --select-colours: /* #ffff003a */ rgba(58, 58, 58, 0.4);
 }
 
 
@@ -73,6 +76,7 @@
 
 .main {  
   /* background: rgba(0, 100, 0, 1); */
+  background-color: var(--site-back);
   /* margin: auto; */
   /* padding: 3rem; */
 }
@@ -83,7 +87,7 @@
 }
 
 .front {
-  background: url('./components/main/images/pillars.png');
+  /* background: url('./components/main/images/pillars.png'); */
   background-size: cover;
   min-height: 100vh;
   padding: 3rem;

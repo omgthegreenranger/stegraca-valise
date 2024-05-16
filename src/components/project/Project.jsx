@@ -24,7 +24,7 @@ export default function Project(props) {
 
   return (
     <>
-      <Tabs
+      {/* <Tabs
         defaultActiveKey="complete"
         className="tab-block navs"
         onClick={() => handleTransition()}
@@ -47,12 +47,13 @@ export default function Project(props) {
             />
           </div>
         </Tab>
-        <Tab eventKey="in-progress" title="Things I am making">
+        <Tab eventKey="in-progress" title="Things I am making"> */
           <div className="projectpanels">
             <ProjectDisplay
-              works={works.filter(function (work) {
-                return work.status === "in-progress";
-              })}
+              // works={works.filter(function (work) {
+              //   return work.status === "in-progress";
+              // })}
+              works={works}
               portOpen={portOpen}
               setPortOpen={setPortOpen}
               handleCards={handleCards}
@@ -60,18 +61,18 @@ export default function Project(props) {
               setProjectData={setProjectData}
               mouseOver={mouseOver}
               setMouseOver={setMouseOver}
-              section="in-progress"
+              // section="in-progress"
             />
           </div>
-        </Tab>
-      </Tabs>
-      <div
+      /*  </Tab>
+      </Tabs> */}
+      {/* <div
         className={
           portOpen ? "shortDesc shortDesc-shrunk" : "shortDesc shortDesc-big"
         }
       >
         <div className="shortDesc-desc">{mouseOver.shortDesc}</div>
-      </div>
+      </div> */}
     </>
   );
 }
@@ -144,17 +145,6 @@ function ProjectDisplay(props) {
                 }}
                 onClick={(e) => handleProjectClick(work)}
               >
-                {section === "in-progress" ? (
-                  portOpen ? (
-                    <></>
-                  ) : (
-                    <div className="card-name">
-                      <div>{work.name}</div>
-                    </div>
-                  )
-                ) : (
-                  <></>
-                )}
                 <>
                   <img
                     className="card-image"
@@ -176,6 +166,7 @@ function ProjectDisplay(props) {
         })}
 
       </div>
+
       <div className="project-details">
         <Details
           projectData={projectData}

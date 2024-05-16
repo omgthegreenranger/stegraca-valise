@@ -113,7 +113,7 @@ button.nav-link:hover {
 
 .cards-open {
     width: 100%;
-    grid-template-columns: repeat(3, 1fr)
+    grid-template-columns: repeat(2, 1fr)
     /* transition: all 1s ease-out; */
 }
 .cards-closed {
