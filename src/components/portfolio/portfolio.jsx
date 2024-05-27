@@ -13,11 +13,12 @@ export default function Portfolio(props) {
   const [projectData, setProjectData] = useState();
   const [hoverWork, setHoverWork] = useState([]);
   const [opacityValue, api] = useSpring(
-    ()=> ({
-    opacity: 0}));
+    () => ({
+      opacity: 0
+    }));
 
 
-  if (portOpen) api.start({opacity: 1,});
+  if (portOpen) api.start({ opacity: 1, });
   // if (!portOpen) api.start({opacity: 0,});
 
   const portfolioExpand = () => {
@@ -29,27 +30,17 @@ export default function Portfolio(props) {
   }
   return (
     <div className="portfolio">
-      <animated.div
-        className="portfolio-body"
-      >
-        <div className="portfolio-block portfolio-linkblock">
-          <div className="project linkblock">
-            <Techblock isLoaded={isLoaded} setIsLoaded={setIsLoaded} hoverWork={hoverWork} />
-          </div>
-        </div>
-        <div direction={"right"} className="portfolio-block portfolio-complete">
-          <Projects
-            portOpen={portOpen}
-            setPortOpen={setPortOpen}
-            projectData={projectData}
-            setProjectData={setProjectData}
-            setThingsOpen={setThingsOpen}
-            thingsOpen={thingsOpen}
-            hoverWork={hoverWork}
-            setHoverWork={setHoverWork}
-          />
-        </div>
-      </animated.div>
+      <Techblock isLoaded={isLoaded} setIsLoaded={setIsLoaded} hoverWork={hoverWork} />
+      <Projects
+        portOpen={portOpen}
+        setPortOpen={setPortOpen}
+        projectData={projectData}
+        setProjectData={setProjectData}
+        setThingsOpen={setThingsOpen}
+        thingsOpen={thingsOpen}
+        hoverWork={hoverWork}
+        setHoverWork={setHoverWork}
+      />
     </div>
   );
 }

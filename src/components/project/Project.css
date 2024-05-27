@@ -12,7 +12,11 @@
 .project-cards {
     display: grid;
     grid-auto-flow: row dense;
-    align-items: center;
+    align-items: start;
+}
+
+.work-info-block {
+    font-size: 1.5cqw;
 }
 
 button.nav-link {
@@ -101,6 +105,11 @@ button.nav-link:hover {
     /* transition: all ease-in-out 0.25s; */
 }
 
+.project-card-frame {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 2%;
+}
 
 .card-open {
     /* padding: 5px; */
@@ -113,7 +122,7 @@ button.nav-link:hover {
 
 .cards-open {
     width: 100%;
-    grid-template-columns: repeat(2, 1fr)
+    grid-template-columns: repeat(4, 1fr)
     /* transition: all 1s ease-out; */
 }
 .cards-closed {

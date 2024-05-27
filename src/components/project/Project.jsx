@@ -5,6 +5,8 @@ import { Tab, Tabs } from "react-bootstrap";
 import projectDB from "../project/projects.json";
 import monkey from "./images/typing_monkey.svg";
 import { GiSpy } from "react-icons/gi";
+import { FaRegCircleCheck } from "react-icons/fa6";
+import { PiDotsThreeCircle } from "react-icons/pi";
 import ColorDetector from "color-image-detector";
 
 export default function Project(props) {
@@ -24,55 +26,19 @@ export default function Project(props) {
 
   return (
     <>
-      {/* <Tabs
-        defaultActiveKey="complete"
-        className="tab-block navs"
-        onClick={() => handleTransition()}
-        fill
-      >
-        <Tab eventKey="complete" title="Things I made" className="">
-          <div className="projectpanels">
-            <ProjectDisplay
-              works={works.filter(function (work) {
-                return work.status === "complete";
-              })}
-              portOpen={portOpen}
-              setPortOpen={setPortOpen}
-              handleCards={handleCards}
-              projectData={projectData}
-              setProjectData={setProjectData}
-              mouseOver={mouseOver}
-              setMouseOver={setMouseOver}
-              section="complete"
-            />
-          </div>
-        </Tab>
-        <Tab eventKey="in-progress" title="Things I am making"> */
-          <div className="projectpanels">
-            <ProjectDisplay
-              // works={works.filter(function (work) {
-              //   return work.status === "in-progress";
-              // })}
-              works={works}
-              portOpen={portOpen}
-              setPortOpen={setPortOpen}
-              handleCards={handleCards}
-              projectData={projectData}
-              setProjectData={setProjectData}
-              mouseOver={mouseOver}
-              setMouseOver={setMouseOver}
-              // section="in-progress"
-            />
-          </div>
-      /*  </Tab>
-      </Tabs> */}
-      {/* <div
-        className={
-          portOpen ? "shortDesc shortDesc-shrunk" : "shortDesc shortDesc-big"
-        }
-      >
-        <div className="shortDesc-desc">{mouseOver.shortDesc}</div>
-      </div> */}
+      <div className="projectpanels">
+        <ProjectDisplay
+          works={works}
+          portOpen={portOpen}
+          setPortOpen={setPortOpen}
+          handleCards={handleCards}
+          projectData={projectData}
+          setProjectData={setProjectData}
+          mouseOver={mouseOver}
+          setMouseOver={setMouseOver}
+        // section="in-progress"
+        />
+      </div>
     </>
   );
 }
@@ -103,7 +69,7 @@ function ProjectDisplay(props) {
     console.log(img)
     let colordetector = new ColorDetector();
     let pallets = await colordetector.detectColorPalete(img);
- }
+  }
 
   return (
     <>
@@ -129,39 +95,24 @@ function ProjectDisplay(props) {
           const mapImg =
             work.logo === "" ? monkey : require(`./images/${work.logo}`);
 
-          return (           
-              <div
-                className={
-                  portOpen
-                    ? "project-card card-closed"
-                    : "project-card card-open"
-                }
-                key={key}
-                onMouseEnter={(e) => {
-                  handleMouseOver(e);
-                }}
-                onMouseLeave={(e) => {
-                  handleMouseLeave(e);
-                }}
-                onClick={(e) => handleProjectClick(work)}
-              >
-                <>
-                  <img
-                    className="card-image"
-                    id="img"
-                    alt="Project Logo"
-                    src={mapImg}
-                    style={
-                      mouseOver.toggle && work.id === mouseOver.id
-                        ? { boxShadow: "0 0 1rem 0.7rem " }
-                        : { boxShadow: "0 0 0rem 0rem " }
-                    }
-                    onLoad={() => loadColors(mapImg)}
-                  />
-                  {/* <canvas id="canvas"></canvas> */}
-                  {/* <div className="card-overlay"></div> */}
-                </>
-              </div>
+          return (
+            <div
+              className={
+                portOpen
+                  ? "project-card card-closed"
+                  : "project-card card-open"
+              }
+              key={key}
+              onMouseEnter={(e) => {
+                handleMouseOver(e);
+              }}
+              onMouseLeave={(e) => {
+                handleMouseLeave(e);
+              }}
+              onClick={(e) => handleProjectClick(work)}
+            >
+              <ProjectCard mapImg={mapImg} mouseOver={mouseOver} work={work} loadColors={loadColors} />
+            </div>
           );
         })}
 
@@ -177,4 +128,35 @@ function ProjectDisplay(props) {
       </div>
     </>
   );
+}
+
+
+function ProjectCard({ mapImg, mouseOver, work }) {
+
+  let mousedOver = mouseOver.toggle && work.id === mouseOver.id ? true : false
+  return (
+    <div className="project-card-frame"
+      style={
+        mousedOver
+          ? { boxShadow: "0 0 1rem 0.2rem" }
+          : { boxShadow: "0 0 0rem 0rem " }
+      }>
+      <img
+        className="card-image"
+        id="img"
+        alt="Project Logo"
+        src={mapImg}
+      />
+      <div className="work-info-block">
+        <div>{work.name}</div>
+        <div>{work.shortDesc}</div>
+        <div>
+          <span>{work.status === "complete" ? <FaRegCircleCheck />
+            : <PiDotsThreeCircle />
+          }</span>
+          <span>{mousedOver ? work.status : ""}</span>
+        </div>
+      </div>
+    </div>
+  )
 }

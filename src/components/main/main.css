@@ -127,6 +127,7 @@
     /* background-color: yellow; */
     container-type: inline-size;
     container-name: front-panel;
+    overflow: hidden;
 }
 
 
@@ -154,4 +155,21 @@
 
 @keyframes hide-scroll {
   from, to { overflow: hidden; } 
+}
+
+.home-panel {
+    display: grid;
+}
+
+.home-left-panel {
+    grid-column: 1/2;
+}
+
+.home-center-panel {
+    grid-column: 2/3;
+
+}
+
+.home-right-panel {
+    grid-column: 3/4;
 }

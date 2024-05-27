@@ -38,7 +38,7 @@
 }
 
 .tech-icons:hover svg {
-  color: var(--font-alt-color);
+  color: yellow;
   filter: drop-shadow(1px 1px 5px var(--select-colours));
   transform: scale(1.5);
   -webkit-transition-duration: 0.4s;
