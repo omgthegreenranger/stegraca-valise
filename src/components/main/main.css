@@ -173,3 +173,7 @@
 .home-right-panel {
     grid-column: 3/4;
 }
+
+.front-option span {
+    margin-right: 1rem;
+}

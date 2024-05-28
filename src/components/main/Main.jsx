@@ -1,32 +1,31 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Button, Tabs, Tab } from "react-bootstrap";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import "./main.css";
-import { SlArrowLeft } from "react-icons/sl";
-import { FaUserSecret } from "react-icons/fa";
-import { IconContext } from "react-icons";
-import { useAnimate, AnimatePresence, usePresence, motion, useMotionValue, stagger, easeIn, easeOut } from "framer-motion";
+import { useAnimate, AnimatePresence, usePresence, motion } from "framer-motion";
 import { Bio, Portfolio, Demos, Contact } from '../index'
-import { SwitchTransition, CSSTransition } from 'react-transition-group'
 import { gitGetUserEvents } from "../../functions/github";
+import { IoHomeSharp, IoBriefcase, IoPerson, IoPlay, IoChatbox, IoBook } from "react-icons/io5";
+import axios from 'axios';
+import projectDB from "../../functions/github.json";
+
 
 export default function Main({ frontNav, setFrontNav }) {
     const [navOpt, setNavOpt] = useState('home')
     const [hoverOpt, setHoverOpt] = useState("none")
     const [panelVis, setPanelVis] = useState(true);
     const [currentSel, setCurrentSel] = useState('home');
-    const [isPresent, safeToRemove] = usePresence();
 
     const navTo = (e) => {
         // setCurrentSel(navOpt)
-        if (navOpt === e.target.id) {
+        if (navOpt === e.target.parentElement.id) {
             console.log("Wait a minute!")
-        } else {setNavOpt(e.target.id);
+        } else {
+            setNavOpt(e.target.parentElement.id);
             console.log("Keep it going"
             )
             setPanelVis(false);
         }
         console.log(navOpt)
-        console.log("*** Dig it", e.target.id, navOpt)
+        console.log("*** Dig it", e.target.parentElement.id, navOpt)
 
     }
 
@@ -100,12 +99,12 @@ function FrontMenu({ navTo, setPanelVis, setCurrentSel, setNavOpt }) {
                 animate="visible"
                 variants={menuList}
             >
-                <motion.li variants={menuItem} id="home" className="front-option">Home</motion.li>
-                <motion.li variants={menuItem} id="about" className="front-option">About</motion.li>
-                <motion.li variants={menuItem} id="portfolio" className="front-option">Portfolio</motion.li>
-                <motion.li variants={menuItem} id="blog" className="front-option">Blog</motion.li>
-                <motion.li variants={menuItem} id="doings" className="front-option">Demos</motion.li>
-                <motion.li variants={menuItem} id="contact" className="front-option">Contact</motion.li>
+                <motion.li variants={menuItem} id="home" className="front-option"><span><IoHomeSharp /></span><span className="menu-text">Home</span></motion.li>
+                <motion.li variants={menuItem} id="about" className="front-option"><span><IoPerson /></span><span>About</span></motion.li>
+                <motion.li variants={menuItem} id="portfolio" className="front-option"><span><IoBriefcase /></span><span>Portfolio</span></motion.li>
+                <motion.li variants={menuItem} id="blog" className="front-option"><span><IoBook /></span><span>Blog</span></motion.li>
+                <motion.li variants={menuItem} id="doings" className="front-option"><span><IoPlay /></span><span>Demos</span></motion.li>
+                <motion.li variants={menuItem} id="contact" className="front-option"><span><IoChatbox /></span><span>Contact</span></motion.li>
             </motion.ul>
         </div>
     );
@@ -114,7 +113,6 @@ function FrontMenu({ navTo, setPanelVis, setCurrentSel, setNavOpt }) {
 
 function SelectedItem({ navOpt, frontNav, setFrontNav, panelVis, setPanelVis, currentSel, setCurrentSel }) {
     const [scope, animate] = useAnimate();
-    const [isPresent, safeToRemove] = usePresence();
     let middleDiv;
     let headline = "";
 
@@ -195,7 +193,61 @@ function Home() {
             <div className="home-center-panel">
                 <h3>COMING SOON</h3>
             </div>
-            <div className="home-right-panel">This is an site update stream, Blogposts, GitHub, etc.</div>
+            <div className="home-right-panel"><GitData /></div>
         </div>
     )
 }
+
+function GitData() {
+    const [gitData, setGitData] = useState(projectDB);
+    // useEffect(() => {
+        //Disabling API call for JSON instead
+    //     async function gitsen() {
+    //         try {
+    //             const searchMethod = "users";
+    //             const apiRoot = 'https://api.github.com/' + searchMethod + '/omgthegreenranger'
+    //             const gitGet = await axios.get(apiRoot + '/events/public')
+    //             const data = await gitGet.data;
+    //             console.log(data);
+    //             setGitData(data);
+    //         } catch(error) {
+    //             console.log(error)
+    //         }
+    //     }
+    //     if (!gitData) {
+    //         gitsen();
+    //     }
+    // }, [])
+    console.log("GitData!", gitData)
+
+    const eventType = {"CreateEvent": "New branch created", "PushEvent": "Pushed to branch - "}
+    
+
+return (
+            <div>
+                <div>
+                    {gitData.map(git => {
+                        let gitDeets = []
+                        if (git.type === "CreateEvent") {
+                            gitDeets[0] = "New branch created - " + git.payload.ref;
+                            gitDeets[1] = git.payload.ref;
+                        if (git.type === "PushEvent") {
+                            gitDeets[0] = "Pushed to branch - " + git.playload.ref.split("/")[2];
+                            gitDeets[1] = git.payload.ref.split("/")[2];}
+                         }
+                        
+        
+        return(
+            <>
+            <div>{git.type}</div>
+            <div><a href={'https://www.github.com/' + git.repo.name}>{git.repo.name.split("/")[1]}</a></div>
+            <div>{gitDeets[1]}</div>
+            <div>{git.created_at}</div>
+            <div>{gitDeets[0]}</div>
+            </>
+        )})}
+    
+                </div>
+            </div>
+        )
+    }
