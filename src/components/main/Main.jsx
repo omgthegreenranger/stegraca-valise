@@ -3,9 +3,10 @@ import "./main.css";
 import { useAnimate, AnimatePresence, usePresence, motion } from "framer-motion";
 import { Bio, Portfolio, Demos, Contact } from '../index'
 import { gitGetUserEvents } from "../../functions/github";
-import { IoHomeSharp, IoBriefcase, IoPerson, IoPlay, IoChatbox, IoBook } from "react-icons/io5";
+import { IoHomeSharp, IoBriefcase, IoPerson, IoPlay, IoChatbox, IoBook, IoArrowRedoCircleOutline, IoAddCircleOutline, IoGitMergeOutline, IoGitBranchOutline, IoGitPullRequestOutline } from "react-icons/io5";
 import axios from 'axios';
 import projectDB from "../../functions/github.json";
+import {format} from "date-fns";
 
 
 export default function Main({ frontNav, setFrontNav }) {
@@ -48,7 +49,10 @@ export default function Main({ frontNav, setFrontNav }) {
                 <div className="front-title">
                     <div className="front-craft craft">Cardie</div><div className="front-craft craft">Craft</div>
                 </div>
-                <div className="front-tag">Imagining a tomorrow of yesterday, today!</div>
+                <div className="front-tag">
+                    {/* Imagining a tomorrow of yesterday, today! */}
+                    by Stephen Cardie
+                </div>
             </div>
             <div className="front-bus-left"></div>
             <FrontMenu navTo={navTo} setPanelVis={setPanelVis} setCurrentSel={setCurrentSel} setNavOpt={setNavOpt} />
@@ -193,7 +197,9 @@ function Home() {
             <div className="home-center-panel">
                 <h3>COMING SOON</h3>
             </div>
-            <div className="home-right-panel"><GitData /></div>
+            <div className="home-right-panel">
+                <h5>Latest GitHub Activity</h5>
+                <GitData /></div>
         </div>
     )
 }
@@ -201,7 +207,7 @@ function Home() {
 function GitData() {
     const [gitData, setGitData] = useState(projectDB);
     // useEffect(() => {
-        //Disabling API call for JSON instead
+    //Disabling API call for JSON instead
     //     async function gitsen() {
     //         try {
     //             const searchMethod = "users";
@@ -220,34 +226,47 @@ function GitData() {
     // }, [])
     console.log("GitData!", gitData)
 
-    const eventType = {"CreateEvent": "New branch created", "PushEvent": "Pushed to branch - "}
-    
 
-return (
-            <div>
-                <div>
-                    {gitData.map(git => {
-                        let gitDeets = []
-                        if (git.type === "CreateEvent") {
-                            gitDeets[0] = "New branch created - " + git.payload.ref;
-                            gitDeets[1] = git.payload.ref;
-                        if (git.type === "PushEvent") {
-                            gitDeets[0] = "Pushed to branch - " + git.playload.ref.split("/")[2];
-                            gitDeets[1] = git.payload.ref.split("/")[2];}
-                         }
-                        
-        
-        return(
-            <>
-            <div>{git.type}</div>
-            <div><a href={'https://www.github.com/' + git.repo.name}>{git.repo.name.split("/")[1]}</a></div>
-            <div>{gitDeets[1]}</div>
-            <div>{git.created_at}</div>
-            <div>{gitDeets[0]}</div>
-            </>
-        )})}
-    
-                </div>
+    return (
+        <div className="feed">
+            {gitData.map(git => {
+                let gitDeets = []
+                if (git.type === "CreateEvent") {
+                    if(git.payload.ref_type === "branch") {
+                    gitDeets[0] = "New branch: ";
+                    gitDeets[1] = git.payload.ref;
+                    gitDeets[2] = <IoGitBranchOutline />
+                    gitDeets[3] = format(new Date(git.created_at), 'yyyy-MM-dd, hh:mm')
+                    gitDeets[4] = ''
+                    }
+                }
+                if (git.type === "PushEvent") {
+                    gitDeets[0] = "Pushed to ";
+                    gitDeets[1] = git.payload.ref.split("/")[2];
+                    gitDeets[2] = <IoArrowRedoCircleOutline />
+                    gitDeets[3] = format(new Date(git.created_at), 'yyyy-MM-dd, hh:mm')
+                    gitDeets[4] = git.payload.commits[0].message
+                }
+                if (git.type === "PullRequestEvent") {
+                    gitDeets[0] = "Pull request from";
+                    gitDeets[1] = git.payload.ref;
+                    gitDeets[2] = <IoGitPullRequestOutline />
+                    gitDeets[3] = format(new Date(git.created_at), 'yyyy-MM-dd, hh:mm')
+                    gitDeets[4] = ''
+                }
+                console.log(gitDeets);
+                return (
+            <div className="feed-block">
+                <div className="feed-type">{gitDeets[2]}</div>
+                <div className="feed-repo"><a href={'https://www.github.com/' + git.repo.name}>{git.repo.name.split("/")[1]}</a></div>
+                <div className="feed-title"><span>{gitDeets[0]}</span><span>{gitDeets[1]}</span></div>
+                <div className="feed-date">{gitDeets[3]}</div>
+                <div className="feed-details">{gitDeets[4]}</div>
             </div>
-        )
-    }
+            )
+            })}
+
+        </div>
+
+    )
+}

@@ -20,6 +20,7 @@
     "bootstrap": "^5.2.3",
     "cheerio": "^1.0.0-rc.12",
     "color-image-detector": "^1.0.3",
+    "date-fns": "^3.6.0",
     "eslint-config-react-app": "^7.0.1",
     "extract-colors": "^4.0.2",
     "framer-motion": "^11.0.20",
