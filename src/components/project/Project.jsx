@@ -111,7 +111,7 @@ function ProjectDisplay(props) {
               }}
               onClick={(e) => handleProjectClick(work)}
             >
-              <ProjectCard mapImg={mapImg} mouseOver={mouseOver} work={work} loadColors={loadColors} />
+              <ProjectCard mapImg={mapImg} mouseOver={mouseOver} work={work} loadColors={loadColors} portOpen={portOpen} />
             </div>
           );
         })}
@@ -131,7 +131,7 @@ function ProjectDisplay(props) {
 }
 
 
-function ProjectCard({ mapImg, mouseOver, work }) {
+function ProjectCard({ mapImg, mouseOver, work, portOpen }) {
 
   let mousedOver = mouseOver.toggle && work.id === mouseOver.id ? true : false
   return (
@@ -149,7 +149,7 @@ function ProjectCard({ mapImg, mouseOver, work }) {
       />
       <div className="work-info-block">
         <div>{work.name}</div>
-        <div>{work.shortDesc}</div>
+        {portOpen ? '' : <div>{work.shortDesc}</div>}
         <div>
           <span>{work.status === "complete" ? <FaRegCircleCheck />
             : <PiDotsThreeCircle />

@@ -58,6 +58,42 @@
 
 }
 
+
+.nav-panel-screen {
+    align-items: flex-start;
+    display: grid;
+}
+
+.nav-panel-btn {
+    color: var(--font-col);
+    text-decoration: none;
+    display:grid;
+    grid-template-rows:auto auto;
+    align-items: center;
+    justify-content: start;
+    grid-gap: 1rem;
+}
+
+.nav-panel-btn:hover {
+    color: yellow;
+    cursor:pointer;
+}
+.nav-panel-btn:hover .nav-panel-title {
+    opacity: 1;
+}
+
+.nav-panel-title {
+    grid-area: nav-title;
+    /* font-size: 2cqw; */
+    color:white;
+    font-weight: bold;
+    writing-mode: vertical-rl;
+    text-orientation:sideways;
+    margin-top: 1rem;
+    opacity: 0;
+    transition: opacity ease-in-out 0.2s;
+}
+
 @keyframes slide-in {
     0% {
         transform: translateY(0)

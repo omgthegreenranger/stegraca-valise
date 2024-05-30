@@ -6,8 +6,8 @@ import { gitGetUserEvents } from "../../functions/github";
 import { IoHomeSharp, IoBriefcase, IoPerson, IoPlay, IoChatbox, IoBook, IoArrowRedoCircleOutline, IoAddCircleOutline, IoGitMergeOutline, IoGitBranchOutline, IoGitPullRequestOutline } from "react-icons/io5";
 import axios from 'axios';
 import projectDB from "../../functions/github.json";
-import {format} from "date-fns";
-
+import { format } from "date-fns";
+import { IconContext } from "react-icons";
 
 export default function Main({ frontNav, setFrontNav }) {
     const [navOpt, setNavOpt] = useState('home')
@@ -205,43 +205,48 @@ function Home() {
 }
 
 function GitData() {
-    const [gitData, setGitData] = useState(projectDB);
+    const [gitData, setGitData] = useState([]);
+    const [gitGot, setGitGot] = useState(false);
     // useEffect(() => {
-    //Disabling API call for JSON instead
-    //     async function gitsen() {
-    //         try {
-    //             const searchMethod = "users";
-    //             const apiRoot = 'https://api.github.com/' + searchMethod + '/omgthegreenranger'
-    //             const gitGet = await axios.get(apiRoot + '/events/public')
-    //             const data = await gitGet.data;
-    //             console.log(data);
-    //             setGitData(data);
-    //         } catch(error) {
-    //             console.log(error)
-    //         }
-    //     }
-    //     if (!gitData) {
-    //         gitsen();
-    //     }
-    // }, [])
+    // Disabling API call for JSON instead
+    async function gitsen() {
+        try {
+            const searchMethod = "users";
+            const apiRoot = 'https://api.github.com/' + searchMethod + '/omgthegreenranger'
+            const gitGet = await axios.get(apiRoot + '/events/public')
+            const data = await gitGet.data;
+            console.log(data);
+            setGitData(data);
+            setGitGot(true);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    if (!gitGot) {
+        gitsen();
+    }
+    // }, [gitGot])
+
+
     console.log("GitData!", gitData)
 
 
     return (
         <div className="feed">
-            {gitData.map(git => {
+            {gitData.map((git, i) => {
+                if(i < 5) {
                 let gitDeets = []
                 if (git.type === "CreateEvent") {
-                    if(git.payload.ref_type === "branch") {
-                    gitDeets[0] = "New branch: ";
-                    gitDeets[1] = git.payload.ref;
-                    gitDeets[2] = <IoGitBranchOutline />
-                    gitDeets[3] = format(new Date(git.created_at), 'yyyy-MM-dd, hh:mm')
-                    gitDeets[4] = ''
+                    if (git.payload.ref_type === "branch") {
+                        gitDeets[0] = "New branch";
+                        gitDeets[1] = git.payload.ref;
+                        gitDeets[2] = <IoGitBranchOutline />
+                        gitDeets[3] = format(new Date(git.created_at), 'yyyy-MM-dd, hh:mm')
+                        gitDeets[4] = ''
                     }
                 }
                 if (git.type === "PushEvent") {
-                    gitDeets[0] = "Pushed to ";
+                    gitDeets[0] = "Pushed to branch";
                     gitDeets[1] = git.payload.ref.split("/")[2];
                     gitDeets[2] = <IoArrowRedoCircleOutline />
                     gitDeets[3] = format(new Date(git.created_at), 'yyyy-MM-dd, hh:mm')
@@ -256,15 +261,27 @@ function GitData() {
                 }
                 console.log(gitDeets);
                 return (
-            <div className="feed-block">
-                <div className="feed-type">{gitDeets[2]}</div>
-                <div className="feed-repo"><a href={'https://www.github.com/' + git.repo.name}>{git.repo.name.split("/")[1]}</a></div>
-                <div className="feed-title"><span>{gitDeets[0]}</span><span>{gitDeets[1]}</span></div>
-                <div className="feed-date">{gitDeets[3]}</div>
-                <div className="feed-details">{gitDeets[4]}</div>
-            </div>
-            )
-            })}
+                    <div className="feed-block">
+                        <div className="feed-date">{gitDeets[3]}</div>
+                        <div className="feed-type">
+                            <IconContext.Provider value={{className: "feed-icon"}}>
+                                {gitDeets[2]}
+                            </IconContext.Provider>
+                            <span className="feed-tooltiptext">
+                                <div>{gitDeets[0]}</div>
+                                <div>{gitDeets[4]}</div>
+                            </span>
+                        </div>
+                        <div className="feed-repo">
+                            <a href={'https://www.github.com/' + git.repo.name}>
+                                {git.repo.name.split("/")[1]}
+                            </a>
+                        </div>
+                        <div className="feed-title"><span>{gitDeets[1]}</span></div>
+                        {/* <div className="feed-details">{gitDeets[4]}</div> */}
+                    </div>
+                )
+}})}
 
         </div>
 

@@ -77,21 +77,22 @@ function ContactPanel({ contacts, contactProps }) {
 
   return (
     <>
-      <ul className="nav-screen">
+      <div className="nav-panel-screen">
         <IconContext.Provider value={{ size: contactProps['dimension'] }}>
           {springs.map((spring, key) => (
-            <animated.li id={contacts[key].id} style={spring} key={key}>
-              <a className={`nav-btn nav-${contactProps['position']}`} href={contacts[key].link}>
-                <div>{contacts[key].icon}</div>
-                <div>
+            <animated.div id={contacts[key].id} style={spring} key={key} className={`nav-panel-btn nav-panel-${contactProps['position']}`} onClick={(e) => {
+              e.preventDefault();
+              window.open(contacts[key].link, '_blank');
+              }}>
+                <div style={{gridColumn: "1/2"}}>{contacts[key].icon}</div>
+                <div style={{gridColumn: "2/3"}}>
                 <div>{contacts[key].title}</div>
                 <div>{contacts[key].link}</div>
                 </div>
-              </a>
-            </animated.li>
+            </animated.div>
           ))}
         </IconContext.Provider>
-      </ul>
+      </div>
       {/* </div> */}
     </>
   );

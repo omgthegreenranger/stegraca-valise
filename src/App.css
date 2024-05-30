@@ -16,9 +16,9 @@
   --font-rubik: 'Rubik Mono One', sans-serif;
   /* formatting colours */
   --site-back: rgb(192, 192, 192);
-  --block-back: rgba(171, 163, 97, 0.5) */;
+  --block-back: rgba(171, 163, 97, 0.5);
   --boundary-color: white;
-  --panel-back: rgba(58, 58, 58, 0.4);
+  --panel-back: rgb(58, 58, 58);
   --select-colours: /* #ffff003a */ rgba(58, 58, 58, 0.4);
 }
 
