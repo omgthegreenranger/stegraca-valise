@@ -188,8 +188,8 @@
 }
 
 .feed-block {
-    border: 1px solid green;
-    padding:1cqw;
+    border: 0.1cqw solid black;
+    padding:0.25cqw;
     display: grid;
     grid-template-columns: auto 1fr auto auto;
 }

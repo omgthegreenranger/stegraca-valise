@@ -5,10 +5,26 @@
 }
 .demo-portal {
     background-color: black;
+    color: white;
     height: 75vh;
     width: auto;
+    padding: 1rem;
 }
 
 .demo-list {
     border-color: yellow;
+    display:grid;
+    grid-template-columns: auto auto;
+}
+
+.demo-entry {
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 1cqw;
+    transition: background-color 0.50s ease-out;
+}
+
+.demo-entry:hover {
+    background-color: var(--select-colours);
+    
 }

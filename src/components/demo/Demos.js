@@ -27,8 +27,8 @@ function DemoList({enablePortal, setEnablePortal, enableGame, setEnableGame}) {
     return (
         <div className="demo-list">
         {/* This is the list of demos available to us */}
-    <div onClick={() => {setEnablePortal(!enablePortal); setEnableGame("mastermind")}}>
-    <MasterSplash />
+    <div className="demo-entry" onClick={() => {setEnablePortal(!enablePortal); setEnableGame("mastermind")}}>
+    <MasterSplash location="portal"/>
     </div>
     </div>
 )
@@ -39,8 +39,8 @@ function DemoPortal({enablePortal, setEnablePortal, enableGame, setEnableGame}) 
         switch(enableGame) {
         case "mastermind":
             console.log("Mastermind!")
-            // return (<div><Mastermind /></div>)
-            return (<></>);
+            return (<Mastermind location="game" />)
+            // return (<></>);
         default:
             console.log()
             return <></>;

@@ -9,7 +9,7 @@ import { IconContext } from "react-icons";
 import { motion } from "framer-motion";
 
 // Main Mastermind component
-export default function Mastermind({ setBioPanel, location, nodeRef, setMindProp, setInProp, launchApp }) {
+export function Mastermind({ setBioPanel, location, nodeRef, setMindProp, setInProp, launchApp }) {
   // State variables
   const [gameOn, setGameOn] = useState(false);
   const [newGame, setNewGame] = useState(true);
@@ -47,19 +47,19 @@ export function MasterSplash({ setBioPanel, location, setMindProp, setInProp, la
   return (
     <>
       <div className={location + '-head'}>
-        <div onClick={launchApp} className={location + '-back'}>
-          <SlArrowLeft />
-        </div>
-        {/* <div className={location + '-splash'}> */}
-        {/* <div className="master-logo"> */}
-        <IconContext.Provider value={{ size: "25cqw" }} className="master-logo">
+        <IconContext.Provider value={{className: "master-logo"}}>
           <FaUserSecret />
         </IconContext.Provider>
-        {/* </div> */}
         <div className="master-splash">MASTERMIND</div>
-        {/* <div className="master-slash">MASTERMIND</div> */}
+        <div className="master-dots"><svg viewBox="0 0 615 100" xmlns="https://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="50" />
+          <circle cx="151" cy="50" r="50" />
+          <circle cx="252" cy="50" r="50" />
+          <circle cx="353" cy="50" r="50" />
+          <circle cx="454" cy="50" r="50" />
+          <circle cx="555" cy="50" r="50" />
+          </svg></div>
       </div>
-      {/* </div> */}
     </>
   );
 }

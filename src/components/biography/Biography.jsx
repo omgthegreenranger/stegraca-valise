@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import * as ReactDOM from 'react-dom';
 import ProfilePic from "./images/profile-photo-small.jpg";
 import "./biography.css";
-import { Mastermind } from "../index";
+// import { Mastermind } from "../index";
 import bio_text from './bio.json';
 import { Transition, CSSTransition } from 'react-transition-group';
 
@@ -48,7 +48,7 @@ export default function Bio({ peepingTom }) {
           unmountOnExit
           onExited={() => setBioPanel(false)}>
           {/* <BioMind setBioPanel={setBioPanel} mindProp={mindProp} setInProp={setInProp} setMindProp={setMindProp} mindRef={mindRef} launchApp={launchApp} /> */}
-          <Mastermind setBioPanel={setBioPanel} location="biomind" nodeRef={mindRef} mindProp={mindProp} setMindProp={setMindProp} setInProp={setInProp} launchApp={launchApp} />
+          {/* <Mastermind setBioPanel={setBioPanel} location="biomind" nodeRef={mindRef} mindProp={mindProp} setMindProp={setMindProp} setInProp={setInProp} launchApp={launchApp} /> */}
         </CSSTransition>
 
       )}
@@ -132,7 +132,7 @@ function BioText({ setBioPanel, nodeRef, inProp, setInProp, setMindProp, launchA
 }
 
 function BioMind({ setBioPanel, mindRef, mindProp, setMindProp, setInProp, launchApp }) {
-  return (
-    <Mastermind setBioPanel={setBioPanel} location="biomind" nodeRef={mindRef} mindProp={mindProp} setMindProp={setMindProp} setInProp={setInProp} launchApp={launchApp} />
-  );
+  // return (
+    // <Mastermind setBioPanel={setBioPanel} location="biomind" nodeRef={mindRef} mindProp={mindProp} setMindProp={setMindProp} setInProp={setInProp} launchApp={launchApp} />
+  // );
 }

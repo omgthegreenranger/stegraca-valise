@@ -12,7 +12,7 @@
     grid-template-columns: 1fr auto;
     padding: 10px;
     /* border: 1px solid white; */
-    background-color: var(--panel-back);
+    background-color: color-mix(in lch, var(--panel-back) 50%, transparent);
     /* border-radius: 10px; */
     border-top: 3px solid var(--boundary-color);
     height: -moz-fit-content;

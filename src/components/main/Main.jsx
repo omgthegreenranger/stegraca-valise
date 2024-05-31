@@ -150,7 +150,7 @@ function SelectedItem({ navOpt, frontNav, setFrontNav, panelVis, setPanelVis, cu
             transition: {
                 // when: "beforeChildren",
                 ease: "easeInOut",
-                duration: 1
+                duration: 0.25
             },
         },
         hidden: {
@@ -165,7 +165,7 @@ function SelectedItem({ navOpt, frontNav, setFrontNav, panelVis, setPanelVis, cu
             x: 300,
             transition: {
                 ease: "easeInOut",
-                duration: 1
+                duration: 0.25
             }
         }
     }
@@ -195,7 +195,7 @@ function Home() {
             <div className="home-left-panel">
             </div>
             <div className="home-center-panel">
-                <h3>COMING SOON</h3>
+                <h3>NEWS</h3>
             </div>
             <div className="home-right-panel">
                 <h5>Latest GitHub Activity</h5>

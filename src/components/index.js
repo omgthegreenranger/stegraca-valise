@@ -6,7 +6,7 @@ import Techblock from './techblock';
 import Main from './main';
 import Portfolio from './portfolio';
 import Demos from './demo';
-import Mastermind from './demo/mastermind/mastermind';
+// import Mastermind from './demo/mastermind/mastermind';
 import Frames from './frames'
 
-export { Projects, Details, Contact, Bio, Techblock, Portfolio, Demos, Mastermind, Main, Frames};
+export { Projects, Details, Contact, Bio, Techblock, Portfolio, Demos, Main, Frames};
