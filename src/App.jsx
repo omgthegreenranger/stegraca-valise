@@ -6,7 +6,7 @@ const App = () => {
   const [frontNav, setFrontNav] = useState(true);
   return (
     <>
-      <Frames layout="topbar" frontNav={frontNav} setFrontNav={setFrontNav} />
+      {/* <Frames layout="topbar" frontNav={frontNav} setFrontNav={setFrontNav} /> */}
       <div className="main front">
         <Main frontNav={frontNav} setFrontNav={setFrontNav} />
       </div>

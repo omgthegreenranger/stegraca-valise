@@ -104,7 +104,20 @@
     border-radius: 0.5cqw;
     padding: 0.5dvh;
     font-size: 8cqw;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: start;
+    grid-gap: 1rem;
+    /* opacity: 0; */
 } 
+
+.front-option p {
+    color: black;
+}
+
+.front-option span {
+    color: yellow;
+}
 
 .front-bus-center {
     grid-column: 2/3;
@@ -254,4 +267,13 @@
   /* Show the tooltip text when you mouse over the tooltip container */
   .feed-type:hover .feed-tooltiptext {
     visibility: visible;
+  }
+
+  .menu-icon {
+    transform: translateX(-10rem);
+    opacity: 0;
+  }
+
+  .menu-text {
+    opacity: 0;
   }

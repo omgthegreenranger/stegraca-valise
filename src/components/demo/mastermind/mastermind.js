@@ -1,5 +1,5 @@
 // Import React and necessary components/styles
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import "./mastermind.css";
 import { codeMaker, codeBreaker } from "./mastermind/scripts/board.js";

@@ -1,17 +1,16 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import "./main.css";
-import { useAnimate, AnimatePresence, usePresence, motion } from "framer-motion";
+import { useAnimate, AnimatePresence, usePresence, motion, stagger } from "framer-motion";
 import { Bio, Portfolio, Demos, Contact } from '../index'
-import { gitGetUserEvents } from "../../functions/github";
-import { IoHomeSharp, IoBriefcase, IoPerson, IoPlay, IoChatbox, IoBook, IoArrowRedoCircleOutline, IoAddCircleOutline, IoGitMergeOutline, IoGitBranchOutline, IoGitPullRequestOutline } from "react-icons/io5";
+// import { gitGetUserEvents } from "../../functions/github";
+import { IoHomeSharp, IoBriefcase, IoPerson, IoPlay, IoChatbox, IoBook, IoArrowRedoCircleOutline, IoGitBranchOutline, IoGitPullRequestOutline, IoTicketOutline } from "react-icons/io5";
 import axios from 'axios';
-import projectDB from "../../functions/github.json";
+// import projectDB from "../../functions/github.json";
 import { format } from "date-fns";
 import { IconContext } from "react-icons";
 
 export default function Main({ frontNav, setFrontNav }) {
     const [navOpt, setNavOpt] = useState('home')
-    const [hoverOpt, setHoverOpt] = useState("none")
     const [panelVis, setPanelVis] = useState(true);
     const [currentSel, setCurrentSel] = useState('home');
 
@@ -25,22 +24,6 @@ export default function Main({ frontNav, setFrontNav }) {
             )
             setPanelVis(false);
         }
-        console.log(navOpt)
-        console.log("*** Dig it", e.target.parentElement.id, navOpt)
-
-    }
-
-    console.log("*** Dig it TWO", navOpt, currentSel)
-
-    function handleMouseOver(option) {
-        console.log(option)
-        setHoverOpt(this);
-        console.log(frontNav, navOpt, hoverOpt)
-    }
-
-    const handleMouseLeave = (e) => {
-        setHoverOpt(e.target.id)
-        console.log(frontNav, navOpt, hoverOpt)
     }
 
     return (
@@ -67,12 +50,43 @@ export default function Main({ frontNav, setFrontNav }) {
 
 function FrontMenu({ navTo, setPanelVis, setCurrentSel, setNavOpt }) {
     const [scope, animate] = useAnimate();
+    const [loaded, setLoaded] = useState(false);
+    const [secondScope, secondAnimate] = useAnimate();
+
+    // This is set animation for all menu items
+    // TODO: animate SVG logos
+    // TODO: Create small menu.
+    // Should this be a separate component?
+    const menuWords = document.getElementsByClassName("menu-text")
+    const menuIcon = document.getElementsByClassName("menu-icon")
+    const menuFront = document.getElementsByClassName("front-option")
+    const staggerItems = stagger(0.15, {startDelay: 0.15})
+
+    const menuSequence = [
+        [menuIcon, {x: "-0rem", opacity: 1}, {duration: 0.25, delay: staggerItems }],
+        [menuWords, {opacity: 1}, {duration: 1}],
+        // [menuFront, { gridTemplateColumns: "1fr auto" }]
+    ]
+
+
+    useEffect(() => {
+
+        if(loaded) {
+            const enterAnimation = async () => {
+                // await animate(scope, { opacity: 1 })
+                // await animate(menuWords, {color: "rgb(0,0,155)"}, {duration: 1})
+                // await animate(menuIcon, {color: "rgb(0,155,0)", x: "-1dvh", opacity: 1}, {duration: 0.25, delay: staggerItems })
+                animate(menuSequence);
+              }
+        enterAnimation()
+        } else { setLoaded(true)}
+    }, [loaded]
+    )
 
     const menuList = {
         visible: {
             opacity: 1,
             transition: {
-                // when: "beforeChildren",
                 staggerChildren: 0.1,
                 ease: "easeInOut"
             },
@@ -80,7 +94,6 @@ function FrontMenu({ navTo, setPanelVis, setCurrentSel, setNavOpt }) {
         hidden: {
             opacity: 0,
             transition: {
-                // when: "afterChildren",
             },
         },
     }
@@ -88,8 +101,6 @@ function FrontMenu({ navTo, setPanelVis, setCurrentSel, setNavOpt }) {
         visible: { opacity: 1, x: 0 },
         hidden: { opacity: 0, x: -100 },
     }
-
-
 
     return (
         <div className="front-bus-center">
@@ -99,16 +110,16 @@ function FrontMenu({ navTo, setPanelVis, setCurrentSel, setNavOpt }) {
                 className="front-select"
                 ref={scope}
                 onClick={navTo}
-                initial="hidden"
-                animate="visible"
-                variants={menuList}
+                // initial={{opacity: 0}}
+                // animate="visible"
+                // variants={menuList}
             >
-                <motion.li variants={menuItem} id="home" className="front-option"><span><IoHomeSharp /></span><span className="menu-text">Home</span></motion.li>
-                <motion.li variants={menuItem} id="about" className="front-option"><span><IoPerson /></span><span>About</span></motion.li>
-                <motion.li variants={menuItem} id="portfolio" className="front-option"><span><IoBriefcase /></span><span>Portfolio</span></motion.li>
-                <motion.li variants={menuItem} id="blog" className="front-option"><span><IoBook /></span><span>Blog</span></motion.li>
-                <motion.li variants={menuItem} id="doings" className="front-option"><span><IoPlay /></span><span>Demos</span></motion.li>
-                <motion.li variants={menuItem} id="contact" className="front-option"><span><IoChatbox /></span><span>Contact</span></motion.li>
+                <li id="home" className="front-option" ref={scope} ><div className="menu-icon"><IoHomeSharp /></div><div className="menu-text">Home</div></li>
+                <li id="about" className="front-option" ref={scope}><div className="menu-icon"><IoPerson /></div><div className="menu-text" >About</div></li>
+                <li id="portfolio" className="front-option"ref={scope}><div className="menu-icon"><IoBriefcase /></div><div className="menu-text">Portfolio</div></li>
+                <li id="blog" className="front-option" ref={scope}><div className="menu-icon"><IoBook /></div><div className="menu-text">Blog</div></li>
+                <li id="doings" className="front-option" ref={scope}><div className="menu-icon"><IoPlay /></div><div className="menu-text">Demos</div></li>
+                <li id="contact" className="front-option" ref={scope} ><div className="menu-icon"><IoChatbox /></div><div className="menu-text">Contact</div></li>
             </motion.ul>
         </div>
     );
@@ -119,21 +130,6 @@ function SelectedItem({ navOpt, frontNav, setFrontNav, panelVis, setPanelVis, cu
     const [scope, animate] = useAnimate();
     let middleDiv;
     let headline = "";
-
-    // useEffect(() => {
-    //     if (panelVis === true) {
-    //         console.log("Oh yeah!")
-    //         if (currentSel === navOpt) {
-    //             console.log("It's the same one!", navOpt, currentSel)
-    //         }
-    //         else if (currentSel !== navOpt) {
-    //             // setCurrentSel(navOpt)
-    //             setPanelVis(false)
-    //             console.log("What", navOpt, currentSel)
-    //         }
-    //     }
-    //     else {console.log("Oh No!")}
-    // })
 
     if (navOpt === 'home') { middleDiv = <Home />; headline = "Stephen Cardie" }
     else if (navOpt === 'about') { middleDiv = <Bio />; headline = "Stephen Cardie"; }
@@ -148,7 +144,6 @@ function SelectedItem({ navOpt, frontNav, setFrontNav, panelVis, setPanelVis, cu
             opacity: 1,
             x: 0,
             transition: {
-                // when: "beforeChildren",
                 ease: "easeInOut",
                 duration: 0.25
             },
@@ -157,7 +152,6 @@ function SelectedItem({ navOpt, frontNav, setFrontNav, panelVis, setPanelVis, cu
             opacity: 0,
             x: 300,
             transition: {
-                // when: "afterChildren",
             },
         },
         exit: {
@@ -189,6 +183,7 @@ function SelectedItem({ navOpt, frontNav, setFrontNav, panelVis, setPanelVis, cu
     )
 }
 
+// Consider making this a full component on its own.
 function Home() {
     return (
         <div className="home-panel">
@@ -204,11 +199,12 @@ function Home() {
     )
 }
 
+// Grabbing GitHub general data
+
 function GitData() {
     const [gitData, setGitData] = useState([]);
     const [gitGot, setGitGot] = useState(false);
     // useEffect(() => {
-    // Disabling API call for JSON instead
     async function gitsen() {
         try {
             const searchMethod = "users";
@@ -227,62 +223,67 @@ function GitData() {
     }
     // }, [gitGot])
 
-
     console.log("GitData!", gitData)
-
 
     return (
         <div className="feed">
             {gitData.map((git, i) => {
-                if(i < 5) {
-                let gitDeets = []
-                if (git.type === "CreateEvent") {
-                    if (git.payload.ref_type === "branch") {
-                        gitDeets[0] = "New branch";
+                if (i < 5) {
+                    let gitDeets = []
+                    if (git.type === "CreateEvent") {
+                        if (git.payload.ref_type === "branch") {
+                            gitDeets[0] = "New branch";
+                            gitDeets[1] = git.payload.ref;
+                            gitDeets[2] = <IoGitBranchOutline />
+                            gitDeets[3] = format(new Date(git.created_at), 'yyyy-MM-dd, hh:mm')
+                            gitDeets[4] = ''
+                        }
+                    }
+                    if (git.type === "PushEvent") {
+                        gitDeets[0] = "Pushed to branch";
+                        gitDeets[1] = git.payload.ref.split("/")[2];
+                        gitDeets[2] = <IoArrowRedoCircleOutline />
+                        gitDeets[3] = format(new Date(git.created_at), 'yyyy-MM-dd, hh:mm')
+                        gitDeets[4] = git.payload.commits[0].message
+                    }
+                    if (git.type === "PullRequestEvent") {
+                        gitDeets[0] = "Pull request";
                         gitDeets[1] = git.payload.ref;
-                        gitDeets[2] = <IoGitBranchOutline />
+                        gitDeets[2] = <IoGitPullRequestOutline />
                         gitDeets[3] = format(new Date(git.created_at), 'yyyy-MM-dd, hh:mm')
                         gitDeets[4] = ''
                     }
-                }
-                if (git.type === "PushEvent") {
-                    gitDeets[0] = "Pushed to branch";
-                    gitDeets[1] = git.payload.ref.split("/")[2];
-                    gitDeets[2] = <IoArrowRedoCircleOutline />
-                    gitDeets[3] = format(new Date(git.created_at), 'yyyy-MM-dd, hh:mm')
-                    gitDeets[4] = git.payload.commits[0].message
-                }
-                if (git.type === "PullRequestEvent") {
-                    gitDeets[0] = "Pull request from";
-                    gitDeets[1] = git.payload.ref;
-                    gitDeets[2] = <IoGitPullRequestOutline />
-                    gitDeets[3] = format(new Date(git.created_at), 'yyyy-MM-dd, hh:mm')
-                    gitDeets[4] = ''
-                }
-                console.log(gitDeets);
-                return (
-                    <div className="feed-block">
-                        <div className="feed-date">{gitDeets[3]}</div>
-                        <div className="feed-type">
-                            <IconContext.Provider value={{className: "feed-icon"}}>
-                                {gitDeets[2]}
-                            </IconContext.Provider>
-                            <span className="feed-tooltiptext">
-                                <div>{gitDeets[0]}</div>
-                                <div>{gitDeets[4]}</div>
-                            </span>
+                    if (git.type === "IssuesEvent") {
+                        gitDeets[0] = "Created issue";
+                        gitDeets[1] = git.payload.action + ": " + git.payload.issue.title;
+                        gitDeets[2] = <IoTicketOutline />
+                        gitDeets[3] = format(new Date(git.created_at), 'yyyy-MM-dd, hh:mm')
+                        gitDeets[4] = git.payload.issue.title;
+                    }
+                    console.log(gitDeets);
+                    return (
+                        <div className="feed-block">
+                            <div className="feed-date">{gitDeets[3]}</div>
+                            <div className="feed-type">
+                                <IconContext.Provider value={{ className: "feed-icon" }}>
+                                    {gitDeets[2]}
+                                </IconContext.Provider>
+                                <span className="feed-tooltiptext">
+                                    <div>{gitDeets[0]}</div>
+                                    <div>{gitDeets[4]}</div>
+                                </span>
+                            </div>
+                            <div className="feed-repo">
+                                <a href={'https://www.github.com/' + git.repo.name}>
+                                    {git.repo.name.split("/")[1]}
+                                </a>
+                            </div>
+                            <div className="feed-title"><span>{gitDeets[1]}</span></div>
+                            {/* <div className="feed-details">{gitDeets[4]}</div> */}
                         </div>
-                        <div className="feed-repo">
-                            <a href={'https://www.github.com/' + git.repo.name}>
-                                {git.repo.name.split("/")[1]}
-                            </a>
-                        </div>
-                        <div className="feed-title"><span>{gitDeets[1]}</span></div>
-                        {/* <div className="feed-details">{gitDeets[4]}</div> */}
-                    </div>
-                )
-}})}
-
+                    )
+                }
+            })}
         </div>
 
     )

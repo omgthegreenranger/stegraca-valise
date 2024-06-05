@@ -30,7 +30,7 @@
     justify-content: center;
 }
 
-.portal-head{
+.portal-head {
     container-type: inline-size;
     display: grid;
     width: 100%;
@@ -60,6 +60,7 @@
 .options {
     display: flex;
 }
+
 .rounds-round {
     display: flex;
     flex-direction: column;
@@ -68,12 +69,12 @@
 
 .colour {
     padding: 10px;
-    width:100%;
+    width: 100%;
 }
 
 .choice {
     border: 1px solid blue;
-    width:100%;
+    width: 100%;
     background-color: grey;
 
 }
@@ -132,6 +133,7 @@
     display: grid;
     grid-template: repeat(2, 45%) / repeat(2, 45%);
 }
+
 .score-pip {
     width: 10px;
     padding: 10px;
@@ -140,22 +142,24 @@
 .masterpanel-enter {
     opacity: 0;
 }
+
 .masterpanel-enter-active {
     opacity: 1;
     transition: opacity 1000ms, transform 1000ms;
-    height:100%;
-  }
+    height: 100%;
+}
+
 .masterpanel-exit {
     opacity: 1;
     height: 100%;
-  }
+}
 
 .masterpanel-exit-active {
     opacity: 0;
     transition: opacity 1000ms, transform 1000ms;
-  }
+}
 
-  /* .biomind-panel {
+/* .biomind-panel {
     display: grid;
     padding: 10px;
     border: 1px solid white;
