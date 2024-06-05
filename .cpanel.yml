@@ -3,8 +3,8 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home2/cardiecr/public_html/
     # - /bin/cp -R .vscode $DEPLOYPATH
-    - /bin/cp -R public $DEPLOYPATH
-    - /bin/cp -R src $DEPLOYPATH
+    # - /bin/cp -R public $DEPLOYPATH
+    # - /bin/cp -R src $DEPLOYPATH
 
     - npm i
     - npm run build
