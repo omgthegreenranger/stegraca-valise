@@ -8,10 +8,10 @@ import { GiSpy } from "react-icons/gi";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import { PiDotsThreeCircle } from "react-icons/pi";
 import ColorDetector from "color-image-detector";
+import { useAnimate, stagger, motion } from "framer-motion";
 
-export default function Project(props) {
-  const { portOpen, setPortOpen, projectData, setProjectData, setHoverWork } =
-    props;
+export default function Project({ portOpen, setPortOpen, projectData, setProjectData, setHoverWork }) {
+
   const works = projectDB.projects;
   const [mouseOver, setMouseOver] = useState({ toggle: false, id: "" });
 
@@ -26,7 +26,6 @@ export default function Project(props) {
 
   return (
     <>
-      <div className="projectpanels">
         <ProjectDisplay
           works={works}
           portOpen={portOpen}
@@ -36,27 +35,46 @@ export default function Project(props) {
           setProjectData={setProjectData}
           mouseOver={mouseOver}
           setMouseOver={setMouseOver}
-        // section="in-progress"
         />
-      </div>
     </>
   );
 }
 
-function ProjectDisplay(props) {
-  const {
-    works,
-    portOpen,
-    setPortOpen,
-    handleCards,
-    setProjectData,
-    projectData,
-    section,
-    mouseOver,
-    setMouseOver,
-  } = props;
+function ProjectDisplay({ works,
+  portOpen,
+  setPortOpen,
+  handleCards,
+  setProjectData,
+  projectData,
+  section,
+  mouseOver,
+  setMouseOver }) {
+
   const [selectedType, setSelectedType] = useState();
   const [mousedOver, setMousedOver] = useState([false, 0]);
+
+  const projectCardList = {
+    cardVisible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        staggerChildren: 0.15,
+        ease: "backOut",
+      },
+    },
+    cardHidden: {
+      y: 500,
+      opacity: 0,
+      transition: {
+        ease: "circIn",
+      },
+    },
+  }
+
+  const cardItem = {
+    cardVisible: { opacity: 1, y: 0 },
+    cardHidden: { opacity: 0, y: 300 },
+  }
 
   function handleProjectClick(work, e, shadowBox) {
     setProjectData(work);
@@ -73,10 +91,10 @@ function ProjectDisplay(props) {
 
   return (
     <>
-      <div
-        className={
-          portOpen ? "project-cards cards-closed" : "project-cards cards-open"
-        }
+      <motion.div className={"project-cards " + (portOpen ? "project-cards cards-closed" : "project-cards cards-open")}
+        initial="cardHidden"
+        animate="cardVisible"
+        variants={projectCardList}
       >
         {works.map((work, key) => {
           function handleMouseOver(e) {
@@ -96,11 +114,11 @@ function ProjectDisplay(props) {
             work.logo === "" ? monkey : require(`./images/${work.logo}`);
 
           return (
-            <div
-              className={
-                portOpen
-                  ? "project-card card-closed"
-                  : "project-card card-open"
+            <motion.div
+              className={"project-card " +
+                (portOpen
+                  ? "card-closed"
+                  : "card-open")
               }
               key={key}
               onMouseEnter={(e) => {
@@ -110,13 +128,14 @@ function ProjectDisplay(props) {
                 handleMouseLeave(e);
               }}
               onClick={(e) => handleProjectClick(work)}
+              variants={cardItem}
             >
               <ProjectCard mapImg={mapImg} mouseOver={mouseOver} work={work} loadColors={loadColors} portOpen={portOpen} />
-            </div>
+            </motion.div>
           );
         })}
 
-      </div>
+      </motion.div>
 
       <div className="project-details">
         <Details
@@ -141,6 +160,11 @@ function ProjectCard({ mapImg, mouseOver, work, portOpen }) {
           ? { boxShadow: "0 0 1rem 0.2rem" }
           : { boxShadow: "0 0 0rem 0rem " }
       }>
+      <div className={work.status === "complete" ? "work-status complete" : "work-status in-progress"}>
+        <span>{work.status === "complete" ? <FaRegCircleCheck />
+          : <PiDotsThreeCircle />
+        } {mousedOver ? work.status : ""}</span>
+      </div>
       <img
         className="card-image"
         id="img"
@@ -150,12 +174,12 @@ function ProjectCard({ mapImg, mouseOver, work, portOpen }) {
       <div className="work-info-block">
         <div>{work.name}</div>
         {portOpen ? '' : <div>{work.shortDesc}</div>}
-        <div>
+        {/* <div>
           <span>{work.status === "complete" ? <FaRegCircleCheck />
             : <PiDotsThreeCircle />
           }</span>
           <span>{mousedOver ? work.status : ""}</span>
-        </div>
+        </div> */}
       </div>
     </div>
   )

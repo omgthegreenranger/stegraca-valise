@@ -15,6 +15,7 @@ export default function Main({ frontNav, setFrontNav }) {
     const [currentSel, setCurrentSel] = useState('home');
 
     const navTo = (e) => {
+        console.log("Now see here", navOpt)
         // setCurrentSel(navOpt)
         if (navOpt === e.target.parentElement.id) {
             console.log("Wait a minute!")
@@ -24,6 +25,7 @@ export default function Main({ frontNav, setFrontNav }) {
             )
             setPanelVis(false);
         }
+        console.log("Look again", navOpt)
     }
 
     return (

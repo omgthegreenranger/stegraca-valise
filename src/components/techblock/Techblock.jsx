@@ -43,7 +43,7 @@ function TechLine(props) {
       opacity: 1,
       x: 0,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.10,
         ease: "backOut"
       },
     },
