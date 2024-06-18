@@ -1,9 +1,22 @@
-.bio-block {
-    /* padding: 20px;
-    margin: 10px;
-    border-radius: 25px; */
-    height: -moz-fit-content;
+.noto-serif-variable {
+    font-family: "Noto Serif", serif;
+    font-optical-sizing: auto;
+    font-weight: 20;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+  }
 
+.bio-block {
+    display:grid;
+    grid-template-columns: 1fr auto;
+    padding: 10px;
+    /* border: 1px solid white; */
+    background-color: color-mix(in lch, var(--panel-back) 50%, transparent);
+    /* border-radius: 10px; */
+    border-top: 3px solid var(--boundary-color);
+    height: -moz-fit-content;
+    color: var(--font-col);
 }
 
 .title-line {
@@ -19,10 +32,77 @@
 .bio-text {
     grid-area: bio-text;
     margin: 3px;
+    grid-column: 1/2;
 }
 
 .bio-photos {
     grid-area: bio-photos;
     width:50%;
     margin: auto;
+    grid-column: 2/3;
 }
+
+.bio-mobile {
+    display: flex;
+    height: fit-content;
+    background-color: rebeccapurple;
+    width: 100%;
+    justify-content: center;
+
+}
+
+.mastermind {
+    font-weight: bolder;
+}
+
+.mastermind:hover {
+    animation-name: text-flip;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    cursor:crosshair;
+    text-transform:uppercase;
+}
+
+.bio-words {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: all 0.14s ease-out;
+}
+/* 
+.bio-visible {
+    opacity: 1
+}
+
+.bio-invisible {
+    opacity: 0;
+    y: 15;
+}
+
+@keyframes bio-disappear {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes text-flip {
+    0% {font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+    50% {font-family: 'Orbitron', sans-serif;}
+    100% {font-family: 'Noto-Serif', serif;}
+} */
+
+.biopanel-enter {
+    opacity: 0;
+}
+.biopanel-enter-active {
+    opacity: 1;
+    transition: opacity 1000ms, transform 1000ms;
+    /* border: 1px solid white; */
+    border-radius: 10px;
+  }
+.biopanel-exit {
+    opacity: 1;
+  }
+
+.biopanel-exit-active {
+    opacity: 0;
+    transition: opacity 1000ms, transform 1000ms;
+  }
+  

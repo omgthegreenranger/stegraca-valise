@@ -1,4 +1,4 @@
-[submodule "src/components/games/mastermind/mastermind"]
-	path = src/components/games/mastermind/mastermind
-	url = https://github.com/omgthegreenranger/mastermind.git
-	branch = main
+[submodule "src/components/demo/mastermind/mastermind"]
+	path = src/components/demo/mastermind/mastermind
+	url = https://github.com/omgthegreenranger/mastermind
+	branch = refresh-code-for-valise-integration
