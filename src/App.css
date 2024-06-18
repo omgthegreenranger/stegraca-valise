@@ -1,7 +1,9 @@
 :root {
-  --font-col: white;
-  --block-back: rgba(171, 163, 97, 0.5);
+  /* Font colours */
+  --font-col: black;
+  --font-alt-color:white;
   --port-font-col: black;
+  /* Various Font variables */
   --font-marker: 'Permanent Marker', cursive;
   --font-alfa: 'Alfa Slab One', cursive;
   --font-anton: 'Anton', sans-serif;
@@ -11,8 +13,15 @@
   --font-roboto: 'Roboto Slab', serif;
   --font-secular: 'Secular One', sans-serif;
   --font-sigman: 'Sigmar', cursive;
+  --font-rubik: 'Rubik Mono One', sans-serif;
+  /* formatting colours */
+  --site-back: rgb(192, 192, 192);
+  --block-back: rgba(171, 163, 97, 0.5);
   --boundary-color: white;
+  --panel-back: rgb(58, 58, 58);
+  --select-colours: /* #ffff003a */ rgba(58, 58, 58, 0.4);
 }
+
 
 
 .top-border {
@@ -66,9 +75,22 @@
 }
 
 .main {  
-  background: rgba(0, 100, 0, 1);
-  /* margin: auto;
-  min-height: 100vh; */
+  /* background: rgba(0, 100, 0, 1); */
+  background-color: var(--site-back);
+  /* margin: auto; */
+  /* padding: 3rem; */
+}
+
+.valise {
+  background: black;
+
+}
+
+.front {
+  /* background: url('./components/main/images/pillars.png'); */
+  background-size: cover;
+  min-height: 100vh;
+  padding: 2rem 1rem 1rem;
 }
 
 .retained {
@@ -89,5 +111,34 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: green;
+  background: rgba(0, 0, 0, 0.877);
+  position:fixed;
+
+}
+
+.craft {
+  font-family: var(--font-rubik);
+  color: white;
+  -webkit-text-stroke-color:black;
+  -webkit-text-stroke-width:medium;
+}
+
+.cover-image{
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: color;
+}
+
+.red {
+  background-color:red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.green {
+  background-color: green;
 }

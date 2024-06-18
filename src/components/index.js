@@ -1,12 +1,12 @@
 import Projects from './project';
-import NavBar from './navbar';
+import Contact from './contact';
 import Details from './details';
 import Bio from './biography';
-import Linkblock from './linkblock';
-import Splash from './splash';
-import MainPage from './main';
+import Techblock from './techblock';
+import Main from './main';
 import Portfolio from './portfolio';
 import Demos from './demo';
-import Mastermind from './demo/mastermind/mastermind';
+// import Mastermind from './demo/mastermind/mastermind';
+import Frames from './frames'
 
-export { MainPage, Projects, Details, NavBar, Bio, Linkblock, Splash, Portfolio, Demos, Mastermind};
+export { Projects, Details, Contact, Bio, Techblock, Portfolio, Demos, Main, Frames};

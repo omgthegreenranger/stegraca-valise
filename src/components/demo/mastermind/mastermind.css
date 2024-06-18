@@ -1,16 +1,40 @@
 .master-splash {
     /* position: absolute; */
-    font-size: 12cqw;
+    font-size: 8cqw;
     font-family: 'Orbitron', sans-serif;
-    margin: auto;
     z-index: 4;
-    grid-column: 1/3;
+    grid-column: 2/3;
     grid-row: 2/3;
 }
 
 .master-logo {
-    grid-column: 2/3;
+    grid-column: 1/2;
+    grid-row: 1/3;
+    height: 15cqw;
+    width: 15cqw;
+}
+
+.master-dots {
     grid-row: 1/2;
+    grid-column: 2/3;
+    width: 50%;
+    justify-self: flex-end;
+    fill: var(--font-col);
+}
+
+.game-head {
+    display: grid;
+    container-type: inline-size;
+    width: 100%;
+    justify-items: start;
+    justify-content: center;
+}
+
+.portal-head {
+    container-type: inline-size;
+    display: grid;
+    width: 100%;
+    justify-content: center;
 }
 
 .master-slash {
@@ -36,6 +60,7 @@
 .options {
     display: flex;
 }
+
 .rounds-round {
     display: flex;
     flex-direction: column;
@@ -44,19 +69,19 @@
 
 .colour {
     padding: 10px;
-    width:100%;
+    width: 100%;
 }
 
 .choice {
     border: 1px solid blue;
-    width:100%;
+    width: 100%;
     background-color: grey;
 
 }
 
 .colour-selection {
     display: grid;
-    grid-template-columns: repeat(4, 25%);
+    grid-template-columns: 23% 23% 23% 23% 8%;
     container-type: inline-size;
     padding: 10px;
 }
@@ -65,8 +90,8 @@
     border: 1px black solid;
     /* margin: 10px; */
     border-radius: 24cqw;
-    width: 24cqw;
-    height: 24cqw;
+    width: 20cqw;
+    height: 20cqw;
 
 }
 
@@ -108,18 +133,38 @@
     display: grid;
     grid-template: repeat(2, 45%) / repeat(2, 45%);
 }
+
 .score-pip {
     width: 10px;
     padding: 10px;
 }
 
-.biomind-panel {
+.masterpanel-enter {
+    opacity: 0;
+}
+
+.masterpanel-enter-active {
+    opacity: 1;
+    transition: opacity 1000ms, transform 1000ms;
+    height: 100%;
+}
+
+.masterpanel-exit {
+    opacity: 1;
+    height: 100%;
+}
+
+.masterpanel-exit-active {
+    opacity: 0;
+    transition: opacity 1000ms, transform 1000ms;
+}
+
+/* .biomind-panel {
     display: grid;
-    margin: 3px;
-    width: 100cqw;
+    padding: 10px;
+    border: 1px solid white;
     background-color: rgba(0,0,0,0.15);
-    padding: 5cqw;
-    container-type: inline-size;
+    border-radius: 10px;
 }
 
 .biomind-head {
@@ -130,7 +175,7 @@
     column-gap: 5cqw;
     width: 100%;
     justify-items: center;
-    /* container-type: inline-size; */
+    // container-type: inline-size;
 }
 
 .biomind-back {
@@ -153,7 +198,7 @@
     grid-column: 2/3;
     grid-row: 1/2;
     margin: auto;
-    /* width: 90cqw; */
+    // width: 90cqw;
 }
 
 .biomind-history {
@@ -165,23 +210,4 @@
 
 .biomind-button-text {
     transition: 1s all ease-in;
-}
-
-
-.masterpanel-enter {
-    opacity: 1;
-}
-.masterpanel-enter-active {
-    opacity: 1;
-    transition: opacity 1000ms, transform 1000ms;
-    border: 1px solid white;
-  }
-.masterpanel-exit {
-    opacity: 0;
-  }
-
-.masterpanel-exit-active {
-    opacity: 0;
-    transition: opacity 1000ms, transform 1000ms;
-  }
-  
+} */

@@ -1,13 +1,21 @@
 .tech-icons {
   font-size: 7cqw;
-  /* color: var(--port-font-col); */
+  color: var(--font-alt-color);
   margin-bottom: 1cqw;
   margin-top: 1cqw;
   display: flex;
   /* opacity: 0; */
   flex-direction: column;
   transform: scale(1.0);
+  align-items: center;
 }
+
+.tech-icons svg {
+  font-size: 7cqw;
+  color: var(--font-alt-color);
+  filter: drop-shadow(1px 1px 5px var(--select-colours))
+}
+
 
 @keyframes spin-arrive {
   0% {
@@ -29,10 +37,9 @@
   font-size: 1cqw;
 }
 
-.tech-icons:hover {
+.tech-icons:hover svg {
   color: yellow;
-  stroke: 1px yellowgreen;
-  border-radius: 1cqw;
+  filter: drop-shadow(1px 1px 5px var(--select-colours));
   transform: scale(1.5);
   -webkit-transition-duration: 0.4s;
   -moz-transition-duration: 0.4s;
@@ -41,7 +48,7 @@
 }
 
 
-.tech-used {
+.tech-used svg {
   color: yellow;
   transform: scale(1.5);
   -webkit-transition-duration: 0.4s;

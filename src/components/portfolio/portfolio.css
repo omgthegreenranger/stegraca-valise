@@ -6,12 +6,12 @@
     /* grid-template-areas:
     "portfolio-heading"
     "portfolio-body"; */
-    border-top: 3px white solid;
+    /* border-top: 3px white solid; */
     /* transition: width 2s; */
     height:100%;
     justify-items: center;
     flex-direction: column;
-    width: 100%
+    width: 100%;
 }
 
 .open {
@@ -44,6 +44,13 @@
 .portfolio-complete {
     grid-area: portfolio-complete;
     width: 100%;
+}
+
+.portfolio-headline {
+    /* border-bottom: var(--boundary-color) 1px solid; */
+    color: var(--font-col);
+    font-family: var(--font-righteous);
+    font-size: x-large;
 }
 
 .portfolio-progressive {

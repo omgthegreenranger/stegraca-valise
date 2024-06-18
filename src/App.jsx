@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
-import { MainPage } from "./components";
+import { Main, Frames } from "./components";
 
 const App = () => {
-
-  return(
+  const [frontNav, setFrontNav] = useState(true);
+  return (
     <>
-    <div className="main">
-      <MainPage />
-    </div>
+      {/* <Frames layout="topbar" frontNav={frontNav} setFrontNav={setFrontNav} /> */}
+      <div className="main front">
+        <Main frontNav={frontNav} setFrontNav={setFrontNav} />
+      </div>
     </>
   )
 };

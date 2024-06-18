@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./linkblock.css";
+import "./techblock.css";
 import {
   SiJavascript,
   SiCss3,
@@ -14,29 +14,11 @@ import {
   SiExpo,
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
-import {
-  // animated,
-  // useSprings,
-  // useSpring,
-  // useTrail,
-  // easings,
-  // useChain,
-  // useSpringRef,
-  // useTransition,
-  // easeInBounce,
-} from "@react-spring/web";
+import { useAnimate, stagger, motion} from "framer-motion";
 
-export default function Linkblock(props) {
+export default function Techblock(props) {
   const { isLoaded, hoverWork } = props;
 
-  // const attributes = { fill: "red", stroke: "black" };
-  // const options = {
-  //   x: 0,
-  //   y: 0,
-  //   fontSize: 72,
-  //   anchor: "top",
-  //   attributes: attributes,
-  // };
 
   return <TechLine hoverWork={hoverWork} />;
 }
@@ -56,16 +38,34 @@ function TechLine(props) {
     { tech: "React-Native", icon: <TbBrandReactNative /> },
   ];
 
+  const list = {
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        staggerChildren: 0.10,
+        ease: "backOut"
+      },
+    },
+    hidden: {
+      x: 5,
+      opacity: 0,
+      transition: {
+        ease: "circIn"
+      },
+    },
+  }
+
+  const item = {
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: 300 },
+  }
+
   return (
-    <div className="tech-block"
-      // style={{
-      //   gridArea: "tech",
-      //   display: "flex",
-      //   flex: "0 0",
-      //   flexDirection: "row",
-      //   justifyContent: "space-evenly",
-      //   containerType: "inline-size",
-      // }}
+    <motion.div className="tech-block"
+      initial="hidden"
+      animate="visible"
+      variants={list}
     >
       {techList.map((techs, key) => {
         let usedIcon = "tech-icons";
@@ -78,13 +78,11 @@ function TechLine(props) {
           }
         }
         return (
-          <>
-            <div className={usedIcon} key={key}>
-              {techs.icon}
-            </div>
-          </>
+          <motion.div variants={item} className={usedIcon} key={key}>
+            {techs.icon}
+          </motion.div>
         );
       })}
-    </div>
+    </motion.div>
   );
 }

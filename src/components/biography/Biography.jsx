@@ -2,14 +2,9 @@ import React, { useState, useRef, useEffect } from "react";
 import * as ReactDOM from 'react-dom';
 import ProfilePic from "./images/profile-photo-small.jpg";
 import "./biography.css";
-import { Mastermind } from "../index";
+// import { Mastermind } from "../index";
 import bio_text from './bio.json';
 import { Transition, CSSTransition } from 'react-transition-group';
-// import {
-//    animated, useTrail, SpringValue, useSpring, useSprings, useChain, useSpringRef, useTransition
-// } from "@react-spring/web";
-// import { motion, useTime, AnimatePresence, useAnimationControls, useAnimate } from "framer-motion";
-
 
 export default function Bio({ peepingTom }) {
   const [bioPanel, setBioPanel] = useState(false);
@@ -39,7 +34,7 @@ export default function Bio({ peepingTom }) {
             mountOnEnter
             unmountOnExit
             onExited={() => setBioPanel(true)}>
-            <BioText setBioPanel={setBioPanel} inProp={inProp} setInProp={setInProp} nodeRef={nodeRef} setMindProp={setMindProp} launchApp={launchApp}/>
+            <BioText setBioPanel={setBioPanel} inProp={inProp} setInProp={setInProp} nodeRef={nodeRef} setMindProp={setMindProp} launchApp={launchApp} />
           </CSSTransition>
         )
       ) : (
@@ -52,8 +47,10 @@ export default function Bio({ peepingTom }) {
           mountOnEnter
           unmountOnExit
           onExited={() => setBioPanel(false)}>
-          <BioMind setBioPanel={setBioPanel} mindProp={mindProp} setInProp={setInProp} setMindProp={setMindProp} mindRef={mindRef} launchApp={launchApp} />
+          {/* <BioMind setBioPanel={setBioPanel} mindProp={mindProp} setInProp={setInProp} setMindProp={setMindProp} mindRef={mindRef} launchApp={launchApp} /> */}
+          {/* <Mastermind setBioPanel={setBioPanel} location="biomind" nodeRef={mindRef} mindProp={mindProp} setMindProp={setMindProp} setInProp={setInProp} launchApp={launchApp} /> */}
         </CSSTransition>
+
       )}
     </>
   );
@@ -95,37 +92,8 @@ function BioText({ setBioPanel, nodeRef, inProp, setInProp, setMindProp, launchA
     exiting: { opacity: 0 },
     exited: { opacity: 0 },
   };
-
-
-  // function launchApp() {
-  //   console.log(inProp)
-  //   setInProp(!inProp)
-  //   setMindProp(!mindProp)
-    // startTransition(() => {
-
-    // dropRandom.map((drop, i) => {
-    // let delay = (i + 1) / 100;
-    //   console.log(delay)
-    //   document.getElementById(drop[0]).style.transitionDelay = delay + "s"
-    //   document.getElementById(drop[0]).classList.replace("bio-visible", "bio-invisible");
-    // console.log("Done!")
-    //console.log(isPending, "In function")
-    //})
-    // }
-    // )
-    // console.log("We're done!")
-  // }
-
   return (
     <>
-      {/* <CSSTransition 
-        nodeRef={nodeRef}
-        in={inProp}
-        timeout={1000}
-        classNames="biopanel"
-        unmountOnExit
-        onExited={() => setBioPanel(true)}> */}
-
       <div className="bio-block" ref={nodeRef}>
 
         <div className="bio-text">
@@ -133,10 +101,8 @@ function BioText({ setBioPanel, nodeRef, inProp, setInProp, setMindProp, launchA
             // console.log(para)
             return (
               <p
-                // variants={container}
-                // initial="show"
-                // animate="hidden"
-                id={i}>
+                id={i}
+                key={i}>
                 {para.map((word, j) => {
                   if (word[1].includes(":link:")) {
                     return <span className="mastermind" key={j} id={word[0]} onClick={launchApp}>Mastermind.</span>
@@ -161,13 +127,12 @@ function BioText({ setBioPanel, nodeRef, inProp, setInProp, setMindProp, launchA
           />
         </div>
       </div>
-      {/* </CSSTransition> */}
     </>
   );
 }
 
 function BioMind({ setBioPanel, mindRef, mindProp, setMindProp, setInProp, launchApp }) {
-  return (
-    <Mastermind setBioPanel={setBioPanel} location="biomind" nodeRef={mindRef} mindProp={mindProp} setMindProp={setMindProp} setInProp={setInProp} launchApp={launchApp} />
-  );
+  // return (
+    // <Mastermind setBioPanel={setBioPanel} location="biomind" nodeRef={mindRef} mindProp={mindProp} setMindProp={setMindProp} setInProp={setInProp} launchApp={launchApp} />
+  // );
 }

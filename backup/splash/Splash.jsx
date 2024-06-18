@@ -4,7 +4,7 @@ import {
   animated, useTrail, SpringValue, useSpring, useSprings, useChain, useSpringRef, useTransition
 } from "@react-spring/web";
 import "./splash.css";
-import { NavBar, Bio } from "../index";
+import { NavBar, Bio } from "../../src/components/index";
 
 export default function Splash(props) {
   const { thingsOpen, setThingsOpen, scrollYProgress, setIsLoaded } = props;
