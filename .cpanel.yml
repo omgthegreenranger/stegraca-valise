@@ -5,7 +5,7 @@ deployment:
     # - /bin/cp -R .vscode $DEPLOYPATH
     # - /bin/cp -R public $DEPLOYPATH
     # - /bin/cp -R src $DEPLOYPATH
-    - /opt/cpanel/ea-nodejs16/bin/npm i
-    - /opt/cpanel/ea-nodejs16/bin/npm run build
+    - /opt/cpanel/ea-nodejs18/bin/npm i
+    - /opt/cpanel/ea-nodejs18/bin/npm run build
     - /bin/cp -R build $DEPLOYPATH
 
