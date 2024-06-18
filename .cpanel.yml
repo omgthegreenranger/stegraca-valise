@@ -2,10 +2,11 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home2/cardiecr/public_html/
+    - export PATH=/opt/cpanel/ea-nodejs18/bin/:$PATH
     # - /bin/cp -R .vscode $DEPLOYPATH
     # - /bin/cp -R public $DEPLOYPATH
     # - /bin/cp -R src $DEPLOYPATH
-    - /opt/cpanel/ea-nodejs18/bin/npm i
-    - /opt/cpanel/ea-nodejs18/bin/npm run build
+    - npm i
+    - npm run build
     - /bin/cp -R build $DEPLOYPATH
 
