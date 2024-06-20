@@ -1,12 +1,12 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home2/cardiecr/public_html/
-    - export PATH=/opt/cpanel/ea-nodejs22/bin/:$PATH
-    # - /bin/cp -R .vscode $DEPLOYPATH
-    # - /bin/cp -R public $DEPLOYPATH
-    # - /bin/cp -R src $DEPLOYPATH
-    - npm i
-    - npm run build
-    - /bin/cp -R build $DEPLOYPATH
-
+   - export DEPLOYPATH=/home2/cardiecr/public_html/
+   - export PATH=/opt/cpanel/ea-nodejs22/bin/:$PATH
+   - /bin/cp -R .vscode $DEPLOYPATH
+   - /bin/cp -R public $DEPLOYPATH
+   - /bin/cp -R src $DEPLOYPATH
+   - cd $DEPLOYPATH
+   - npm i
+   - npm run build
+  #  - /bin/cp -R build $DEPLOYPATH
