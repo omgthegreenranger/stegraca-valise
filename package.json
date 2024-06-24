@@ -2,7 +2,7 @@
   "name": "Cardiecraft Dot Ca",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://www.cardiecraft.ca",
+  "homepage": "https://www.cardiecraft.ca",
   "dependencies": {
     "@babel/plugin-transform-dynamic-import": "^7.23.4",
     "@babel/plugin-transform-json-strings": "^7.23.4",
