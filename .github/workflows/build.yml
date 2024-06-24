@@ -34,7 +34,7 @@ jobs:
       uses: pinkasey/cpanel-deploy-action@v1.2.0
       with:
         hostname: 'https://www.cardiecraft.ca'
-        repository_root: '/home2/cardiecr/repositories/cardiecraft-actions'
+        repository_root: '/home2/cardiecr/repositories/cardiecraft-actions/'
         branch: main
         cpanel_username: cardiecr
         cpanel_token: '${{ secrets.CPANEL_API_TOKEN }}'
