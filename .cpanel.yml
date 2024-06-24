@@ -7,5 +7,5 @@ deployment:
    # - /bin/cp -R public $DEPLOYPATH
    # - /bin/cp -R src $DEPLOYPATH
    - npm i
-   - npm run build
+  # - npm run build
   #  - /bin/cp -R build $DEPLOYPATH
