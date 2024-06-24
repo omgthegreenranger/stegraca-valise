@@ -37,6 +37,6 @@ jobs:
         repository_root: '/home2/cardiecr/repositories/cardiecraft-actions'
         branch: main
         cpanel_username: cardiecr
-        cpanel_token: '${{ secrets.CPANEL_TOKEN }}'
+        cpanel_token: '${{ secrets.CPANEL_API_TOKEN }}'
     - name: echo deploy-duration
       run: echo "Deployment took ${{ steps.deploy.outputs.duration }} milliseconds"

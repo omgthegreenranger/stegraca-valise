@@ -8,4 +8,4 @@ deployment:
    # - /bin/cp -R src $DEPLOYPATH
    - npm i
   # - npm run build
-  #  - /bin/cp -R build $DEPLOYPATH
+   - /bin/cp -R build $DEPLOYPATH
