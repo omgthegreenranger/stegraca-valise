@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import {
-  animated,
   useSpring,
-  useTransition,
 } from "@react-spring/web";
 import "./portfolio.css";
-import { Techblock, Projects, Details } from "../index";
+import { Techblock, Projects} from "../index";
 
 export default function Portfolio(props) {
-  const { thingsOpen, setThingsOpen, scrollYProgress, isLoaded, setIsLoaded } = props;
+  const { thingsOpen, setThingsOpen, isLoaded, setIsLoaded } = props;
   const [portOpen, setPortOpen] = useState(false);
   const [projectData, setProjectData] = useState();
   const [hoverWork, setHoverWork] = useState([]);
@@ -21,13 +19,13 @@ export default function Portfolio(props) {
   if (portOpen) api.start({ opacity: 1, });
   // if (!portOpen) api.start({opacity: 0,});
 
-  const portfolioExpand = () => {
-    setThingsOpen((current) => !current);
+  // const portfolioExpand = () => {
+  //   setThingsOpen((current) => !current);
 
-    api.start({
-      opacity: 1,
-    });
-  }
+  //   api.start({
+  //     opacity: 1,
+  //   });
+  // }
   return (
     <div className="portfolio">
       <Techblock isLoaded={isLoaded} setIsLoaded={setIsLoaded} hoverWork={hoverWork} />
