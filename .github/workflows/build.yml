@@ -1,42 +1,42 @@
-name: React App build workflow
-on:
-  push:
-    branches:
-      - deploy-testing-branch
-jobs:
-  build:
-    runs-on: ubuntu-20.04
-    strategy:
-      matrix:
-        node-version: [21.7.1]
-    steps:
-    - uses: actions/checkout@v3
-    - uses: pnpm/action-setup@v2.2.4
-      with:
-        version: 7
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - name: Install dependencies
-      run: npm install
-    - name: Build
-      run: npm run build
-      env:
-        CI: ""
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - name: Deploy to cPanel
-      id: deploy
-      uses: pinkasey/cpanel-deploy-action@v1.2.0
-      with:
-        hostname: 'https://www.cardiecraft.ca'
-        repository_root: 'repositories/cardiecraft-actions'
-        branch: main
-        cpanel_username: cardiecr
-        cpanel_token: '${{ secrets.CPANEL_API_TOKEN }}'
-    - name: echo deploy-duration
-      run: echo "Deployment took ${{ steps.deploy.outputs.duration }} milliseconds"
+# name: React App build workflow
+# on:
+#   push:
+#     branches:
+#       - deploy-testing-branch
+# jobs:
+#   build:
+#     runs-on: ubuntu-20.04
+#     strategy:
+#       matrix:
+#         node-version: [21.7.1]
+#     steps:
+#     - uses: actions/checkout@v3
+#     - uses: pnpm/action-setup@v2.2.4
+#       with:
+#         version: 7
+#     - name: Use Node.js ${{ matrix.node-version }}
+#       uses: actions/setup-node@v3
+#       with:
+#         node-version: ${{ matrix.node-version }}
+#         cache: 'npm'
+#     - name: Install dependencies
+#       run: npm install
+#     - name: Build
+#       run: npm run build
+#       env:
+#         CI: ""
+#   deploy:
+#     needs: build
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Deploy to cPanel
+#       id: deploy
+#       uses: pinkasey/cpanel-deploy-action@v1.2.0
+#       with:
+#         hostname: 'https://www.cardiecraft.ca'
+#         repository_root: 'repositories/cardiecraft-actions'
+#         branch: main
+#         cpanel_username: cardiecr
+#         cpanel_token: '${{ secrets.CPANEL_API_TOKEN }}'
+#     - name: echo deploy-duration
+#       run: echo "Deployment took ${{ steps.deploy.outputs.duration }} milliseconds"
