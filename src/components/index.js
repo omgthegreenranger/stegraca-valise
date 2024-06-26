@@ -8,5 +8,6 @@ import Portfolio from './portfolio';
 import Demos from './demo';
 // import Mastermind from './demo/mastermind/mastermind';
 import Frames from './frames'
+import Menu from './menu'
 
-export { Projects, Details, Contact, Bio, Techblock, Portfolio, Demos, Main, Frames};
+export { Projects, Details, Contact, Bio, Techblock, Portfolio, Demos, Main, Frames, Menu};
