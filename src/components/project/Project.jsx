@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import "./Project.css";
-import { Demos, Details } from "../index";
-import { Tab, Tabs } from "react-bootstrap";
+import { Details } from "../index";
 import projectDB from "../project/projects.json";
 import monkey from "./images/typing_monkey.svg";
-import { GiSpy } from "react-icons/gi";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import { PiDotsThreeCircle } from "react-icons/pi";
-import ColorDetector from "color-image-detector";
-import { useAnimate, stagger, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Project({ portOpen, setPortOpen, projectData, setProjectData, setHoverWork }) {
 
@@ -80,13 +77,9 @@ function ProjectDisplay({ works,
     setProjectData(work);
     setSelectedType(section);
     if (portOpen === false) {
+      console.log("Yes, this is true")
       setPortOpen(true);
     }
-  }
-  async function loadColors(img) {
-    console.log(img)
-    let colordetector = new ColorDetector();
-    let pallets = await colordetector.detectColorPalete(img);
   }
 
   return (
@@ -130,7 +123,7 @@ function ProjectDisplay({ works,
               onClick={(e) => handleProjectClick(work)}
               variants={cardItem}
             >
-              <ProjectCard mapImg={mapImg} mouseOver={mouseOver} work={work} loadColors={loadColors} portOpen={portOpen} />
+              <ProjectCard mapImg={mapImg} mouseOver={mouseOver} work={work} portOpen={portOpen} />
             </motion.div>
           );
         })}

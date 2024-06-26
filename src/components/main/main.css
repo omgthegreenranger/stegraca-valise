@@ -1,9 +1,18 @@
-.front-layout {
+.front-layout-true, .front-layout-false {
     width: 100%;
     height: 100%;
     display: grid;
     grid-template-rows: 1fr 5dvh auto;
-    grid-template-columns: 1fr 2.5fr 8fr 0.5fr auto;
+    transition: grid-template-columns 0.5s;
+}
+
+.front-layout-true {
+    grid-template-columns: 0fr 2.5fr 8fr 0.5fr;
+}
+
+.front-layout-false {
+    grid-template-columns: 1fr 2.5fr 8fr 0.5fr;
+
 }
 
 .front-splash {
@@ -181,3 +190,21 @@
 .front-option span {
     margin-right: 1rem;
 }
+/* 
+.menu-icon {
+    transform: translateX(-10rem);
+    opacity: 0;
+  }
+
+.menu-text-true, .menu-text-false {
+    opacity: 0;
+    transition: display 1s;
+  }
+
+.menu-text-true {
+    display: none;
+}
+
+.menu-text-false {
+    display: block;
+} */

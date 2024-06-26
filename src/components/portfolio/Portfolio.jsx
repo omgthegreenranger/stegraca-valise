@@ -5,9 +5,7 @@ import {
 import "./portfolio.css";
 import { Techblock, Projects} from "../index";
 
-export default function Portfolio(props) {
-  const { thingsOpen, setThingsOpen, isLoaded, setIsLoaded } = props;
-  const [portOpen, setPortOpen] = useState(false);
+export default function Portfolio({ thingsOpen, setThingsOpen, isLoaded, setIsLoaded, setPortOpen, portOpen }) {
   const [projectData, setProjectData] = useState();
   const [hoverWork, setHoverWork] = useState([]);
   const [opacityValue, api] = useSpring(
