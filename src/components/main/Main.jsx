@@ -36,7 +36,7 @@ export default function Main({ frontNav, setFrontNav }) {
                 </div>
                 <div className="front-tag">
                     {/* Imagining a tomorrow of yesterday, today! */}
-                    by Stephen Cardie
+                    <div className="front-tag-line">by Stephen Cardie</div>
                 </div>
             </div>
             <div className="front-bus-left"></div>
