@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useAnimate, AnimatePresence, motion, stagger } from "framer-motion";
+import { useAnimate, AnimatePresence, motion, stagger } from "motion/react";
 import "./menu.css";
 import { IoHomeSharp, IoBriefcase, IoPerson, IoPlay, IoChatbox, IoBook } from "react-icons/io5";
 
@@ -11,9 +11,10 @@ export default function Menu({ navTo, setPanelVis, setCurrentSel, setNavOpt, por
     // This is set animation for all menu items
     // TODO: animate SVG logos
     // TODO: Create small menu.
-    const menuWords = document.getElementsByClassName("menu-text-" + portOpen)
+    const menuWords = document.getElementsByClassName("menu-text")
     const menuIcon = document.getElementsByClassName("menu-icon")
     const menuFront = document.getElementsByClassName("front-option")
+    const menuState = document.getElementsByClassName("menu-" + portOpen)
     const staggerItems = stagger(0.15, {startDelay: 0.15})
 
     const menuSequence = [
@@ -68,12 +69,12 @@ export default function Menu({ navTo, setPanelVis, setCurrentSel, setNavOpt, por
                 // animate="visible"
                 // variants={menuList}
             >
-                <li id="home" className="front-option" ref={scope} ><div className="menu-icon"><IoHomeSharp /></div><div className={"menu-text-" + portOpen}>Home</div></li>
-                <li id="about" className="front-option" ref={scope}><div className="menu-icon"><IoPerson /></div><div className={"menu-text-" + portOpen}>About</div></li>
-                <li id="portfolio" className="front-option"ref={scope}><div className="menu-icon"><IoBriefcase /></div><div className={"menu-text-" + portOpen}>Portfolio</div></li>
-                <li id="blog" className="front-option" ref={scope}><div className="menu-icon"><IoBook /></div><div className={"menu-text-" + portOpen}>Blog</div></li>
-                <li id="doings" className="front-option" ref={scope}><div className="menu-icon"><IoPlay /></div><div className={"menu-text-" + portOpen}>Demos</div></li>
-                <li id="contact" className="front-option" ref={scope} ><div className="menu-icon"><IoChatbox /></div><div className={"menu-text-" + portOpen}>Contact</div></li>
+                <li id="home" className={"front-option menu-" + portOpen} ref={scope} ><div className="menu-icon"><IoHomeSharp /></div><div className="menu-text">Home</div></li>
+                <li id="about" className={"front-option menu-" + portOpen} ref={scope}><div className="menu-icon"><IoPerson /></div><div className="menu-text">About</div></li>
+                <li id="portfolio" className={"front-option menu-" + portOpen}ref={scope}><div className="menu-icon"><IoBriefcase /></div><div className="menu-text">Portfolio</div></li>
+                <li id="blog" className={"front-option menu-" + portOpen} ref={scope}><div className="menu-icon"><IoBook /></div><div className="menu-text">Blog</div></li>
+                <li id="doings" className={"front-option menu-" + portOpen} ref={scope}><div className="menu-icon"><IoPlay /></div><div className="menu-text">Demos</div></li>
+                <li id="contact" className={"front-option menu-" + portOpen} ref={scope}><div className="menu-icon"><IoChatbox /></div><div className="menu-text">Contact</div></li>
             </motion.ul>
         </div>
     );

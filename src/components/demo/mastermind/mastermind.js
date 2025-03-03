@@ -6,7 +6,7 @@ import { codeMaker, codeBreaker } from "./mastermind/scripts/board.js";
 import { SlArrowLeft } from "react-icons/sl";
 import { FaUserSecret } from "react-icons/fa";
 import { IconContext } from "react-icons";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 // Main Mastermind component
 export function Mastermind({ setBioPanel, location, nodeRef, setMindProp, setInProp, launchApp }) {

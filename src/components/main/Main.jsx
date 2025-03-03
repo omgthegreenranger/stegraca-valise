@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./main.css";
-import { useAnimate, AnimatePresence, motion, stagger } from "framer-motion";
+import { useAnimate, AnimatePresence, motion, stagger } from "motion/react";
 import { Bio, Portfolio, Demos, Contact, Home, Menu } from '../index'
 // import { gitGetUserEvents } from "../../functions/github";
 // import projectDB from "../../functions/github.json";

@@ -14,7 +14,7 @@ import {
   SiExpo,
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
-import { useAnimate, stagger, motion} from "framer-motion";
+import { useAnimate, stagger, motion} from "motion/react";
 
 export default function Techblock(props) {
   const { isLoaded, hoverWork } = props;

@@ -1,18 +1,22 @@
-
-.menu-icon {
-    transform: translateX(-10rem);
-    opacity: 0;
-  }
-
-.menu-text-true, .menu-text-false {
+.menu-true, .menu-false {
     opacity: 0;
     transition: display 1s;
   }
 
-.menu-text-true {
+.menu-true .menu-text {
     display: none;
 }
 
-.menu-text-false {
+.menu-false .menu-text {
     display: block;
+}
+
+.menu-false .menu-icon {
+  transform: translateX(-10rem);
+  opacity: 1;
+}
+
+.menu-true .menu-icon {
+  transform: translateX(-10rem);
+  opacity: 0;
 }
