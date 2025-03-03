@@ -28,21 +28,22 @@ export default function Main({ frontNav, setFrontNav }) {
     return (
         <div className={"front-layout-" + portOpen}>
             <div className="front-splash">
-                <div className="front-title">
+                <div className="front-title front-splash-border">
                     <div className="front-craft craft">Cardie</div><div className="front-craft craft">Craft</div>
                 </div>
-                <div className="front-tag">
+                <div className="front-tag front-splash-border">
                     {/* Imagining a tomorrow of yesterday, today! */}
                     <div className="front-tag-line">by Stephen Cardie</div>
                 </div>
             </div>
-            <div className="front-bus-left"></div>
-            <Menu navTo={navTo} setPanelVis={setPanelVis} setCurrentSel={setCurrentSel} setNavOpt={setNavOpt} portOpen={portOpen}/>
-            <div className="front-bus-right">
-                <SelectedItem key="dialog" navOpt={navOpt} panelVis={panelVis} frontNav={frontNav} setFrontNav={setFrontNav} setPanelVis={setPanelVis} currentSel={currentSel} setCurrentSel={setCurrentSel} portOpen={portOpen} setPortOpen={setPortOpen}/>
+            <div className={"front-content-" + portOpen}>
+                <div className="front-bus-left"></div>
+                <Menu navTo={navTo} setPanelVis={setPanelVis} setCurrentSel={setCurrentSel} setNavOpt={setNavOpt} portOpen={portOpen} />
+                <div className="front-bus-right">
+                    <SelectedItem key="dialog" navOpt={navOpt} panelVis={panelVis} frontNav={frontNav} setFrontNav={setFrontNav} setPanelVis={setPanelVis} currentSel={currentSel} setCurrentSel={setCurrentSel} portOpen={portOpen} setPortOpen={setPortOpen} />
+                </div>
+                <div style={{ gridColumn: "4/5" }}></div>
             </div>
-            <div style={{ gridColumn: "4/5" }}></div>
-            {/* </div> */}
         </div>
     )
 }
@@ -56,7 +57,7 @@ function SelectedItem({ navOpt, frontNav, setFrontNav, panelVis, setPanelVis, cu
 
     if (navOpt === 'home') { middleDiv = <Home />; headline = "Stephen Cardie" }
     else if (navOpt === 'about') { middleDiv = <Bio />; headline = "Stephen Cardie"; }
-    else if (navOpt === 'portfolio') { middleDiv = <Portfolio portOpen={portOpen} setPortOpen={setPortOpen}/>; headline = "Stephen Cardie - Fullstack Web Developer" }
+    else if (navOpt === 'portfolio') { middleDiv = <Portfolio portOpen={portOpen} setPortOpen={setPortOpen} />; headline = "Stephen Cardie - Fullstack Web Developer" }
     else if (navOpt === 'doings') { middleDiv = <Demos />; headline = "Try some things" }
     else if (navOpt === 'blog') { middleDiv = <h1>BLOG</h1>; headline = "Cardieblog" }
     else if (navOpt === 'contact') { middleDiv = <Contact position="panel" />; headline = "Contact Stephen" }

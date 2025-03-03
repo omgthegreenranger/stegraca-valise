@@ -11,7 +11,6 @@ export default function Menu({ navTo, setPanelVis, setCurrentSel, setNavOpt, por
     // This is set animation for all menu items
     // TODO: animate SVG logos
     // TODO: Create small menu.
-    // Should this be a separate component?
     const menuWords = document.getElementsByClassName("menu-text-" + portOpen)
     const menuIcon = document.getElementsByClassName("menu-icon")
     const menuFront = document.getElementsByClassName("front-option")
