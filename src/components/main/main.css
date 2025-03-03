@@ -221,21 +221,3 @@
 .front-option span {
     margin-right: 1rem;
 }
-/* 
-.menu-icon {
-    transform: translateX(-10rem);
-    opacity: 0;
-  }
-
-.menu-text-true, .menu-text-false {
-    opacity: 0;
-    transition: display 1s;
-  }
-
-.menu-text-true {
-    display: none;
-}
-
-.menu-text-false {
-    display: block;
-} */

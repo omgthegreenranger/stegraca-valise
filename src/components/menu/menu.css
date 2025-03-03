@@ -1,22 +1,18 @@
-.menu-true, .menu-false {
+
+/* .menu-icon {
+    transform: translateX(-10rem);
+    opacity: 0;
+  } */
+
+/* .menu-text-true, .menu-text-false {
     opacity: 0;
     transition: display 1s;
-  }
+  } */
 
-.menu-true .menu-text {
+.menu-text-true {
     display: none;
 }
 
-.menu-false .menu-text {
+.menu-text-false {
     display: block;
-}
-
-.menu-false .menu-icon {
-  transform: translateX(-10rem);
-  opacity: 1;
-}
-
-.menu-true .menu-icon {
-  transform: translateX(-10rem);
-  opacity: 0;
 }
